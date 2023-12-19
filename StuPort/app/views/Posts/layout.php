@@ -8,7 +8,7 @@
 
 
         <!--Content area here-->
-        <?php
+        <?php //Baca current URL
                     if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
                         $url = "https://";
                     else
@@ -27,14 +27,15 @@
                     $t_url = URLROOT . "/posts/create"; 
 
                     if (isset($data['post']) && is_object($data['post'])) {
-                    $u_url = URLROOT . "/posts/update/".$data['post']->id; 
+                    $u_url = URLROOT . "/posts/update/".$data['post']->id; //Update must have id // Dynamic URL (id from database) 
                     }
 
 
                     //error_reporting(0);
+                    //Buat comparison and lead to the correspond website defined earlier
                     if ($url == $c_url) {
         
-                        require 'manage.php';
+                        require 'manage.php'; //All are Form
                     }elseif($url == $t_url){
                         require 'create.php';
                     }elseif($url == $u_url){
