@@ -9,7 +9,7 @@
 											if ( isset( $_SESSION['username'])){
 											echo $_SESSION['username'];
 											} else {
-												// header('location: ' . URLROOT . '/users/login');
+												header('location: ' . URLROOT . '/users/login');
 											}
 											?></span>
 				<span class="menu-arrow d-lg-none"></span>
