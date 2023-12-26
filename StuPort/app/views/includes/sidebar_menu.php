@@ -58,10 +58,15 @@
 									</div>
 									<!--end::Menu-->
 
-									<!--begin:Menu item-->
-									<div class="menu-item pt-5">
+										<!--begin:Menu item-->
+										<div class="menu-item pt-5">
+											<!--begin:Menu content-->
+											<div class="menu-content">
+												<span class="menu-heading fw-bold text-uppercase fs-7">Feedback</span>
+											</div>
+											<!--end:Menu content-->
 										</div>
-										<!--end:Menu item-->
+										<!--end:Menu item-->								
 										<!--begin:Menu item-->
 										<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 											<!--begin:Menu link-->
@@ -81,7 +86,7 @@
 											<!--begin:Menu item-->
 												<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link" href="<?php echo URLROOT; ?>/posts">
+												<a class="menu-link" href="<?php echo URLROOT; ?>/feedback">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -105,7 +110,7 @@
 												<!--begin:Menu item-->
 												<div class="menu-item">
 													<!--begin:Menu link-->
-													<a class="menu-link" href="<?php echo URLROOT; ?>/posts/create">
+													<a class="menu-link" href="<?php echo URLROOT; ?>/feedback/create">
 														<span class="menu-bullet">
 															<span class="bullet bullet-dot"></span>
 														</span>
