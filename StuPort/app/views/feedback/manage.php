@@ -13,18 +13,15 @@
             <table id="kt_datatable_posts" class="table table-row-bordered gy-5">
                 <thead>
                     <tr class="fw-semibold fs-6 text-muted">
-                        <th>Title</th>
-                        <th>Created on</th>
-                        <th>Content</th>
-                        <th>Action</th>
+                        <th>Feedback Form Link</th>
+                        <th>Activity</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($data['posts'] as $post): ?>
+                    <?php foreach($data['feedback'] as $feedback): ?>
                     <tr>
-                        <td><?php echo $post->title; ?></td>
-                        <td><?php echo date('F j h:m', strtotime($post->created_at)); ?></td>
-                        <td><?php echo $post->body; ?></td>
+                        <td><?php echo $feedback->link_form; ?></td>
+                        <td><?php echo $feedback->activity_id; ?></td>
                         
                     </tr>
                     <?php endforeach; ?>
