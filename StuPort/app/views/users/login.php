@@ -7,7 +7,7 @@
 
 <head>
     <base href="../../../" />
-    <title>Metronic - The World's #1 Selling Bootstrap Admin Template - Metronic by KeenThemes</title>
+    <title>StuPort</title>
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="<?php echo URLROOT ?>/public/assets/media/logos/favicon.ico" />
     <!--begin::Fonts(mandatory for all pages)-->
