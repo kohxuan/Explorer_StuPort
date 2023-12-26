@@ -5,7 +5,12 @@ class Registration extends Controller{
     }
 
     public function index(){
-        $this ->view('registration/index');
+        $registration = $this->registrationModel->manageAllRegistration();
+        $data =[
+                'registration' => $registration
+            ];
+        
+        $this ->view('registration/index' , $data);
     }
 }
 

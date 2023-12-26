@@ -7,7 +7,7 @@ class Registration{
         $this->db = new Database;
     }
 
-    public function manageAllRegistrations(){
+    public function manageAllRegistration(){
         $this->db->query('SELECT * FROM registration');
 
         $results = $this->db->resultSet();
