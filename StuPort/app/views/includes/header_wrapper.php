@@ -5,8 +5,13 @@
 		<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item here show menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
 			<!--begin:Menu link-->
 			<span class="menu-link">
-				<span class="menu-title">Welcome <?php echo isset($_SESSION['niagaped_Explorer_user']) ? $_SESSION['niagaped_Explorer_user'] : ''; ?></span>
-
+			<span class="menu-title">Welcome <?php 
+											if ( isset( $_SESSION['username'])){
+											echo $_SESSION['username'];
+											} else {
+												// header('location: ' . URLROOT . '/users/login');
+											}
+											?></span>
 				<span class="menu-arrow d-lg-none"></span>
 			</span>
 			<!--end:Menu link-->
