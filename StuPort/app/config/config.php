@@ -3,11 +3,15 @@
 define('DB_HOST', 'localhost'); //Add your db host
 define('DB_USER', 'root'); // Add your DB root
 define('DB_PASS', ''); //Add your DB pass
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 define('DB_NAME', 'niagaped_explorer'); //Add your DB Name
 =======
 define('DB_NAME', 'mvcframework'); //Add your DB Name
 >>>>>>> 91c9b908c57c339e21ab906ef8263e113568b81e
+=======
+define('DB_NAME', 'niagaped_Explorer'); //Add your DB Name
+>>>>>>> Stashed changes
 
 /*//Database params
 define('DB_HOST', 'localhost'); //Add your db host
@@ -19,10 +23,10 @@ define('DB_NAME', 'niagaped_Explorer'); //Add your DB Name */
 define('APPROOT', dirname(dirname(__FILE__)));
 
 //URLROOT (Dynamic links)
-// define('URLROOT', 'http://localhost/mvcprojectnew');
+define('URLROOT', 'http://localhost/niagaped_Explorer');
 
 //URLROOT (Dynamic links)
-define('URLROOT', 'https://sandkas.com/Explorer/');
+//define('URLROOT', 'https://sandkas.com/Explorer/');
 
 //Sitename
 define('SITENAME', 'Login & Register script');
