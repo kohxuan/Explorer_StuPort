@@ -27,9 +27,9 @@
                     $c_url = URLROOT . "/registration"; 
                     $t_url = URLROOT . "/registration/create"; 
 
-                   // if (isset($data['post']) && is_object($data['post'])) {
-                  //  $u_url = URLROOT . "/posts/update/".$data['post']->id; //Update must have id // Dynamic URL (id from database) 
-                    //}
+                 if (isset($data['registration`']) && is_object($data['registration'])) {
+                   $u_url = URLROOT . "/registration/update/".$data['registration']->activity_id; //Update must have id // Dynamic URL (id from database) 
+                    }
 
 
                     //error_reporting(0);
@@ -38,12 +38,16 @@
         
                         require 'manage.php'; //All are Form
                 
-                    }elseif($url == $c_url){
+                    }elseif($url == $t_url){
                         
                         require 'create.php'; 
 
+                    }elseif($url == $u_url){
+
+                        require 'update.php';
+
+
                     }else{
-                        
 
                     }
 

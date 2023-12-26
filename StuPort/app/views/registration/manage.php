@@ -14,6 +14,8 @@
                     <tr class="fw-semibold fs-6 text-muted">
                         <th>Link</th>
                         <th>Activity ID</th>
+                        <th>Action</th>
+
                         
                     </tr>
                 </thead>
@@ -22,6 +24,8 @@
                     <tr>
                         <td><?php echo $registration->link; ?></td>
                         <td><?php echo $registration->activity_id; ?></td>
+                        <td>  <a href="<?php echo URLROOT . "/registration/update/" . $registration->activity_id ?>"
+                                class="btn btn-light-warning">Update</a></td>
                        
                     </tr>
                     <?php endforeach; ?>
