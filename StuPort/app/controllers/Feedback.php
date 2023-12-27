@@ -1,7 +1,7 @@
 <?php
-class Feedback extends Controller [
+class Feedbacks extends Controller {
     public function __construct() {
-        $this->feedbackModel = $this->model('feedback')
+        $this->feedbackModel = $this->model('feedback');
     }
 
     public function index() {
@@ -9,12 +9,12 @@ class Feedback extends Controller [
 
         $data= [
 
-            'feedback' -> $feedback;
+            'feedback' -> $feedback
 
-        ]
+        ];
 
         $this->view('feedback/index', $data);
     }
-]
+}
 
 ?>

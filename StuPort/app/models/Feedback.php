@@ -1,18 +1,18 @@
 <?php
 
-class Feedback [
+class Feedbacks {
     private $db;
 
     public function __construct(){
-        $this->db new Database;
+        $this->db = new Database;
     }
 
     public function manageAllFeedbacks(){
-        $this->db->query(SELECT * FROM 'feedback');
+        $this->db->query('SELECT * FROM feedback');
 
         $results=$this->db->resultSet();
 
         return $results;
     }
-]
+}
 ?>
