@@ -19,7 +19,7 @@ if (isset($_GET['id'])) {
         $row = $result->fetch_assoc();
 
         // Include the FPDF library for PDF generation
-        require('fpdf/fpdf.php');
+        require('../libraries/fpdf/fpdf.php');
 
         // Create a new PDF instance and generate the resume
         $pdf = new FPDF();
