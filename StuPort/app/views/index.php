@@ -13,7 +13,6 @@
                             <div id="kt_app_content_container" class="app-container container-fluid">
                             <!--begin::Row-->
                             
-                            <?php echo "Hello"?>
                             
 
                         
