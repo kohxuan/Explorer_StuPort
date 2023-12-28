@@ -10,26 +10,30 @@ class Users extends Controller {
             'email' => '',
             'password' => '',
             'confirmPassword' => '',
+            'userRole' => '',  // Add user role to the data array
             'usernameError' => '',
             'emailError' => '',
             'passwordError' => '',
-            'confirmPasswordError' => ''
+            'confirmPasswordError' => '',
+            'userRoleError' => ''  // Add user role error to the data array
         ];
 
-      if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        // Process form
-        // Sanitize POST data
-        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Process form
+            // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-              $data = [
+            $data = [
                 'username' => trim($_POST['username']),
                 'email' => trim($_POST['email']),
                 'password' => trim($_POST['password']),
                 'confirmPassword' => trim($_POST['confirmPassword']),
+                'userRole' => trim($_POST['userRole']),  // Add user role to the data array
                 'usernameError' => '',
                 'emailError' => '',
                 'passwordError' => '',
-                'confirmPasswordError' => ''
+                'confirmPasswordError' => '',
+                'userRoleError' => ''  // Add user role error to the data array
             ];
 
             $nameValidation = "/^[a-zA-Z0-9]*$/";
@@ -72,15 +76,25 @@ class Users extends Controller {
                 }
             }
 
-            // Make sure that errors are empty
-            if (empty($data['usernameError']) && empty($data['emailError']) && empty($data['passwordError']) && empty($data['confirmPasswordError'])) {
+            // Validate user role
+        $validRoles = ['Student', 'Administrator', 'Master Administrator'];
+        if (empty($data['userRole'])) {
+            $data['userRoleError'] = 'Please select a user role.';
+        } elseif (!in_array($data['userRole'], $validRoles)) {
+            $data['userRoleError'] = 'Invalid user role selected.';
+        }
 
+            // Make sure that errors are empty
+            if (empty($data['usernameError']) && empty($data['emailError']) && empty($data['passwordError']) && empty($data['confirmPasswordError']) && empty($data['userRoleError'])) {
                 // Hash password
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
-                //Register user from model function
+                // Add user role to the $data array before registering
+                $data['userRole'] = $_POST['userRole'];
+
+                // Register user from model function
                 if ($this->userModel->register($data)) {
-                    //Redirect to the login page
+                    // Redirect to the login page
                     header('location: ' . URLROOT . '/users/login');
                 } else {
                     die('Something went wrong.');
