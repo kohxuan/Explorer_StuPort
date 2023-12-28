@@ -2,8 +2,9 @@
 // Include necessary files and connect to the database
 require_once('config.php');
 
-if (isset($_GET['user_id'])) {
-    $userID = $_GET['user_id'];
+if (isset($_GET['id'])) {
+    // $userID = $_GET['user_id'];
+    $userID = 1;
 
     // Fetch user information based on the provided user ID
     $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
@@ -11,7 +12,7 @@ if (isset($_GET['user_id'])) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "SELECT * FROM profile WHERE user_id = $userID";
+    $sql = "SELECT * FROM profile WHERE id = $userID";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -30,6 +31,10 @@ if (isset($_GET['user_id'])) {
 
         // Output the PDF (force download)
         $pdf->Output('user_resume.pdf', 'D');
+        
+        // Close the database connection
+        $conn->close();
+        exit(); // Terminate the script after generating the PDF
     } else {
         echo "No user found.";
     }

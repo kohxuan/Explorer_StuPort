@@ -226,7 +226,7 @@
 								<!--begin:Menu item-->
 								<div class="menu-item">
 									<!--begin:Menu link-->
-									<a class="menu-link" href="<?php echo URLROOT; ?>/resume">
+									<a class="menu-link" href="resume.php?user_id=<?php echo $userID; ?>" target="_blank">
 										<span class="menu-bullet">
 											<span class="bullet bullet-dot"></span>
 										</span>
