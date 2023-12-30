@@ -1,52 +1,46 @@
 <?php
-require_once('tcpdf/tcpdf.php');
+// Include necessary files and connect to the database
+require_once('config.php');
 
-// Create new PDF document
-$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+if (isset($_GET['id'])) {
+    // $userID = $_GET['user_id'];
+    $userID = 1;
 
-// Set document information
-$pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor('Your Name');
-$pdf->SetTitle('Resume');
-$pdf->SetSubject('Personal Resume');
+    // Fetch user information based on the provided user ID
+    $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 
-// Add a page
-$pdf->AddPage();
+    $sql = "SELECT * FROM profile WHERE id = $userID";
+    $result = $conn->query($sql);
 
-// Connect to your database
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "your_database";
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+        // Include the FPDF library for PDF generation
+        require('../libraries/fpdf/fpdf.php');
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Fetch data from MySQL
-$sql = "SELECT * FROM profiles";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // Output data of each row
-    while ($row = $result->fetch_assoc()) {
-        $pdf->SetFont('helvetica', '', 12);
+        // Create a new PDF instance and generate the resume
+        $pdf = new FPDF();
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', '', 12);
         $pdf->Cell(0, 10, 'Name: ' . $row['name'], 0, 1);
         $pdf->Cell(0, 10, 'Email: ' . $row['email'], 0, 1);
-        $pdf->Cell(0, 10, 'Phone: ' . $row['phone'], 0, 1);
-        $pdf->Cell(0, 10, 'Address: ' . $row['address'], 0, 1);
-        $pdf->Ln(10); // Add some space between profiles
+        // Add other user information as needed
+
+        // Output the PDF (force download)
+        $pdf->Output('user_resume.pdf', 'D');
+        
+        // Close the database connection
+        $conn->close();
+        exit(); // Terminate the script after generating the PDF
+    } else {
+        echo "No user found.";
     }
+
+    $conn->close();
 } else {
-    $pdf->Cell(0, 10, 'No profiles found.', 0, 1);
+    echo "Invalid user ID.";
 }
-
-// Close MySQL connection
-$conn->close();
-
-// Close and output PDF
-$pdf->Output('resume.pdf', 'D');
 ?>
