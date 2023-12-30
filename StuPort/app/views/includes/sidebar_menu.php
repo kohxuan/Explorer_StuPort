@@ -86,7 +86,7 @@
 											<!--begin:Menu item-->
 												<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link" href="<?php echo URLROOT; ?>/feedback">
+												<a class="menu-link" href="<?php echo URLROOT; ?>/feedbacks">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -98,7 +98,7 @@
 												<!--begin:Menu item-->
 												<div class="menu-item">
 													<!--begin:Menu link-->
-													<a class="menu-link" href="<?php echo URLROOT; ?>/posts">
+													<a class="menu-link" href="<?php echo URLROOT; ?>/feedbacks">
 														<span class="menu-bullet">
 															<span class="bullet bullet-dot"></span>
 														</span>
@@ -110,7 +110,7 @@
 												<!--begin:Menu item-->
 												<div class="menu-item">
 													<!--begin:Menu link-->
-													<a class="menu-link" href="<?php echo URLROOT; ?>/feedback/create">
+													<a class="menu-link" href="<?php echo URLROOT; ?>/feedbacks/create">
 														<span class="menu-bullet">
 															<span class="bullet bullet-dot"></span>
 														</span>

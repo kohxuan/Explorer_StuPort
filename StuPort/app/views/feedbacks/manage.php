@@ -3,7 +3,7 @@
         <h3 class="card-title">Manage Feedback</h3>
         <div class="card-toolbar">
             <?php if(isLoggedIn()): ?>
-            <a href="<?php echo URLROOT;?>/feedback/create" class="btn btn-light-primary">Create</a>
+            <a href="<?php echo URLROOT;?>/feedbacks/create" class="btn btn-light-primary">Create</a>
             <?php endif; ?>
         </div>
     </div>
@@ -18,7 +18,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($data['feedback'] as $feedback): ?>
+                    <?php foreach($data['feedbacks'] as $feedback): ?>
                     <tr>
                         <td><?php echo $feedback->link_form; ?></td>
                         <td><?php echo $feedback->activity_id; ?></td>

@@ -21,23 +21,27 @@
 
         <?php
 
-                    $c_url = URLROOT . "/feedback"; 
-                    //$t_url = URLROOT . "/posts/create"; 
+                    $c_url = URLROOT . "/feedbacks"; 
+                    $t_url = URLROOT . "/feedbacks/create"; 
 
-                    //if (isset($data['post']) && is_object($data['post'])) {
-                    //$u_url = URLROOT . "/posts/update/".$data['post']->id; //Update must have id // Dynamic URL (id from database) 
-                    //}
+                    if (isset($data['post']) && is_object($data['post'])) {
+                    $u_url = URLROOT . "/feedbacks/update/".$data['post']->id; 
+                    }
 
 
                     //error_reporting(0);
-                    //Buat comparison and lead to the correspond website defined earlier
                     if ($url == $c_url) {
-        
-                        require 'manage.php'; //All are Form
-      
+
+                        require 'manage.php';
+                    }elseif($url == $t_url){
+                        require 'create.php';
+                    }elseif($url == $u_url){
+                        require 'update.php';
+                    } else {
+
                     }
 
-                    ?>
+        ?>
 
         <!--end::Row-->
     </div>
