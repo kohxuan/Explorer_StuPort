@@ -22,8 +22,8 @@
                     ?>
 
         <?php
-
-                    $c_url = URLROOT . "/posts"; 
+                    //rule :depend what root file u wanna use
+                    $c_url = URLROOT . "/activities"; 
                    /* $t_url = URLROOT . "/posts/create"; 
 
                     if (isset($data['post']) && is_object($data['post'])) {
