@@ -15,6 +15,7 @@
                     <tr class="fw-semibold fs-6 text-muted">
                         <th>Feedback Form Link</th>
                         <th>Activity</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,6 +23,8 @@
                     <tr>
                         <td><?php echo $feedback->link_form; ?></td>
                         <td><?php echo $feedback->activity_id; ?></td>
+                        <td><a href="<?php echo URLROOT . "/feedbacks/update/" . $feedback->feedback_id ?>"
+                                class="btn btn-light-warning">Update</a></td>
                         
                     </tr>
                     <?php endforeach; ?>
