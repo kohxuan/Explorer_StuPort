@@ -24,7 +24,47 @@
                         <td><?php echo $feedback->link_form; ?></td>
                         <td><?php echo $feedback->activity_id; ?></td>
                         <td><a href="<?php echo URLROOT . "/feedbacks/update/" . $feedback->feedback_id ?>"
-                                class="btn btn-light-warning">Update</a></td>
+                                class="btn btn-light-warning">Update</a>
+                            
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#kt<?php echo $feedback->feedback_id?>">
+                                Delete
+                                </button>
+
+                                <div class="modal fade" tabindex="-1" id="kt<?php echo $feedback->feedback_id?>">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h3 class="modal-title">Delete Feedback</h3>
+
+                                                <!--begin::Close-->
+                                                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2"
+                                                    data-bs-dismiss="modal" aria-label="Close">
+                                                    <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span
+                                                            class="path2"></span></i>
+                                                </div>
+                                                <!--end::Close-->
+                                            </div>
+
+                                            <div class="modal-body">
+                                                Are you sure want to delete this feedback form link for this activity?
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <form action="<?php echo URLROOT . "/feedbacks/delete/" . $feedback->feedback_id; ?>"
+                                                    method="POST">
+                                                    <!--<input type="hidden" id="expenses" name="expenses" value="expenses">-->
+                                                    <button type="button" class="btn btn-light-primary font-weight-bold"
+                                                        data-dismiss="modal">Back</button>
+                                                    <button type="submit"
+                                                        class="btn btn-primary font-weight-bold">Delete</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        </td>
                         
                     </tr>
                     <?php endforeach; ?>

@@ -58,5 +58,21 @@ class Feedback {
             return false;
         }
     }
+
+    public function deleteFeedback($feedback_id){
+        $this->db->query('DELETE FROM feedbacks WHERE feedback_id = :feedback_id');
+
+        $this->db->bind(':feedback_id', $feedback_id);
+
+        if ($this->db->execute())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
 }
 ?>

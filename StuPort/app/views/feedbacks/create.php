@@ -13,7 +13,7 @@
         <form action="<?php echo URLROOT; ?>/feedbacks/create" method="POST">
             <div class="mb-10">
                 <label for="exampleFormControlInput1" class="required form-label">Link:</label>
-                <input type="text" name="title" class="form-control form-control-solid" placeholder="Title" required />
+                <input type="text" name="link_form" class="form-control form-control-solid" placeholder="Link" required />
             </div>
 
             <!--<div class="mb-10">
@@ -22,9 +22,9 @@
                     <div class="required position-absolute top-0"></div>
                     <textarea name="body" class="form-control" aria-label="With textarea" required></textarea>
                 </div>
-            </div>
+            </div> -->
 
-            <button type="submit" class="btn btn-primary font-weight-bold">Submit</button> -->
+            <button type="submit" class="btn btn-primary font-weight-bold">Submit</button>
 
         </form>
 
