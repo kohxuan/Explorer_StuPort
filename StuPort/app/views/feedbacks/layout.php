@@ -24,8 +24,8 @@
                     $c_url = URLROOT . "/feedbacks"; 
                     $t_url = URLROOT . "/feedbacks/create"; 
 
-                    if (isset($data['post']) && is_object($data['post'])) {
-                    $u_url = URLROOT . "/feedbacks/update/".$data['post']->id; 
+                    if (isset($data['feedback']) && is_object($data['feedback'])) {
+                    $u_url = URLROOT . "/feedbacks/update/".$data['feedback']->feedback_id; 
                     }
 
 
