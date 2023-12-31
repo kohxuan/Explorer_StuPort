@@ -75,10 +75,11 @@ class Pages extends Controller {
               
             }
 
-            // $_POST['update_student'] hidden value from form
+            //No need hidden value if for multiple functions
+            // $_POST['update_student'] hidden value from form //update partner //update administrator
            if ($_POST['update_student']) {
 
-                if (isset($_FILES["file"]) && $_FILES["file"]["error"] == 0) {
+                if (isset($_FILES["file"]) && $_FILES["file"]["error"] == 0) { //Nak update gambar
 
                     $data = [
 
@@ -94,7 +95,7 @@ class Pages extends Controller {
     
                     ];
 
-                }else{
+                }else{ //Xnak update gambar
 
                     $data = [
 
@@ -109,19 +110,29 @@ class Pages extends Controller {
                     ];
                 }
 
-            }
+            } //elseif ($_POST['update_partner'])
+            //elseif ($_POST['update_masteradmin'])
 
             //var_dump($data);
 
           if ($_POST['update_student']) {
-                if ($this->pageModel->updateStudentProfile($data)) {
+                if ($this->pageModel->updateStudentProfile($data)) { //Hantar ke page model 
                     header("Location: " . URLROOT . "/pages/edit_profile");
                 } else {
                     die("Something went wrong, please try again!");
                 }
             } else {
                 $this->view('pages/index');
-            }
+            } //elseif ($_POST['update_partner'])
+            //     if ($this->pageModel->updatePartnerProfile($data)) {
+            //         header("Location: " . URLROOT . "/pages/edit_profile");
+            //     } else {
+            //         die("Something went wrong, please try again!");
+            //     }
+            // } else {
+            //     $this->view('pages/index');
+            // } 
+
         } // end of if statement 
 
         $studentProfile = $this->pageModel->studentProfile(); //Pulling data
