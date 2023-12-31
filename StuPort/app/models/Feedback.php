@@ -31,5 +31,15 @@ class Feedback {
             return false;
         }
     }
+
+    public function findFeedbackById($id)
+    {
+        $this->db->query('SELECT * FROM feedbacks WHERE feedback_id = :feedback_idd');
+        $this->db->bind(':feedback_id', $feedback_id);
+
+        $row = $this->db->single();
+
+        return $row;
+    }
 }
 ?>
