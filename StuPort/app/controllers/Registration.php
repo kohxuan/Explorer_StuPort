@@ -68,7 +68,7 @@ class Registration extends Controller{
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data = 
             [
-            'activity_id' => $activity_id,
+            'activity_id' => $data['activity_id'],
             'registration' => $registration,
             'user_id' => $_SESSION['user_id'],
             'link' => trim($_POST['link']),
