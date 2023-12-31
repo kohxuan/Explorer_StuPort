@@ -5,11 +5,11 @@ class Feedbacks extends Controller {
     }
 
     public function index() {
-        $feedback = $this->activityModel->manageAllFeedbacks();
+        $feedback = $this->feedbackModel->manageAllFeedbacks();
 
         $data= [
 
-            'feedbacks' -> $feedback
+            'feedbacks' => $feedback
 
         ];
 
