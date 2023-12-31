@@ -78,7 +78,7 @@ class Registration extends Controller{
 
 
             if (empty($data['link'] && $data['link'])){
-                if ($this->postModel->updatePost($data)){
+                if ($this->registrationModel->updateRegistration($data)){
                     header("Location: " . URLROOT. "/posts" );
                 }
                 else
@@ -88,11 +88,32 @@ class Registration extends Controller{
             }
             else
             {
-                $this->view('posts/index', $data);
+                $this->view('registration/index', $data);
             }
         }
 
-        $this->view('posts/index', $data);
+        $this->view('registration/index', $data);
+    }
+
+    public function delete($activity_id)
+    {
+        $registration = $this->registrationModel->findRegistrationById($activity_id);
+
+        
+
+        
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        }
+
+        if($this->registrationModel->deleteRegistration($activity_id)){
+            header("Location: " . URLROOT . "/registration");
+        }
+        else
+        {
+            die('Something went wrong..');
+        }
+        
     }
 }
 

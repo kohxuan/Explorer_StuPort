@@ -34,7 +34,7 @@ class Registration{
     }
     public function findRegistrationById($id)
     {
-        $this->db->query('SELECT * FROM registration WHERE activity_id = :id');
+        $this->db->query('SELECT * FROM registration WHERE activity_id = :activity_id');
         $this->db->bind(':activity_id', $activity_id);
 
         $row = $this->db->single();
@@ -58,6 +58,22 @@ class Registration{
         {
             return false;
         }
+    }
+
+    public function deleteRegistration($activity_id){
+        $this->db->query('DELETE FROM registration WHERE $activity_id = :$activity_id');
+
+        $this->db->bind(':$activity_id', $activity_id);
+
+        if ($this->db->execute())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
     }
 }
 
