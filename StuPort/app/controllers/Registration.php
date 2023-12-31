@@ -3,7 +3,6 @@ class Registration extends Controller{
     public function __construct(){
         $this->registrationModel = $this->model('Registration');
     }
-
     public function index(){
         $registration = $this->registrationModel->manageAllRegistration();
         $data =[
@@ -12,7 +11,6 @@ class Registration extends Controller{
         
         $this ->view('registration/index' , $data);
     }
-
     public function create()
     {
         
@@ -21,7 +19,6 @@ class Registration extends Controller{
             'link' => '',
             'activity_id' => ''
         ];
-
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data = 
@@ -30,8 +27,6 @@ class Registration extends Controller{
             'link' => trim($_POST['link']),
             'activity_id' => trim($_POST['activity_id'])
             ];
-
-
             if ($data['link'] && $data['activity_id']){
                 if ($this->registrationModel->addRegistration($data)){
                     header("Location: " . URLROOT. "/registration" );
@@ -46,16 +41,12 @@ class Registration extends Controller{
                 $this->view('registration/index', $data);
             }
         }
-
         $this->view('registration/index', $data);
     }
-
     public function update($id)
     {
         $registration = $this->registrationModel->findRegistrationById($id);
-
        
-
         $data = 
         [
             'registration' => $registration,
@@ -63,7 +54,6 @@ class Registration extends Controller{
             'link' => '',
             
         ];
-
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data = 
@@ -76,8 +66,8 @@ class Registration extends Controller{
             ];
 
 
-
             if (empty($data['link'] && $data['link'])){
+ 
                 if ($this->registrationModel->updateRegistration($data)){
                     header("Location: " . URLROOT. "/posts" );
                 }
@@ -88,10 +78,12 @@ class Registration extends Controller{
             }
             else
             {
+      
                 $this->view('registration/index', $data);
             }
         }
 
+        
         $this->view('registration/index', $data);
     }
 
@@ -99,9 +91,9 @@ class Registration extends Controller{
     {
         $registration = $this->registrationModel->findRegistrationById($activity_id);
 
-        
 
-        
+
+
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         }
@@ -113,7 +105,7 @@ class Registration extends Controller{
         {
             die('Something went wrong..');
         }
-        
+
     }
 }
 
