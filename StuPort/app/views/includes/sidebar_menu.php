@@ -38,7 +38,7 @@
 								<span class="menu-bullet">
 									<span class="bullet bullet-dot"></span>
 								</span>
-								<span class="menu-title">Manage Posts</span>
+								<span class="menu-title">Manage Activities</span>
 							</a>
 							<!--end:Menu link-->
 						</div>
@@ -50,7 +50,7 @@
 								<span class="menu-bullet">
 									<span class="bullet bullet-dot"></span>
 								</span>
-								<span class="menu-title">Create Post</span>
+								<span class="menu-title">Create Activities</span>
 							</a>
 							<!--end:Menu link-->
 						</div>
