@@ -7,6 +7,12 @@ class Activities extends Controller{
     }
 
     public function index(){
+        $activities = $this->activityModel->manageAllActivities();
+        $data= [
+
+            'activities' => $activities
+        ];
+
         $this->view('activities/index'); //'view' here refers to which path of the .php is
     }
 
