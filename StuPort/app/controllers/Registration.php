@@ -43,9 +43,9 @@ class Registration extends Controller{
         }
         $this->view('registration/index', $data);
     }
-    public function update($id)
+    public function update($activity_id)
     {
-        $registration = $this->registrationModel->findRegistrationById($id);
+        $registration = $this->registrationModel->findRegistrationById($activity_id);
        
         $data = 
         [
@@ -69,7 +69,7 @@ class Registration extends Controller{
             if (empty($data['link'] && $data['link'])){
  
                 if ($this->registrationModel->updateRegistration($data)){
-                    header("Location: " . URLROOT. "/posts" );
+                    header("Location: " . URLROOT. "/update" );
                 }
                 else
                 {
