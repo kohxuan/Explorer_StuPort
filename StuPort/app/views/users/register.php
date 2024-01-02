@@ -38,7 +38,7 @@ require APPROOT . '/views/includes/head.php';
             </span>
 
             <label for="user_role">User Role:</label>
-            <select id="user_role" name="userRole">
+            <select id="user_role" name="user_role">
                 <option value="Student" <?php echo ($data['user_role'] == 'Student') ? 'selected' : ''; ?>>Student</option>
                 <option value="Administrator" <?php echo ($data['user_role'] == 'Administrator') ? 'selected' : ''; ?>>Administrator</option>
                 <option value="Master Administrator" <?php echo ($data['user_role'] == 'Master Administrator') ? 'selected' : ''; ?>>Master Administrator</option>

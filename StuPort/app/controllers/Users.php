@@ -28,7 +28,7 @@ class Users extends Controller {
                 'email' => trim($_POST['email']),
                 'password' => trim($_POST['password']),
                 'confirmPassword' => trim($_POST['confirmPassword']),
-                'user_role' => trim($_POST['user_role']),  // Add user role to the data array
+                'user_role' => isset($_POST['user_role'])? $_POST['user_role'] : '',  // Add user role to the data array
                 'usernameError' => '',
                 'emailError' => '',
                 'passwordError' => '',
@@ -91,7 +91,7 @@ class Users extends Controller {
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
                 // Assign the user role to the $data array
-                $data['user_role'] = $_POST['user_role'];
+                //$data['user_role'] = $_POST['user_role'];
 
                 // Register user from model function
                 if ($this->userModel->register($data)) {
@@ -168,10 +168,9 @@ class Users extends Controller {
         $this->view('users/login', $data);
     }
     
-    } 
 
 
-    $this->view('users/login', $data);
+
 
     public function createUserSession($user) {
         $_SESSION['user_id'] = $user->id;
@@ -180,7 +179,7 @@ class Users extends Controller {
         $_SESSION['user_role'] = $user->user_role;
         header('location:' . URLROOT . '/pages/index');
     }
-
+    
     public function logout() {
         unset($_SESSION['user_id']);
         unset($_SESSION['username']);
