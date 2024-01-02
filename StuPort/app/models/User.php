@@ -35,7 +35,7 @@ class User {
         if ($data['user_role'] == "Student") {
 
             //student users and profile
-            $this->db->query("INSERT INTO users (username, email, password, user_role, datetime_register, user_reg_status) 
+            $this->db->query("INSERT INTO user (username, email, password, user_role, datetime_register, user_reg_status) 
             VALUES(:username, :email, :password, :user_role, :datetime_register, :user_reg_status);
             
             INSERT INTO st_profile (st_ic, st_email, st_fullname, st_gender, st_race, univ_code, st_address, st_image) 
@@ -85,7 +85,7 @@ class User {
     }
 
     public function login($username, $password) {
-        $this->db->query('SELECT * FROM users WHERE username = :username');
+        $this->db->query('SELECT * FROM user WHERE username = :username');
 
         //Bind value
         $this->db->bind(':username', $username);
@@ -106,7 +106,7 @@ class User {
     //Find user by email. Email is passed in by the Controller.
     public function findUserByEmail($email) {
         //Prepared statement
-        $this->db->query('SELECT * FROM users WHERE email = :email');
+        $this->db->query('SELECT * FROM user WHERE email = :email');
 
         //Email param will be binded with the email variable
         $this->db->bind(':email', $email);
