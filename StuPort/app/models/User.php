@@ -86,6 +86,8 @@ class User {
         }
     }
 
+
+
     public function login($username, $password) {
         $this->db->query('SELECT * FROM user WHERE username = :username');
 
