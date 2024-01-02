@@ -15,7 +15,7 @@ class Users extends Controller {
             'emailError' => '',
             'passwordError' => '',
             'confirmPasswordError' => '',
-            'userRoleError' => ''  // Add user role error to the data array
+            //'userRoleError' => ''  // Add user role error to the data array
         ];
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -33,7 +33,7 @@ class Users extends Controller {
                 'emailError' => '',
                 'passwordError' => '',
                 'confirmPasswordError' => '',
-                'userRoleError' => ''  // Add user role error to the data array
+                //'userRoleError' => ''  // Add user role error to the data array
             ];
 
             $nameValidation = "/^[a-zA-Z0-9]*$/";
@@ -76,17 +76,11 @@ class Users extends Controller {
                 }
             }
             // Validate user role
-            $validRoles = ['Student', 'Administrator', 'Master Administrator'];
-            if (empty($data['user_role'])) {
-                $data['userRoleError'] = 'Please select a user role.';
-            } elseif (!in_array($data['user_role'], $validRoles)) {
-                $data['userRoleError'] = 'Invalid user role selected.';
-            }
 
 
 
             // Make sure that errors are empty
-            if (empty($data['usernameError']) && empty($data['emailError']) && empty($data['passwordError'])) {
+            if (empty($data['usernameError']) && empty($data['emailError']) && empty($data['passwordError']) && empty($data['confirmPasswordError'])) {
                 // Hash password
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 

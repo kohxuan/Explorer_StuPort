@@ -35,11 +35,12 @@ class User {
         if ($data['user_role'] == "Student") {
 
             //student users and profile
-            $this->db->query("INSERT INTO users (username, email, password, user_role, datetime_register, user_reg_status) 
-            VALUES(:username, :email, :password, :user_role, :datetime_register, :user_reg_status);
+            $this->db->query("INSERT INTO user (username, email, password, user_role, datetime_register, user_reg_status) 
+            VALUES(:username, :email, :password, :user_role, :datetime_register, :user_reg_status)");
             
-            INSERT INTO st_profile (st_ic, st_email, st_fullname, st_gender, st_race, univ_code, st_address, st_image) 
-            VALUES(:st_ic, :st_email, :st_fullname, :st_gender, :st_race, :univ_code, :st_address , :st_image );");
+            // $this->db->query("INSERT INTO st_profile (st_ic, st_email, st_fullname, st_gender, st_race, univ_code, st_address, st_image) 
+            // VALUES(:st_ic, :st_email, :st_fullname, :st_gender, :st_race, :univ_code, :st_address , :st_image )");
+            
 
             //Bind values for st_profile table
             $st_ic = "";
@@ -52,14 +53,15 @@ class User {
 
          //Bind values for users table
 
-            $this->db->bind(':st_ic', $st_ic);
-            $this->db->bind(':st_email', $data['email']);
-            $this->db->bind(':st_fullname', $st_fullname);
-            $this->db->bind(':st_gender', $st_gender);
-            $this->db->bind(':st_race', $st_race);
-            $this->db->bind(':univ_code', $univ_code);
-            $this->db->bind(':st_address', $st_address);
-            $this->db->bind(':st_image', $st_image);
+        //  $this->db->bind(':st_ic', $st_ic);
+        //  $this->db->bind(':st_fullname', $st_fullname);
+        //  $this->db->bind(':st_gender', $st_gender);
+        //  $this->db->bind(':st_race', $st_race);
+        //  $this->db->bind(':univ_code', $univ_code);
+        //  $this->db->bind(':st_address', $st_address);
+        //  $this->db->bind(':st_image', $st_image);
+         
+
       
             //Bind values for users table
             $this->db->bind(':username', $data['username']);

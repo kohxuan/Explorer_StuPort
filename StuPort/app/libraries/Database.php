@@ -52,17 +52,12 @@
             return $this->statement->execute();
         }
 
-        //Return an array
+        // Change this line in Database.php
         public function resultSet() {
             $this->execute();
             return $this->statement->fetchAll(PDO::FETCH_OBJ);
         }
 
-        //Return a specific row as an object
-        public function single() {
-            $this->execute();
-            return $this->statement->fetch(PDO::FETCH_OBJ);
-        }
 
         //Get's the row count
         public function rowCount() {
