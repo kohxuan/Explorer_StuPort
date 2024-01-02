@@ -10,7 +10,7 @@ class Users extends Controller {
             'email' => '',
             'password' => '',
             'confirmPassword' => '',
-            'userRole' => '',  // Add user role to the data array
+            'user_role' => '',  // Add user role to the data array
             'usernameError' => '',
             'emailError' => '',
             'passwordError' => '',
@@ -28,7 +28,7 @@ class Users extends Controller {
                 'email' => trim($_POST['email']),
                 'password' => trim($_POST['password']),
                 'confirmPassword' => trim($_POST['confirmPassword']),
-                'userRole' => trim($_POST['userRole']),  // Add user role to the data array
+                'user_role' => trim($_POST['user_role']),  // Add user role to the data array
                 'usernameError' => '',
                 'emailError' => '',
                 'passwordError' => '',
@@ -77,14 +77,13 @@ class Users extends Controller {
             }
             // Validate user role
             $validRoles = ['Student', 'Administrator', 'Master Administrator'];
-            if (empty($data['userRole'])) {
+            if (empty($data['user_role'])) {
                 $data['userRoleError'] = 'Please select a user role.';
-            } elseif (!in_array($data['userRole'], $validRoles)) {
+            } elseif (!in_array($data['user_role'], $validRoles)) {
                 $data['userRoleError'] = 'Invalid user role selected.';
             }
 
-            // Debugging registration
-            var_dump($data);
+
 
             // Make sure that errors are empty
             if (empty($data['usernameError']) && empty($data['emailError']) && empty($data['passwordError'])) {
@@ -92,10 +91,7 @@ class Users extends Controller {
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
                 // Assign the user role to the $data array
-                $data['userRole'] = $_POST['userRole'];
-
-                var_dump($data);
-
+                $data['user_role'] = $_POST['user_role'];
 
                 // Register user from model function
                 if ($this->userModel->register($data)) {
@@ -112,65 +108,76 @@ class Users extends Controller {
 
      
 
-    public function login() {
+      public function login() {
         $data = [
             'title' => 'Login page',
             'username' => '',
             'password' => '',
             'usernameError' => '',
-            'passwordError' => ''
+            'passwordError' => '',
+            'user_role' => '',  // Add a default user role or fetch it from the database during login
         ];
-
-        //Check for post
-        if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            //Sanitize post data
+    
+        // Check for post
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Sanitize post data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
+    
             $data = [
                 'username' => trim($_POST['username']),
                 'password' => trim($_POST['password']),
                 'usernameError' => '',
                 'passwordError' => '',
+                'user_role' => '',  // Add a default user role or fetch it from the database during login
             ];
-            //Validate username
+            // Validate username
             if (empty($data['username'])) {
                 $data['usernameError'] = 'Please enter a username.';
             }
-
-            //Validate password
+    
+            // Validate password
             if (empty($data['password'])) {
                 $data['passwordError'] = 'Please enter a password.';
             }
-
-
+    
             // Check if all errors are empty
             if (empty($data['usernameError']) && empty($data['passwordError'])) {
+                // Fetch user details from the database including the user role
                 $loggedInUser = $this->userModel->login($data['username'], $data['password']);
-
+    
                 if ($loggedInUser) {
+                    // Assign the user role to the $data array
+                    $data['user_role'] = $loggedInUser->user_role;
+    
+                    // Create user session
                     $this->createUserSession($loggedInUser);
                 } else {
                     $data['passwordError'] = 'Password or username is incorrect. Please try again.';
-                    $this->view('users/login', $data);
                 }
             }
-
-
-        } else {
+        } else  {
             $data = [
                 'username' => '',
                 'password' => '',
                 'usernameError' => '',
-                'passwordError' => ''
+                'passwordError' => '',
+                'user_role' => '',  // Add a default user role or fetch it from the database during login
             ];
         }
+    
         $this->view('users/login', $data);
     }
+    
+    } 
+
+
+    $this->view('users/login', $data);
 
     public function createUserSession($user) {
         $_SESSION['user_id'] = $user->id;
         $_SESSION['username'] = $user->username;
         $_SESSION['email'] = $user->email;
+        $_SESSION['user_role'] = $user->user_role;
         header('location:' . URLROOT . '/pages/index');
     }
 
@@ -178,6 +185,7 @@ class Users extends Controller {
         unset($_SESSION['user_id']);
         unset($_SESSION['username']);
         unset($_SESSION['email']);
+        unset($_SESSION['user_role']);
         header('location:' . URLROOT . '/users/login');
     }
 }

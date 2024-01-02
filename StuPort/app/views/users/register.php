@@ -37,11 +37,11 @@ require APPROOT . '/views/includes/head.php';
                 <?php echo $data['confirmPasswordError']; ?>
             </span>
 
-            <label for="userRole">User Role:</label>
-            <select id="userRole" name="userRole">
-                <option value="Student" <?php echo ($data['userRole'] == 'Student') ? 'selected' : ''; ?>>Student</option>
-                <option value="Administrator" <?php echo ($data['userRole'] == 'Administrator') ? 'selected' : ''; ?>>Administrator</option>
-                <option value="Master Administrator" <?php echo ($data['userRole'] == 'Master Administrator') ? 'selected' : ''; ?>>Master Administrator</option>
+            <label for="user_role">User Role:</label>
+            <select id="user_role" name="userRole">
+                <option value="Student" <?php echo ($data['user_role'] == 'Student') ? 'selected' : ''; ?>>Student</option>
+                <option value="Administrator" <?php echo ($data['user_role'] == 'Administrator') ? 'selected' : ''; ?>>Administrator</option>
+                <option value="Master Administrator" <?php echo ($data['user_role'] == 'Master Administrator') ? 'selected' : ''; ?>>Master Administrator</option>
             </select>
             <span class="invalidFeedback"><?php echo $data['userRoleError']; ?></span>
 
