@@ -82,17 +82,24 @@ class Users extends Controller {
             } elseif (!in_array($data['userRole'], $validRoles)) {
                 $data['userRoleError'] = 'Invalid user role selected.';
             }
+
+            // Debugging registration
+            var_dump($data);
+
             // Make sure that errors are empty
-            if (empty($data['usernameError']) && empty($data['emailError']) && empty($data['passwordError']) && empty($data['confirmPasswordError']) && empty($data['userRoleError'])) {
+            if (empty($data['usernameError']) && empty($data['emailError']) && empty($data['passwordError'])) {
                 // Hash password
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
                 // Assign the user role to the $data array
                 $data['userRole'] = $_POST['userRole'];
 
+                var_dump($data);
+
+
                 // Register user from model function
                 if ($this->userModel->register($data)) {
-                    // Redirect to the login page
+                    // Redirect to the l.ogin page
                     header('location: ' . URLROOT . '/users/login');
                 } else {
                     die('Something went wrong.');
@@ -134,6 +141,7 @@ class Users extends Controller {
             if (empty($data['password'])) {
                 $data['passwordError'] = 'Please enter a password.';
             }
+
 
             // Check if all errors are empty
             if (empty($data['usernameError']) && empty($data['passwordError'])) {
