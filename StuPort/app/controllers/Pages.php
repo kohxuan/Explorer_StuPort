@@ -77,21 +77,61 @@ class Pages extends Controller {
 
             //No need hidden value if for multiple functions
             // $_POST['update_student'] hidden value from form //update partner //update administrator
-           if ($_POST['update_student']) {
+        //    if ($_POST['update_student']) {
+
+        //         if (isset($_FILES["file"]) && $_FILES["file"]["error"] == 0) { //Nak update gambar
+
+        //             $data = [
+
+
+        //                 'st_ic' => trim($_POST['st_ic']),
+        //                 'st_email' => trim($_POST['st_email']),
+        //                 'st_fullname' => trim($_POST['st_fullname']),
+        //                 'st_gender' => trim($_POST['st_gender']),
+        //                 'st_race' => trim($_POST['st_race']),
+        //                 'univ_code' => trim($_POST['univ_code']),
+        //                 'st_address' => trim($_POST['st_address']),
+        //                 'st_image' => $location
+    
+        //             ];
+
+        //         }else{ //Xnak update gambar
+
+        //             $data = [
+
+        //                 'st_ic' => trim($_POST['st_ic']),
+        //                 'st_email' => trim($_POST['st_email']),
+        //                 'st_fullname' => trim($_POST['st_fullname']),
+        //                 'st_gender' => trim($_POST['st_gender']),
+        //                 'st_race' => trim($_POST['st_race']),
+        //                 'univ_code' => trim($_POST['univ_code']),
+        //                 'st_address' => trim($_POST['st_address']),
+               
+        //             ];
+        //         }
+
+        //     } //elseif ($_POST['update_partner'])
+            //elseif ($_POST['update_masteradmin'])
+
+            //var_dump($data);
+
+            if ($_POST['update_student']) {
 
                 if (isset($_FILES["file"]) && $_FILES["file"]["error"] == 0) { //Nak update gambar
 
                     $data = [
 
 
-                        'st_ic' => trim($_POST['st_ic']),
-                        'st_email' => trim($_POST['st_email']),
-                        'st_fullname' => trim($_POST['st_fullname']),
-                        'st_gender' => trim($_POST['st_gender']),
-                        'st_race' => trim($_POST['st_race']),
-                        'univ_code' => trim($_POST['univ_code']),
-                        'st_address' => trim($_POST['st_address']),
-                        'st_image' => $location
+                        'name' => trim($_POST['name']),
+                        'gender' => trim($_POST['gender']),
+                        'age' => trim($_POST['age']),
+                        'dob' => trim($_POST['dob']),
+                        'position' => trim($_POST['position']),
+                        'headline' => trim($_POST['headline']),
+                        'about' => trim($_POST['about']),
+                        'country' => trim($_POST['country']),
+                        'citystate' => trim($_POST['citystate']),
+                        'profileimage' => $location
     
                     ];
 
@@ -99,21 +139,20 @@ class Pages extends Controller {
 
                     $data = [
 
-                        'st_ic' => trim($_POST['st_ic']),
-                        'st_email' => trim($_POST['st_email']),
-                        'st_fullname' => trim($_POST['st_fullname']),
-                        'st_gender' => trim($_POST['st_gender']),
-                        'st_race' => trim($_POST['st_race']),
-                        'univ_code' => trim($_POST['univ_code']),
-                        'st_address' => trim($_POST['st_address']),
+                        'name' => trim($_POST['name']),
+                        'gender' => trim($_POST['gender']),
+                        'age' => trim($_POST['age']),
+                        'dob' => trim($_POST['dob']),
+                        'position' => trim($_POST['position']),
+                        'headline' => trim($_POST['headline']),
+                        'about' => trim($_POST['about']),
+                        'country' => trim($_POST['country']),
+                        'citystate' => trim($_POST['citystate']),
                
                     ];
                 }
 
-            } //elseif ($_POST['update_partner'])
-            //elseif ($_POST['update_masteradmin'])
-
-            //var_dump($data);
+            }
 
           if ($_POST['update_student']) {
                 if ($this->pageModel->updateStudentProfile($data)) { //Hantar ke page model 
