@@ -75,21 +75,19 @@ class Users extends Controller {
                 $data['confirmPasswordError'] = 'Passwords do not match, please try again.';
                 }
             }
-
             // Validate user role
-        $validRoles = ['Student', 'Administrator', 'Master Administrator'];
-        if (empty($data['userRole'])) {
-            $data['userRoleError'] = 'Please select a user role.';
-        } elseif (!in_array($data['userRole'], $validRoles)) {
-            $data['userRoleError'] = 'Invalid user role selected.';
-        }
-
+            $validRoles = ['Student', 'Administrator', 'Master Administrator'];
+            if (empty($data['userRole'])) {
+                $data['userRoleError'] = 'Please select a user role.';
+            } elseif (!in_array($data['userRole'], $validRoles)) {
+                $data['userRoleError'] = 'Invalid user role selected.';
+            }
             // Make sure that errors are empty
             if (empty($data['usernameError']) && empty($data['emailError']) && empty($data['passwordError']) && empty($data['confirmPasswordError']) && empty($data['userRoleError'])) {
                 // Hash password
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
-                // Add user role to the $data array before registering
+                // Assign the user role to the $data array
                 $data['userRole'] = $_POST['userRole'];
 
                 // Register user from model function
@@ -100,9 +98,12 @@ class Users extends Controller {
                     die('Something went wrong.');
                 }
             }
+
         }
         $this->view('users/register', $data);
-    }
+      }  // This brace was moved to the correct position
+
+     
 
     public function login() {
         $data = [
@@ -134,7 +135,7 @@ class Users extends Controller {
                 $data['passwordError'] = 'Please enter a password.';
             }
 
-            //Check if all errors are empty
+            // Check if all errors are empty
             if (empty($data['usernameError']) && empty($data['passwordError'])) {
                 $loggedInUser = $this->userModel->login($data['username'], $data['password']);
 
@@ -142,10 +143,10 @@ class Users extends Controller {
                     $this->createUserSession($loggedInUser);
                 } else {
                     $data['passwordError'] = 'Password or username is incorrect. Please try again.';
-
                     $this->view('users/login', $data);
                 }
             }
+
 
         } else {
             $data = [
