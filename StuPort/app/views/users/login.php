@@ -7,7 +7,7 @@
     <base href="../../../" />
     <title>StuPort</title>
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="<?php echo URLROOT ?>/public/assets/media/logos/favicon.ico" />
+    <link rel="shortcut icon" href="<?php echo URLROOT ?>/public/assets/media/logos/yvtablogo.png" />
     <!--begin::Fonts(mandatory for all pages)-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
     <!--end::Fonts-->
