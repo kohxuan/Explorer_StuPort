@@ -87,7 +87,7 @@ class User {
     }
 
     public function login($username, $password) {
-        $this->db->query('SELECT * FROM users WHERE username = :username');
+        $this->db->query('SELECT * FROM user WHERE username = :username');
 
         //Bind value
         $this->db->bind(':username', $username);
@@ -108,7 +108,7 @@ class User {
     //Find user by email. Email is passed in by the Controller.
     public function findUserByEmail($email) {
         //Prepared statement
-        $this->db->query('SELECT * FROM users WHERE email = :email');
+        $this->db->query('SELECT * FROM user WHERE email = :email');
 
         //Email param will be binded with the email variable
         $this->db->bind(':email', $email);
