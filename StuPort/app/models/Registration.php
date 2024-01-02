@@ -25,7 +25,7 @@ class Registration{
             return false;
         }
     }
-    public function findRegistrationById($id)
+    public function findRegistrationById($activity_id)
     {
        
         $this->db->query('SELECT * FROM registration WHERE activity_id = :activity_id');
