@@ -26,22 +26,22 @@
                 </thead>
 
                 <tbody>
-                    <?php foreach($data['rewards'] as $reward): ?>
+                    <?php foreach($data['rewards'] as $rewards): ?>
                     <tr>
                         <!-- change to img -->
-                        <td><img class="icon" src="<?php echo URLROOT ?>/public/<?php echo $badge->achievement_status; ?>" alt="Badge icon"></td> 
+                        <td><img class="icon" src="<?php echo URLROOT ?>/public/<?php echo $rewards->achievement_status; ?>" alt="Badge icon"></td> 
                         <td><?php echo $badge->badge_name; ?></td>
                         <td><?php echo $badge->badge_description; ?></td>                      
                         <td>
-                            <a href="<?php echo URLROOT . "/rewwards/update/" . $badge->badge_id ?>"
+                            <a href="<?php echo URLROOT . "/rewards/update/" . $rewards->badge_id ?>"
                                 class="btn btn-light-warning">Update</a>
 
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#kt<?php echo $badge->badge_id?>">
+                                data-bs-target="#kt<?php echo $rewards->badge_id?>">
                                 Delete
                             </button>
 
-                            <div class="modal fade" tabindex="-1" id="kt<?php echo $badge->badge_id?>">
+                            <div class="modal fade" tabindex="-1" id="kt<?php echo $rewards->badge_id?>">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -60,7 +60,7 @@
                                         </div>
 
                                         <div class="modal-footer">
-                                            <form action="<?php echo URLROOT . "/rewards/delete/" . $badge->badge_id; ?>" method="POST">
+                                            <form action="<?php echo URLROOT . "/rewards/delete/" . $rewards->badge_id; ?>" method="POST">
                                                 <input type="hidden" id="expenses" name="expenses" value="expenses">
                                                 <button type="button" class="btn btn-light-primary font-weight-bold" data-bs-dismiss="modal">Close</button>
                                                 <button type="submit" class="btn btn-primary font-weight-bold">Delete</button>
