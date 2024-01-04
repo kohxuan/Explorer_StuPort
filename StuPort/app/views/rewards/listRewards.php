@@ -33,7 +33,7 @@
                         <td><?php echo $badge->badge_name; ?></td>
                         <td><?php echo $badge->badge_description; ?></td>                      
                         <td>
-                            <a href="<?php echo URLROOT . "/badges/update/" . $badge->badge_id ?>"
+                            <a href="<?php echo URLROOT . "/rewwards/update/" . $badge->badge_id ?>"
                                 class="btn btn-light-warning">Update</a>
 
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
@@ -60,7 +60,7 @@
                                         </div>
 
                                         <div class="modal-footer">
-                                            <form action="<?php echo URLROOT . "/badges/delete/" . $badge->badge_id; ?>" method="POST">
+                                            <form action="<?php echo URLROOT . "/rewards/delete/" . $badge->badge_id; ?>" method="POST">
                                                 <input type="hidden" id="expenses" name="expenses" value="expenses">
                                                 <button type="button" class="btn btn-light-primary font-weight-bold" data-bs-dismiss="modal">Close</button>
                                                 <button type="submit" class="btn btn-primary font-weight-bold">Delete</button>

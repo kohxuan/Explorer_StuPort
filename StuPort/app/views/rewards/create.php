@@ -14,7 +14,7 @@
 
     <div class="card-body">
 
-        <form action="<?php echo URLROOT; ?>/badges/create" method="POST" enctype="multipart/form-data">
+        <form action="<?php echo URLROOT; ?>/rewards/create" method="POST" enctype="multipart/form-data">
 
             <div class="mb-10">
                 <label for="badge_name" class="required form-label">Badge Name</label>
@@ -25,7 +25,7 @@
                 <label for="badge_description" class="required form-label">Badge Description</label>
                 <div class="position-relative">
                     <div class="position-absolute top-0"></div>
-                    <textarea name="badge_desc" class="form-control" aria-label="With textarea" placeholder="Badge Description..." required></textarea>
+                    <textarea name="badge_description" class="form-control" aria-label="With textarea" placeholder="Badge Description..." required></textarea>
                 </div>
             </div>
 
