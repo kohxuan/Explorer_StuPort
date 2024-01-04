@@ -6,7 +6,7 @@
 <html lang="en">
 	<!--begin::Head-->
 	<head>
-		<title>Youth Ventures System</title>
+		<title>StuPort</title>
 		<meta charset="utf-8" />
 		<link rel="shortcut icon" href="<?php echo URLROOT ?>/public/assets/media/logos/yvtablogo.png" />
 		<!--begin::Fonts(mandatory for all pages)-->
