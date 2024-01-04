@@ -43,7 +43,7 @@
 
         public function findRewardById($id) {
 
-            $this->db->query('SELECT * FROM reward WHERE badge_id = :id');
+            $this->db->query('SELECT * FROM reward WHERE reward_id = :id');
             $this->db->bind(':id', $id);
 
             $row = $this->db->single();
@@ -54,9 +54,9 @@
 
         public function updateReward($data) {
 
-            $this->db->query('UPDATE reward SET badge_name = :badge_name, badge_description = :badge_description, achievement_status = :achievement_status WHERE badge_id = :id');
+            $this->db->query('UPDATE reward SET badge_name = :badge_name, badge_description = :badge_description, achievement_status = :achievement_status WHERE reward_id = :id');
 
-            $this->db->bind(':id', $data['badge_id']);
+            $this->db->bind(':id', $data['reward_id']);
             $this->db->bind(':badge_name', $data['badge_name']);
             $this->db->bind(':badge_description', $data['badge_description']);
             $this->db->bind(':achievement_status', $data['achievement_status']);
@@ -74,7 +74,7 @@
         }
 
         public function deleteReward($id){
-            $this->db->query('DELETE FROM reward WHERE badge_id = :id');
+            $this->db->query('DELETE FROM reward WHERE reward_id = :id');
 
             $this->db->bind(':id', $id);
 
