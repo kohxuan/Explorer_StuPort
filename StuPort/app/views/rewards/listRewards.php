@@ -41,7 +41,7 @@
                                 Delete
                             </button>
 
-                            <div class="modal fade" tabindex="-1" id="kt<?php echo $rewards->badge_id?>">
+                            <div class="modal fade" tabindex="-1" id="kt<?php echo $rewards->badge_name?>">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">

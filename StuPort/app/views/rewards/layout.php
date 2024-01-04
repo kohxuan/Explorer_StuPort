@@ -25,8 +25,8 @@
                     $c_url = URLROOT . "/rewards";
                     $t_url = URLROOT . "/rewards/create";
 
-                    if (isset($data['reward']) && is_object($data['reward'])) {
-                        $u_url = URLROOT . "/rewards/update/".$data['reward']->reward_id; 
+                    if (isset($data['rewards']) && is_object($data['rewards'])) {
+                        $u_url = URLROOT . "/rewards/update/".$data['rewards']->badge_id; 
                     }
 
                     //error_reporting(0);

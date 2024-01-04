@@ -30,19 +30,20 @@
             </div>
 
             <div class="mb-10">
-                <label for="image" class="required form-label">Icon</label>
-
-                <?php if(isset($_SESSION['error']) && ($_SESSION['error'] != "")): ?>
-                    <p><?php echo $_SESSION['error']; ?></p>
-                <?php endif ?>
+                <label for="badge_name" class="required form-label">Achievement Status</label>
                 
-                <div class="position-relative">
-                    <input type="file" class="form-control" name="image">
-                </div>
+                <input type="radio" name="achievemnt_status"
+                        <?php if (isset($achievemnt_status) && $achievemnt_status=="Achieved") echo "checked";?>
+                        value=" Achieved"> Achieved
+                        <input type="radio" name="gender"
+                        <?php if (isset($achievemnt_status) && $achievemnt_status=="Not Achieved") echo "checked";?>
+                        value=" Not Achieved"> Not Achieved
 
-                <!-- <label for="exampleFormControlInput1" class="required form-label">Icon</label>
-                <input type="text" name="icon_dir" class="form-control form-control-solid" placeholder="icon_dir..." required /> -->
             </div>
+            
+            
+
+            
 
             <button type="submit" class="btn btn-primary font-weight-bold">Submit</button>
 
