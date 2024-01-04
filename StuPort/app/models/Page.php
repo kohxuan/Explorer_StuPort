@@ -124,6 +124,7 @@ class Page
             $this->db->bind(':s_ambition', $data['s_ambition']);
             $this->db->bind(':s_academic_cert', $data['s_academic_cert']);
             $this->db->bind(':s_cocurriculum_cert', $data['s_cocurriculum_cert']);
+            
         } else { //Update without image
 
             //Profile table and Student table

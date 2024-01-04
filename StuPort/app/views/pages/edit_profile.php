@@ -103,7 +103,7 @@
                 <div class="row mb-6">
                     <label class="col-lg-4 col-form-label required fw-semibold fs-6">Address</label>
                     <div class="col-lg-8">
-                        <textarea class="form-control form-control-solid" name="address" rows="3" required><?php echo $studentProfile->s_address ?></textarea>
+                        <textarea class="form-control form-control-solid" name="s_address" rows="3" required><?php echo $studentProfile->s_address ?></textarea>
                     </div>
                 </div>
 
