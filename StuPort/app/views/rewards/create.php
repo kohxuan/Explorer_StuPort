@@ -6,7 +6,7 @@
         <div class="card-toolbar">
             <?php if(isLoggedIn()): ?>
                 
-                <a href="<?php echo URLROOT;?>/badges" class="btn btn-light-primary"><i class="fa fa-home"></i></a>
+                <a href="<?php echo URLROOT;?>/rewards" class="btn btn-light-primary"><i class="fa fa-home"></i></a>
                 <!-- <a href="<?php echo URLROOT;?>/badges" class="btn btn-light-primary">Manage Badges</a> -->
             <?php endif; ?>
         </div>

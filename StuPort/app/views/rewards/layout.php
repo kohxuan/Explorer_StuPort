@@ -32,7 +32,7 @@
                     //error_reporting(0);
                     if ($url == $c_url) {
         
-                        require 'listBadges.php';
+                        require 'listRewards.php';
 
                     } elseif($url == $t_url) {
 
