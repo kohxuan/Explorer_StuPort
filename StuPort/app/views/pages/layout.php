@@ -29,16 +29,34 @@
                  if ($url == $e_url) {
                      //page edit user
  
-                     if ($_SESSION['user_role'] == "Student") {
+                     if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "Student") {
 
                          require 'edit_profile.php';
 
                      }else{
 
-             
+                        echo "Session not set.";
                      }
  
                  } else {
+                    // if (isset($_SESSION['email'])) {
+                    //     $pageModel = new Page();
+                    //     $userRole = $pageModel->getUserRole($_SESSION['email']);
+                    
+                    //     if ($userRole === "Student") {
+                            
+                    //         require 'edit_profile.php';
+
+                    //     } elseif ($userRole === "Administrator") {
+                            
+                    //     } elseif ($userRole === "Master Administrator") {
+                            
+                    //     } else {
+                    //         echo "Unknown or invalid role." . $userRole;
+                    //     }
+                    // } else {
+                    //     echo "User ID not set in the session.";
+                    // }
                  }
 
                     ?>

@@ -121,17 +121,34 @@ class Pages extends Controller {
 
                     $data = [
 
-
-                        'name' => trim($_POST['name']),
+                        //Profile table
+                        'p_email' => trim($_POST['p_email']),
+                        'p_name' => trim($_POST['p_name']),
                         'gender' => trim($_POST['gender']),
+                        'race' => trim($_POST['race']),
                         'age' => trim($_POST['age']),
                         'dob' => trim($_POST['dob']),
+                        'profileimage' => $location,
                         'position' => trim($_POST['position']),
                         'headline' => trim($_POST['headline']),
                         'about' => trim($_POST['about']),
                         'country' => trim($_POST['country']),
                         'citystate' => trim($_POST['citystate']),
-                        'profileimage' => $location
+
+                        //Student table
+                        's_email' => trim($_POST['s_email']),
+                        's_fName' => trim($_POST['s_fName']),
+                        's_lName' => trim($_POST['s_lName']),
+                        's_telephone_no' => trim($_POST['s_telephone_no']),
+                        's_address' => trim($_POST['s_address']),
+                        's_institution' => trim($_POST['s_institution']),
+                        's_course' => trim($_POST['s_course']),
+                        's_skills' => trim($_POST['s_skills']),
+                        's_hobby' => trim($_POST['s_hobby']),
+                        's_achievement' => trim($_POST['s_achievement']),
+                        's_ambition' => trim($_POST['s_ambition']),
+                        's_academic_cert' => trim($_POST['s_academic_cert']),
+                        's_cocurriculum_cert' => trim($_POST['s_cocurriculum_cert']),
     
                     ];
 
@@ -139,8 +156,11 @@ class Pages extends Controller {
 
                     $data = [
 
-                        'name' => trim($_POST['name']),
+                        //Profile table
+                        'p_email' => trim($_POST['p_email']),
+                        'p_name' => trim($_POST['p_name']),
                         'gender' => trim($_POST['gender']),
+                        'race' => trim($_POST['race']),
                         'age' => trim($_POST['age']),
                         'dob' => trim($_POST['dob']),
                         'position' => trim($_POST['position']),
@@ -148,6 +168,21 @@ class Pages extends Controller {
                         'about' => trim($_POST['about']),
                         'country' => trim($_POST['country']),
                         'citystate' => trim($_POST['citystate']),
+
+                        //Student table
+                        's_email' => trim($_POST['s_email']),
+                        's_fName' => trim($_POST['s_fName']),
+                        's_lName' => trim($_POST['s_lName']),
+                        's_telephone_no' => trim($_POST['s_telephone_no']),
+                        's_address' => trim($_POST['s_address']),
+                        's_institution' => trim($_POST['s_institution']),
+                        's_course' => trim($_POST['s_course']),
+                        's_skills' => trim($_POST['s_skills']),
+                        's_hobby' => trim($_POST['s_hobby']),
+                        's_achievement' => trim($_POST['s_achievement']),
+                        's_ambition' => trim($_POST['s_ambition']),
+                        's_academic_cert' => trim($_POST['s_academic_cert']),
+                        's_cocurriculum_cert' => trim($_POST['s_cocurriculum_cert']),
                
                     ];
                 }

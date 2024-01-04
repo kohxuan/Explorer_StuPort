@@ -1,5 +1,6 @@
 <?php
 
+
 class Page
 {
     private $db;
@@ -12,9 +13,11 @@ class Page
     public function studentProfile() //Here we can use calculation...
     {
 
+        // $this->db->query("SELECT * FROM profile WHERE email = :email");
+
         $this->db->query("SELECT * FROM profile AS p 
-                          JOIN user AS u ON p.id = u.id 
-                          JOIN student AS s ON p.id = s.id 
+                          JOIN user AS u ON p.p_email = u.email 
+                          JOIN student AS s ON p.p_email = s.s_email 
                           WHERE u.email = :email");
 
         $this->db->bind(':email', $_SESSION['email']);
@@ -24,6 +27,18 @@ class Page
         return $result;
     }
 
+    // public function getUserRole($email)
+    // {
+    //     $this->db->query("SELECT user_role FROM user WHERE email = :email");
+    //     $this->db->bind(':email', $email);
+    //     $result = $this->db->single(); // Assuming single() returns a single result
+
+    //     if ($result) {
+    //         return $result->email;;
+    //     } else {
+    //         return null; // User role not found for this user ID
+    //     }
+    // }
 
     // public function universitySelection()
     // {
@@ -66,119 +81,143 @@ class Page
 
     public function updateStudentProfile($data)
     {
-        $id = $_SESSION['user_id']; // Assuming you store the user ID in the session
+        if (isset($data['profileimage'])) { //Update with image and information
 
-        $this->db->beginTransaction();
+            //Profile table and Student table
+            $this->db->query("UPDATE p 
+                                  SET p.p_email = :email, p.p_name = :p_name, p.gender = :gender, p.race = :race, p.age = :age, p.dob = :dob, 
+                                  p.profileimage = :profileimage, p.position = :user_role, p.headline = :headline, 
+                                  p.about = :about, p.country = :country, p.citystate = :citystate 
+                                  WHERE p.p_email = :email;
+                                  
+                                  UPDATE s 
+                                  SET s.s_email = :email, s.s_fName = :s_fName, s.s_lName = :s_lName, s.s_telephone_no = :s_telephone_no, s.s_address = :s_address, 
+                                  s.s_institution = :s_institution, s.s_course = :s_course, s.s_skills = :s_skills, s.s_hobby = :s_hobby, 
+                                  s.s_achievement = :s_achievement, s.s_ambition = :s_ambition, s.s_academic_cert = :s_academic_cert, 
+                                  s.s_cocurriculum_cert = :s_cocurriculum_cert
+                                  WHERE s.s_email = :email;");
 
-        try {
-            if (isset($data['image'])) { //Update with image and information
+            //Profile table
+            $this->db->bind(':email', $_SESSION['email']);
+            $this->db->bind(':p_name', $data['p_name']);
+            $this->db->bind(':gender', $data['gender']);
+            $this->db->bind(':race', $data['race']);
+            $this->db->bind(':age', $data['age']);
+            $this->db->bind(':dob', $data['dob']);
+            $this->db->bind(':profileimage', $data['profileimage']);
+            $this->db->bind(':position', $_SESSION['user_role']);
+            $this->db->bind(':headline', $data['headline']);
+            $this->db->bind(':about', $data['about']);
+            $this->db->bind(':country', $data['country']);
+            $this->db->bind(':citystate', $data['citystate']);
 
-                $this->db->query("UPDATE users 
-                                  SET email = :email
-                                  WHERE id = :id;");
+            //Student table
+            $this->db->bind(':s_fName', $data['s_fName']);
+            $this->db->bind(':s_lName', $data['s_lName']);
+            $this->db->bind(':s_telephone_no', $data['s_telephone_no']);
+            $this->db->bind(':s_address', $data['s_address']);
+            $this->db->bind(':s_institution', $data['s_institution']);
+            $this->db->bind(':s_course', $data['s_course']);
+            $this->db->bind(':s_skills', $data['s_skills']);
+            $this->db->bind(':s_hobby', $data['s_hobby']);
+            $this->db->bind(':s_achievement', $data['s_achievement']);
+            $this->db->bind(':s_ambition', $data['s_ambition']);
+            $this->db->bind(':s_academic_cert', $data['s_academic_cert']);
+            $this->db->bind(':s_cocurriculum_cert', $data['s_cocurriculum_cert']);
+        } else { //Update without image
 
-                $this->db->bind(':email', $data['email']);
-                $this->db->bind(':id', $id);
-                $this->db->execute();
+            //Profile table and Student table
+            $this->db->query("UPDATE p 
+                                  SET p.p_email = :email, p.p_name = :p_name, p.gender = :gender, p.race = :race, p.age = :age, p.dob = :dob, 
+                                  p.position = :user_role, p.headline = :headline, 
+                                  p.about = :about, p.country = :country, p.citystate = :citystate 
+                                  WHERE p.p_email = :email;
+                                  
+                                  UPDATE s 
+                                  SET s.s_email = :email, s.s_fName = :s_fName, s.s_lName = :s_lName, s.s_telephone_no = :s_telephone_no, s.s_address = :s_address, 
+                                  s.s_institution = :s_institution, s.s_course = :s_course, s.s_skills = :s_skills, s.s_hobby = :s_hobby, 
+                                  s.s_achievement = :s_achievement, s.s_ambition = :s_ambition, s.s_academic_cert = :s_academic_cert, 
+                                  s.s_cocurriculum_cert = :s_cocurriculum_cert
+                                  WHERE s.s_email = :email;");
 
-                $this->db->query("UPDATE profile 
-                                  SET name = :name, gender = :gender, age = :age, dob = :dob, 
-                                  profileimage = :profileimage, position = :position, headline = :headline, 
-                                  about = :about, country = :country, citystate = :citystate 
-                                  WHERE id = :id;");
+            //Profile table
+            $this->db->bind(':email', $_SESSION['email']);
+            $this->db->bind(':p_name', $data['p_name']);
+            $this->db->bind(':gender', $data['gender']);
+            $this->db->bind(':race', $data['race']);
+            $this->db->bind(':age', $data['age']);
+            $this->db->bind(':dob', $data['dob']);
+            $this->db->bind(':position', $_SESSION['user_role']);
+            $this->db->bind(':headline', $data['headline']);
+            $this->db->bind(':about', $data['about']);
+            $this->db->bind(':country', $data['country']);
+            $this->db->bind(':citystate', $data['citystate']);
 
-                $this->db->bind(':name', $data['name']);
-                $this->db->bind(':gender', $data['gender']);
-                $this->db->bind(':age', $data['age']);
-                $this->db->bind(':dob', $data['dob']);
-                $this->db->bind(':profileimage', $data['profileimage']);
-                $this->db->bind(':position', $data['position']);
-                $this->db->bind(':headline', $data['headline']);
-                $this->db->bind(':about', $data['about']);
-                $this->db->bind(':country', $data['country']);
-                $this->db->bind(':citystate', $data['citystate']);
-                $this->db->bind(':id', $id);
-                $this->db->execute();
-
-                $this->db->query("UPDATE student 
-                                  SET fName = :fName, lName = :lName, telephone_no = :telephone_no, address = :address, 
-                                  institution = :institution, course = :course, skills = :skills, hobby = :hobby, achievement = :achievement, ambition = :ambition, academic_cert = :academic_cert, cocurriculum_cert = :cocurriculum_cert
-                                  WHERE id = :id;");
-                $this->db->bind(':fName', $data['fName']);
-                $this->db->bind(':lName', $data['lName']); // Assuming lName exists in $studentData
-                $this->db->bind(':telephone_no', $data['telephone_no']); // Assuming telephone_no exists in $studentData
-                $this->db->bind(':address', $data['address']); // Assuming address exists in $studentData
-                $this->db->bind(':institution', $data['institution']); // Assuming institution exists in $studentData
-                $this->db->bind(':course', $data['course']); // Assuming course exists in $studentData
-                $this->db->bind(':skills', $data['skills']); // Assuming skills exists in $studentData
-                $this->db->bind(':hobby', $data['hobby']); // Assuming hobby exists in $studentData
-                $this->db->bind(':achievement', $data['achievement']); // Assuming achievement exists in $studentData
-                $this->db->bind(':ambition', $data['ambition']); // Assuming ambition exists in $studentData
-                $this->db->bind(':academic_cert', $data['academic_cert']); // Assuming academic_cert exists in $studentData
-                $this->db->bind(':cocurriculum_cert', $data['cocurriculum_cert']); // Assuming cocurriculum_cert exists in $studentData
-                $this->db->bind(':id', $id);
-                $this->db->execute();
-            } else { //Update without image
-
-                $this->db->query("UPDATE user 
-                                  SET email = :email
-                                  WHERE id = :id;");
-
-                $this->db->bind(':email', $data['email']);
-                $this->db->bind(':id', $id);
-                $this->db->execute();
-
-                $this->db->query("UPDATE profile 
-                                  SET name = :name, gender = :gender, age = :age, dob = :dob, 
-                                  position = :position, headline = :headline, 
-                                  about = :about, country = :country, citystate = :citystate 
-                                  WHERE id = :id;");
-
-                $this->db->bind(':name', $data['name']);
-                $this->db->bind(':gender', $data['gender']);
-                $this->db->bind(':age', $data['age']);
-                $this->db->bind(':dob', $data['dob']);
-                $this->db->bind(':position', $data['position']);
-                $this->db->bind(':headline', $data['headline']);
-                $this->db->bind(':about', $data['about']);
-                $this->db->bind(':country', $data['country']);
-                $this->db->bind(':citystate', $data['citystate']);
-                $this->db->bind(':id', $id);
-                $this->db->execute();
-
-                $this->db->query("UPDATE student 
-                                  SET fName = :fName, lName = :lName, telephone_no = :telephone_no, address = :address, 
-                                  institution = :institution, course = :course, skills = :skills, hobby = :hobby, achievement = :achievement, ambition = :ambition, academic_cert = :academic_cert, cocurriculum_cert = :cocurriculum_cert
-                                  WHERE id = :id;");
-                $this->db->bind(':fName', $data['fName']);
-                $this->db->bind(':lName', $data['lName']); // Assuming lName exists in $studentData
-                $this->db->bind(':telephone_no', $data['telephone_no']); // Assuming telephone_no exists in $studentData
-                $this->db->bind(':address', $data['address']); // Assuming address exists in $studentData
-                $this->db->bind(':institution', $data['institution']); // Assuming institution exists in $studentData
-                $this->db->bind(':course', $data['course']); // Assuming course exists in $studentData
-                $this->db->bind(':skills', $data['skills']); // Assuming skills exists in $studentData
-                $this->db->bind(':hobby', $data['hobby']); // Assuming hobby exists in $studentData
-                $this->db->bind(':achievement', $data['achievement']); // Assuming achievement exists in $studentData
-                $this->db->bind(':ambition', $data['ambition']); // Assuming ambition exists in $studentData
-                $this->db->bind(':academic_cert', $data['academic_cert']); // Assuming academic_cert exists in $studentData
-                $this->db->bind(':cocurriculum_cert', $data['cocurriculum_cert']); // Assuming cocurriculum_cert exists in $studentData
-                $this->db->bind(':id', $id);
-                $this->db->execute();
-            }
-
-            $this->db->commit();
-            return true;
-        } catch (PDOException $e) {
-            // If any query fails, rollback changes
-            $this->db->rollBack();
-            return false;
+            //Student table
+            $this->db->bind(':s_fName', $data['s_fName']);
+            $this->db->bind(':s_lName', $data['s_lName']);
+            $this->db->bind(':s_telephone_no', $data['s_telephone_no']);
+            $this->db->bind(':s_address', $data['s_address']);
+            $this->db->bind(':s_institution', $data['s_institution']);
+            $this->db->bind(':s_course', $data['s_course']);
+            $this->db->bind(':s_skills', $data['s_skills']);
+            $this->db->bind(':s_hobby', $data['s_hobby']);
+            $this->db->bind(':s_achievement', $data['s_achievement']);
+            $this->db->bind(':s_ambition', $data['s_ambition']);
+            $this->db->bind(':s_academic_cert', $data['s_academic_cert']);
+            $this->db->bind(':s_cocurriculum_cert', $data['s_cocurriculum_cert']);
         }
 
-        //execute function
-        // if ($this->db->execute()) {
-        //     return true;
-        // } else {
-        //     return false;
-        // }
+        // execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function generatePDF()
+    {
+        $data = $this->studentProfile();
+
+        $pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false);
+
+        // Set document information
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('Your Name');
+        $pdf->SetTitle('Student Profile');
+        $pdf->SetSubject('Student Profile PDF');
+        $pdf->SetKeywords('Student, Profile, PDF');
+
+        // Add a page
+        $pdf->AddPage();
+
+        // Set font
+        $pdf->SetFont('dejavusans', '', 12);
+
+        // Create a simple table with headers
+        $html = '<h1>Student Profile</h1>';
+        $html .= '<table border="1" cellpadding="5">';
+        $html .= '<tr>';
+        $html .= '<th>Name</th>';
+        $html .= '<th>Email</th>';
+        // Add more headers as needed
+        $html .= '</tr>';
+
+        // Add data to the table
+        foreach ($data as $row) {
+            $html .= '<tr>';
+            $html .= '<td>' . $row['name'] . '</td>';
+            $html .= '<td>' . $row['email'] . '</td>';
+            // Add more data fields as required
+            $html .= '</tr>';
+        }
+        $html .= '</table>';
+
+        // Output the HTML content to PDF
+        $pdf->writeHTML($html, true, false, true, false, '');
+
+        // Close and output PDF document
+        $pdf->Output('student_profile.pdf', 'D');
     }
 }
