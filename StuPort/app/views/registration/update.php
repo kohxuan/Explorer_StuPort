@@ -3,7 +3,7 @@
         <h3 class="card-title">Update Post</h3>
         <div class="card-toolbar">
             <?php if(isLoggedIn()): ?>
-            <a href="<?php echo URLROOT;?>/posts" class="btn btn-light-primary">Manage Posts</a>
+            <a href="<?php echo URLROOT;?>/registration" class="btn btn-light-primary">Manage Posts</a>
             <?php endif; ?>
         </div>
     </div>

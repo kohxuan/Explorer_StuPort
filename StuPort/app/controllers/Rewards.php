@@ -25,7 +25,7 @@
 
             if (!isLoggedIn()){
 
-                header("Location: " . URLROOT. "/rewards" );
+                header("Location: " . URLROOT. "/rewards/create" );
 
             }
 
@@ -123,7 +123,7 @@
 
                         $_SESSION['error'] = "";
 
-                        header("Location: " . URLROOT. "/rewards" );
+                        header("Location: " . URLROOT. "/rewards/create" );
                         
                     } else {
 
@@ -145,7 +145,7 @@
 
         public function update($id) {
 
-            $badge = $this->rewardModel->findRewardById($id);
+            $rewards = $this->rewardModel->findRewardById($id);
 
             if(!isLoggedIn()) {
 
@@ -160,7 +160,7 @@
 
             $data = [
 
-                'reward' => reward,
+                'rewards' => $rewards,
                 'badge_name' => '',
                 'badge_description' => '',
                 'achievement_status' => '',
@@ -188,7 +188,7 @@
                         if($filesize > $maxsize) {
 
                             $_SESSION['error'] = "Sorry, your file is greater than 5Mb";
-                            header("Location: " . URLROOT . "/rewards/update/" . $data['reward']->reward_id);
+                            header("Location: " . URLROOT . "/rewards/update/" . $data['rewards']->reward_id);
 
                         } else {
 
@@ -230,7 +230,7 @@
                             } else {
                                 
                                 $_SESSION['error'] = "Sorry, your file is not supported";
-                                header("Location: " . URLROOT . "/rewards/update/" . $data['reward']->reward_id);
+                                header("Location: " . URLROOT . "/rewards/update/" . $data['rewards']->reward_id);
 
                             }
 
@@ -254,7 +254,7 @@
                 $data = [
 
                     'reward_id' => $id,
-                    'reward' => $reward,
+                    'rewards' => $rewards,
                     // 'user_id' => $_SESSION['user_id'],
                     'badge_name' => trim($_POST['badge_name']),
                     'badge_description' => trim($_POST['badge_description']),
@@ -334,7 +334,7 @@
 
         public function delete($id) {
 
-            $reward = $this->rewardModel->findRewardById($id);
+            $rewards = $this->rewardModel->findRewardById($id);
 
             if(!isLoggedIn()) {
 
@@ -349,7 +349,7 @@
 
             $data = [
 
-                'reward' => reward,
+                'reward' => $rewards,
                 'badge_name' => '',
                 'badge_description' => '',
                 'achievement_status' => '',
@@ -366,9 +366,9 @@
 
             }
 
-            if($this->badgeModel->deleteBadge($id)){
+            if($this->rewardModel->deleteBadge($id)){
 
-                header("Location: " . URLROOT . "/reward");
+                header("Location: " . URLROOT . "/rewards");
 
             } else {
 

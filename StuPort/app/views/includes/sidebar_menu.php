@@ -258,7 +258,7 @@
 						<!--begin:Menu item-->
 						<div class="menu-item">
 							<!--begin:Menu link-->
-							<a class="menu-link" href="<?php echo URLROOT; ?>/reward">
+							<a class="menu-link" href="<?php echo URLROOT; ?>/rewards/manage">
 								<span class="menu-bullet">
 									<span class="bullet bullet-dot"></span>
 								</span>
@@ -270,7 +270,7 @@
 						<!--begin:Menu item-->
 						<div class="menu-item">
 							<!--begin:Menu link-->
-							<a class="menu-link" href="<?php echo URLROOT; ?>/reward">
+							<a class="menu-link" href="<?php echo URLROOT; ?>/rewards/view">
 								<span class="menu-bullet">
 									<span class="bullet bullet-dot"></span>
 								</span>
@@ -282,7 +282,7 @@
 						<!--begin:Menu item-->
 						<div class="menu-item">
 							<!--begin:Menu link-->
-							<a class="menu-link" href="<?php echo URLROOT; ?>/reward/create">
+							<a class="menu-link" href="<?php echo URLROOT; ?>/rewards/create">
 								<span class="menu-bullet">
 									<span class="bullet bullet-dot"></span>
 								</span>

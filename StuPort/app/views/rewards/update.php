@@ -6,7 +6,7 @@
 
         <div class="card-toolbar">
             <?php if(isLoggedIn()): ?>
-                <a href="<?php echo URLROOT;?>/rewards" class="btn btn-light-primary"><i class="fa fa-home"></i></a>
+                <a href="<?php echo URLROOT;?>/rewards/update" class="btn btn-light-primary"><i class="fa fa-home"></i></a>
             <?php endif; ?>
         </div>
 
@@ -14,10 +14,10 @@
 
     <div class="card-body">
 
-        <form action="<?php echo URLROOT; ?>/rewards/update/<?php echo $data['badge']->badge_id ?>" method="POST" enctype="multipart/form-data">
+        <form action="<?php echo URLROOT; ?>/rewards/update/<?php echo $data['rewards']->badge_id ?>" method="POST" enctype="multipart/form-data">
             <div class="mb-10">
                 <label for="badge_name" class="form-label">Badge Name</label>
-                <input type="text" name="badge_name" class="form-control form-control-solid" value="<?php echo $data['badge']->badge_name ?>" required />
+                <input type="text" name="badge_name" class="form-control form-control-solid" value="<?php echo $data['rewards']->badge_name ?>" required />
 
                 <span class="invalidFeedback">
                     <?php echo $data['badge_name_Error']; ?>
@@ -28,7 +28,7 @@
                 <label for="badge_desc" class="form-label">Badge Description</label>
                 <div class="position-relative">
                     <div class="position-absolute top-0"></div>
-                    <textarea name="badge_desc" class="form-control" aria-label="With textarea" required><?php echo $data['badge']->badge_description;?></textarea>
+                    <textarea name="badge_description" class="form-control" aria-label="With textarea" required><?php echo $data['badge']->badge_description;?></textarea>
                 </div>
 
                 <span class="invalidFeedback">
@@ -38,7 +38,7 @@
 
             <div class="mb-10">
                 <label for="existing_icon" class="form-label">Existing Icon</label>
-                <input type="text" name="existing_icon" class="form-control form-control-solid" value="<?php echo $data['badge']->icon_dir; ?>" disabled/>
+                <input type="text" name="existing_icon" class="form-control form-control-solid" value="<?php echo $data['badge']->achievement_status; ?>" disabled/>
             </div>
 
             <div class="mb-10">
@@ -53,7 +53,7 @@
                 </div>
 
                 <span class="invalidFeedback">
-                    <?php echo $data['icon_dir_Error']; ?>
+                    <?php echo $data['achievement_status_Error']; ?>
                 </span>
             </div>
 
