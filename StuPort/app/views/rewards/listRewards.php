@@ -28,16 +28,16 @@
                 <tbody>
                     <?php foreach($data['rewards'] as $rewards): ?>
                     <tr>
-                        <!-- change to img -->
-                        <td><img class="icon" src="<?php echo URLROOT ?>/public/<?php echo $rewards->achievement_status; ?>" alt="Badge icon"></td> 
+                        
+                        <td><img class="icon" src="<?php echo URLROOT ?>/rewards/<?php echo $rewards->achievement_status; ?>" alt="Badge icon"></td> 
                         <td><?php echo $badge->badge_name; ?></td>
                         <td><?php echo $badge->badge_description; ?></td>                      
                         <td>
-                            <a href="<?php echo URLROOT . "/rewards/update/" . $rewards->badge_id ?>"
+                            <a href="<?php echo URLROOT . "/rewards/update/" . $rewards->badge_name ?>"
                                 class="btn btn-light-warning">Update</a>
 
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#kt<?php echo $rewards->badge_id?>">
+                                data-bs-target="#kt<?php echo $rewards->bagde_name?>">
                                 Delete
                             </button>
 
@@ -60,7 +60,7 @@
                                         </div>
 
                                         <div class="modal-footer">
-                                            <form action="<?php echo URLROOT . "/rewards/delete/" . $rewards->badge_id; ?>" method="POST">
+                                            <form action="<?php echo URLROOT . "/rewards/delete/" . $rewards->badge_name; ?>" method="POST">
                                                 <input type="hidden" id="expenses" name="expenses" value="expenses">
                                                 <button type="button" class="btn btn-light-primary font-weight-bold" data-bs-dismiss="modal">Close</button>
                                                 <button type="submit" class="btn btn-primary font-weight-bold">Delete</button>
