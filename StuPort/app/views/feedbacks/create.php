@@ -1,6 +1,6 @@
 <div class="card shadow-sm">
     <div class="card-header">
-        <h3 class="card-title">Create Feedback Form</h3>
+        <h3 class="card-title">Upload New Feedback Form</h3>
         <div class="card-toolbar">
             <?php if(isLoggedIn()): ?>
             <a href="<?php echo URLROOT;?>/feedbacks" class="btn btn-light-primary">Manage Feedback Forms</a>

@@ -51,7 +51,7 @@ class Feedbacks extends Controller {
         $this->view('feedbacks/index', $data);
     }
 
-    public function update($id)
+    public function edit($id)
     {
         $feedback = $this->feedbackModel->findFeedbackById($id);
 
@@ -73,7 +73,7 @@ class Feedbacks extends Controller {
 
 
             if (empty($data['link_form'])){
-                if ($this->feedbackModel->updateFeedback($data)){
+                if ($this->feedbackModel->editFeedback($data)){
                     header("Location: " . URLROOT. "/feedbacks" );
                 }
                 else

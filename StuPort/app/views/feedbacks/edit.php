@@ -1,16 +1,16 @@
 <div class="card shadow-sm">
     <div class="card-header">
-        <h3 class="card-title">Update Feedback Form Link</h3>
+        <h3 class="card-title">Edit Feedback Form Link</h3>
         <div class="card-toolbar">
             <?php if(isLoggedIn()): ?>
-            <a href="<?php echo URLROOT;?>/feedbacks" class="btn btn-light-primary">Manage Feedback Forms</a>
+            <a href="<?php echo URLROOT;?>/feedbacks" class="btn btn-light-primary">Back</a>
             <?php endif; ?>
         </div>
     </div>
     <div class="card-body">
 
 
-        <form action="<?php echo URLROOT; ?>/feedbacks/update/<?php echo $data['feedback']->feedback_id ?>" method="POST">
+        <form action="<?php echo URLROOT; ?>/feedbacks/edit/<?php echo $data['feedback']->feedback_id ?>" method="POST">
             <div class="mb-10">
                 <label for="exampleFormControlInput1" class="required form-label">Link:</label>
                 <input type="text" name="link_form" class="form-control form-control-solid" value="<?php echo $data['feedback']->link_form ?>" required />

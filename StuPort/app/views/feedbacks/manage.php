@@ -23,8 +23,8 @@
                     <tr>
                         <td><?php echo $feedback->link_form; ?></td>
                         <td><?php echo $feedback->activity_id; ?></td>
-                        <td><a href="<?php echo URLROOT . "/feedbacks/update/" . $feedback->feedback_id ?>"
-                                class="btn btn-light-warning">Update</a>
+                        <td><a href="<?php echo URLROOT . "/feedbacks/edit/" . $feedback->feedback_id ?>"
+                                class="btn btn-light-warning">Edit</a>
                             
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                 data-bs-target="#kt<?php echo $feedback->feedback_id?>">

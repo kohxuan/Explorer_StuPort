@@ -42,7 +42,7 @@ class Feedback {
         return $row;
     }
 
-    public function updateFeedback($data)
+    public function editFeedback($data)
     {
         $this->db->query('UPDATE feedbacks SET link_form = :link_form WHERE feedback_id = :feedback_id');
 

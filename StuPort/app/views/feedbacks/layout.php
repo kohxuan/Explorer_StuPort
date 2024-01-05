@@ -25,7 +25,7 @@
                     $t_url = URLROOT . "/feedbacks/create"; 
 
                     if (isset($data['feedback']) && is_object($data['feedback'])) {
-                    $u_url = URLROOT . "/feedbacks/update/".$data['feedback']->feedback_id; 
+                    $u_url = URLROOT . "/feedbacks/edit/".$data['feedback']->feedback_id; 
                     }
 
 
@@ -36,7 +36,7 @@
                     }elseif($url == $t_url){
                         require 'create.php';
                     }elseif($url == $u_url){
-                        require 'update.php';
+                        require 'edit.php';
                     } else {
 
                     }
