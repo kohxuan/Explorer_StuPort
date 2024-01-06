@@ -179,7 +179,7 @@ class Users extends Controller {
             header('location:' . URLROOT . '/pages/dashboard_masteradministrator');
         } elseif ($user->user_role == 'Student') {
             // Default redirect for other user roles
-            header('location:' . URLROOT . '/pages/dashboard_student');
+            header('location:' . URLROOT . '/explorer/StuPort/pages/dashboard_student');
         } else {
             echo "User_role undefined.";
             header('location:' . URLROOT . '/users/login');
