@@ -4,7 +4,7 @@
         <h3 class="card-title">Manage Activities</h3>
         <div class="card-toolbar">
             <?php if(isLoggedIn()): ?>
-            <a href="<?php echo URLROOT;?>/activities/create" class="btn btn-light-primary">Create</a>
+            <a href="<?php echo URLROOT;?>/activity/create" class="btn btn-light-primary">Create</a>
             <?php endif; ?>
         </div>
     </div>
@@ -21,11 +21,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach($data['activities'] as $activity): ?>
+                <?php foreach($data['activity'] as $activities): ?>
                     <tr>
-                        <td><?php echo $activity->title; ?></td>
-                        <td><?php echo date('F j h:m', strtotime($activity->created_at)); ?></td>
-                        <td><?php echo $activity->body; ?></td>
+                        <td><?php echo $activities->title; ?></td>
+                        <td><?php echo date('F j h:m', strtotime($activities->created_at)); ?></td>
+                        <td><?php echo $activities->body; ?></td>
                         <!-- Adjust other columns as needed -->
                     </tr>
                 <?php endforeach; ?>
