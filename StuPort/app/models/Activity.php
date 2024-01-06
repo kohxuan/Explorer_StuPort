@@ -9,7 +9,7 @@ class Activity{
     }
 
     public function manageAllActivities(){
-        $this->db->query('SELECT * FROM activities');
+        $this->db->query('SELECT * FROM activity');
 
         $result = $this->db->resultSet();
 

@@ -34,7 +34,7 @@
 						<!--begin:Menu item-->
 						<div class="menu-item">
 							<!--begin:Menu link-->
-							<a class="menu-link" href="<?php echo URLROOT; ?>/posts">
+							<a class="menu-link" href="<?php echo URLROOT; ?>/activities">
 								<span class="menu-bullet">
 									<span class="bullet bullet-dot"></span>
 								</span>
@@ -46,7 +46,7 @@
 						<!--begin:Menu item-->
 						<div class="menu-item">
 							<!--begin:Menu link-->
-							<a class="menu-link" href="<?php echo URLROOT; ?>/posts/create">
+							<a class="menu-link" href="<?php echo URLROOT; ?>/activities/create">
 								<span class="menu-bullet">
 									<span class="bullet bullet-dot"></span>
 								</span>
