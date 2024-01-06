@@ -171,8 +171,21 @@ class Users extends Controller {
         $_SESSION['username'] = $user->username;
         $_SESSION['email'] = $user->email;
         $_SESSION['user_role'] = $user->user_role;
-        header('location:' . URLROOT . '/pages/index');
+    
+        // Redirect based on user_role
+        if ($user->user_role == 'Administrator') {
+            header('location:' . URLROOT . '/pages/dashboard_administrator');
+        } elseif ($user->user_role == 'Master Administrator') {
+            header('location:' . URLROOT . '/pages/dashboard_masteradministrator');
+        } elseif ($user->user_role == 'Student') {
+            // Default redirect for other user roles
+            header('location:' . URLROOT . '/pages/dashboard_student');
+        } else {
+            echo "User_role undefined.";
+            header('location:' . URLROOT . '/users/login');
+        }
     }
+    
     
     public function logout() {
         unset($_SESSION['user_id']);
