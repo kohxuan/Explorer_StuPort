@@ -3,20 +3,15 @@ class Activities extends Controller{
 
     public function __construct(){
         $this->activityModel = $this->model('Activity');
-
     }
 
     public function index(){
-        $activity = $this->activityModel->manageAllActivities();
-        $data= [
-
-            'activities' => $activity
+        $activities = $this->activityModel->manageAllActivities();
+        $data = [
+            'activity' => $activities
         ];
 
-        $this->view('activities/index'); //'view' here refers to which path of the .php is
+        $this->view('activities/index', $data);
     }
-
 }
-
-
 ?>

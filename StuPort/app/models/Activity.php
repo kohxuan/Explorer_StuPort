@@ -1,11 +1,9 @@
 <?php
-
 class Activity{
     private $db;
 
     public function __construct(){
         $this->db = new Database;
-
     }
 
     public function manageAllActivities(){
@@ -14,8 +12,6 @@ class Activity{
         $result = $this->db->resultSet();
 
         return $result;
-
     }
 }
-
 ?>
