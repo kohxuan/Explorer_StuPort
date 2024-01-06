@@ -39,17 +39,9 @@
                      }
  
                  } 
-                 $d_url = URLROOT . "/pages"; //edit_user_url
-                 if($url==$d_url)
-                 {
-                    if (isset($_SESSION['user_role'] == "Student")) {
-                        require 'index_student.php';
-                    }
-
-                 }
+                 
                  else {
 
-                        echo "Session not set.";
                     // if (isset($_SESSION['email'])) {
                     //     $pageModel = new Page();
                     //     $userRole = $pageModel->getUserRole($_SESSION['email']);
