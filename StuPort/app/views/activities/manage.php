@@ -21,15 +21,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach($data['activity'] as $activities): ?>  
-                    <tr> <!-- declare 'activity'as &activities (variable)-->
-                        <td><?php echo $activities->title; ?></td>  <!--'title' here follow the naming of table in database-->
-                        <td><?php echo $activities->activity_desc; ?></td>    <!-- 'description' -->
-                        <td><?php echo date('F j h:m', strtotime($activities->date_time)); ?></td>
-                       
-                        <!-- Adjust other columns as needed -->
+                <?php if(isset($data['activity']) && is_array($data['activity'])): ?>
+                    <?php foreach($data['activity'] as $activities): ?>  
+                        <tr>
+                            <td><?php echo $activities->title; ?></td>
+                            <td><?php echo $activities->activity_desc; ?></td>
+                            <td><?php echo date('F j h:m', strtotime($activities->date_time)); ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="3">No activities found.</td>
                     </tr>
-                <?php endforeach; ?>
+                <?php endif; ?>
+
 
                 </tbody>
             </table>
