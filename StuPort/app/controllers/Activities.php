@@ -1,4 +1,6 @@
 <?php
+
+
 class Activities extends Controller
 {
     public function __construct()
@@ -30,7 +32,7 @@ class Activities extends Controller
                 'user_id' => $_SESSION['user_id'],
                 'title' => trim($_POST['title']),
                 'activity_desc' => trim($_POST['activity_desc']),
-                'act_datetime' => date('T-m-d H:i:s')
+                'act_datetime' => date('Y-m-d H:i:s')
             ];
     
             if ($data['title'] && $data['activity_desc']) {

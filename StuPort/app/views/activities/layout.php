@@ -38,10 +38,12 @@
                         require 'manage.php'; //All are Form
 
 
-                    }else if( $url == $c_url){
+                    }elseif($url == $c_url){
+
+                        require 'create.php'; //All are Form
                         
                     }else{
-                        require 'manage.php'; //All are Form
+                       
                     }
                     
 

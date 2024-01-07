@@ -10,7 +10,8 @@
     <div class="card-body">
 
 
-        <form action="<?php echo URLROOT; ?>/activities/create" method="POST">
+    <form action="<?php echo URLROOT; ?>/activities/create" method="POST">
+
             <div class="mb-10">
                 <label for="exampleFormControlInput1" class="required form-label">Activity Title</label>
                 <input type="text" name="title" class="form-control form-control-solid" placeholder="Title" required />
