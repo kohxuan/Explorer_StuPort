@@ -167,11 +167,6 @@
         </div>
     </div>
     <div class="card-body">
-        <?php
-        foreach ($data['studentProfile'] as $studentProfile) :
-        ?>
-        <?php endforeach; ?>
-
         <!-- <form action="<?php //echo URLROOT; 
                             ?>/pages/edit_profile" method="POST" class="form" enctype="multipart/form-data" id="kt_account_profile_details_form"> -->
 
@@ -287,9 +282,8 @@
         </div>
         </form>
 
-
     </div>
     <div class="card-footer">
-        Footer
+        <!-- Footer -->
     </div>
 </div>

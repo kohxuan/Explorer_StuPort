@@ -186,7 +186,61 @@ class Pages extends Controller {
                
                     ];
                 }
+            }
 
+            elseif ($_POST['update_admin']) {
+
+                if (isset($_FILES["file"]) && $_FILES["file"]["error"] == 0) { //Nak update gambar
+
+                    $data = [
+
+                        //Profile table
+                        // 'p_email' => trim($_POST['p_email']),
+                        'p_name' => trim($_POST['p_name']),
+                        'gender' => trim($_POST['gender']),
+                        'race' => trim($_POST['race']),
+                        'age' => trim($_POST['age']),
+                        'dob' => trim($_POST['dob']),
+                        'profileimage' => $location,
+                        'position' => trim($_POST['position']),
+                        'headline' => trim($_POST['headline']),
+                        'about' => trim($_POST['about']),
+                        'country' => trim($_POST['country']),
+                        'citystate' => trim($_POST['citystate']),
+
+                        //Admin table
+                        // 'a_email' => trim($_POST['a_email']),
+                        'a_organization' => trim($_POST['a_organization']),
+                        'a_org_num' => trim($_POST['a_org_num']),
+                        'a_address' => trim($_POST['a_address']),
+    
+                    ];
+
+                }else{ //Xnak update gambar
+
+                    $data = [
+
+                        //Profile table
+                        // 'p_email' => trim($_POST['p_email']),
+                        'p_name' => trim($_POST['p_name']),
+                        'gender' => trim($_POST['gender']),
+                        'race' => trim($_POST['race']),
+                        'age' => trim($_POST['age']),
+                        'dob' => trim($_POST['dob']),
+                        'position' => trim($_POST['position']),
+                        'headline' => trim($_POST['headline']),
+                        'about' => trim($_POST['about']),
+                        'country' => trim($_POST['country']),
+                        'citystate' => trim($_POST['citystate']),
+
+                        //Admin table
+                        // 'a_email' => trim($_POST['a_email']),
+                        'a_organization' => trim($_POST['a_organization']),
+                        'a_org_num' => trim($_POST['a_org_num']),
+                        'a_address' => trim($_POST['a_address']),
+               
+                    ];
+                }
             }
 
           if ($_POST['update_student']) {
@@ -195,7 +249,14 @@ class Pages extends Controller {
                 } else {
                     die("Something went wrong, please try again!");
                 }
-            } else {
+            } elseif ($_POST['update_admin']) {
+                if ($this->pageModel->updateAdminProfile($data)) { //Hantar ke page model 
+                    header("Location: " . URLROOT . "/pages/edit_profile");
+                } else {
+                    die("Something went wrong, please try again!");
+                }
+            }
+            else {
                 $this->view('pages/index');
             } //elseif ($_POST['update_partner'])
             //     if ($this->pageModel->updatePartnerProfile($data)) {
@@ -210,9 +271,11 @@ class Pages extends Controller {
         } // end of if statement 
 
         $studentProfile = $this->pageModel->studentProfile(); //Pulling data
+        $adminProfile = $this->pageModel->adminProfile();
 
         $data = [
-            'studentProfile' => $studentProfile //Connecting data
+            'studentProfile' => $studentProfile, //Connecting data
+            'adminProfile' => $adminProfile //Connecting data
         ];
 
         $this->view('pages/index', $data); //Display data
