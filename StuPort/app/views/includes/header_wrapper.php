@@ -6,6 +6,9 @@
 			<!--begin:Menu link-->
 			<span class="menu-link">
 			<span class="menu-title">Welcome <?php 
+											if (isset($_SESSION['user_id'])) 
+											echo $_SESSION['user_role'] . ",  ";
+
 											if ( isset( $_SESSION['username'])){
 											echo $_SESSION['username'];
 											} else {
