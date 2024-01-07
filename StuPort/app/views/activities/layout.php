@@ -24,11 +24,11 @@
         <?php
                     //rule :depend what root file u wanna use
                     $c_url = URLROOT . "/activities"; 
-                   /* $t_url = URLROOT . "/posts/create"; 
+                   $t_url = URLROOT . "/activities/create"; 
 
-                    if (isset($data['post']) && is_object($data['post'])) {
-                    $u_url = URLROOT . "/posts/update/".$data['post']->id; //Update must have id // Dynamic URL (id from database) 
-                    }*/
+                    // if (isset($data['post']) && is_object($data['post'])) {
+                    // $u_url = URLROOT . "/posts/update/".$data['post']->id; //Update must have id // Dynamic URL (id from database) 
+                    // }
 
 
                     //error_reporting(0);
@@ -38,7 +38,12 @@
                         require 'manage.php'; //All are Form
 
 
+                    }else if( $url == $c_url){
+                        
+                    }else{
+                        require 'manage.php'; //All are Form
                     }
+                    
 
                     ?>
 
