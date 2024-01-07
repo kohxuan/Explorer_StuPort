@@ -24,7 +24,7 @@
         <?php
                     //rule :depend what root file u wanna use
                     $c_url = URLROOT . "/activities"; 
-                   $t_url = URLROOT . "/activities/create"; 
+                    $t_url = URLROOT . "/activities/create"; 
 
                     // if (isset($data['post']) && is_object($data['post'])) {
                     // $u_url = URLROOT . "/posts/update/".$data['post']->id; //Update must have id // Dynamic URL (id from database) 
@@ -38,7 +38,7 @@
                         require 'manage.php'; //All are Form
 
 
-                    }elseif($url == $c_url){
+                    }elseif($url == $t_url){
 
                         require 'create.php'; //All are Form
                         

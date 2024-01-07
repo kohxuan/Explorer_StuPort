@@ -1,6 +1,5 @@
 <?php
 
-
 class Activities extends Controller
 {
     public function __construct()
@@ -18,7 +17,6 @@ class Activities extends Controller
         $this->view('activities/index', $data);
     }
     
-
     public function create()
     {
         $data = [
@@ -38,15 +36,17 @@ class Activities extends Controller
             if ($data['title'] && $data['activity_desc']) {
                 if ($this->activityModel->addActivity($data)) {
                     header("Location: " . URLROOT . "/activities");
-                    exit(); // Add exit() to stop further execution after the redirect
+                     // Added exit() to stop further execution after the redirect
                 } else {
                     die("Something went wrong :(");
                 }
+            } else {
+                $this->view('activities/create', $data);
+                // Added return to stop further execution after rendering the view
             }
         }
     
-        $this->view('activities/index', $data);
+        $this->view('activities/create', $data);
     }
-    
 }
 ?>

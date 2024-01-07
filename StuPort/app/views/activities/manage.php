@@ -19,6 +19,7 @@
                         <th>Title</th>
                         <th>Content</th>
                         <th>Date</th>
+                        <th>Action</th>
                         <th>Feedback given</th>
                         <th>Review</th>
                     </tr>
@@ -30,6 +31,7 @@
                             <td><?php echo $activities->title; ?></td>
                             <td><?php echo $activities->activity_desc; ?></td>
                             <td><?php echo date('F j H:i', strtotime($activities->act_datetime)); ?></td>
+                            <td><?php echo $activities->title; ?></td>
 
                             <!-- this is for master admin or admin to upload the feedback form link manuallly to let students fill in -->
                             <td>
@@ -86,11 +88,17 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
         <script>
-        $(document).ready(function() {
-            var table = $('#kt_datatable_posts').DataTable({
-
-            });
-        });
+ $(document).ready(function() {
+    var table = $('#kt_datatable_posts').DataTable({
+        "columns": [
+            { "data": "Title" },
+            { "data": "Content" },
+            { "data": "Date" },
+            { "data": "Feedback given" },
+            { "data": "Review" }
+        ]
+    });
+});
         </script>
 
     </div>
