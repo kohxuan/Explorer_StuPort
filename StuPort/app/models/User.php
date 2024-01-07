@@ -124,9 +124,62 @@ class User {
             $this->db->bind(':s_academic_cert', $s_academic_cert);
             $this->db->bind(':s_cocurriculum_cert', $s_cocurriculum_cert);
 
-        } elseif ($data['user_role'] == "Partner") {
-         
+        } elseif ($data['user_role'] == "Administrator") {
+            //admin users and profile
+            $this->db->query("INSERT INTO user (username, email, password, user_role, datetime_register, user_reg_status) 
+            VALUES(:username, :email, :password, :user_role, :datetime_register, :user_reg_status);
+            
+            INSERT INTO profile (p_email, p_name, gender, race, age, dob, profileimage, position, headline, about, country, citystate) 
+            VALUES(:p_email, :p_name, :gender, :race, :age, :dob, :profileimage, :position, :headline, :about, :country, :citystate);
+            
+            INSERT INTO administrator (a_email, a_organization, a_org_num, a_address) 
+            VALUES(:a_email, :a_organization, :a_org_num, :a_address);");
 
+            //Bind values for profile table
+            $p_name = "";
+            $gender = "";
+            $race = "";
+            $age = "";
+            $dob = "";
+            $profileimage = "images/dummy/user.png";
+            $headline = "";
+            $about = "";
+            $country = "Malaysia";
+            $citystate = "";
+            
+            //Bind values for admin table
+            $a_organization = "";
+            $a_org_num = "";
+            $a_address = "";
+       
+            //Bind values for user table
+            $this->db->bind(':username', $data['username']);
+            $this->db->bind(':email', $data['email']);
+            $this->db->bind(':password', $data['password']);
+            $this->db->bind(':user_role', $data['user_role']);
+            $this->db->bind(':datetime_register', $user_datetime);
+            $this->db->bind(':user_reg_status', $user_reg_status);
+
+            //Bind values for profile table
+            $this->db->bind(':p_email', $data['email']);
+            $this->db->bind(':p_name', $p_name);
+            $this->db->bind(':gender', $gender);
+            $this->db->bind(':race', $race);
+            $this->db->bind(':age', $age);
+            $this->db->bind(':dob', $dob);
+            $this->db->bind(':profileimage', $profileimage);
+            $this->db->bind(':position', $data['user_role']);
+            $this->db->bind(':headline', $headline);
+            $this->db->bind(':about', $about);
+            $this->db->bind(':country', $country);
+            $this->db->bind(':citystate', $citystate);
+
+            //Bind values for admin table
+            $this->db->bind(':s_email', $data['email']);
+            $this->db->bind(':a_organization', $a_organization);
+            $this->db->bind(':a_org_num', $a_org_num);
+            $this->db->bind(':a_address', $a_address);
+         
         } else {
            
         }

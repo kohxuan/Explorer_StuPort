@@ -11,7 +11,7 @@
         ?>
         <?php endforeach; ?>
 
-        <form action="<?php echo URLROOT; ?>/pages/edit_profile" method="POST" class="form" enctype="multipart/form-data" id="kt_account_profile_details_form"> <!--Submit will hantar ke edit profile -->
+        <form action="<?php echo URLROOT; ?>/pages/edit_profile_student" method="POST" class="form" enctype="multipart/form-data" id="kt_account_profile_details_form"> <!--Submit will hantar ke edit profile -->
 
             <div class="card-body border-top p-9">
                 <!-- Avatar Section -->
@@ -167,11 +167,6 @@
         </div>
     </div>
     <div class="card-body">
-        <?php
-        foreach ($data['studentProfile'] as $studentProfile) :
-        ?>
-        <?php endforeach; ?>
-
         <!-- <form action="<?php //echo URLROOT; 
                             ?>/pages/edit_profile" method="POST" class="form" enctype="multipart/form-data" id="kt_account_profile_details_form"> -->
 
@@ -286,7 +281,6 @@
             <a href="<?php echo URLROOT; ?>/resume/generate" class="btn btn-secondary ml-2" download="resume.pdf">Download Resume</a>
         </div>
         </form>
-
 
     </div>
     <div class="card-footer">

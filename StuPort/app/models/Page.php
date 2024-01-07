@@ -27,6 +27,23 @@ class Page
         return $result;
     }
 
+    public function adminProfile() //Here we can use calculation...
+    {
+
+        // $this->db->query("SELECT * FROM profile WHERE email = :email");
+
+        $this->db->query("SELECT * FROM profile AS p 
+                          JOIN user AS u ON p.p_email = u.email 
+                          JOIN administrator AS a ON p.p_email = a.a_email 
+                          WHERE u.email = :email");
+
+        $this->db->bind(':email', $_SESSION['email']);
+
+        $result = $this->db->resultSet();
+
+        return $result;
+    }
+
     // public function getUserRole($email)
     // {
     //     $this->db->query("SELECT user_role FROM user WHERE email = :email");
@@ -78,7 +95,7 @@ class Page
     //     return $result;
     // }
 
-
+    //Student Role
     public function updateStudentProfile($data)
     {
         if (isset($data['profileimage'])) { //Update with image and information
@@ -171,6 +188,87 @@ class Page
             $this->db->bind(':s_academic_cert', $data['s_academic_cert']);
             $this->db->bind(':s_cocurriculum_cert', $data['s_cocurriculum_cert']);
             $this->db->execute();
+        }
+
+        // execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    //Administrator Role
+    public function updateAdminProfile($data)
+    {
+        if (isset($data['profileimage'])) { //Update with image and information
+
+            //Profile table and Admin table
+            $this->db->query("UPDATE p 
+                                  SET p.p_email = :email, p.p_name = :p_name, p.gender = :gender, p.race = :race, p.age = :age, p.dob = :dob, 
+                                  p.profileimage = :profileimage, p.position = :user_role, p.headline = :headline, 
+                                  p.about = :about, p.country = :country, p.citystate = :citystate 
+                                  WHERE p.p_email = :email;
+                                  
+                                  UPDATE a 
+                                  SET a.a_email = :email, a.a_organization = :a_organization, a.a_org_num = :a_org_num, a.a_address = :a_address
+                                  WHERE a.a_email = :email;");
+
+            //Profile table
+            $this->db->bind(':email', $_SESSION['email']);
+            $this->db->bind(':p_name', $data['p_name']);
+            $this->db->bind(':gender', $data['gender']);
+            $this->db->bind(':race', $data['race']);
+            $this->db->bind(':age', $data['age']);
+            $this->db->bind(':dob', $data['dob']);
+            $this->db->bind(':profileimage', $data['profileimage']);
+            $this->db->bind(':position', $_SESSION['user_role']);
+            $this->db->bind(':headline', $data['headline']);
+            $this->db->bind(':about', $data['about']);
+            $this->db->bind(':country', $data['country']);
+            $this->db->bind(':citystate', $data['citystate']);
+            $this->db->execute();
+
+            //Admin table
+            $this->db->bind(':a_organization', $data['a_organization']);
+            $this->db->bind(':a_org_num', $data['a_org_num']);
+            $this->db->bind(':a_address', $data['a_address']);
+            $this->db->execute();
+            
+        } else { //Update without image
+
+            //Profile table and Admin table
+            $this->db->query("UPDATE p 
+                                  SET p.p_email = :email, p.p_name = :p_name, p.gender = :gender, p.race = :race, p.age = :age, p.dob = :dob, 
+                                  p.profileimage = :profileimage, p.position = :user_role, p.headline = :headline, 
+                                  p.about = :about, p.country = :country, p.citystate = :citystate 
+                                  WHERE p.p_email = :email;
+                                  
+                                  UPDATE a 
+                                  SET a.a_email = :email, a.a_organization = :a_organization, a.a_org_num = :a_org_num, a.a_address = :a_address
+                                  WHERE a.a_email = :email;");
+
+            //Profile table
+            $this->db->bind(':email', $_SESSION['email']);
+            $this->db->bind(':p_name', $data['p_name']);
+            $this->db->bind(':gender', $data['gender']);
+            $this->db->bind(':race', $data['race']);
+            $this->db->bind(':age', $data['age']);
+            $this->db->bind(':dob', $data['dob']);
+            $this->db->bind(':profileimage', $data['profileimage']);
+            $this->db->bind(':position', $_SESSION['user_role']);
+            $this->db->bind(':headline', $data['headline']);
+            $this->db->bind(':about', $data['about']);
+            $this->db->bind(':country', $data['country']);
+            $this->db->bind(':citystate', $data['citystate']);
+            $this->db->execute();
+
+            //Admin table
+            $this->db->bind(':a_organization', $data['a_organization']);
+            $this->db->bind(':a_org_num', $data['a_org_num']);
+            $this->db->bind(':a_address', $data['a_address']);
+            $this->db->execute();
+            
         }
 
         // execute function
