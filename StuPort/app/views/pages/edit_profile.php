@@ -46,9 +46,9 @@
 
                 <!-- Name Section -->
                 <div class="row mb-6">
-                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Name</label>
+                    <label class="col-lg-4 col-form-label fw-semibold fs-6">Name</label>
                     <div class="col-lg-8">
-                        <input class="form-control form-control-lg form-control-solid" name="p_name" type="text" required value="<?php echo $studentProfile->p_name; ?>" />
+                        <input class="form-control form-control-lg form-control-solid" name="p_name" type="text" value="<?php echo $studentProfile->p_name; ?>" />
                     </div>
                 </div>
 
@@ -63,7 +63,7 @@
 
                 <!-- Gender Section -->
                 <div class="row mb-6">
-                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Gender</label>
+                    <label class="col-lg-4 col-form-label fw-semibold fs-6">Gender</label>
                     <div class="col-lg-8">
                         <select class="form-select form-select-solid form-select-lg" name="gender">
                             <option value="<?php echo $studentProfile->gender ?>"><?php echo $studentProfile->gender ?></option>
@@ -75,7 +75,7 @@
 
                 <!-- Race Section -->
                 <div class="row mb-6">
-                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Race</label>
+                    <label class="col-lg-4 col-form-label fw-semibold fs-6">Race</label>
                     <div class="col-lg-8">
                         <select class="form-select form-select-solid form-select-lg" name="race">
                             <option value="<?php echo $studentProfile->race ?>"><?php echo $studentProfile->race ?></option>
@@ -90,7 +90,7 @@
 
                 <!-- Age Section -->
                 <div class="row mb-6">
-                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Age</label>
+                    <label class="col-lg-4 col-form-label fw-semibold fs-6">Age</label>
                     <div class="col-lg-8">
                         <input class="form-control form-control-lg form-control-solid" name="age" type="text" value="<?php echo $studentProfile->age; ?>" />
                     </div>
@@ -98,7 +98,7 @@
 
                 <!-- Date of Birth Section -->
                 <div class="row mb-6">
-                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Date of Birth</label>
+                    <label class="col-lg-4 col-form-label fw-semibold fs-6">Date of Birth</label>
                     <div class="col-lg-8">
                         <input class="form-control form-control-lg form-control-solid" name="dob" type="text" value="<?php echo $studentProfile->dob; ?>" />
                     </div>
@@ -108,13 +108,13 @@
                 <div class="row mb-6">
                     <label class="col-lg-4 col-form-label required fw-semibold fs-6">Position</label>
                     <div class="col-lg-8">
-                        <input class="form-control form-control-lg form-control-solid" name="position" type="text" value="<?php echo $studentProfile->position; ?>" />
+                        <input class="form-control form-control-lg form-control-solid" name="position" type="text" readonly value="<?php echo $studentProfile->position; ?>" />
                     </div>
                 </div>
 
                 <!-- Headline Section -->
                 <div class="row mb-6">
-                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Headline</label>
+                    <label class="col-lg-4 col-form-label fw-semibold fs-6">Headline</label>
                     <div class="col-lg-8">
                         <textarea class="form-control form-control-solid" name="headline" rows="3"><?php echo $studentProfile->headline; ?></textarea>
                     </div>
@@ -122,7 +122,7 @@
 
                 <!-- About Section -->
                 <div class="row mb-6">
-                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">About</label>
+                    <label class="col-lg-4 col-form-label fw-semibold fs-6">About</label>
                     <div class="col-lg-8">
                         <textarea class="form-control form-control-solid" name="about" rows="3"><?php echo $studentProfile->about; ?></textarea>
                     </div>
@@ -130,7 +130,7 @@
 
                 <!-- Country Section -->
                 <div class="row mb-6">
-                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Country</label>
+                    <label class="col-lg-4 col-form-label fw-semibold fs-6">Country</label>
                     <div class="col-lg-8">
                         <input class="form-control form-control-lg form-control-solid" name="country" type="text" value="<?php echo $studentProfile->country; ?>" />
                     </div>
@@ -138,7 +138,7 @@
 
                 <!-- City/State Section -->
                 <div class="row mb-6">
-                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">City/State</label>
+                    <label class="col-lg-4 col-form-label fw-semibold fs-6">City/State</label>
                     <div class="col-lg-8">
                         <input class="form-control form-control-lg form-control-solid" name="citystate" type="text" value="<?php echo $studentProfile->citystate; ?>" />
                     </div>
@@ -175,7 +175,7 @@
             <!-- Student Table -->
             <!-- s_fName Section -->
             <div class="row mb-6">
-                <label class="col-lg-4 col-form-label required fw-semibold fs-6">Student First Name</label>
+                <label class="col-lg-4 col-form-label fw-semibold fs-6">First Name</label>
                 <div class="col-lg-8">
                     <input class="form-control form-control-lg form-control-solid" name="s_fName" type="text" value="<?php echo $studentProfile->s_fName; ?>" />
                 </div>
@@ -183,7 +183,7 @@
 
             <!-- s_lName Section -->
             <div class="row mb-6">
-                <label class="col-lg-4 col-form-label required fw-semibold fs-6">Student Last Name</label>
+                <label class="col-lg-4 col-form-label fw-semibold fs-6">Last Name</label>
                 <div class="col-lg-8">
                     <input class="form-control form-control-lg form-control-solid" name="s_lName" type="text" value="<?php echo $studentProfile->s_lName; ?>" />
                 </div>
@@ -191,7 +191,7 @@
 
             <!-- s_telephone_no Section -->
             <div class="row mb-6">
-                <label class="col-lg-4 col-form-label required fw-semibold fs-6">Student Telephone Number</label>
+                <label class="col-lg-4 col-form-label fw-semibold fs-6">Telephone Number</label>
                 <div class="col-lg-8">
                     <input class="form-control form-control-lg form-control-solid" name="s_telephone_no" type="text" value="<?php echo $studentProfile->s_telephone_no; ?>" />
                 </div>
@@ -199,15 +199,15 @@
 
             <!-- Address Section -->
             <div class="row mb-6">
-                <label class="col-lg-4 col-form-label required fw-semibold fs-6">Address</label>
+                <label class="col-lg-4 col-form-label fw-semibold fs-6">Address</label>
                 <div class="col-lg-8">
-                    <textarea class="form-control form-control-solid" name="s_address" rows="3" required><?php echo $studentProfile->s_address ?></textarea>
+                    <textarea class="form-control form-control-solid" name="s_address" rows="3"><?php echo $studentProfile->s_address ?></textarea>
                 </div>
             </div>
 
             <!-- Institution of Higher Learning Section -->
             <div class="row mb-6">
-                <label class="col-lg-4 col-form-label required fw-semibold fs-6">Institution</label>
+                <label class="col-lg-4 col-form-label fw-semibold fs-6">Institution</label>
                 <div class="col-lg-8">
                     <select class="form-select form-select-solid form-select-lg" name="s_institution">
                         <option value="UTM">UTM</option>
@@ -218,7 +218,7 @@
 
             <!-- s_course Section -->
             <div class="row mb-6">
-                <label class="col-lg-4 col-form-label required fw-semibold fs-6">Student Course</label>
+                <label class="col-lg-4 col-form-label fw-semibold fs-6">Course</label>
                 <div class="col-lg-8">
                     <input class="form-control form-control-lg form-control-solid" name="s_course" type="text" value="<?php echo $studentProfile->s_course; ?>" />
                 </div>
@@ -226,7 +226,7 @@
 
             <!-- s_skills Section -->
             <div class="row mb-6">
-                <label class="col-lg-4 col-form-label required fw-semibold fs-6">Student Skills</label>
+                <label class="col-lg-4 col-form-label fw-semibold fs-6">Skills</label>
                 <div class="col-lg-8">
                     <input class="form-control form-control-lg form-control-solid" name="s_skills" type="text" value="<?php echo $studentProfile->s_skills; ?>" />
                 </div>
@@ -234,7 +234,7 @@
 
             <!-- s_hobby Section -->
             <div class="row mb-6">
-                <label class="col-lg-4 col-form-label required fw-semibold fs-6">Student Hobby</label>
+                <label class="col-lg-4 col-form-label fw-semibold fs-6">Hobby</label>
                 <div class="col-lg-8">
                     <input class="form-control form-control-lg form-control-solid" name="s_hobby" type="text" value="<?php echo $studentProfile->s_hobby; ?>" />
                 </div>
@@ -242,7 +242,7 @@
 
             <!-- s_achievement Section -->
             <div class="row mb-6">
-                <label class="col-lg-4 col-form-label required fw-semibold fs-6">Student Achievement</label>
+                <label class="col-lg-4 col-form-label fw-semibold fs-6">Achievement</label>
                 <div class="col-lg-8">
                     <input class="form-control form-control-lg form-control-solid" name="s_achievement" type="text" value="<?php echo $studentProfile->s_achievement; ?>" />
                 </div>
@@ -250,7 +250,7 @@
 
             <!-- s_ambition Section -->
             <div class="row mb-6">
-                <label class="col-lg-4 col-form-label required fw-semibold fs-6">Student Ambition</label>
+                <label class="col-lg-4 col-form-label fw-semibold fs-6">Ambition</label>
                 <div class="col-lg-8">
                     <input class="form-control form-control-lg form-control-solid" name="s_ambition" type="text" value="<?php echo $studentProfile->s_ambition; ?>" />
                 </div>
@@ -258,7 +258,7 @@
 
             <!-- s_academic_cert Section -->
             <div class="row mb-6">
-                <label class="col-lg-4 col-form-label required fw-semibold fs-6">Student Academic Certification</label>
+                <label class="col-lg-4 col-form-label fw-semibold fs-6">Academic Certification</label>
                 <div class="col-lg-8">
                     <input class="form-control form-control-lg form-control-solid" name="s_academic_cert" type="text" value="<?php echo $studentProfile->s_academic_cert; ?>" />
                 </div>
@@ -266,7 +266,7 @@
 
             <!-- s_cocurriculum_cert Section -->
             <div class="row mb-6">
-                <label class="col-lg-4 col-form-label required fw-semibold fs-6">Student Co-curriculum Certification</label>
+                <label class="col-lg-4 col-form-label fw-semibold fs-6">Co-curriculum Certification</label>
                 <div class="col-lg-8">
                     <input class="form-control form-control-lg form-control-solid" name="s_cocurriculum_cert" type="text" value="<?php echo $studentProfile->s_cocurriculum_cert; ?>" />
                 </div>
