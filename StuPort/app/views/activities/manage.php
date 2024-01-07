@@ -4,7 +4,9 @@
         <h3 class="card-title">Manage Activities</h3>
         <div class="card-toolbar">
             <?php if(isLoggedIn()): ?>
-            <a href="<?php echo URLROOT;?>/activity/create" class="btn btn-light-primary">Create</a>
+                <a href="<?php echo URLROOT;?>/activities/create" class="btn btn-light-primary">Create</a>
+
+
             <?php endif; ?>
         </div>
     </div>
@@ -17,7 +19,8 @@
                         <th>Title</th>
                         <th>Content</th>
                         <th>Date</th>
-                      
+                        <th>Feedback given</th>
+                        <th>Review</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,7 +29,13 @@
                         <tr>
                             <td><?php echo $activities->title; ?></td>
                             <td><?php echo $activities->activity_desc; ?></td>
+<<<<<<< Updated upstream
                             <td><?php echo date('F j h:m', strtotime($activities->date_time)); ?></td>
+                            <td><?php echo $activities->link_form; ?></td>
+                            <td><?php echo $activities->review; ?></td>
+=======
+                            <td><?php echo date('F j h:m', strtotime($activities->act_datetime)); ?></td>
+>>>>>>> Stashed changes
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
