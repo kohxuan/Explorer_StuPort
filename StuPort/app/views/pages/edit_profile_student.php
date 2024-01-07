@@ -11,7 +11,7 @@
         ?>
         <?php endforeach; ?>
 
-        <form action="<?php echo URLROOT; ?>/pages/edit_profile_student" method="POST" class="form" enctype="multipart/form-data" id="kt_account_profile_details_form"> <!--Submit will hantar ke edit profile -->
+        <form action="<?php echo URLROOT; ?>/pages/edit_profile" method="POST" class="form" enctype="multipart/form-data" id="kt_account_profile_details_form"> <!--Submit will hantar ke edit profile -->
 
             <div class="card-body border-top p-9">
                 <!-- Avatar Section -->
@@ -284,6 +284,6 @@
 
     </div>
     <div class="card-footer">
-        Footer
+        <!-- Footer -->
     </div>
 </div>

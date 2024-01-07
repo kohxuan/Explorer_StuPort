@@ -10,7 +10,7 @@
             <!-- Display admin profile data -->
         <?php endforeach; ?>
 
-        <form action="<?php echo URLROOT; ?>/pages/edit_profile_admin" method="POST" class="form" enctype="multipart/form-data" id="kt_account_profile_details_form">
+        <form action="<?php echo URLROOT; ?>/pages/edit_profile" method="POST" class="form" enctype="multipart/form-data" id="kt_account_profile_details_form">
             <div class="card-body border-top p-9">
                 <!-- Avatar Section -->
                 <div class="row mb-6">
