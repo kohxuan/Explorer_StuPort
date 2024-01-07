@@ -49,6 +49,7 @@
                     <label class="col-lg-4 col-form-label fw-semibold fs-6">Name</label>
                     <div class="col-lg-8">
                         <input class="form-control form-control-lg form-control-solid" name="p_name" type="text" value="<?php echo $studentProfile->p_name; ?>" />
+                        <div class="form-text">Full Name</div>
                     </div>
                 </div>
 
@@ -101,6 +102,7 @@
                     <label class="col-lg-4 col-form-label fw-semibold fs-6">Date of Birth</label>
                     <div class="col-lg-8">
                         <input class="form-control form-control-lg form-control-solid" name="dob" type="text" value="<?php echo $studentProfile->dob; ?>" />
+                        <div class="form-text">YYYY/MM/DD</div>
                     </div>
                 </div>
 
@@ -138,7 +140,7 @@
 
                 <!-- City/State Section -->
                 <div class="row mb-6">
-                    <label class="col-lg-4 col-form-label fw-semibold fs-6">City/State</label>
+                    <label class="col-lg-4 col-form-label fw-semibold fs-6">City/ State</label>
                     <div class="col-lg-8">
                         <input class="form-control form-control-lg form-control-solid" name="citystate" type="text" value="<?php echo $studentProfile->citystate; ?>" />
                     </div>
@@ -194,6 +196,7 @@
                 <label class="col-lg-4 col-form-label fw-semibold fs-6">Telephone Number</label>
                 <div class="col-lg-8">
                     <input class="form-control form-control-lg form-control-solid" name="s_telephone_no" type="text" value="<?php echo $studentProfile->s_telephone_no; ?>" />
+                    <div class="form-text">Eg. 01116781234</div>
                 </div>
             </div>
 
