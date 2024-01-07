@@ -122,7 +122,7 @@ class Pages extends Controller {
                     $data = [
 
                         //Profile table
-                        'p_email' => trim($_POST['p_email']),
+                        // 'p_email' => trim($_POST['p_email']),
                         'p_name' => trim($_POST['p_name']),
                         'gender' => trim($_POST['gender']),
                         'race' => trim($_POST['race']),
@@ -136,7 +136,7 @@ class Pages extends Controller {
                         'citystate' => trim($_POST['citystate']),
 
                         //Student table
-                        's_email' => trim($_POST['s_email']),
+                        // 's_email' => trim($_POST['s_email']),
                         's_fName' => trim($_POST['s_fName']),
                         's_lName' => trim($_POST['s_lName']),
                         's_telephone_no' => trim($_POST['s_telephone_no']),
@@ -157,7 +157,7 @@ class Pages extends Controller {
                     $data = [
 
                         //Profile table
-                        'p_email' => trim($_POST['p_email']),
+                        // 'p_email' => trim($_POST['p_email']),
                         'p_name' => trim($_POST['p_name']),
                         'gender' => trim($_POST['gender']),
                         'race' => trim($_POST['race']),
@@ -170,7 +170,7 @@ class Pages extends Controller {
                         'citystate' => trim($_POST['citystate']),
 
                         //Student table
-                        's_email' => trim($_POST['s_email']),
+                        // 's_email' => trim($_POST['s_email']),
                         's_fName' => trim($_POST['s_fName']),
                         's_lName' => trim($_POST['s_lName']),
                         's_telephone_no' => trim($_POST['s_telephone_no']),

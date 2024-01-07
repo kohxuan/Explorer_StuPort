@@ -110,6 +110,7 @@ class Page
             $this->db->bind(':about', $data['about']);
             $this->db->bind(':country', $data['country']);
             $this->db->bind(':citystate', $data['citystate']);
+            $this->db->execute();
 
             //Student table
             $this->db->bind(':s_fName', $data['s_fName']);
@@ -124,6 +125,7 @@ class Page
             $this->db->bind(':s_ambition', $data['s_ambition']);
             $this->db->bind(':s_academic_cert', $data['s_academic_cert']);
             $this->db->bind(':s_cocurriculum_cert', $data['s_cocurriculum_cert']);
+            $this->db->execute();
             
         } else { //Update without image
 
@@ -153,6 +155,7 @@ class Page
             $this->db->bind(':about', $data['about']);
             $this->db->bind(':country', $data['country']);
             $this->db->bind(':citystate', $data['citystate']);
+            $this->db->execute();
 
             //Student table
             $this->db->bind(':s_fName', $data['s_fName']);
@@ -167,6 +170,7 @@ class Page
             $this->db->bind(':s_ambition', $data['s_ambition']);
             $this->db->bind(':s_academic_cert', $data['s_academic_cert']);
             $this->db->bind(':s_cocurriculum_cert', $data['s_cocurriculum_cert']);
+            $this->db->execute();
         }
 
         // execute function
