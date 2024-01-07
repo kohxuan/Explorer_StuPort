@@ -21,11 +21,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach($data['activity'] as $activities): ?>
-                    <tr>
-                        <td><?php echo $activities->title; ?></td>
-                        <td><?php echo date('F j h:m', strtotime($activities->created_at)); ?></td>
-                        <td><?php echo $activities->body; ?></td>
+                <?php foreach($data['activity'] as $activities): ?>  
+                    <tr> <!-- declare 'activity'as &activities (variable)-->
+                        <td><?php echo $activities->title; ?></td>  <!--'title' here follow the naming of table in database-->
+                        <td><?php echo $activities->description; ?></td>    <!-- 'description' -->
+                        <td><?php echo date('F j h:m', strtotime($activities->date_time)); ?></td>
+                       
                         <!-- Adjust other columns as needed -->
                     </tr>
                 <?php endforeach; ?>

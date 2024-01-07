@@ -14,4 +14,21 @@ class Activity{
         return $result;
     }
 }
+
+public function addActivity($data)
+{
+    $this->db->query('INSERT INTO activity ( title, description, user_id) VALUES ( :title, :body, :user_id,)');
+    
+    $this->db->bind(':user_id', $data['user_id']);
+    $this->db->bind(':title', $data['title']);
+    $this->db->bind(':description', $data['description']);
+
+    if ($this->db->execute())
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 ?>
