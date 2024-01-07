@@ -48,7 +48,7 @@
                 <div class="row mb-6">
                     <label class="col-lg-4 col-form-label fw-semibold fs-6">Name</label>
                     <div class="col-lg-8">
-                        <input class="form-control form-control-lg form-control-solid" name="p_name" type="text" value="<?php echo $studentProfile->p_name; ?>" />
+                        <input class="form-control form-control-lg form-control-solid" name="p_name" type="text" maxlength="255" value="<?php echo $studentProfile->p_name; ?>" />
                         <div class="form-text">Full Name</div>
                     </div>
                 </div>
@@ -93,7 +93,9 @@
                 <div class="row mb-6">
                     <label class="col-lg-4 col-form-label fw-semibold fs-6">Age</label>
                     <div class="col-lg-8">
-                        <input class="form-control form-control-lg form-control-solid" name="age" type="text" value="<?php echo $studentProfile->age; ?>" />
+                        <input class="form-control form-control-lg form-control-solid" name="age" type="number" maxlength="11" value="<?php echo $studentProfile->age; ?>" />
+                        <div class="form-text">Please enter numbers.</div>
+                        <div class="form-text">Eg. 20</div>
                     </div>
                 </div>
 
@@ -101,8 +103,8 @@
                 <div class="row mb-6">
                     <label class="col-lg-4 col-form-label fw-semibold fs-6">Date of Birth</label>
                     <div class="col-lg-8">
-                        <input class="form-control form-control-lg form-control-solid" name="dob" type="text" value="<?php echo $studentProfile->dob; ?>" />
-                        <div class="form-text">YYYY/MM/DD</div>
+                        <input class="form-control form-control-lg form-control-solid" name="dob" type="date" value="<?php echo $studentProfile->dob; ?>" />
+                        <div class="form-text">MM/DD/YYYY</div>
                     </div>
                 </div>
 
@@ -110,7 +112,7 @@
                 <div class="row mb-6">
                     <label class="col-lg-4 col-form-label required fw-semibold fs-6">Position</label>
                     <div class="col-lg-8">
-                        <input class="form-control form-control-lg form-control-solid" name="position" type="text" readonly value="<?php echo $studentProfile->position; ?>" />
+                        <input class="form-control form-control-lg form-control-solid" name="position" type="text" maxlength="50" readonly value="<?php echo $studentProfile->position; ?>" />
                     </div>
                 </div>
 
@@ -134,7 +136,7 @@
                 <div class="row mb-6">
                     <label class="col-lg-4 col-form-label fw-semibold fs-6">Country</label>
                     <div class="col-lg-8">
-                        <input class="form-control form-control-lg form-control-solid" name="country" type="text" value="<?php echo $studentProfile->country; ?>" />
+                        <input class="form-control form-control-lg form-control-solid" name="country" type="text" maxlength="50" value="<?php echo $studentProfile->country; ?>" />
                     </div>
                 </div>
 
@@ -142,7 +144,7 @@
                 <div class="row mb-6">
                     <label class="col-lg-4 col-form-label fw-semibold fs-6">City/ State</label>
                     <div class="col-lg-8">
-                        <input class="form-control form-control-lg form-control-solid" name="citystate" type="text" value="<?php echo $studentProfile->citystate; ?>" />
+                        <input class="form-control form-control-lg form-control-solid" name="citystate" type="text" maxlength="50" value="<?php echo $studentProfile->citystate; ?>" />
                     </div>
                 </div>
 
@@ -263,7 +265,8 @@
             <div class="row mb-6">
                 <label class="col-lg-4 col-form-label fw-semibold fs-6">Academic Certification</label>
                 <div class="col-lg-8">
-                    <input class="form-control form-control-lg form-control-solid" name="s_academic_cert" type="text" value="<?php echo $studentProfile->s_academic_cert; ?>" />
+                <input class="form-control form-control-lg form-control-solid" name="s_academic_cert" type="file" accept=".pdf"/>
+                <div class="form-text">Allowed file types: pdf.</div>
                 </div>
             </div>
 
@@ -271,8 +274,8 @@
             <div class="row mb-6">
                 <label class="col-lg-4 col-form-label fw-semibold fs-6">Co-curriculum Certification</label>
                 <div class="col-lg-8">
-                    <input class="form-control form-control-lg form-control-solid" name="s_cocurriculum_cert" type="text" value="<?php echo $studentProfile->s_cocurriculum_cert; ?>" />
-                </div>
+                <input class="form-control form-control-lg form-control-solid" name="s_cocurriculum_cert" type="file" accept=".pdf" />
+                <div class="form-text">Allowed file types: pdf.</div>
             </div>
             <!-- Submit Button -->
         </div>

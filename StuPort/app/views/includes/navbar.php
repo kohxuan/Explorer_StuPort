@@ -136,15 +136,15 @@
 				<div class="menu-content d-flex align-items-center px-3">
 					<!--begin::Avatar-->
 					<div class="symbol symbol-50px me-5">
-						<img alt="Logo" src="<?php echo URLROOT ?>/public/assets/media/avatars/300-3.jpg" />
+						<!-- <img alt="Logo" src="<?php echo URLROOT ?>/public/assets/" /> -->
 					</div>
 					<!--end::Avatar-->
 					<!--begin::Username-->
 					<div class="d-flex flex-column">
-						<div class="fw-bold d-flex align-items-center fs-5"> <?php if (isset($_SESSION['user_id'])) echo $_SESSION['username'] ?>
-							<span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">Pro</span>
+						<div class="fw-bold d-flex align-items-center fs-5"> <?php if (isset($_SESSION['email'])) echo $_SESSION['username'] ?>
+							<!-- <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">Pro</span>s -->
 						</div>
-						<a href="#" class="fw-semibold text-muted text-hover-primary fs-7"><?php if (isset($_SESSION['user_id'])) echo $_SESSION['email'] ?></a>
+						<a href="#" class="fw-semibold text-muted text-hover-primary fs-7"><?php if (isset($_SESSION['email'])) echo $_SESSION['email'] ?></a>
 					</div> 
 					<!--end::Username-->
 				</div>
