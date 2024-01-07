@@ -115,7 +115,7 @@
 							<span class="path4"></span>
 						</i>
 					</span>
-					<span class="menu-title">System</span>
+					<span class="menu-title">Default</span>
 				</a>
 			</div>
 			<!--end::Menu item-->
@@ -141,11 +141,11 @@
 					<!--end::Avatar-->
 					<!--begin::Username-->
 					<div class="d-flex flex-column">
-						<div class="fw-bold d-flex align-items-center fs-5">Robert Fox
+						<div class="fw-bold d-flex align-items-center fs-5"> <?php if (isset($_SESSION['user_id'])) echo $_SESSION['username'] ?>
 							<span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">Pro</span>
 						</div>
-						<a href="#" class="fw-semibold text-muted text-hover-primary fs-7">robert@kt.com</a>
-					</div>
+						<a href="#" class="fw-semibold text-muted text-hover-primary fs-7"><?php if (isset($_SESSION['user_id'])) echo $_SESSION['email'] ?></a>
+					</div> 
 					<!--end::Username-->
 				</div>
 			</div>
@@ -155,13 +155,13 @@
 			<!--end::Menu separator-->
 			<!--begin::Menu item-->
 			<div class="menu-item px-5">
-				<a href="<?php echo URLROOT; ?>/pages/edit_profile" class="menu-link px-5">My Profile</a>
+				<a href="<?php echo URLROOT; ?>/pages/edit_profile" class="menu-link px-5">Profile</a>
 			</div>
 			<!--end::Menu item-->
 			<!--begin::Menu item-->
 			<div class="menu-item px-5">
 				<a href="apps/projects/list.html" class="menu-link px-5">
-					<span class="menu-text">My Projects</span>
+					<span class="menu-text">Activity</span>
 					<span class="menu-badge">
 						<span class="badge badge-light-danger badge-circle fw-bold fs-7">3</span>
 					</span>
@@ -176,33 +176,7 @@
 				</a> -->
 				<!--begin::Menu sub-->
 				<div class="menu-sub menu-sub-dropdown w-175px py-4">
-					<!--begin::Menu item-->
-					<div class="menu-item px-3">
-						<a href="account/referrals.html" class="menu-link px-5">Referrals</a>
-					</div>
-					<!--end::Menu item-->
-					<!--begin::Menu item-->
-					<div class="menu-item px-3">
-						<a href="account/billing.html" class="menu-link px-5">Billing</a>
-					</div>
-					<!--end::Menu item-->
-					<!--begin::Menu item-->
-					<div class="menu-item px-3">
-						<a href="account/statements.html" class="menu-link px-5">Payments</a>
-					</div>
-					<!--end::Menu item-->
-					<!--begin::Menu item-->
-					<div class="menu-item px-3">
-						<a href="account/statements.html" class="menu-link d-flex flex-stack px-5">Statements
-							<span class="ms-2 lh-0" data-bs-toggle="tooltip" title="View your statements">
-								<i class="ki-duotone ki-information-5 fs-5">
-									<span class="path1"></span>
-									<span class="path2"></span>
-									<span class="path3"></span>
-								</i>
-							</span></a>
-					</div>
-					<!--end::Menu item-->
+					
 					<!--begin::Menu separator-->
 					<div class="separator my-2"></div>
 					<!--end::Menu separator-->
@@ -298,7 +272,7 @@
 									<span class="path4"></span>
 								</i>
 							</span>
-							<span class="menu-title">System</span>
+							<span class="menu-title">Default</span>
 						</a>
 					</div>
 					<!--end::Menu item-->
