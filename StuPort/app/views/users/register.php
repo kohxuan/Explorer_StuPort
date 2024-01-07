@@ -43,7 +43,10 @@ require APPROOT . '/views/includes/head.php';
                 <option value="Administrator" <?php echo ($data['user_role'] == 'Administrator') ? 'selected' : ''; ?>>Administrator</option>
                 <option value="Master Administrator" <?php echo ($data['user_role'] == 'Master Administrator') ? 'selected' : ''; ?>>Master Administrator</option>
             </select>
-            <span class="invalidFeedback"><?php echo $data['userRoleError']; ?></span>
+            <span class="invalidFeedback">
+                <?php echo isset($data['userRoleError']) ? $data['userRoleError'] : ''; ?>
+            </span>
+
 
             <button id="submit" type="submit" value="submit">Submit</button>
 
