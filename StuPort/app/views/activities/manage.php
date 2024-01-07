@@ -17,7 +17,8 @@
                         <th>Title</th>
                         <th>Content</th>
                         <th>Date</th>
-                      
+                        <th>Feedback given</th>
+                        <th>Review</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,6 +28,8 @@
                             <td><?php echo $activities->title; ?></td>
                             <td><?php echo $activities->activity_desc; ?></td>
                             <td><?php echo date('F j h:m', strtotime($activities->date_time)); ?></td>
+                            <td><?php echo $activities->link_form; ?></td>
+                            <td><?php echo $activities->review; ?></td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
