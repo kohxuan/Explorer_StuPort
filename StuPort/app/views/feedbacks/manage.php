@@ -21,7 +21,7 @@
                 <tbody>
                     <?php foreach($data['feedbacks'] as $feedback): ?>
                     <tr>
-                        <td><?php echo $feedback->link_form; ?></td>
+                        <td><?php echo '<a href="' . $feedback->link_form . '">' . $feedback->link_form . '</a>'; ?></td>
                         <td><?php echo $feedback->activity_id; ?></td>
                         <td><a href="<?php echo URLROOT . "/feedbacks/edit/" . $feedback->feedback_id ?>"
                                 class="btn btn-light-warning">Edit</a>
