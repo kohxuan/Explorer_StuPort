@@ -30,39 +30,46 @@
                             <td><?php echo $activities->title; ?></td>
                             <td><?php echo $activities->activity_desc; ?></td>
                             <td><?php echo date('F j H:i', strtotime($activities->act_datetime)); ?></td>
+
+                            <!-- this is for master admin or admin to upload the feedback form link manuallly to let students fill in -->
                             <td>
                             <?php
-                            if (!empty($activities->link_form)) {
-                                // Display as a hyperlink
-                                echo '<a href="' . $activities->link_form . '">' . $activities->link_form . '</a>';
-                            } else {
-                                // Display the "Add Feedback" button
-                                echo '<a href="' . URLROOT . '/feedbacks/create" class="btn btn-light-primary">Add Feedback</a>';
-                            }
-                            ?>  
-                        </td>
-                            <td><?php echo $activities->review; ?></td>
+                                if (!empty($activities->link_form)) {
+                                    // Display as a hyperlink for the feedback link
+                                    echo '<a href="' . $activities->link_form . '">' . $activities->link_form . '</a>';
+                                } else {
+                                    // Display the "Add Feedback" button
+                                    echo '<a href="' . URLROOT . '/feedbacks/create" class="btn btn-light-primary">Add Feedback</a>';
+                                }
+                                ?>  
+                            </td>
+
+                            <!-- this is for master admin or admin to review the student feedback -->
+                            <td> 
+                                <?php
+                                // Check if feedback link is present
+                                if (empty($activities->feedback_link)) {
+                                    // Display the textbox for typing the comment
+                                    echo '<textarea id="commentInput_' . $activities->activity_id . '" placeholder="Type your comment here"></textarea>';
+                                    echo '<br><br>';
+                                    echo '<button onclick="addComment(' . $activities->activity_id . ')">Enter</button>';
+                                    
+                                    // Check if review is present
+                                    if (!empty($activities->review)) {
+                                        // Display the review text
+                                        echo '<div id="reviewText_' . $activities->activity_id . '">' . $activities->review . '</div>';
+                                    }
+                                } else {
+                                    // No feedback link, nothing will be displayed
+                                    echo '  ';
+                                }
+                                ?>
+                            </td>
                             
-<!-- Code testing for review on feedback for an activity.
-<td>
-    <?php
-    // Check if feedback link is present
-    if (!empty($activities->feedback_link)) {
-        // Check if review is present
-        if (!empty($activities->review)) {
-            // Display the review text
-            echo $activities->review;
-        } else {
-            // Display the "Add Comment" button
-            echo '<button onclick="addComment(' . $activities->activity_id . ')">Add Comment</button>';
-        }
-    } else {
-        // No feedback link, display an indicator or message
-        echo 'No feedback link available';
-    }
-    ?>
-</td>
--->
+
+
+
+
 
                         </tr>
                     <?php endforeach; ?>
