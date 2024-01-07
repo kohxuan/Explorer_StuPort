@@ -41,8 +41,29 @@
                             }
                             ?>  
                         </td>
-
                             <td><?php echo $activities->review; ?></td>
+                            
+<!-- Code testing for review on feedback for an activity.
+<td>
+    <?php
+    // Check if feedback link is present
+    if (!empty($activities->feedback_link)) {
+        // Check if review is present
+        if (!empty($activities->review)) {
+            // Display the review text
+            echo $activities->review;
+        } else {
+            // Display the "Add Comment" button
+            echo '<button onclick="addComment(' . $activities->activity_id . ')">Add Comment</button>';
+        }
+    } else {
+        // No feedback link, display an indicator or message
+        echo 'No feedback link available';
+    }
+    ?>
+</td>
+-->
+
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
