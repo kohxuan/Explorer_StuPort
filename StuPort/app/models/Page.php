@@ -34,7 +34,7 @@ class Page
 
         $this->db->query("SELECT * FROM profile AS p 
                           JOIN user AS u ON p_email = u.email 
-                          JOIN administrator AS a ON p_email = a.a_email 
+                          JOIN administrator AS a ON p_email = a_email 
                           WHERE u.email = :email");
 
         $this->db->bind(':email', $_SESSION['email']);
@@ -142,8 +142,6 @@ class Page
             $this->db->bind(':s_ambition', $data['s_ambition']);
             $this->db->bind(':s_academic_cert', $data['s_academic_cert']);
             $this->db->bind(':s_cocurriculum_cert', $data['s_cocurriculum_cert']);
-
-            
         } else { //Update without image
 
             //Profile table and Student table
@@ -187,7 +185,6 @@ class Page
             $this->db->bind(':s_ambition', $data['s_ambition']);
             $this->db->bind(':s_academic_cert', $data['s_academic_cert']);
             $this->db->bind(':s_cocurriculum_cert', $data['s_cocurriculum_cert']);
-
         }
 
         // execute function
@@ -204,15 +201,15 @@ class Page
         if (isset($data['profileimage'])) { //Update with image and information
 
             //Profile table and Admin table
-            $this->db->query("UPDATE p 
+            $this->db->query("UPDATE profile 
                                   SET p_email = :email, p_name = :p_name, gender = :gender, race = :race, age = :age, dob = :dob, 
-                                  profileimage = :profileimage, position = :user_role, headline = :headline, 
+                                  profileimage = :profileimage, position = :position, headline = :headline, 
                                   about = :about, country = :country, citystate = :citystate 
                                   WHERE p_email = :email;
                                   
-                                  UPDATE a 
-                                  SET a.a_email = :email, a.a_organization = :a_organization, a.a_org_num = :a_org_num, a.a_address = :a_address
-                                  WHERE a.a_email = :email;");
+                                  UPDATE administrator 
+                                  SET a_email = :email, a_organization = :a_organization, a_org_num = :a_org_num, a_address = :a_address
+                                  WHERE a_email = :email;");
 
             //Profile table
             $this->db->bind(':email', $_SESSION['email']);
@@ -227,26 +224,23 @@ class Page
             $this->db->bind(':about', $data['about']);
             $this->db->bind(':country', $data['country']);
             $this->db->bind(':citystate', $data['citystate']);
-            $this->db->execute();
 
             //Admin table
             $this->db->bind(':a_organization', $data['a_organization']);
             $this->db->bind(':a_org_num', $data['a_org_num']);
             $this->db->bind(':a_address', $data['a_address']);
-            $this->db->execute();
-            
         } else { //Update without image
 
             //Profile table and Admin table
-            $this->db->query("UPDATE p 
+            $this->db->query("UPDATE profile 
                                   SET p_email = :email, p_name = :p_name, gender = :gender, race = :race, age = :age, dob = :dob, 
-                                  profileimage = :profileimage, position = :user_role, headline = :headline, 
+                                  profileimage = :profileimage, position = :position, headline = :headline, 
                                   about = :about, country = :country, citystate = :citystate 
                                   WHERE p_email = :email;
                                   
                                   UPDATE a 
-                                  SET a.a_email = :email, a.a_organization = :a_organization, a.a_org_num = :a_org_num, a.a_address = :a_address
-                                  WHERE a.a_email = :email;");
+                                  SET a_email = :email, a_organization = :a_organization, a_org_num = :a_org_num, a_address = :a_address
+                                  WHERE a_email = :email;");
 
             //Profile table
             $this->db->bind(':email', $_SESSION['email']);
@@ -261,14 +255,11 @@ class Page
             $this->db->bind(':about', $data['about']);
             $this->db->bind(':country', $data['country']);
             $this->db->bind(':citystate', $data['citystate']);
-            $this->db->execute();
 
             //Admin table
             $this->db->bind(':a_organization', $data['a_organization']);
             $this->db->bind(':a_org_num', $data['a_org_num']);
             $this->db->bind(':a_address', $data['a_address']);
-            $this->db->execute();
-            
         }
 
         // execute function
@@ -278,49 +269,5 @@ class Page
             return false;
         }
     }
-
-    public function generatePDF()
-    {
-        $data = $this->studentProfile();
-
-        $pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false);
-
-        // Set document information
-        $pdf->SetCreator(PDF_CREATOR);
-        $pdf->SetAuthor('Your Name');
-        $pdf->SetTitle('Student Profile');
-        $pdf->SetSubject('Student Profile PDF');
-        $pdf->SetKeywords('Student, Profile, PDF');
-
-        // Add a page
-        $pdf->AddPage();
-
-        // Set font
-        $pdf->SetFont('dejavusans', '', 12);
-
-        // Create a simple table with headers
-        $html = '<h1>Student Profile</h1>';
-        $html .= '<table border="1" cellpadding="5">';
-        $html .= '<tr>';
-        $html .= '<th>Name</th>';
-        $html .= '<th>Email</th>';
-        // Add more headers as needed
-        $html .= '</tr>';
-
-        // Add data to the table
-        foreach ($data as $row) {
-            $html .= '<tr>';
-            $html .= '<td>' . $row['name'] . '</td>';
-            $html .= '<td>' . $row['email'] . '</td>';
-            // Add more data fields as required
-            $html .= '</tr>';
-        }
-        $html .= '</table>';
-
-        // Output the HTML content to PDF
-        $pdf->writeHTML($html, true, false, true, false, '');
-
-        // Close and output PDF document
-        $pdf->Output('student_profile.pdf', 'D');
-    }
 }
+?>
