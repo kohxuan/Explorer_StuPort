@@ -204,7 +204,7 @@
 
     </div>
     <div class="card-footer">
-        Footer
+        <!-- Footer -->
     </div>
 </div>
 </div>

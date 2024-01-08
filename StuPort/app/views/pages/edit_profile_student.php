@@ -260,7 +260,7 @@
             <div class="row mb-6">
                 <label class="col-lg-4 col-form-label fw-semibold fs-6">Academic Certification</label>
                 <div class="col-lg-8">
-                <input class="form-control form-control-lg form-control-solid" name="s_academic_cert" type="file" accept=".pdf"/>
+                <input class="form-control form-control-lg form-control-solid" name="s_academic_cert" type="text" />
                 <div class="form-text">Allowed file types: pdf.</div>
                 </div>
             </div>
@@ -269,7 +269,7 @@
             <div class="row mb-6">
                 <label class="col-lg-4 col-form-label fw-semibold fs-6">Co-curriculum Certification</label>
                 <div class="col-lg-8">
-                <input class="form-control form-control-lg form-control-solid" name="s_cocurriculum_cert" type="file" accept=".pdf" />
+                <input class="form-control form-control-lg form-control-solid" name="s_cocurriculum_cert" type="text"/>
                 <div class="form-text">Allowed file types: pdf.</div>
             </div>
             <!-- Submit Button -->
