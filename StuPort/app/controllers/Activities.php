@@ -97,7 +97,7 @@ class Activities extends Controller
 // delete function 
     public function delete($activity_id)
     {
-        $activity = $this->ActivityModel->findActivityById($activity_id);
+        $activity = $this->activityModel->findActivityById($activity_id);
 
 
         

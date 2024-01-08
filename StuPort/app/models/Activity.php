@@ -64,7 +64,7 @@ class Activity
     }
 
     public function deleteActivity($activity_id){
-        $this->db->query('DELETE FROM posts WHERE activity_id = :$activity_id');
+        $this->db->query('DELETE FROM activity WHERE activity_id = :activity_id');
 
         $this->db->bind(':activity_id', $activity_id);
 
