@@ -16,8 +16,8 @@ class Page
         // $this->db->query("SELECT * FROM profile WHERE email = :email");
 
         $this->db->query("SELECT * FROM profile AS p 
-                          JOIN user AS u ON p.p_email = u.email 
-                          JOIN student AS s ON p.p_email = s.s_email 
+                          JOIN user AS u ON p_email = u.email 
+                          JOIN student AS s ON p_email = s_email 
                           WHERE u.email = :email");
 
         $this->db->bind(':email', $_SESSION['email']);
@@ -33,8 +33,8 @@ class Page
         // $this->db->query("SELECT * FROM profile WHERE email = :email");
 
         $this->db->query("SELECT * FROM profile AS p 
-                          JOIN user AS u ON p.p_email = u.email 
-                          JOIN administrator AS a ON p.p_email = a.a_email 
+                          JOIN user AS u ON p_email = u.email 
+                          JOIN administrator AS a ON p_email = a.a_email 
                           WHERE u.email = :email");
 
         $this->db->bind(':email', $_SESSION['email']);
@@ -75,7 +75,7 @@ class Page
     //     $user_code = $_SESSION['user_code'];
 
     //     $this->db->query("SELECT * FROM uni_details
-    //     INNER JOIN st_profile ON uni_details.uni_code=st_profile.univ_code  WHERE st_code = :st_code");
+    //     INNER JOIN st_profile ON uni_detailuni_code=st_profile.univ_code  WHERE st_code = :st_code");
 
     //     $this->db->bind(':st_code', $user_code);
 
@@ -84,7 +84,7 @@ class Page
     //     $user_code = $_SESSION['user_code'];
 
     //     $this->db->query("SELECT * FROM uni_details
-    //     INNER JOIN sv_profile ON uni_details.uni_code=sv_profile.univ_code  WHERE sv_code = :sv_code");
+    //     INNER JOIN sv_profile ON uni_detailuni_code=sv_profile.univ_code  WHERE sv_code = :sv_code");
 
     //     $this->db->bind(':sv_code', $user_code);
 
@@ -101,18 +101,18 @@ class Page
         if (isset($data['profileimage'])) { //Update with image and information
 
             //Profile table and Student table
-            $this->db->query("UPDATE p 
-                                  SET p.p_email = :email, p.p_name = :p_name, p.gender = :gender, p.race = :race, p.age = :age, p.dob = :dob, 
-                                  p.profileimage = :profileimage, p.position = :user_role, p.headline = :headline, 
-                                  p.about = :about, p.country = :country, p.citystate = :citystate 
-                                  WHERE p.p_email = :email;
+            $this->db->query("UPDATE profile 
+                                  SET p_email = :email, p_name = :p_name, gender = :gender, race = :race, age = :age, dob = :dob, 
+                                  profileimage = :profileimage, position = :position, headline = :headline, 
+                                  about = :about, country = :country, citystate = :citystate 
+                                  WHERE p_email = :email;
                                   
-                                  UPDATE s 
-                                  SET s.s_email = :email, s.s_fName = :s_fName, s.s_lName = :s_lName, s.s_telephone_no = :s_telephone_no, s.s_address = :s_address, 
-                                  s.s_institution = :s_institution, s.s_course = :s_course, s.s_skills = :s_skills, s.s_hobby = :s_hobby, 
-                                  s.s_achievement = :s_achievement, s.s_ambition = :s_ambition, s.s_academic_cert = :s_academic_cert, 
-                                  s.s_cocurriculum_cert = :s_cocurriculum_cert
-                                  WHERE s.s_email = :email;");
+                                  UPDATE student 
+                                  SET s_email = :email, s_fName = :s_fName, s_lName = :s_lName, s_telephone_no = :s_telephone_no, s_address = :s_address, 
+                                  s_institution = :s_institution, s_course = :s_course, s_skills = :s_skills, s_hobby = :s_hobby, 
+                                  s_achievement = :s_achievement, s_ambition = :s_ambition, s_academic_cert = :s_academic_cert, 
+                                  s_cocurriculum_cert = :s_cocurriculum_cert
+                                  WHERE s_email = :email;");
 
             //Profile table
             $this->db->bind(':email', $_SESSION['email']);
@@ -127,7 +127,7 @@ class Page
             $this->db->bind(':about', $data['about']);
             $this->db->bind(':country', $data['country']);
             $this->db->bind(':citystate', $data['citystate']);
-            $this->db->execute();
+
 
             //Student table
             $this->db->bind(':s_fName', $data['s_fName']);
@@ -142,23 +142,23 @@ class Page
             $this->db->bind(':s_ambition', $data['s_ambition']);
             $this->db->bind(':s_academic_cert', $data['s_academic_cert']);
             $this->db->bind(':s_cocurriculum_cert', $data['s_cocurriculum_cert']);
-            $this->db->execute();
+
             
         } else { //Update without image
 
             //Profile table and Student table
-            $this->db->query("UPDATE p 
-                                  SET p.p_email = :email, p.p_name = :p_name, p.gender = :gender, p.race = :race, p.age = :age, p.dob = :dob, 
-                                  p.position = :user_role, p.headline = :headline, 
-                                  p.about = :about, p.country = :country, p.citystate = :citystate 
-                                  WHERE p.p_email = :email;
+            $this->db->query("UPDATE profile 
+                                  SET p_email = :email, p_name = :p_name, gender = :gender, race = :race, age = :age, dob = :dob, 
+                                  position = :position, headline = :headline, 
+                                  about = :about, country = :country, citystate = :citystate 
+                                  WHERE p_email = :email;
                                   
-                                  UPDATE s 
-                                  SET s.s_email = :email, s.s_fName = :s_fName, s.s_lName = :s_lName, s.s_telephone_no = :s_telephone_no, s.s_address = :s_address, 
-                                  s.s_institution = :s_institution, s.s_course = :s_course, s.s_skills = :s_skills, s.s_hobby = :s_hobby, 
-                                  s.s_achievement = :s_achievement, s.s_ambition = :s_ambition, s.s_academic_cert = :s_academic_cert, 
-                                  s.s_cocurriculum_cert = :s_cocurriculum_cert
-                                  WHERE s.s_email = :email;");
+                                  UPDATE student 
+                                  SET s_email = :email, s_fName = :s_fName, s_lName = :s_lName, s_telephone_no = :s_telephone_no, s_address = :s_address, 
+                                  s_institution = :s_institution, s_course = :s_course, s_skills = :s_skills, s_hobby = :s_hobby, 
+                                  s_achievement = :s_achievement, s_ambition = :s_ambition, s_academic_cert = :s_academic_cert, 
+                                  s_cocurriculum_cert = :s_cocurriculum_cert
+                                  WHERE s_email = :email;");
 
             //Profile table
             $this->db->bind(':email', $_SESSION['email']);
@@ -172,7 +172,7 @@ class Page
             $this->db->bind(':about', $data['about']);
             $this->db->bind(':country', $data['country']);
             $this->db->bind(':citystate', $data['citystate']);
-            $this->db->execute();
+
 
             //Student table
             $this->db->bind(':s_fName', $data['s_fName']);
@@ -187,7 +187,7 @@ class Page
             $this->db->bind(':s_ambition', $data['s_ambition']);
             $this->db->bind(':s_academic_cert', $data['s_academic_cert']);
             $this->db->bind(':s_cocurriculum_cert', $data['s_cocurriculum_cert']);
-            $this->db->execute();
+
         }
 
         // execute function
@@ -205,10 +205,10 @@ class Page
 
             //Profile table and Admin table
             $this->db->query("UPDATE p 
-                                  SET p.p_email = :email, p.p_name = :p_name, p.gender = :gender, p.race = :race, p.age = :age, p.dob = :dob, 
-                                  p.profileimage = :profileimage, p.position = :user_role, p.headline = :headline, 
-                                  p.about = :about, p.country = :country, p.citystate = :citystate 
-                                  WHERE p.p_email = :email;
+                                  SET p_email = :email, p_name = :p_name, gender = :gender, race = :race, age = :age, dob = :dob, 
+                                  profileimage = :profileimage, position = :user_role, headline = :headline, 
+                                  about = :about, country = :country, citystate = :citystate 
+                                  WHERE p_email = :email;
                                   
                                   UPDATE a 
                                   SET a.a_email = :email, a.a_organization = :a_organization, a.a_org_num = :a_org_num, a.a_address = :a_address
@@ -239,10 +239,10 @@ class Page
 
             //Profile table and Admin table
             $this->db->query("UPDATE p 
-                                  SET p.p_email = :email, p.p_name = :p_name, p.gender = :gender, p.race = :race, p.age = :age, p.dob = :dob, 
-                                  p.profileimage = :profileimage, p.position = :user_role, p.headline = :headline, 
-                                  p.about = :about, p.country = :country, p.citystate = :citystate 
-                                  WHERE p.p_email = :email;
+                                  SET p_email = :email, p_name = :p_name, gender = :gender, race = :race, age = :age, dob = :dob, 
+                                  profileimage = :profileimage, position = :user_role, headline = :headline, 
+                                  about = :about, country = :country, citystate = :citystate 
+                                  WHERE p_email = :email;
                                   
                                   UPDATE a 
                                   SET a.a_email = :email, a.a_organization = :a_organization, a.a_org_num = :a_org_num, a.a_address = :a_address
