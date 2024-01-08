@@ -12,9 +12,9 @@
 									<li class="menu-item">
 										<a href="https://keenthemes.com" target="_blank" class="menu-link px-2">About</a>
 									</li>
-									<li class="menu-item">
+									<!-- <li class="menu-item">
 										<a href="https://devs.keenthemes.com" target="_blank" class="menu-link px-2">Support</a>
-									</li>
+									</li> -->
 									<!-- <li class="menu-item">
 										<a href="https://1.envato.market/EA4JP" target="_blank" class="menu-link px-2">Purchase</a>
 									</li> -->
