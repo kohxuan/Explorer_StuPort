@@ -31,7 +31,7 @@
                                 class="btn btn-light-warning">Update</a>
 
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#kt<?php echo $post->id?>">
+                                data-bs-target="#kt<?php echo $post->id?>
                                 Delete
                             </button>
 

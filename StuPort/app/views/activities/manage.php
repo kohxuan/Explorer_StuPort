@@ -1,94 +1,92 @@
-                                                             
 <div class="card shadow-sm">
     <div class="card-header">
         <h3 class="card-title">Manage Activities</h3>
         <div class="card-toolbar">
             <?php if(isLoggedIn()): ?>
                 <a href="<?php echo URLROOT;?>/activities/create" class="btn btn-light-primary">Create</a>
-
-
             <?php endif; ?>
         </div>
     </div>
-    <div class="card-body"> <!--Card for tidiness-->
+    <div class="card-body">
         <div class="table-responsive">
             <table id="kt_datatable_posts" class="table table-row-bordered gy-5">
                 <thead>
-                <tr class="fw-semibold fs-6 text-muted">
-                    <th>Title</th>
-                    <th>Content</th>
-                    <th>Date</th>
-                    <th>Action</th>
-                    <th>Feedback given</th>
-                    <th>Review</th>
-                </tr>
-            </thead>
-            </tbody> <!-- Move this line here -->
-
-                    <?php foreach($data['activities'] as $activities): ?>  
+                    <tr class="fw-semibold fs-6 text-muted">
+                        <th>Title</th>
+                        <th>Content</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                        <th>Feedback given</th>
+                        <th>Review</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($data['activities'] as $activity): ?>  
                         <tr>
-                            <td><?php echo $activities->title; ?></td>
-                            <td><?php echo $activities->activity_desc; ?></td>
-                            <td><?php echo date('F j h:m', strtotime($activities->act_datetime)); ?></td>
-
-                            <td>     <a href="<?php echo URLROOT . "/activities/update/" . $activities->activity_id ?>"
-                                class="btn btn-light-warning">Update</a></td>
-
-                            <!-- this is for master admin or admin to upload the feedback form link manuallly to let students fill in -->
+                            <td><?php echo $activity->title; ?></td>
+                            <td><?php echo $activity->activity_desc; ?></td>
+                            <td><?php echo date('F j h:m', strtotime($activity->act_datetime)); ?></td>
                             <td>
-                            <?php
-                                if (!empty($activities->link_form)) {
-                                    // Display as a hyperlink for the feedback link
-                                    echo '<a href="' . $activities->link_form . '">' . $activities->link_form . '</a>';
+                                <a href="<?php echo URLROOT . "/activities/update/" . $activity->activity_id ?>" class="btn btn-light-warning">Update</a>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt<?php echo $activity->activity_id?>">
+                                    Delete
+                                </button>
+                                <div class="modal fade" tabindex="-1" id="kt<?php echo $activity->activity_id?>">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h3 class="modal-title">Delete Activity</h3>
+                                                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                                                    <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+                                                </div>
+                                            </div>
+                                            <div class="modal-body">
+                                                Are you sure want to delete this activity?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <form action="<?php echo URLROOT . "/activities/delete/" . $activity->activity_id; ?>" method="POST">
+                                                    <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary font-weight-bold">Delete</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <?php
+                                if (!empty($activity->link_form)) {
+                                    echo '<a href="' . $activity->link_form . '">' . $activity->link_form . '</a>';
                                 } else {
-                                    // Display the "Add Feedback" button
                                     echo '<a href="' . URLROOT . '/feedbacks/create" class="btn btn-light-primary">Add Feedback</a>';
                                 }
-                                ?>  
+                                ?>
                             </td>
-
-                            <!-- this is for master admin or admin to review the student feedback -->
-                            <td> 
+                            <td>
                                 <?php
-                                // Check if feedback link is present
-                                if (!empty($activities->feedback_link)) {
-                                    // Display the textbox for typing the comment
-                                    echo '<textarea id="commentInput_' . $activities->activity_id . '" placeholder="Type your comment here"></textarea>';
+                                if (!empty($activity->feedback_link)) {
+                                    echo '<textarea id="commentInput_' . $activity->activity_id . '" placeholder="Type your comment here"></textarea>';
                                     echo '<br><br>';
-                                    echo '<button onclick="addComment(' . $activities->activity_id . ')">Enter</button>';
-                                    
-                                    // Check if review is present
-                                    if (!empty($activities->review)) {
-                                        // Display the review text
-                                        echo '<div id="reviewText_' . $activities->activity_id . '">' . $activities->review . '</div>';
+                                    echo '<button onclick="addComment(' . $activity->activity_id . ')">Enter</button>';
+                                    if (!empty($activity->review)) {
+                                        echo '<div id="reviewText_' . $activity->activity_id . '">' . $activity->review . '</div>';
                                     }
                                 } else {
-                                    // No feedback link, nothing will be displayed
                                     echo '  ';
                                 }
                                 ?>
                             </td>
-                        
-
                         </tr>
                     <?php endforeach; ?>
-
-
                 </tbody>
             </table>
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
         <script>
- $(document).ready(function() {
-    var table = $('#kt_datatable_posts').DataTable({
-
-        
-    });
-});
-
+            $(document).ready(function() {
+                var table = $('#kt_datatable_posts').DataTable({});
+            });
         </script>
-
     </div>
     <div class="card-footer">
         Footer

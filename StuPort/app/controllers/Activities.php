@@ -9,9 +9,9 @@ class Activities extends Controller
 
     public function index()
     {
-        $activities = $this->activityModel->manageAllActivities();
+        $activity = $this->activityModel->manageAllActivities();
         $data = [
-            'activities' => $activities
+            'activities' => $activity
         ];
     
         $this->view('activities/index', $data);
@@ -51,11 +51,11 @@ class Activities extends Controller
 
     public function update($activity_id)
     {
-        $activities = $this->activityModel->findActivityById($activity_id);
+        $activity = $this->activityModel->findActivityById($activity_id);
 
         $data = 
         [
-            'activities' => $activities,
+            'activities' => $activity,
             'title' => '',
             'activity_desc' => '',
 
@@ -66,7 +66,7 @@ class Activities extends Controller
             $data = 
             [
             'id' => $activity_id,
-            'activities' => $activities,
+            'activities' => $activity,
             'user_id' => $_SESSION['user_id'],
             'title' => trim($_POST['title']),
             'activity_desc' => trim($_POST['activity_desc']),
@@ -91,6 +91,31 @@ class Activities extends Controller
         }
 
         $this->view('activities/index', $data);
+    }
+
+
+// delete function 
+    public function delete($activity_id)
+    {
+        $activity = $this->ActivityModel->findActivityById($activity_id);
+
+
+        
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+       
+       
+            if($this->activityModel->deleteActivity($activity_id)){
+                header("Location: " . URLROOT . "/activities");
+            }
+            else
+            {
+                die('Something went wrong..');
+            }
+       
+       
+        }
+        
     }
 }
 ?>

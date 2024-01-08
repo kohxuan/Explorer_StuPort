@@ -63,6 +63,22 @@ class Activity
         }
     }
 
+    public function deleteActivity($activity_id){
+        $this->db->query('DELETE FROM posts WHERE activity_id = :$activity_id');
+
+        $this->db->bind(':activity_id', $activity_id);
+
+        if ($this->db->execute())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
 
 } // Closing brace for the Activity class
 ?>
