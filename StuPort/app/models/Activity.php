@@ -33,5 +33,18 @@ class Activity
         }
     }
     
+    
+    public function findActivityById($id)
+    {
+        $this->db->query('SELECT * FROM activity WHERE activity_id = :activity_id');
+        $this->db->bind(':activity_id', $activity_id);
+
+        $row = $this->db->single();
+
+        return $row;
+    }
+
+
 } // Closing brace for the Activity class
 ?>
+
