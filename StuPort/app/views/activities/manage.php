@@ -51,7 +51,7 @@
                             <td> 
                                 <?php
                                 // Check if feedback link is present
-                                if (empty($activities->feedback_link)) {
+                                if (!empty($activities->feedback_link)) {
                                     // Display the textbox for typing the comment
                                     echo '<textarea id="commentInput_' . $activities->activity_id . '" placeholder="Type your comment here"></textarea>';
                                     echo '<br><br>';
@@ -68,11 +68,7 @@
                                 }
                                 ?>
                             </td>
-                            
-
-
-
-
+                        
 
                         </tr>
                     <?php endforeach; ?>
