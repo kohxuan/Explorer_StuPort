@@ -143,11 +143,6 @@
             <!--end::Header-->
             <!--begin::Card body-->
             <div class="card-body pt-2 pb-4 d-flex align-items-center">
-                <!--begin::Chart-->
-        <div class="d-flex flex-center me-5 pt-2">
-            <canvas id="kt_card_widget_4_chart" style="min-width: 70px; min-height: 70px"></canvas>
-        </div>
-        <!--end::Chart-->
                 <!-- Display the dynamic data -->
                 <div class="d-flex flex-column content-justify-center w-100">
                     <!--begin::Label for clients/partners-->
@@ -182,7 +177,7 @@
             <!--end::Card body-->
         </div>
         <!--end::Card widget 4-->
-
+	
 
 
         <!--End of Content area here-->
