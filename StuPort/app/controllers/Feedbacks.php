@@ -28,7 +28,7 @@ class Feedbacks extends Controller {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data = 
             [
-            'activity_id' => $_POST['activity_id'],
+            'activity_id' => $_POST['id'],
             'link_form' => trim($_POST['link_form'])
             ];
 
@@ -67,7 +67,7 @@ class Feedbacks extends Controller {
             [
             'feedback_id' => $feedback_id,
             'feedback' => $feedback,
-            'activity_id' => $_SESSION['activity_id'],
+            'activity_id' => $_SESSION['id'],
             'link_form' => trim($_POST['link_form'])
             ];
 
