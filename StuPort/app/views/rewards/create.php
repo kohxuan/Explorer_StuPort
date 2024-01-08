@@ -30,16 +30,12 @@
             </div>
 
             <div class="mb-10">
-                <label for="badge_name" class="required form-label">Achievement Status</label>
-                
-                <input type="radio" name="achievemnt_status"
-                        <?php if (isset($achievemnt_status) && $achievemnt_status=="Achieved") echo "checked";?>
-                        value=" Achieved"> Achieved
-                        <input type="radio" name="gender"
-                        <?php if (isset($achievemnt_status) && $achievemnt_status=="Not Achieved") echo "checked";?>
-                        value=" Not Achieved"> Not Achieved
-
+                <label for="badge_name" class="required form-label">Achievemnt Status</label>
+                <input type="text" name="badge_name" class="form-control form-control-solid" placeholder="Status..." required />
             </div>
+
+
+    
             
             
 
