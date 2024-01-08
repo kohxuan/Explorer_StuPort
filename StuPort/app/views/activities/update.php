@@ -10,7 +10,7 @@
     <div class="card-body">
 
 
-    <form action="<?php echo URLROOT; ?>/activities/update/<?php echo $data['activity']->activity_id ?>" method="POST">
+    <form action="<?php echo URLROOT; ?>/activities/update/<?php echo $data['activity']['activity_id'] ?>" method="POST">
 
             <div class="mb-10">
                 <label for="exampleFormControlInput1" class="required form-label">Activity Title</label>

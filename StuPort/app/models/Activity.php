@@ -34,7 +34,7 @@ class Activity
     }
     
     
-    public function findActivityById($id)
+    public function findActivityById($activity_id)
     {
         $this->db->query('SELECT * FROM activity WHERE activity_id = :activity_id');
         $this->db->bind(':activity_id', $activity_id);
@@ -42,6 +42,25 @@ class Activity
         $row = $this->db->single();
 
         return $row;
+    }
+
+
+    public function updateActivity($data)
+    {
+        $this->db->query('UPDATE activity SET title = :title, activity_desc = :activity_desc WHERE activity_id = :activity_id');
+
+        $this->db->bind(':activity_id', $data['activity_id']);
+        $this->db->bind(':title', $data['title']);
+        $this->db->bind(':activity_desc', $data['activity_desc']);
+
+        if ($this->db->execute())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 

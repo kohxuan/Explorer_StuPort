@@ -48,5 +48,49 @@ class Activities extends Controller
     
         $this->view('activities/create', $data);
     }
+
+    public function update($activity_id)
+    {
+        $activities = $this->activityModel->findActivityById($activity_id);
+
+        $data = 
+        [
+            'activity' => $activities,
+            'title' => '',
+            'activity_desc' => '',
+
+        ];
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $data = 
+            [
+            'id' => $activity_id,
+            'activity' => $activities,
+            'user_id' => $_SESSION['user_id'],
+            'title' => trim($_POST['title']),
+            'activity_desc' => trim($_POST['activity_desc']),
+
+            ];
+
+
+
+            if (empty($data['title'] && $data['activity_desc'])){
+                if ($this->activityModel->updateActivity($data)){
+                    header("Location: " . URLROOT. "/activities" );
+                }
+                else
+                {
+                    die("Something went wrong :(");
+                }
+            }
+            else
+            {
+                $this->view('activities/index', $data);
+            }
+        }
+
+        $this->view('activities/index', $data);
+    }
 }
 ?>

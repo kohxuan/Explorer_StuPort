@@ -1,7 +1,8 @@
 <?php require APPROOT . '/views/includes/head_metronic.php';?>
 <?php require APPROOT . '/views/includes/begin_app.php';?>
 
-<?php require APPROOT . '/views/activities/manage.php';?>
+<?php require APPROOT . '/views/activities/manage.php';?> <!--??-->
+
 
 <?php require APPROOT . '/views/includes/end_app.php';?>
 
