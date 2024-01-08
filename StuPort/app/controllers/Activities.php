@@ -11,7 +11,7 @@ class Activities extends Controller
     {
         $activities = $this->activityModel->manageAllActivities();
         $data = [
-            'activity' => $activities
+            'activities' => $activities
         ];
     
         $this->view('activities/index', $data);
@@ -55,7 +55,7 @@ class Activities extends Controller
 
         $data = 
         [
-            'activity' => $activities,
+            'activities' => $activities,
             'title' => '',
             'activity_desc' => '',
 
@@ -66,7 +66,7 @@ class Activities extends Controller
             $data = 
             [
             'id' => $activity_id,
-            'activity' => $activities,
+            'activities' => $activities,
             'user_id' => $_SESSION['user_id'],
             'title' => trim($_POST['title']),
             'activity_desc' => trim($_POST['activity_desc']),

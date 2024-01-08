@@ -11,26 +11,26 @@
         </div>
     </div>
     <div class="card-body"> <!--Card for tidiness-->
-
         <div class="table-responsive">
             <table id="kt_datatable_posts" class="table table-row-bordered gy-5">
                 <thead>
-                    <tr class="fw-semibold fs-6 text-muted">
-                        <th>Title</th>
-                        <th>Content</th>
-                        <th>Date</th>
-                        <th>Action</th>
-                        <th>Feedback given</th>
-                        <th>Review</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php if(isset($data['activity']) && is_array($data['activity'])): ?>
-                    <?php foreach($data['activity'] as $activities): ?>  
+                <tr class="fw-semibold fs-6 text-muted">
+                    <th>Title</th>
+                    <th>Content</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                    <th>Feedback given</th>
+                    <th>Review</th>
+                </tr>
+            </thead>
+            </tbody> <!-- Move this line here -->
+
+                    <?php foreach($data['activities'] as $activities): ?>  
                         <tr>
                             <td><?php echo $activities->title; ?></td>
                             <td><?php echo $activities->activity_desc; ?></td>
-                            <td><?php echo date('F j H:i', strtotime($activities->act_datetime)); ?></td>
+                            <td><?php echo date('F j h:m', strtotime($activities->act_datetime)); ?></td>
+
                             <td>     <a href="<?php echo URLROOT . "/activities/update/" . $activities->activity_id ?>"
                                 class="btn btn-light-warning">Update</a></td>
 
@@ -72,11 +72,6 @@
 
                         </tr>
                     <?php endforeach; ?>
-                <?php else: ?>
-                    <tr>
-                        <td colspan="3">No activities found.</td>
-                    </tr>
-                <?php endif; ?>
 
 
                 </tbody>
@@ -87,15 +82,11 @@
         <script>
  $(document).ready(function() {
     var table = $('#kt_datatable_posts').DataTable({
-        "columns": [
-            { "data": "Title" },
-            { "data": "Content" },
-            { "data": "Date" },
-            { "data": "Feedback given" },
-            { "data": "Review" }
-        ]
+
+        
     });
 });
+
         </script>
 
     </div>

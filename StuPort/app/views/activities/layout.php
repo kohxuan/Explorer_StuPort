@@ -9,7 +9,7 @@
         <!--Content area here-->
         <?php //Baca current URL
             // Initialize $u_url
-          
+             $u_url = "";
                     if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
                         $url = "https://";
                     else
@@ -30,7 +30,7 @@
                     if (isset($data['activity']) && is_object($data['activity'])) {
                     $u_url = URLROOT . "/activities/update/".$data['activity']->activity_id; //Update must have id // Dynamic URL (id from database) 
                     }
-                    echo $url."<br>".$u_url;
+                    // echo $url."<br>".$u_url;
 
                     //error_reporting(0);
                     //Buat comparison and lead to the correspond website defined earlier

@@ -83,13 +83,8 @@
         <script>
  $(document).ready(function() {
     var table = $('#kt_datatable_posts').DataTable({
-        "columns": [
-            { "data": "Title" },
-            { "data": "Content" },
-            { "data": "Date" },
-            { "data": "Feedback given" },
-            { "data": "Review" }
-        ]
+
+        
     });
 });
 
