@@ -1,7 +1,7 @@
 <?php
 
     class Rewards extends Controller {
-
+        private $rewardModel;
         public function __construct() {
 
             $this->rewardModel = $this->model('Reward');
@@ -29,6 +29,8 @@
 
             }
 
+
+
             $data = [
 
                 'badge_name' => '',
@@ -37,9 +39,39 @@
 
             ];
 
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    
+                
+                $data = 
+                [
+                'user_id' => $_SESSION['user_id'],
+                'badge_name' => trim($_POST['badge_name']),
+                'badge_description' => trim($_POST['badge_description']),
+                'achievement_status' => trim($_POST['achievement_status']),
+                ];
+    
+    
+                if ($data['badge_name'] && $data['badge_description'] && $data['achievement_status']){
+                    if ($this->rewardModel->addReward($data)){
+                        header("Location: " . URLROOT. "/rewards" );
+                    }
+                    else
+                    {
+                        die("Something went wrong :(");
+                    }
+                }
+                else
+                {
+                    $this->view('rewards/index', $data);
+                }
+            }
+
            
 
             $this->view('rewards/index', $data);
+
+            
 
         }
 
@@ -266,7 +298,7 @@
 
             }
 
-            if($this->rewardModel->deleteBadge($id)){
+            if($this->rewardModel->deleteReward($id)){
 
                 header("Location: " . URLROOT . "/rewards");
 

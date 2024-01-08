@@ -30,7 +30,7 @@
             </div>
 
             <div class="mb-10">
-                <label for="badge_name" class="required form-label">Achievemnt Status</label>
+                <label for="achievement_status" class="required form-label">Achievemnt Status</label>
                 <input type="text" name="badge_name" class="form-control form-control-solid" placeholder="Status..." required />
             </div>
 

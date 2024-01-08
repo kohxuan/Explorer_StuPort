@@ -1,5 +1,6 @@
 <?php
 class Registration extends Controller{
+    private $registrationModel;
     public function __construct(){
         $this->registrationModel = $this->model('Registration');
     }
