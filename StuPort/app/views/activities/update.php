@@ -10,18 +10,18 @@
     <div class="card-body">
 
 
-    <form action="<?php echo URLROOT; ?>/activities/create" method="POST">
+    <form action="<?php echo URLROOT; ?>/activities/update/<?php echo $data['activity']->activity_id ?>" method="POST">
 
             <div class="mb-10">
                 <label for="exampleFormControlInput1" class="required form-label">Activity Title</label>
-                <input type="text" name="title" class="form-control form-control-solid" placeholder="Title" required />
+                <input type="text" name="title" class="form-control form-control-solid" value="<?php echo $data['activity']->title;?>" required />
             </div>
 
             <div class="mb-10">
                 <label for="exampleFormControlInput1" class="form-label">Description</label>
                 <div class="position-relative">
                     <div class="required position-absolute top-0"></div>
-                    <textarea name="activity_desc" class="form-control" aria-label="With textarea" required></textarea>
+                    <textarea name="activity_desc" class="form-control" aria-label="With textarea" required><?php echo $data['activity']->activity_desc;?></textarea>
                 </div>
             </div>
 
@@ -34,4 +34,3 @@
         Footer
     </div>
 </div>
-

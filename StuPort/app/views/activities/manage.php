@@ -31,7 +31,8 @@
                             <td><?php echo $activities->title; ?></td>
                             <td><?php echo $activities->activity_desc; ?></td>
                             <td><?php echo date('F j H:i', strtotime($activities->act_datetime)); ?></td>
-                            <td><?php echo $activities->title; ?></td>
+                            <td>     <a href="<?php echo URLROOT . "/activities/update/" . $activities->activity_id ?>"
+                                class="btn btn-light-warning">Update</a></td>
 
                             <!-- this is for master admin or admin to upload the feedback form link manuallly to let students fill in -->
                             <td>
