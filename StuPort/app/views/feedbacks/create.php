@@ -22,7 +22,7 @@
                     <div class="required position-absolute top-0"></div>
                     <textarea name="body" class="form-control" aria-label="With textarea" required></textarea>
                 </div>
-            </div> -->
+            </div> -->a
 
             <button type="submit" class="btn btn-primary font-weight-bold">Submit</button>
 
