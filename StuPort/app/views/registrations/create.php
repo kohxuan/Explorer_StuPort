@@ -1,6 +1,6 @@
 <div class="card shadow-sm">
     <div class="card-header">
-        <h3 class="card-title">Create Registration</h3>
+        <h3 class="card-title">Create Registration Form</h3>
         <div class="card-toolbar">
             <?php if(isLoggedIn()): ?>
             <a href="<?php echo URLROOT;?>/registrations" class="btn btn-light-primary">Manage Registration</a>
@@ -12,15 +12,15 @@
 
         <form action="<?php echo URLROOT; ?>/registrations/create" method="POST">
             <div class="mb-10">
-                <label for="exampleFormControlInput1" class="required form-label">Link</label>
-                <input type="text" name="link" class="form-control form-control-solid" placeholder="Title" required />
+                <label for="exampleFormControlInput1" class="required form-label">Activity ID</label>
+                <input type="text" name="activity_id" class="form-control form-control-solid" placeholder="Title" required />
             </div>
 
             <div class="mb-10">
-                <label for="exampleFormControlInput1" class="form-label">Activity ID</label>
+                <label for="exampleFormControlInput1" class="form-label">Link</label>
                 <div class="position-relative">
                     <div class="required position-absolute top-0"></div>
-                    <textarea name="activity_id" class="form-control" aria-label="With textarea" required></textarea>
+                    <textarea name="link" class="form-control" aria-label="With textarea" required></textarea>
                 </div>
             </div>
 
