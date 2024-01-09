@@ -19,12 +19,17 @@ class Activity
 
     public function addActivity($data)
     {
-        $this->db->query('INSERT INTO activity (title, activity_desc, act_datetime, user_id) VALUES (:title, :activity_desc, :act_datetime, :user_id)');
-        
-        $this->db->bind(':user_id', $data['user_id']);
+        $this->db->query('INSERT INTO activities (user_id, title, activity_desc, act_datetime, category, location, organizer_name, skill_acquired, attachment, link_form) VALUES (:user_id, :title, :activity_desc, :act_datetime, :category, :location, :organizer_name, :skill_acquired, :attachment, :link_form)');
+
+        // Bind values
+    
         $this->db->bind(':title', $data['title']);
         $this->db->bind(':activity_desc', $data['activity_desc']);
-        $this->db->bind(':act_datetime', $data['act_datetime']);
+        $this->db->bind(':category', $data['category']);
+        $this->db->bind(':location', $data['location']);
+        $this->db->bind(':organizer_name', $data['organizer_name']);
+        $this->db->bind(':skill_acquired', $data['skill_acquired']);
+        $this->db->bind(':attachment', $data['attachment']);
     
         if ($this->db->execute()) {
             return true;
@@ -52,6 +57,11 @@ class Activity
         $this->db->bind(':activity_id', $data['activity_id']);
         $this->db->bind(':title', $data['title']);
         $this->db->bind(':activity_desc', $data['activity_desc']);
+        $this->db->bind(':category', $data['category']);
+        $this->db->bind(':location', $data['location']);
+        $this->db->bind(':organizer_name', $data['organizer_name']);
+        $this->db->bind(':skill_acquired', $data['skill_acquired']);
+        $this->db->bind(':attachment', $data['attachment']);
 
         if ($this->db->execute())
         {
