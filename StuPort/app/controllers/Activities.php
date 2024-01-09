@@ -43,17 +43,19 @@ class Activities extends Controller
                 'location' => trim($_POST['location']),
                 'organizer_name' => trim($_POST['organizer_name']),
                 'skill_acquired' => trim($_POST['skill_acquired']),
-                'attachment' => $_FILES['attachment'] // Use $_FILES to access file data
+                'attachment' => isset($_FILES['attachment']) ? $_FILES['attachment'] : null
+ // Use $_FILES to access file data
             ];
     
             // Perform additional validation if necessary
             if ($data['title'] && $data['activity_desc'] && $data['category'] && $data['act_datetime'] && $data['location'] && $data['organizer_name'] && $data['skill_acquired'] && $data['attachment']){
-            if ($this->activityModel->addActivity($data)) {
+            
+            
+                if ($this->activityModel->addActivity($data)) {
                 header("Location: " . URLROOT . "/activities");
                 exit();
             } else {
                 $this->view('activities/create', $data);
-                // Added return to stop further execution after rendering the view
                 die("Something went wrong :(");
             }
         }
