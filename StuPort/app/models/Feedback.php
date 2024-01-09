@@ -74,5 +74,17 @@ class Feedback {
         }
 
     }
+
+    public function findActivityById($activity_id)
+    {
+        $this->db->query('SELECT * FROM activity WHERE activity_id = :activity_id');
+        $this->db->bind(':activity_id', $activity_id);
+
+        $row = $this->db->single();
+        $this->db->execute();
+        
+        return $row;
+    }
+
 }
 ?>

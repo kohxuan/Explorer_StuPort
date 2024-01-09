@@ -28,7 +28,7 @@ class Feedbacks extends Controller {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data = 
             [
-            'activity_id' => $_POST['id'],
+            'activity_id' => $_POST['activity_id'],
             'link_form' => trim($_POST['link_form'])
             ];
 
@@ -47,6 +47,16 @@ class Feedbacks extends Controller {
                 $this->view('feedbacks/index', $data);
             }
         }
+
+        $activity_id = $_GET['activity_id'];
+
+
+        $activity = $this->feedbackModel->findActivityById($activity_id);
+
+        $data = 
+        [
+            'activity' => $activity
+        ];
 
         $this->view('feedbacks/index', $data);
     }

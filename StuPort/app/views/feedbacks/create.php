@@ -10,11 +10,19 @@
     <div class="card-body">
 
 
+<?php 
+$activity_id=$_GET['activity_id'];
+?>
+
+
         <form action="<?php echo URLROOT; ?>/feedbacks/create" method="POST">
             <div class="mb-10">
                 <label for="exampleFormControlInput1" class="required form-label">Link:</label>
+                <input type="hidden" id="activity_id" name="activity_id" value="<?php echo $activity_id ; ?>">
                 <input type="text" name="link_form" class="form-control form-control-solid" placeholder="Link" required />
             </div>
+
+            
 
             <!--<div class="mb-10">
                 <label for="exampleFormControlInput1" class="form-label">Content</label>

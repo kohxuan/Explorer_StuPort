@@ -20,14 +20,18 @@
                     ?>
 
         <?php
-
+                    $activity_id = $_GET['activity_id'];
                     $c_url = URLROOT . "/feedbacks"; 
-                    $t_url = URLROOT . "/feedbacks/create"; 
+                    $t_url = URLROOT . "/feedbacks/create/?activity_id=$activity_id"; 
 
                     if (isset($data['feedback']) && is_object($data['feedback'])) {
-                    $u_url = URLROOT . "/feedbacks/edit/".$data['feedback']->feedback_id; 
+                    //$u_url = URLROOT . "/feedbacks/edit/".$data['feedback']->feedback_id; 
+                    }else{
+                        echo "No data send<br>";
                     }
 
+                    echo $t_url."<br>";
+                    echo $url."<br>";
 
                     //error_reporting(0);
                     if ($url == $c_url) {
@@ -35,8 +39,6 @@
                         require 'manage.php';
                     }elseif($url == $t_url){
                         require 'create.php';
-                    }elseif($url == $u_url){
-                        require 'edit.php';
                     } else {
 
                     }
