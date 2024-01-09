@@ -3,7 +3,7 @@
         <h3 class="card-title">Manage Registration</h3>
         <div class="card-toolbar">
             <?php if(isLoggedIn()): ?>
-            <a href="<?php echo URLROOT;?>/registration/create" class="btn btn-light-primary">Create</a>
+            <a href="<?php echo URLROOT;?>/registrations/create" class="btn btn-light-primary">Create</a>
             <?php endif; ?>
         </div>
     </div>
@@ -19,19 +19,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($data['registrations'] as $registration): ?>
+                    <?php foreach($data['registrations'] as $registrations): ?>
                     <tr>
-                        <td><?php echo '<a href="' . $registration->link . '">' .$registration->link . '</a>'; ?></td>
-                        <td><?php echo $registration->activity_id; ?></td>
-                        <td><a href="<?php echo URLROOT . "/registration/edit/" . $registration->activity_id ?>"
+                        <td><?php echo '<a href="' . $registrations->link . '">' .$registrations->link . '</a>'; ?></td>
+                        <td><?php echo $registrations->activity_id; ?></td>
+                        <td><a href="<?php echo URLROOT . "/registration/edit/" . $registrations->activity_id ?>"
                                 class="btn btn-light-warning">Edit</a>
                             
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#kt<?php echo$registration->activity_id?>">
+                                data-bs-target="#kt<?php echo$registrations->activity_id?>">
                                 Delete
                                 </button>
 
-                                <div class="modal fade" tabindex="-1" id="kt<?php echo $registration->activity_id?>">
+                                <div class="modal fade" tabindex="-1" id="kt<?php echo $registrations->activity_id?>">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -51,7 +51,7 @@
                                             </div>
 
                                             <div class="modal-footer">
-                                                <form action="<?php echo URLROOT . "/registration/delete/" . $registration->activity_id; ?>"
+                                                <form action="<?php echo URLROOT . "/registrations/delete/" . $registration->activity_id; ?>"
                                                     method="POST">
                                                     <!--<input type="hidden" id="expenses" name="expenses" value="expenses">-->
                                                     <button type="button" class="btn btn-light-primary font-weight-bold"

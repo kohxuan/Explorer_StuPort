@@ -3,14 +3,14 @@
         <h3 class="card-title">Create Registration</h3>
         <div class="card-toolbar">
             <?php if(isLoggedIn()): ?>
-            <a href="<?php echo URLROOT;?>/registration" class="btn btn-light-primary">Manage Registration</a>
+            <a href="<?php echo URLROOT;?>/registrations" class="btn btn-light-primary">Manage Registration</a>
             <?php endif; ?>
         </div>
     </div>
     <div class="card-body">
 
 
-        <form action="<?php echo URLROOT; ?>/registration/create" method="POST">
+        <form action="<?php echo URLROOT; ?>/registrations/create" method="POST">
             <div class="mb-10">
                 <label for="exampleFormControlInput1" class="required form-label">Link</label>
                 <input type="text" name="link" class="form-control form-control-solid" placeholder="Title" required />

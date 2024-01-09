@@ -3,6 +3,7 @@
 class Activities extends Controller
 {
     public function __construct()
+    
     {
         $this->activityModel = $this->model('Activity');
     }

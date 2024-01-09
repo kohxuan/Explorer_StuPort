@@ -24,11 +24,11 @@
 
         <?php
                     //rule
-                    $c_url = URLROOT . "/registration"; 
-                    $t_url = URLROOT . "/registration/create"; 
+                    $c_url = URLROOT . "/registrations"; 
+                    $t_url = URLROOT . "/registrations/create"; 
 
-                 if (isset($data['registration`']) && is_object($data['registration'])) {
-                   $u_url = URLROOT . "/registration/update/".$data['registration']->activity_id; //Update must have id // Dynamic URL (id from database) 
+                 if (isset($data['registrations']) && is_object($data['registrations'])) {
+                   $u_url = URLROOT . "/registrations/update/".$data['registrations']->activity_id; //Update must have id // Dynamic URL (id from database) 
                     }
 
 
