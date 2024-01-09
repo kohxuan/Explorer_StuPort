@@ -10,26 +10,25 @@
     <div class="card-body">
         <div class="table-responsive">
             <table id="kt_datatable_posts" class="table table-row-bordered gy-5">
-            <thead>
-                <tr class="fw-semibold fs-6 text-muted">
-                    <th>Title</th>
-                    <th>Category</th> <!-- Added category column -->
-                    <th>Content</th>
-                    <th>Date</th>
-                    <th>Location</th> <!-- Added location column -->
-                    <th>Organizer Name</th> <!-- Added organizer_name column -->
-                    <th>Skill Acquired</th> <!-- Added skill_acquired column -->
-                    <th>Action</th>
-                    <th>Feedback given</th>
-                    <th>Review</th>
-                    <th>Attachment</th> <!-- Added attachment column -->
-                    <th>Link Form</th>
-                </tr>
+                <thead>
+                    <tr class="fw-semibold fs-6 text-muted">
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Content</th>
+                        <th>Date</th>
+                        <th>Location</th>
+                        <th>Organizer Name</th>
+                        <th>Skill Acquired</th>
+                        <th>Action</th>
+                        <th>Feedback given</th>
+                        <th>Review</th>
+                        <th>Attachment</th>
+                        <th>Link Form</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <?php foreach($data['activities'] as $activity): ?>  
                         <tr>
-                        
                             <td><?php echo $activity->title; ?></td>
                             <td><?php echo $activity->category; ?></td>
                             <td><?php echo $activity->activity_desc; ?></td>
@@ -37,36 +36,34 @@
                             <td><?php echo $activity->location; ?></td>
                             <td><?php echo $activity->organizer_name; ?></td>
                             <td><?php echo $activity->skill_acquired; ?></td>
-                            <td><?php echo $activity->attachment; ?></td>
                             <td>
-                                <?php if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $activity->user_id): ?>
 
-                                <a href="<?php echo URLROOT . "/activities/update/" . $activity->activity_id ?>" class="btn btn-light-warning">Update</a>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt<?php echo $activity->activity_id?>">
-                                    Delete
-                                </button>
-                                <div class="modal fade" tabindex="-1" id="kt<?php echo $activity->activity_id?>">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h3 class="modal-title">Delete Activity</h3>
-                                                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
-                                                    <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+                                    <a href="<?php echo URLROOT . "/activities/update/" . $activity->activity_id ?>" class="btn btn-light-warning">Update</a>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt<?php echo $activity->activity_id?>">
+                                        Delete
+                                    </button>
+                                    <div class="modal fade" tabindex="-1" id="kt<?php echo $activity->activity_id?>">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h3 class="modal-title">Delete Activity</h3>
+                                                    <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                                                        <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="modal-body">
-                                                Are you sure want to delete this activity?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <form action="<?php echo URLROOT . "/activities/delete/" . $activity->activity_id; ?>" method="POST">
-                                                    <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary font-weight-bold">Delete</button>
-                                                </form>
+                                                <div class="modal-body">
+                                                    Are you sure want to delete this activity?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <form action="<?php echo URLROOT . "/activities/delete/" . $activity->activity_id; ?>" method="POST">
+                                                        <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary font-weight-bold">Delete</button>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <?php enfif; ?>
+                            
                             </td>
                             <td>
                                 <?php
@@ -90,7 +87,6 @@
                                     echo '  ';
                                 }
                                 ?>
-                               
                             </td>
                         </tr>
                     <?php endforeach; ?>

@@ -15,7 +15,7 @@
                             
                             <?php
     require APPROOT . '/views/pages/layout.php';
- ?>
+ ?>  
 
                         
                             <!--end::Row-->

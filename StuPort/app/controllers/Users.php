@@ -127,14 +127,14 @@ class Users extends Controller {
 
      
 
-      public function login() {
+    
+    public function login() {
         $data = [
             'title' => 'Login page',
             'username' => '',
             'password' => '',
             'usernameError' => '',
-            'passwordError' => '',
-            'user_role' => '',  // Add a default user role or fetch it from the database during login
+            'passwordError' => ''
         ];
     
         // Check for post
@@ -147,8 +147,8 @@ class Users extends Controller {
                 'password' => trim($_POST['password']),
                 'usernameError' => '',
                 'passwordError' => '',
-                'user_role' => '',  // Add a default user role or fetch it from the database during login
             ];
+    
             // Validate username
             if (empty($data['username'])) {
                 $data['usernameError'] = 'Please enter a username.';
@@ -161,32 +161,20 @@ class Users extends Controller {
     
             // Check if all errors are empty
             if (empty($data['usernameError']) && empty($data['passwordError'])) {
-                // Fetch user details from the database including the user role
                 $loggedInUser = $this->userModel->login($data['username'], $data['password']);
-    
                 if ($loggedInUser) {
-                    // Assign the user role to the $data array
-                    $data['user_role'] = $loggedInUser->user_role;
-    
-                    // Create user session
+                    // If the login is successful, redirect to the home page or some other page
                     $this->createUserSession($loggedInUser);
                 } else {
                     $data['passwordError'] = 'Password or username is incorrect. Please try again.';
+                    // Log the entered username and password
+                    error_log("Entered Username: {$data['username']}, Entered Password: {$data['password']}");
                 }
             }
-        } else  {
-            $data = [
-                'username' => '',
-                'password' => '',
-                'usernameError' => '',
-                'passwordError' => '',
-                'user_role' => '',  // Add a default user role or fetch it from the database during login
-            ];
         }
     
         $this->view('users/login', $data);
     }
-    
 
 
 
