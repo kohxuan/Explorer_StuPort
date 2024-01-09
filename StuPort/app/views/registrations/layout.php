@@ -19,17 +19,16 @@
                     // Append the requested resource location to the URL   
                     $url .= $_SERVER['REQUEST_URI'];
                     
-                    
                     ?>
 
         <?php
-                    //rule
+
                     $c_url = URLROOT . "/registrations"; 
                     $t_url = URLROOT . "/registrations/create"; 
 
-                 if (isset($data['registrations']) && is_object($data['registrations'])) {
-                   $u_url = URLROOT . "/registrations/update/".$data['registrations']->activity_id; //Update must have id // Dynamic URL (id from database) 
-                    }
+                   // if (isset($data['post']) && is_object($data['post'])) {
+                   // $u_url = URLROOT . "/registrations/update/".$data['post']->id; //Update must have id // Dynamic URL (id from database) 
+                   // }
 
 
                     //error_reporting(0);
@@ -37,18 +36,8 @@
                     if ($url == $c_url) {
         
                         require 'manage.php'; //All are Form
-                
-                    }elseif($url == $t_url){
-                        
-                        require 'create.php'; 
-
-                    }elseif($url == $u_url){
-
-                        require 'update.php';
-
-
-                    }else{
-
+                    }else if($url == $t_url){
+                        require 'create.php';
                     }
 
                     ?>

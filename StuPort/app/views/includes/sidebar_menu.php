@@ -130,7 +130,7 @@
 								<span class="path2"></span>
 							</i>
 						</span>
-						<span class="menu-title">Registration Options</span>
+						<span class="menu-title"> Registration</span>
 						<span class="menu-arrow"></span>
 					</span>
 					<!--end:Menu link-->
@@ -139,7 +139,7 @@
 						<!--begin:Menu item-->
 						<div class="menu-item">
 							<!--begin:Menu link-->
-							<a class="menu-link" href="<?php echo URLROOT; ?>/registration">
+							<a class="menu-link" href="<?php echo URLROOT; ?>/registrations">
 								<span class="menu-bullet">
 									<span class="bullet bullet-dot"></span>
 								</span>
@@ -149,24 +149,23 @@
 						</div>
 						<!--end:Menu item-->
 						<!--begin:Menu item-->
-
-						<!--end:Menu item-->
-						<!--begin:Menu item-->
 						<div class="menu-item">
 							<!--begin:Menu link-->
-							<a class="menu-link" href="<?php echo URLROOT; ?>/registration/create">
+							<a class="menu-link" href="<?php echo URLROOT; ?>/registrations/create">
 								<span class="menu-bullet">
 									<span class="bullet bullet-dot"></span>
 								</span>
-								<span class="menu-title">Create Registration Form</span>
+								<span class="menu-title">New Registration Form</span>
 							</a>
 							<!--end:Menu link-->
 						</div>
 						<!--end:Menu item-->
 					</div>
-					<!--end:Menu sub-->
 				</div>
-				<!--end:Menu item-->
+
+				
+
+				
 
 				<div class="menu-item pt-5">
 					<!--begin:Menu content-->
