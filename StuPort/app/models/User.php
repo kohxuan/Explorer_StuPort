@@ -5,192 +5,110 @@ class User {
         $this->db = new Database;
     }
 
-    // public function register($data) {
-    //     $this->db->query('INSERT INTO users (username, email, password) VALUES(:username, :email, :password)');
-
-    //     //Bind values
-    //     $this->db->bind(':username', $data['username']);
-    //     $this->db->bind(':email', $data['email']);
-    //     $this->db->bind(':password', $data['password']);
-
-    //     //Execute function
-    //     if ($this->db->execute()) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
-
-
-    public function register($data)
-    {
-
-        // Set timezone 
+    public function registerStudent($data) {
         date_default_timezone_set("Asia/Taipei");
         $user_datetime = date('Y-m-d H:i:s');
         $user_reg_status = "active";
-
-        //insert value for user registration
-        //insert value for profile detail
-        if ($data['user_role'] == "Student") {
-
-            //student users and profile
-            $this->db->query("INSERT INTO user (username, email, password, user_role, datetime_register, user_reg_status) 
-            VALUES(:username, :email, :password, :user_role, :datetime_register, :user_reg_status);
-            
-            INSERT INTO profile (p_email, p_name, gender, race, age, dob, profileimage, position, headline, about, country, citystate) 
-            VALUES(:p_email, :p_name, :gender, :race, :age, :dob, :profileimage, :position, :headline, :about, :country, :citystate);
-            
-            INSERT INTO student (s_email, s_fName, s_lName, s_telephone_no, s_address, s_institution, s_course, s_skills, s_hobby, s_achievement, s_ambition, s_academic_cert, s_cocurriculum_cert) 
-            VALUES(:s_email, :s_fName, :s_lName, :s_telephone_no, :s_address, :s_institution, :s_course, :s_skills, :s_hobby, :s_achievement, :s_ambition, :s_academic_cert, :s_cocurriculum_cert);");
-
-            //Bind values for profile table
-            // $st_ic = "";
-            // $st_fullname = "";
-            // $st_gender = "";
-            // $st_race = "";
-            // $univ_code = "";
-            // $st_address = "";
-
-            //Bind values for profile table
-            $p_name = "";
-            $gender = "";
-            $race = "";
-            $age = "";
-            $dob = "";
-            $profileimage = "images/dummy/user.png";
-            $headline = "";
-            $about = "";
-            $country = "Malaysia";
-            $citystate = "";
-            
-            //Bind values for student table
-            $s_fName = "";
-            $s_lName = "";
-            $s_telephone_no = "";
-            $s_address = "";
-            $s_institution = "";
-            $s_course = "";
-            $s_skills = "";
-            $s_hobby = "";
-            $s_achievement = "";
-            $s_ambition = "";
-            $s_academic_cert = "";
-            $s_cocurriculum_cert = "";
-
-            //Bind values for users table
-            //  $this->db->bind(':st_ic', $st_ic);
-            //  $this->db->bind(':st_fullname', $st_fullname);
-            //  $this->db->bind(':st_gender', $st_gender);
-            //  $this->db->bind(':st_race', $st_race);
-            //  $this->db->bind(':univ_code', $univ_code);
-            //  $this->db->bind(':st_address', $st_address);
-            //  $this->db->bind(':st_image', $st_image);
-        
-            //Bind values for user table
-            $this->db->bind(':username', $data['username']);
-            $this->db->bind(':email', $data['email']);
-            $this->db->bind(':password', $data['password']);
-            $this->db->bind(':user_role', $data['user_role']);
-            $this->db->bind(':datetime_register', $user_datetime);
-            $this->db->bind(':user_reg_status', $user_reg_status);
-
-            //Bind values for profile table
-            $this->db->bind(':p_email', $data['email']);
-            $this->db->bind(':p_name', $p_name);
-            $this->db->bind(':gender', $gender);
-            $this->db->bind(':race', $race);
-            $this->db->bind(':age', $age);
-            $this->db->bind(':dob', $dob);
-            $this->db->bind(':profileimage', $profileimage);
-            $this->db->bind(':position', $data['user_role']);
-            $this->db->bind(':headline', $headline);
-            $this->db->bind(':about', $about);
-            $this->db->bind(':country', $country);
-            $this->db->bind(':citystate', $citystate);
-
-            //Bind values for student table
-            $this->db->bind(':s_email', $data['email']);
-            $this->db->bind(':s_fName', $s_fName);
-            $this->db->bind(':s_lName', $s_lName);
-            $this->db->bind(':s_telephone_no', $s_telephone_no);
-            $this->db->bind(':s_address', $s_address);
-            $this->db->bind(':s_institution', $s_institution);
-            $this->db->bind(':s_course', $s_course);
-            $this->db->bind(':s_skills', $s_skills);
-            $this->db->bind(':s_hobby', $s_hobby);
-            $this->db->bind(':s_achievement', $s_achievement);
-            $this->db->bind(':s_ambition', $s_ambition);
-            $this->db->bind(':s_academic_cert', $s_academic_cert);
-            $this->db->bind(':s_cocurriculum_cert', $s_cocurriculum_cert);
-
-        } elseif ($data['user_role'] == "Administrator") {
-            //admin users and profile
-            $this->db->query("INSERT INTO user (username, email, password, user_role, datetime_register, user_reg_status) 
-            VALUES(:username, :email, :password, :user_role, :datetime_register, :user_reg_status);
-            
-            INSERT INTO profile (p_email, p_name, gender, race, age, dob, profileimage, position, headline, about, country, citystate) 
-            VALUES(:p_email, :p_name, :gender, :race, :age, :dob, :profileimage, :position, :headline, :about, :country, :citystate);
-            
-            INSERT INTO administrator (a_email, a_organization, a_org_num, a_address) 
-            VALUES(:a_email, :a_organization, :a_org_num, :a_address);");
-
-            //Bind values for profile table
-            $p_name = "";
-            $gender = "";
-            $race = "";
-            $age = "";
-            $dob = "";
-            $profileimage = "images/dummy/user.png";
-            $headline = "";
-            $about = "";
-            $country = "Malaysia";
-            $citystate = "";
-            
-            //Bind values for admin table
-            $a_organization = "";
-            $a_org_num = "";
-            $a_address = "";
-       
-            //Bind values for user table
-            $this->db->bind(':username', $data['username']);
-            $this->db->bind(':email', $data['email']);
-            $this->db->bind(':password', $data['password']);
-            $this->db->bind(':user_role', $data['user_role']);
-            $this->db->bind(':datetime_register', $user_datetime);
-            $this->db->bind(':user_reg_status', $user_reg_status);
-
-            //Bind values for profile table
-            $this->db->bind(':p_email', $data['email']);
-            $this->db->bind(':p_name', $p_name);
-            $this->db->bind(':gender', $gender);
-            $this->db->bind(':race', $race);
-            $this->db->bind(':age', $age);
-            $this->db->bind(':dob', $dob);
-            $this->db->bind(':profileimage', $profileimage);
-            $this->db->bind(':position', $data['user_role']);
-            $this->db->bind(':headline', $headline);
-            $this->db->bind(':about', $about);
-            $this->db->bind(':country', $country);
-            $this->db->bind(':citystate', $citystate);
-
-            //Bind values for admin table
-            $this->db->bind(':s_email', $data['email']);
-            $this->db->bind(':a_organization', $a_organization);
-            $this->db->bind(':a_org_num', $a_org_num);
-            $this->db->bind(':a_address', $a_address);
-         
-        } else {
-           
-        }
-
-        //execute function
-        if ($this->db->execute()) {
-            return true;
-        } else {
-            return false;
-        }
+    
+        $this->db->query('INSERT INTO student (s_email, s_gender, s_race, s_age)
+            VALUES(:s_email, :s_gender, :s_race, :s_age)');
+    
+        $this->db->bind(':s_email', $data['email']);
+        $this->db->bind(':s_gender', $data['gender']);
+        $this->db->bind(':s_race', $data['race']);
+        $this->db->bind(':s_age', $data['age']);
+    
+        $this->db->execute();
+    
+        $dataUser = [
+            'username' => $data['username'],
+            'password' => $data['password'],
+            'email' => $data['email'],
+            'user_role' => $data['user_role'],
+            'datetime_register' => $user_datetime,
+            'user_reg_status' => $user_reg_status
+        ];
+    
+        $this->registerUser($dataUser);
     }
+    
+    public function registerUser($data) {
+        $this->db->query('INSERT INTO user (username, password, email, user_role, datetime_register, user_reg_status) 
+            VALUES(:username, :password, :email, :user_role, :datetime_register, :user_reg_status)');
+    
+        $this->db->bind(':username', $data['username']);
+        $this->db->bind(':password', $data['password']);
+        $this->db->bind(':email', $data['email']);
+        $this->db->bind(':user_role', $data['user_role']);
+        $this->db->bind(':datetime_register', $data['datetime_register']);
+        $this->db->bind(':user_reg_status', $data['user_reg_status']);
+    
+        $this->db->execute();
+    }
+    
+
+
+
+
+
+
+
+    // public function register($data)
+    // {
+    //     // Set timezone
+
+    
+    //     if ($data['user_role'] == "Student") {
+    //         $this->db->query('INSERT INTO user (username, password, email, user_role, datetime_register, user_reg_status) 
+    //             VALUES(:username, :password, :email, :user_role, :datetime_register, :user_reg_status)');
+    
+    //         $this->db->query('INSERT INTO profile (p_email, gender, race, age, position)
+    //             VALUES(:p_email, :gender, :race, :age, :position)');
+    
+    //         $this->db->query('INSERT INTO student (s_email, s_gender, s_race, s_age)
+    //             VALUES(:s_email, :s_gender, :s_race, :s_age)');
+    
+    //         $this->db->bind(':p_email', $data['email']);
+    //         $this->db->bind(':gender', $data['gender']);
+    //         $this->db->bind(':race', $data['race']);
+    //         $this->db->bind(':age', $data['age']);
+    //         $this->db->bind(':position', $data['user_role']);
+    
+    //         $this->db->bind(':s_email', $data['email']);
+    //         $this->db->bind(':s_gender', $data['gender']);
+    //         $this->db->bind(':s_race', $data['race']);
+    //         $this->db->bind(':s_age', $data['age']);
+    //     } elseif ($data['user_role'] == "Administrator") {
+    //         $this->db->query("INSERT INTO user (username, email, password, user_role, datetime_register, user_reg_status) 
+    //             VALUES(:username, :email, :password, :user_role, :datetime_register, :user_reg_status)");
+    
+    //         $this->db->query('INSERT INTO profile (p_email, gender, race, age, position)
+    //             VALUES(:p_email, :gender, :race, :age, :position)');
+    
+    //         $this->db->query('INSERT INTO administrator (a_email, a_organization, a_org_num, a_address)
+    //             VALUES(:a_email, :a_organization, :a_org_num, :a_address)');
+    
+    //         $this->db->bind(':p_email', $data['email']);
+    //         $this->db->bind(':gender', $data['gender']);
+    //         $this->db->bind(':race', $data['race']);
+    //         $this->db->bind(':age', $data['age']);
+    //         $this->db->bind(':position', $data['user_role']);
+    
+    //         $this->db->bind(':a_email', $data['email']);
+    //         $this->db->bind(':a_organization', $a_organization);  // Replace with actual value
+    //         $this->db->bind(':a_org_num', $a_org_num);            // Replace with actual value
+    //         $this->db->bind(':a_address', $a_address);            // Replace with actual value
+    //     }
+    
+    //     $this->db->bind(':username', $data['username']);
+    //     $this->db->bind(':email', $data['email']);
+    //     $this->db->bind(':password', $data['password']);
+    //     $this->db->bind(':user_role', $data['user_role']);
+    //     $this->db->bind(':datetime_register', $user_datetime);
+    //     $this->db->bind(':user_reg_status', $user_reg_status);
+    
+    // }
+    
 
     public function login($username, $password) {
         $this->db->query('SELECT * FROM user WHERE username = :username');
