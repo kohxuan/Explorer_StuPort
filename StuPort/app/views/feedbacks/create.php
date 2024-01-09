@@ -10,9 +10,9 @@
     <div class="card-body">
 
 
-<?php 
-$activity_id=$_GET['activity_id'];
-?>
+        <?php 
+        $activity_id=$_GET['activity_id'];
+        ?>
 
 
         <form action="<?php echo URLROOT; ?>/feedbacks/create" method="POST">
@@ -22,7 +22,9 @@ $activity_id=$_GET['activity_id'];
                 <input type="text" name="link_form" class="form-control form-control-solid" placeholder="Link" required />
             </div>
 
-            
+            <button type="submit" class="btn btn-primary font-weight-bold">Submit</button>
+
+        </form>
 
             <!--<div class="mb-10">
                 <label for="exampleFormControlInput1" class="form-label">Content</label>
@@ -31,10 +33,6 @@ $activity_id=$_GET['activity_id'];
                     <textarea name="body" class="form-control" aria-label="With textarea" required></textarea>
                 </div>
             </div> -->
-
-            <button type="submit" class="btn btn-primary font-weight-bold">Submit</button>
-
-        </form>
 
     </div>
     <div class="card-footer">

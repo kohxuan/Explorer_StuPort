@@ -117,41 +117,14 @@ class Feedbacks extends Controller {
          }
     }
 
-    public function addFeedbackLink($activity_id)
+    public function findFeedbackById($feedback_id)
     {
-        $feedback = $this->feedbackModel->findFeedbackById($feedback_id);
+        $this->db->query('SELECT * FROM feedbacks WHERE feedback_id = :feedback_id');
+        $this->db->bind(':feedback_id', $feedback_id);
 
-        $data = 
-        [
-            'feedback' => $feedback,
-            'link_form' => ''
-        ];
+        $row = $this->db->single();
 
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-            $data = 
-            [
-            'feedback_id' => $feedback_id,
-            'feedback' => $feedback,
-            'activity_id' => $_SESSION['id'],
-            'link_form' => trim($_POST['link_form'])
-            ];
-
-
-            if (empty($data['link_form'])){
-                if ($this->feedbackModel->addFeedback($data)){
-                    header("Location: " . URLROOT. "/feedbacks" );
-                }
-                else
-                {
-                    die("Something went wrong :(");
-                }
-            }
-            else
-            {
-                $this->view('feedbacks/index', $data);
-            }
-        }
+        return $row;
     }
 
 }
