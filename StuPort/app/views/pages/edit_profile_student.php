@@ -278,7 +278,7 @@
         <div class="card-footer d-flex justify-content-end py-6 px-9">
             <input type="hidden" id="update_student" name="update_student" value="update_student"> <!-- Hidden value, modify if use same form for other roles //use if statement -->
             <button type="submit" name="submit" class="btn btn-primary">Update</button>
-            <a href="<?php echo URLROOT; ?>/resume/generate" class="btn btn-secondary ml-2" download="resume.pdf">Download Resume</a>
+            <a href="<?php echo URLROOT; ?>/resume/generate_resume" class="btn btn-secondary ml-2" target="blank">Download Resume</a>
         </div>
         </form>
 

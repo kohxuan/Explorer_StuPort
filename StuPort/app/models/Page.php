@@ -238,7 +238,7 @@ class Page
                                   about = :about, country = :country, citystate = :citystate 
                                   WHERE p_email = :email;
                                   
-                                  UPDATE a 
+                                  UPDATE administrator 
                                   SET a_email = :email, a_organization = :a_organization, a_org_num = :a_org_num, a_address = :a_address
                                   WHERE a_email = :email;");
 
