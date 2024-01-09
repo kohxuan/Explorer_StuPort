@@ -29,6 +29,7 @@
                 <tbody>
                     <?php foreach($data['activities'] as $activity): ?>  
                         <tr>
+                        
                             <td><?php echo $activity->title; ?></td>
                             <td><?php echo $activity->category; ?></td>
                             <td><?php echo $activity->activity_desc; ?></td>
@@ -38,6 +39,8 @@
                             <td><?php echo $activity->skill_acquired; ?></td>
                             <td><?php echo $activity->attachment; ?></td>
                             <td>
+                                <?php if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $activity->user_id): ?>
+
                                 <a href="<?php echo URLROOT . "/activities/update/" . $activity->activity_id ?>" class="btn btn-light-warning">Update</a>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt<?php echo $activity->activity_id?>">
                                     Delete
@@ -63,6 +66,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <?php enfif; ?>
                             </td>
                             <td>
                                 <?php
@@ -86,6 +90,7 @@
                                     echo '  ';
                                 }
                                 ?>
+                               
                             </td>
                         </tr>
                     <?php endforeach; ?>

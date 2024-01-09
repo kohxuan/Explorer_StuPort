@@ -8,15 +8,29 @@ class Users extends Controller {
         $data = [
             'username' => '',
             'email' => '',
+            'full_name' => '',
+            'telephone' => '',
+            'age' => '',
+            'race' => '',
+            'gender' => '',
             'password' => '',
             'confirmPassword' => '',
-            'user_role' => '',  // Add user role to the data array
+            'user_role' => '',  
+            'address' => '',
+            'institution' => '',
+            'course' => '',
             'usernameError' => '',
             'emailError' => '',
             'passwordError' => '',
             'confirmPasswordError' => '',
-            //'userRoleError' => ''  // Add user role error to the data array
+            'fullNameError' => '',  // Add these lines to initialize the new keys
+            'genderError' => '',
+            'ageError' => '',
+            'addressError' => '',
+            'courseError' => '',
+            'institutionError' => '',
         ];
+        
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Process form
@@ -26,18 +40,33 @@ class Users extends Controller {
             $data = [
                 'username' => trim($_POST['username']),
                 'email' => trim($_POST['email']),
+                'full_name' => trim($_POST['full_name']),
+                'telephone' => trim($_POST['telephone']),
+                'age' => trim($_POST['age']),
+                'race' => trim($_POST['race']),
+                'gender' => trim($_POST['gender']),
+                'username' => trim($_POST['username']),
                 'password' => trim($_POST['password']),
                 'confirmPassword' => trim($_POST['confirmPassword']),
                 'user_role' => isset($_POST['user_role'])? $_POST['user_role'] : '',  // Add user role to the data array
+                'address' => trim($_POST['address']),
+                'institution' => trim($_POST['institution']),
+                'course' => trim($_POST['course']),
                 'usernameError' => '',
                 'emailError' => '',
                 'passwordError' => '',
                 'confirmPasswordError' => '',
+                'fullNameError' => '',  // Add these lines to initialize the new keys
+                'genderError' => '',
+                'ageError' => '',
+                'addressError' => '',
+                'courseError' => '',
+                'institutionError' => ''
                 //'userRoleError' => ''  // Add user role error to the data array
             ];
 
             $nameValidation = "/^[a-zA-Z0-9]*$/";
-            $passwordValidation = "/^(.{0,7}|[^a-z]*|[^\d]*)$/i";
+     
 
             //Validate username on letters/numbers
             if (empty($data['username'])) {
@@ -63,9 +92,7 @@ class Users extends Controller {
               $data['passwordError'] = 'Please enter password.';
             } elseif(strlen($data['password']) < 6){
               $data['passwordError'] = 'Password must be at least 8 characters';
-            } elseif (preg_match($passwordValidation, $data['password'])) {
-              $data['passwordError'] = 'Password must be have at least one numeric value.';
-            }
+            } 
 
             //Validate confirm password
              if (empty($data['confirmPassword'])) {
@@ -87,12 +114,10 @@ class Users extends Controller {
                 // Assign the user role to the $data array
                 //$data['user_role'] = $_POST['user_role'];
 
-                // Register user from model function
-                if ($this->userModel->register($data)) {
-                    // Redirect to the l.ogin page
-                    header('location: ' . URLROOT . '/users/login');
-                } else {
-                    die('Something went wrong.');
+
+                if ($data['user_role'] == "Student") {
+                    $this->userModel->registerStudent($data);
+                    header('location:'. URLROOT . '/user/login');
                 }
             }
 
@@ -166,11 +191,13 @@ class Users extends Controller {
 
 
 
+
     public function createUserSession($user) {
         $_SESSION['user_id'] = $user->id;
         $_SESSION['username'] = $user->username;
         $_SESSION['email'] = $user->email;
         $_SESSION['user_role'] = $user->user_role;
+
     
         // Redirect based on user_role
         if ($user->user_role == 'Administrator') {

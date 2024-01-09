@@ -27,6 +27,31 @@ require APPROOT . '/views/includes/head.php';
                 <?php echo $data['emailError']; ?>
             </span>
 
+            <input type="text" placeholder="Full Name *" name="full_name">
+            <span class="invalidFeedback">
+                <?php echo $data['fullNameError']; ?>
+            </span>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="Male" <?php echo ($data['gender'] == 'Male') ? 'selected' : ''; ?>>Male</option>
+                <option value="Female" <?php echo ($data['gender'] == 'Female') ? 'selected' : ''; ?>>Female</option>
+            </select>
+            <span class="invalidFeedback">
+                <?php echo $data['genderError']; ?>
+            </span>
+
+            <input type="number" placeholder="Age *" name="age">
+            <span class="invalidFeedback">
+                <?php echo $data['ageError']; ?>
+            </span>
+
+            <input type="hidden" name="user_role" value="Student">
+
+            <span class="invalidFeedback">
+                <?php echo isset($data['userRoleError']) ? $data['userRoleError'] : ''; ?>
+            </span>
+
             <input type="password" placeholder="Password *" name="password">
             <span class="invalidFeedback">
                 <?php echo $data['passwordError']; ?>
@@ -37,20 +62,36 @@ require APPROOT . '/views/includes/head.php';
                 <?php echo $data['confirmPasswordError']; ?>
             </span>
 
-            <label for="user_role">User Role:</label>
-            <select id="user_role" name="user_role">
-                <option value="Student" <?php echo ($data['user_role'] == 'Student') ? 'selected' : ''; ?>>Student</option>
-                <option value="Administrator" <?php echo ($data['user_role'] == 'Administrator') ? 'selected' : ''; ?>>Administrator</option>
-                <option value="Master Administrator" <?php echo ($data['user_role'] == 'Master Administrator') ? 'selected' : ''; ?>>Master Administrator</option>
-            </select>
+            <input type="text" placeholder="Address *" name="address">
             <span class="invalidFeedback">
-                <?php echo isset($data['userRoleError']) ? $data['userRoleError'] : ''; ?>
+                <?php echo $data['addressError']; ?>
+            </span>
+
+            <input type="text" placeholder="Course *" name="course">
+            <span class="invalidFeedback">
+                <?php echo $data['courseError']; ?>
+            </span>
+
+
+            <input type="text" placeholder="Institution *" name="institution">
+            <span class="invalidFeedback">
+               
+            </span>
+
+            <input type="number" placeholder="Telephone *" name="telephone">
+            <span class="invalidFeedback">
+               
+            </span>
+
+            <input type="text" placeholder="Race *" name="race">
+            <span class="invalidFeedback">
+              
             </span>
 
 
             <button id="submit" type="submit" value="submit">Submit</button>
 
-            <p class="options">Not registered yet? <a href="<?php echo URLROOT; ?>/users/login">Login here</a></p>
+            <p class="options">Not registered yet?<a href="<?php echo URLROOT; ?>/users/login">Login here</a></p>
         </form>
     </div>
 </div>
