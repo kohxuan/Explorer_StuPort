@@ -2,7 +2,7 @@
     <div class="card-header">
         <h3 class="card-title">Edit Profile</h3>
         <div class="card-toolbar">
-
+            <a href="<?php echo URLROOT; ?>/pages/view_profile" class="btn btn-secondary ml-2">View Profile</a>
         </div>
     </div>
     <div class="card-body">
@@ -257,33 +257,44 @@
             </div>
 
             <!-- s_academic_cert Section -->
-            <div class="row mb-6">
+            <!-- <div class="row mb-6">
                 <label class="col-lg-4 col-form-label fw-semibold fs-6">Academic Certification</label>
                 <div class="col-lg-8">
                 <input class="form-control form-control-lg form-control-solid" name="s_academic_cert" type="text" />
                 <div class="form-text">Allowed file types: pdf.</div>
                 </div>
+            </div> -->
+
+            <!-- s_academic_cert Section -->
+            <div class="row mb-6">
+                <label class="col-lg-4 col-form-label fw-semibold fs-6">Academic Certificate</label>
+                <div class="col-lg-8">
+                    <div class="input-group">
+                        <input type="file" class="form-control" name="filepdf" accept=".pdf" />
+                    </div>
+                    <div class="form-text">Allowed file type: PDF.</div>
+                </div>
             </div>
 
             <!-- s_cocurriculum_cert Section -->
             <div class="row mb-6">
-                <label class="col-lg-4 col-form-label fw-semibold fs-6">Co-curriculum Certification</label>
+                <label class="col-lg-4 col-form-label fw-semibold fs-6">Co-curriculum Certificate</label>
                 <div class="col-lg-8">
-                <input class="form-control form-control-lg form-control-solid" name="s_cocurriculum_cert" type="text"/>
-                <div class="form-text">Allowed file types: pdf.</div>
+                    <input class="form-control form-control-lg form-control-solid" name="s_cocurriculum_cert" type="text" />
+                    <div class="form-text">Allowed file types: pdf.</div>
+                </div>
+                <!-- Submit Button -->
             </div>
             <!-- Submit Button -->
-        </div>
-        <!-- Submit Button -->
-        <div class="card-footer d-flex justify-content-end py-6 px-9">
-            <input type="hidden" id="update_student" name="update_student" value="update_student"> <!-- Hidden value, modify if use same form for other roles //use if statement -->
-            <button type="submit" name="submit" class="btn btn-primary">Update</button>
-            <a href="<?php echo URLROOT; ?>/resume/generate_resume" class="btn btn-secondary ml-2" target="blank">Download Resume</a>
-        </div>
-        </form>
+            <div class="card-footer d-flex justify-content-end py-6 px-9">
+                <input type="hidden" id="update_student" name="update_student" value="update_student"> <!-- Hidden value, modify if use same form for other roles //use if statement -->
+                <button type="submit" name="submit" class="btn btn-primary">Update</button>
+                <a href="<?php echo URLROOT; ?>/resume/generate_resume" class="btn btn-secondary ml-2" target="blank">Download Resume</a>
+            </div>
+            </form>
 
+        </div>
+        <!-- <div class="card-footer"> -->
+            <!-- Footer -->
+        <!-- </div> -->
     </div>
-    <div class="card-footer">
-        <!-- Footer -->
-    </div>
-</div>

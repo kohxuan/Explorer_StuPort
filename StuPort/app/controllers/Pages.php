@@ -7,10 +7,12 @@ class Pages extends Controller {
 
     public function index() {
         $data = [
-            'title' => 'Home page'
+            // 'title' => 'Home page'
+            'pages' => 'pages'
         ];
 
-        $this->view('index', $data);
+        // $this->view('index', $data);
+        $this->view('pages/index', $data);
     }
 
     public function edit_profile()
@@ -74,6 +76,58 @@ class Pages extends Controller {
                         header("Location: " . URLROOT . "/pages/edit_profile");
               
             }
+
+            if (isset($_FILES["filepdf"]) && $_FILES["filepdf"]["error"] == 0) {
+                $allowed = array(
+                    "pdf" => "application/pdf" // Only allowing PDF files
+                );
+                
+                $filename = $_FILES["filepdf"]["name"]; //Checking
+                $filetype = $_FILES["filepdf"]["type"];
+                $filesize = $_FILES["filepdf"]["size"];
+            
+                $fileExt = explode('.', $filename);
+                $fileActualExt = strtolower(end($fileExt));
+            
+                $ext = pathinfo($filename, PATHINFO_EXTENSION);
+                if (!array_key_exists($ext, $allowed) || $_FILES["filepdf"]["type"] !== "application/pdf") {
+                    $_SESSION['failed'] = "Error: You can only upload PDF files!";
+                    header("Location: " . URLROOT . "/pages/edit_profile");
+                }
+            
+                $username = $_SESSION['email']; //Email will be the name of folder created
+                $maxsize = 5 * 1024 * 1024;
+                if ($filesize > $maxsize){
+                    $_SESSION['failed'] = "Error: File size is larger than the allowed limit.";
+                    header("Location: " . URLROOT . "/pages/edit_profile");
+                } 
+            
+                $locationpdf1 = "files/users/" . $username;
+            
+                if ($filetype === "application/pdf") {
+                    if (file_exists($locationpdf1 . $filename)) {
+                        echo $filename . " is already exists.";
+                    } else {
+                        // create directory if not exists in upload/ directory
+                        if (!is_dir($locationpdf1)) {
+                            mkdir('files/users/' . $username, 0777, true);
+                        }
+            
+                        $fileNameNew = uniqid('', true) . "." . $fileActualExt;
+            
+                        $locationpdf1 .= "/" . $fileNameNew;
+            
+                        move_uploaded_file($_FILES['filepdf']['tmp_name'], $locationpdf1);
+                    }
+                } else {
+                    $_SESSION['failed'] = "Error: There was an error uploading your file!";
+                    header("Location: " . URLROOT . "/pages/edit_profile");
+                }
+            } else {
+                $_SESSION['failed'] = "Error: There was an error uploading your file!";
+                header("Location: " . URLROOT . "/pages/edit_profile");
+            }
+            
 
             //No need hidden value if for multiple functions
             // $_POST['update_student'] hidden value from form //update partner //update administrator
@@ -147,7 +201,8 @@ class Pages extends Controller {
                         's_hobby' => trim($_POST['s_hobby']),
                         's_achievement' => trim($_POST['s_achievement']),
                         's_ambition' => trim($_POST['s_ambition']),
-                        's_academic_cert' => trim($_POST['s_academic_cert']),
+                        // 's_academic_cert' => trim($_POST['s_academic_cert']),
+                        's_academic_cert' => $locationpdf1,
                         's_cocurriculum_cert' => trim($_POST['s_cocurriculum_cert']),
     
                     ];
@@ -181,7 +236,8 @@ class Pages extends Controller {
                         's_hobby' => trim($_POST['s_hobby']),
                         's_achievement' => trim($_POST['s_achievement']),
                         's_ambition' => trim($_POST['s_ambition']),
-                        's_academic_cert' => trim($_POST['s_academic_cert']),
+                        // 's_academic_cert' => trim($_POST['s_academic_cert']),
+                        's_academic_cert' => $locationpdf1,
                         's_cocurriculum_cert' => trim($_POST['s_cocurriculum_cert']),
                
                     ];
@@ -257,7 +313,7 @@ class Pages extends Controller {
                 }
             }
             else {
-                $this->view('pages/index');
+                $this->view('pages/edit_profile');
             } //elseif ($_POST['update_partner'])
             //     if ($this->pageModel->updatePartnerProfile($data)) {
             //         header("Location: " . URLROOT . "/pages/edit_profile");
@@ -280,4 +336,19 @@ class Pages extends Controller {
 
         $this->view('pages/index', $data); //Display data
     }
+
+    public function view_profile() {
+        // Fetch the data you want to pass to the view
+        $studentProfile = $this->pageModel->studentProfile(); // Replace with your actual method to fetch student data
+    
+        // Prepare the data array
+        $data = [
+            'studentProfile' => $studentProfile // Assuming this is the data you want to pass to the view
+            // Add more data here if needed
+        ];
+    
+        // Load the view and pass the data to it
+        $this->view('pages/view_profile_student', $data);
+    }
+    
 }
