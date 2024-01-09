@@ -130,7 +130,7 @@
 								<span class="path2"></span>
 							</i>
 						</span>
-						<span class="menu-title"> Registration</span>
+						<span class="menu-title"> Registration options</span>
 						<span class="menu-arrow"></span>
 					</span>
 					<!--end:Menu link-->

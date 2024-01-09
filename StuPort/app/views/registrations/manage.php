@@ -22,7 +22,35 @@
                     <tr>
                         <td><?php echo $registration->activity_id; ?></td>
                         <td><?php echo $registration->link; ?></td>
-                        <td><?php echo $registration->body; ?></td>
+                        <td>
+
+                                <a href="<?php echo URLROOT . "/registrations/update/" .$registration->activity_id ?>" class="btn btn-light-warning">Update</a>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt<?php echo $registration->activity_id?>">
+                                    Delete
+                                </button>
+                                <div class="modal fade" tabindex="-1" id="kt<?php echo $registration->activity_id?>">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h3 class="modal-title">Delete Registration</h3>
+                                                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                                                    <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+                                                </div>
+                                            </div>
+                                            <div class="modal-body">
+                                                Are you sure want to delete this registration?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <form action="<?php echo URLROOT . "/registrations/delete/" .$registration->activity_id; ?>" method="POST">
+                                                    <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary font-weight-bold">Delete</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </td>
                         
                     </tr>
                     <?php endforeach; ?>

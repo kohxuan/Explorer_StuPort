@@ -1,6 +1,6 @@
 <div class="card shadow-sm">
     <div class="card-header">
-        <h3 class="card-title">Create Registration Form</h3>
+        <h3 class="card-title">Update Post</h3>
         <div class="card-toolbar">
             <?php if(isLoggedIn()): ?>
             <a href="<?php echo URLROOT;?>/registrations" class="btn btn-light-primary">Manage Registration</a>
