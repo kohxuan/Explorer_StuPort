@@ -88,6 +88,7 @@
                                 }
                                 ?>
                             </td>
+                            <td> <img scr="<?php echo $activity->attachment ?>"> </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

@@ -45,7 +45,7 @@ class Activities extends Controller
                 'location' => trim($_POST['location']),
                 'organizer_name' => trim($_POST['organizer_name']),
                 'skill_acquired' => trim($_POST['skill_acquired']),
-                'attachment' => isset($_FILES['attachment']) ? $_FILES['attachment'] : null
+                'attachment' => trim($_POST['attachment'])
             ];
     
             // Perform additional validation if necessary
@@ -79,12 +79,12 @@ class Activities extends Controller
         'activity' => $activity,
         'title' => '',
         'activity_desc' => '',
-        'category' => '',
         'act_datetime' => '',
         'location' => '',
         'organizer_name' => '',
         'skill_acquired' => '',
-        'attachment' => '',
+        'u_url' => URLROOT . "/activities/update/" . $activity_id,
+        'activity_id' => $activity_id
     ];
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -94,31 +94,21 @@ class Activities extends Controller
         // Set updated data
         $data['title'] = trim($_POST['title']);
         $data['activity_desc'] = trim($_POST['activity_desc']);
-        $data['category'] = trim($_POST['category']);
         $data['act_datetime'] = trim($_POST['act_datetime']);
         $data['location'] = trim($_POST['location']);
         $data['organizer_name'] = trim($_POST['organizer_name']);
         $data['skill_acquired'] = trim($_POST['skill_acquired']);
-        $data['attachment'] = trim($_POST['attachment']);
 
         // Check if the data is not empty
-        if (!empty($data['title']) && !empty($data['activity_desc']) && !empty($data['category']) && !empty($data['act_datetime']) && !empty($data['location']) && !empty($data['organizer_name']) && !empty($data['skill_acquired']) && !empty($data['attachment'])) {
             // Update the activity
             if ($this->activityModel->updateActivity($data)) {
                 header("Location: " . URLROOT . "/activities");
                 exit();
-            } else {
-                die("Something went wrong :(");
-            }
-        } else {
-            // Data is empty, display the view with the updated data
-            $this->view('activities/index', $data);
-            exit();
-        }
+            } 
     }
 
     // Load the view with the data
-    $this->view('activities/index', $data);
+    $this->view('activities/update', $data);
 }
 
 

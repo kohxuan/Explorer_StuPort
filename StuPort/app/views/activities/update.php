@@ -7,8 +7,8 @@
             <?php endif; ?>
         </div>
     </div>
-    <div class="card-body">;
-        <form action="<?php echo URLROOT . "/activities/update/" . $data['activity']->activity_id ?>" method="POST">
+    <div class="card-body">
+        <form action="<?php echo $data['u_url'] ?>" method="POST">
 
             <div class="mb-10">
                 <label for="exampleFormControlInput1" class="required form-label">Activity Title</label>
@@ -21,20 +21,6 @@
                     <div class="required position-absolute top-0"></div>
                     <textarea name="activity_desc" class="form-control" aria-label="With textarea" required><?php echo $data['activity']->activity_desc; ?></textarea>
                 </div>
-            </div>
-
-            <div class="mb-10">
-                <label for="exampleFormControlSelect1" class="required form-label">Category</label>
-                <select class="form-select" name="category" required>
-                    <option value="" disabled>Select Category</option>
-                    <option value="Competition/Scholarship">Competition/Scholarship</option>
-                    <option value="Program/Activities">Program/Activities</option>
-                    <option value="Bootcamp/Workshop">Bootcamp/Workshop</option>
-                    <option value="Part Time">Part Time</option>
-                    <option value="Volunteering">Volunteering</option>
-                    <option value="Internship">Internship</option>
-                    <!-- Add more options as needed -->
-                </select>
             </div>
 
             <div class="mb-10">
@@ -57,10 +43,6 @@
                 <input type="text" name="skill_acquired" class="form-control form-control-solid" value="<?php echo $data['activity']->skill_acquired; ?>" />
             </div>
 
-            <div class="mb-10">
-                <label for="exampleFormControlInput1" class="form-label">Attachment (Image)</label>
-                <input type="file" name="attachment" class="form-control form-control-solid" />
-            </div>
 
             <button type="submit" class="btn btn-primary font-weight-bold">Submit</button>
         </form>
