@@ -2,6 +2,98 @@
 require APPROOT . '/views/includes/head.php';
 ?>
 
+<?php require APPROOT . '/views/includes/head.php'; ?>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .navbar {
+        background-color: #343a40;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .container-login {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .wrapper-login {
+        background-color: white;
+        padding: 2rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        width: 400px;
+    }
+
+    h2 {
+        text-align: center;
+        color: #343a40;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    input {
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+    }
+
+    select {
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    button {
+        background-color: #007bff;
+        color: white;
+        padding: 0.5rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    .invalidFeedback {
+        color: #dc3545;
+        margin-top: 0.2rem;
+    }
+
+    .options {
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+
 <div class="navbar">
     <?php
     require APPROOT . '/views/includes/navigation.php';
