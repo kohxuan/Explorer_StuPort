@@ -27,14 +27,14 @@ class Page
         return $result;
     }
 
-    public function adminProfile() //Here we can use calculation...
+    public function lecturerProfile() //Here we can use calculation...
     {
 
         // $this->db->query("SELECT * FROM profile WHERE email = :email");
 
         $this->db->query("SELECT * FROM profile AS p 
                           JOIN user AS u ON p_email = u.email 
-                          JOIN administrator AS a ON p_email = a_email 
+                          JOIN lecturer AS l ON p_email = l_email 
                           WHERE u.email = :email");
 
         $this->db->bind(':email', $_SESSION['email']);
@@ -101,25 +101,38 @@ class Page
         if (isset($data['profileimage'])) { //Update with image and information
 
             //Profile table and Student table
+            // $this->db->query("UPDATE profile 
+            //                       SET p_email = :email, p_name = :p_name, gender = :gender, race = :race, age = :age, dob = :dob, 
+            //                       profileimage = :profileimage, position = :position, headline = :headline, 
+            //                       about = :about, country = :country, citystate = :citystate 
+            //                       WHERE p_email = :email;
+
+            //                       UPDATE student 
+            //                       SET s_email = :email, s_fName = :s_fName, s_lName = :s_lName, s_telephone_no = :s_telephone_no, s_address = :s_address, 
+            //                       s_institution = :s_institution, s_course = :s_course, s_skills = :s_skills, s_hobby = :s_hobby, 
+            //                       s_achievement = :s_achievement, s_ambition = :s_ambition, s_academic_cert = :s_academic_cert, 
+            //                       s_cocurriculum_cert = :s_cocurriculum_cert
+            //                       WHERE s_email = :email;");
+
             $this->db->query("UPDATE profile 
-                                  SET p_email = :email, p_name = :p_name, gender = :gender, race = :race, age = :age, dob = :dob, 
-                                  profileimage = :profileimage, position = :position, headline = :headline, 
-                                  about = :about, country = :country, citystate = :citystate 
-                                  WHERE p_email = :email;
-                                  
-                                  UPDATE student 
-                                  SET s_email = :email, s_fName = :s_fName, s_lName = :s_lName, s_telephone_no = :s_telephone_no, s_address = :s_address, 
-                                  s_institution = :s_institution, s_course = :s_course, s_skills = :s_skills, s_hobby = :s_hobby, 
-                                  s_achievement = :s_achievement, s_ambition = :s_ambition, s_academic_cert = :s_academic_cert, 
-                                  s_cocurriculum_cert = :s_cocurriculum_cert
-                                  WHERE s_email = :email;");
+                                SET p_email = :email, p_name = :p_name, dob = :dob, 
+                                profileimage = :profileimage, position = :position, headline = :headline, 
+                                about = :about, country = :country, citystate = :citystate 
+                                WHERE p_email = :email;
+
+                                UPDATE student 
+                                SET s_email = :email, s_fName = :s_fName, s_telephone_no = :s_telephone_no, s_address = :s_address, 
+                                s_institution = :s_institution, s_course = :s_course, s_skills = :s_skills, s_hobby = :s_hobby, 
+                                s_achievement = :s_achievement, s_ambition = :s_ambition, s_academic_cert = :s_academic_cert, 
+                                s_cocurriculum_cert = :s_cocurriculum_cert, s_race = :s_race, s_age = :s_age, s_gender = :s_gender
+                                WHERE s_email = :email;");
 
             //Profile table
             $this->db->bind(':email', $_SESSION['email']);
             $this->db->bind(':p_name', $data['p_name']);
-            $this->db->bind(':gender', $data['gender']);
-            $this->db->bind(':race', $data['race']);
-            $this->db->bind(':age', $data['age']);
+            // $this->db->bind(':gender', $data['gender']);
+            // $this->db->bind(':race', $data['race']);
+            // $this->db->bind(':age', $data['age']);
             $this->db->bind(':dob', $data['dob']);
             $this->db->bind(':profileimage', $data['profileimage']);
             $this->db->bind(':position', $_SESSION['user_role']);
@@ -131,7 +144,6 @@ class Page
 
             //Student table
             $this->db->bind(':s_fName', $data['s_fName']);
-            $this->db->bind(':s_lName', $data['s_lName']);
             $this->db->bind(':s_telephone_no', $data['s_telephone_no']);
             $this->db->bind(':s_address', $data['s_address']);
             $this->db->bind(':s_institution', $data['s_institution']);
@@ -142,28 +154,31 @@ class Page
             $this->db->bind(':s_ambition', $data['s_ambition']);
             $this->db->bind(':s_academic_cert', $data['s_academic_cert']);
             $this->db->bind(':s_cocurriculum_cert', $data['s_cocurriculum_cert']);
+            $this->db->bind(':s_gender', $data['s_gender']);
+            $this->db->bind(':s_race', $data['s_race']);
+            $this->db->bind(':s_age', $data['s_age']);
+            
         } else { //Update without image
 
-            //Profile table and Student table
             $this->db->query("UPDATE profile 
-                                  SET p_email = :email, p_name = :p_name, gender = :gender, race = :race, age = :age, dob = :dob, 
-                                  position = :position, headline = :headline, 
-                                  about = :about, country = :country, citystate = :citystate 
-                                  WHERE p_email = :email;
-                                  
-                                  UPDATE student 
-                                  SET s_email = :email, s_fName = :s_fName, s_lName = :s_lName, s_telephone_no = :s_telephone_no, s_address = :s_address, 
-                                  s_institution = :s_institution, s_course = :s_course, s_skills = :s_skills, s_hobby = :s_hobby, 
-                                  s_achievement = :s_achievement, s_ambition = :s_ambition, s_academic_cert = :s_academic_cert, 
-                                  s_cocurriculum_cert = :s_cocurriculum_cert
-                                  WHERE s_email = :email;");
+                                SET p_email = :email, p_name = :p_name, dob = :dob, 
+                                position = :position, headline = :headline, 
+                                about = :about, country = :country, citystate = :citystate 
+                                WHERE p_email = :email;
+
+                                UPDATE student 
+                                SET s_email = :email, s_fName = :s_fName, s_telephone_no = :s_telephone_no, s_address = :s_address, 
+                                s_institution = :s_institution, s_course = :s_course, s_skills = :s_skills, s_hobby = :s_hobby, 
+                                s_achievement = :s_achievement, s_ambition = :s_ambition, s_academic_cert = :s_academic_cert, 
+                                s_cocurriculum_cert = :s_cocurriculum_cert, s_race = :s_race, s_age = :s_age, s_gender = :s_gender
+                                WHERE s_email = :email;");
 
             //Profile table
             $this->db->bind(':email', $_SESSION['email']);
             $this->db->bind(':p_name', $data['p_name']);
-            $this->db->bind(':gender', $data['gender']);
-            $this->db->bind(':race', $data['race']);
-            $this->db->bind(':age', $data['age']);
+            // $this->db->bind(':gender', $data['gender']);
+            // $this->db->bind(':race', $data['race']);
+            // $this->db->bind(':age', $data['age']);
             $this->db->bind(':dob', $data['dob']);
             $this->db->bind(':position', $_SESSION['user_role']);
             $this->db->bind(':headline', $data['headline']);
@@ -171,10 +186,8 @@ class Page
             $this->db->bind(':country', $data['country']);
             $this->db->bind(':citystate', $data['citystate']);
 
-
             //Student table
             $this->db->bind(':s_fName', $data['s_fName']);
-            $this->db->bind(':s_lName', $data['s_lName']);
             $this->db->bind(':s_telephone_no', $data['s_telephone_no']);
             $this->db->bind(':s_address', $data['s_address']);
             $this->db->bind(':s_institution', $data['s_institution']);
@@ -185,6 +198,10 @@ class Page
             $this->db->bind(':s_ambition', $data['s_ambition']);
             $this->db->bind(':s_academic_cert', $data['s_academic_cert']);
             $this->db->bind(':s_cocurriculum_cert', $data['s_cocurriculum_cert']);
+            $this->db->bind(':s_gender', $data['s_gender']);
+            $this->db->bind(':s_race', $data['s_race']);
+            $this->db->bind(':s_age', $data['s_age']);
+
         }
 
         // execute function
@@ -195,28 +212,30 @@ class Page
         }
     }
 
-    //Administrator Role
-    public function updateAdminProfile($data)
+    //Lecturer Role
+    public function updateLecturerProfile($data)
     {
         if (isset($data['profileimage'])) { //Update with image and information
 
-            //Profile table and Admin table
+            //Profile table and Lecturer table
             $this->db->query("UPDATE profile 
-                                  SET p_email = :email, p_name = :p_name, gender = :gender, race = :race, age = :age, dob = :dob, 
+                                  SET p_email = :email, p_name = :p_name, dob = :dob, 
                                   profileimage = :profileimage, position = :position, headline = :headline, 
                                   about = :about, country = :country, citystate = :citystate 
                                   WHERE p_email = :email;
                                   
-                                  UPDATE administrator 
-                                  SET a_email = :email, a_organization = :a_organization, a_org_num = :a_org_num, a_address = :a_address
+                                  UPDATE lecturer 
+                                  SET l_email = :email, l_fName = :l_fName, l_telephone_no = :l_telephone_no, 
+                                  l_address = :l_address, l_institution = :l_institution, l_gender = :l_gender,
+                                  l_age = :l_age, l_race = :l_race
                                   WHERE a_email = :email;");
 
             //Profile table
             $this->db->bind(':email', $_SESSION['email']);
             $this->db->bind(':p_name', $data['p_name']);
-            $this->db->bind(':gender', $data['gender']);
-            $this->db->bind(':race', $data['race']);
-            $this->db->bind(':age', $data['age']);
+            // $this->db->bind(':gender', $data['gender']);
+            // $this->db->bind(':race', $data['race']);
+            // $this->db->bind(':age', $data['age']);
             $this->db->bind(':dob', $data['dob']);
             $this->db->bind(':profileimage', $data['profileimage']);
             $this->db->bind(':position', $_SESSION['user_role']);
@@ -225,41 +244,50 @@ class Page
             $this->db->bind(':country', $data['country']);
             $this->db->bind(':citystate', $data['citystate']);
 
-            //Admin table
-            $this->db->bind(':a_organization', $data['a_organization']);
-            $this->db->bind(':a_org_num', $data['a_org_num']);
-            $this->db->bind(':a_address', $data['a_address']);
+            //Lecturer table
+            $this->db->bind(':l_fName', $data['l_fName']);
+            $this->db->bind(':l_telephone_no', $data['l_telephone_no']);
+            $this->db->bind(':l_address', $data['l_address']);
+            $this->db->bind(':l_institution', $data['l_institution']);
+            $this->db->bind(':l_gender', $data['l_gender']);
+            $this->db->bind(':l_age', $data['l_age']);
+            $this->db->bind(':l_race', $data['l_race']);
         } else { //Update without image
 
-            //Profile table and Admin table
+            //Profile table and Lecturer table
             $this->db->query("UPDATE profile 
-                                  SET p_email = :email, p_name = :p_name, gender = :gender, race = :race, age = :age, dob = :dob, 
-                                  profileimage = :profileimage, position = :position, headline = :headline, 
+                                  SET p_email = :email, p_name = :p_name, dob = :dob, 
+                                  position = :position, headline = :headline, 
                                   about = :about, country = :country, citystate = :citystate 
                                   WHERE p_email = :email;
                                   
-                                  UPDATE administrator 
-                                  SET a_email = :email, a_organization = :a_organization, a_org_num = :a_org_num, a_address = :a_address
+                                  UPDATE lecturer 
+                                  SET l_email = :email, l_fName = :l_fName, l_telephone_no = :l_telephone_no, 
+                                  l_address = :l_address, l_institution = :l_institution, l_gender = :l_gender,
+                                  l_age = :l_age, l_race = :l_race
                                   WHERE a_email = :email;");
 
             //Profile table
             $this->db->bind(':email', $_SESSION['email']);
             $this->db->bind(':p_name', $data['p_name']);
-            $this->db->bind(':gender', $data['gender']);
-            $this->db->bind(':race', $data['race']);
-            $this->db->bind(':age', $data['age']);
+            // $this->db->bind(':gender', $data['gender']);
+            // $this->db->bind(':race', $data['race']);
+            // $this->db->bind(':age', $data['age']);
             $this->db->bind(':dob', $data['dob']);
-            $this->db->bind(':profileimage', $data['profileimage']);
             $this->db->bind(':position', $_SESSION['user_role']);
             $this->db->bind(':headline', $data['headline']);
             $this->db->bind(':about', $data['about']);
             $this->db->bind(':country', $data['country']);
             $this->db->bind(':citystate', $data['citystate']);
 
-            //Admin table
-            $this->db->bind(':a_organization', $data['a_organization']);
-            $this->db->bind(':a_org_num', $data['a_org_num']);
-            $this->db->bind(':a_address', $data['a_address']);
+            //Lecturer table
+            $this->db->bind(':l_fName', $data['l_fName']);
+            $this->db->bind(':l_telephone_no', $data['l_telephone_no']);
+            $this->db->bind(':l_address', $data['l_address']);
+            $this->db->bind(':l_institution', $data['l_institution']);
+            $this->db->bind(':l_gender', $data['l_gender']);
+            $this->db->bind(':l_age', $data['l_age']);
+            $this->db->bind(':l_race', $data['l_race']);
         }
 
         // execute function
@@ -270,4 +298,3 @@ class Page
         }
     }
 }
-?>

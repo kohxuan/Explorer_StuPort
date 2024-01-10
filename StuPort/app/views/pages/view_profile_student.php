@@ -60,7 +60,7 @@
                                     <div class="d-flex flex-column">
                                         <!--begin::Name-->
                                         <div class="d-flex align-items-center mb-2">
-                                            <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1"><?php echo $studentProfile->p_name; ?></a>
+                                            <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1"><?php echo $studentProfile->s_fName; ?></a>
                                             <a href="#">
                                                 <i class="ki-duotone ki-verify fs-1 text-primary">
                                                     <span class="path1"></span>
@@ -258,7 +258,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $studentProfile->p_name; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800"><?php echo $studentProfile->s_fName; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -282,7 +282,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 d-flex align-items-center">
-                                <span class="fw-bold fs-6 text-gray-800 me-2"><?php echo $studentProfile->gender; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800 me-2"><?php echo $studentProfile->s_gender; ?></span>
                                 <!-- <span class="badge badge-success">Verified</span> -->
                             </div>
                             <!--end::Col-->
@@ -295,7 +295,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <a href="#" class="fw-bold fs-6 text-gray-800 text-hover-primary"><?php echo $studentProfile->race; ?></a>
+                                <a href="#" class="fw-bold fs-6 text-gray-800 text-hover-primary"><?php echo $studentProfile->s_race; ?></a>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -307,7 +307,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $studentProfile->age; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800"><?php echo $studentProfile->s_age; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -376,7 +376,7 @@
                         <!--begin::Row-->
                         <div class="row mb-7">
                             <!--begin::Label-->
-                            <label class="col-lg-4 fw-semibold text-muted">First Name</label>
+                            <label class="col-lg-4 fw-semibold text-muted">Full Name</label>
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
@@ -385,18 +385,6 @@
                             <!--end::Col-->
                         </div>
                         <!--end::Row-->
-                        <!--begin::Input group-->
-                        <div class="row mb-7">
-                            <!--begin::Label-->
-                            <label class="col-lg-4 fw-semibold text-muted">Last Name</label>
-                            <!--end::Label-->
-                            <!--begin::Col-->
-                            <div class="col-lg-8 fv-row">
-                                <span class="fw-semibold text-gray-800 fs-6"><?php echo $studentProfile->s_lName; ?></span>
-                            </div>
-                            <!--end::Col-->
-                        </div>
-                        <!--end::Input group-->
                         <!--begin::Input group-->
                         <div class="row mb-7">
                             <!--begin::Label-->

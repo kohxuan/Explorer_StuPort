@@ -1,11 +1,13 @@
 <?php
-class Pages extends Controller {
+class Pages extends Controller
+{
     public function __construct()
     {
         $this->pageModel = $this->model('Page');
     }
 
-    public function index() {
+    public function index()
+    {
         $data = [
             // 'title' => 'Home page'
             'pages' => 'pages'
@@ -35,17 +37,17 @@ class Pages extends Controller {
                 $fileActualExt = strtolower(end($fileExt));
 
                 $ext = pathinfo($filename, PATHINFO_EXTENSION);
-                if (!array_key_exists($ext, $allowed)){
+                if (!array_key_exists($ext, $allowed)) {
                     $_SESSION['failed'] = "Error: You cannot upload files of this type!";
                     header("Location: " . URLROOT . "/pages/edit_profile");
                 }
 
                 $username = $_SESSION['email']; //Email will be the name of folder created
                 $maxsize = 5 * 1024 * 1024;
-                if ($filesize > $maxsize){
+                if ($filesize > $maxsize) {
                     $_SESSION['failed'] = "Error: File size is larger than the allowed limit.";
-                            header("Location: " . URLROOT . "/pages/edit_profile");
-                } 
+                    header("Location: " . URLROOT . "/pages/edit_profile");
+                }
                 $location = "images/users/" . $username;
 
                 if (in_array($filetype, $allowed)) {
@@ -53,57 +55,56 @@ class Pages extends Controller {
                     if (file_exists($location . $filename)) {
                         echo $filename . " is already exists.";
                     } else {
-                        
-                            # create directory if not exists in upload/ directory
-                            if (!is_dir($location)) {
-                                //mkdir($location, 0755);
-                                mkdir('images/users/' . $username, 0777, true);
-                            }
 
-                            $fileNameNew = uniqid('', true) . "." . $fileActualExt;
+                        # create directory if not exists in upload/ directory
+                        if (!is_dir($location)) {
+                            //mkdir($location, 0755);
+                            mkdir('images/users/' . $username, 0777, true);
+                        }
 
-                            $location .= "/" . $fileNameNew;
+                        $fileNameNew = uniqid('', true) . "." . $fileActualExt;
 
-                            move_uploaded_file($_FILES['file']['tmp_name'], $location);
+                        $location .= "/" . $fileNameNew;
+
+                        move_uploaded_file($_FILES['file']['tmp_name'], $location);
                     }
                 } else {
                     $_SESSION['failed'] = "Error: There was an error uploading your file!";
-                        header("Location: " . URLROOT . "/pages/edit_profile");
+                    header("Location: " . URLROOT . "/pages/edit_profile");
                 }
             } else {
 
                 $_SESSION['failed'] = "Error: There was an error uploading your file!";
-                        header("Location: " . URLROOT . "/pages/edit_profile");
-              
+                header("Location: " . URLROOT . "/pages/edit_profile");
             }
 
             if (isset($_FILES["filepdf"]) && $_FILES["filepdf"]["error"] == 0) {
                 $allowed = array(
                     "pdf" => "application/pdf" // Only allowing PDF files
                 );
-                
+
                 $filename = $_FILES["filepdf"]["name"]; //Checking
                 $filetype = $_FILES["filepdf"]["type"];
                 $filesize = $_FILES["filepdf"]["size"];
-            
+
                 $fileExt = explode('.', $filename);
                 $fileActualExt = strtolower(end($fileExt));
-            
+
                 $ext = pathinfo($filename, PATHINFO_EXTENSION);
                 if (!array_key_exists($ext, $allowed) || $_FILES["filepdf"]["type"] !== "application/pdf") {
                     $_SESSION['failed'] = "Error: You can only upload PDF files!";
                     header("Location: " . URLROOT . "/pages/edit_profile");
                 }
-            
+
                 $username = $_SESSION['email']; //Email will be the name of folder created
                 $maxsize = 5 * 1024 * 1024;
-                if ($filesize > $maxsize){
+                if ($filesize > $maxsize) {
                     $_SESSION['failed'] = "Error: File size is larger than the allowed limit.";
                     header("Location: " . URLROOT . "/pages/edit_profile");
-                } 
-            
+                }
+
                 $locationpdf1 = "files/users/" . $username;
-            
+
                 if ($filetype === "application/pdf") {
                     if (file_exists($locationpdf1 . $filename)) {
                         echo $filename . " is already exists.";
@@ -112,11 +113,11 @@ class Pages extends Controller {
                         if (!is_dir($locationpdf1)) {
                             mkdir('files/users/' . $username, 0777, true);
                         }
-            
+
                         $fileNameNew = uniqid('', true) . "." . $fileActualExt;
-            
+
                         $locationpdf1 .= "/" . $fileNameNew;
-            
+
                         move_uploaded_file($_FILES['filepdf']['tmp_name'], $locationpdf1);
                     }
                 } else {
@@ -127,44 +128,44 @@ class Pages extends Controller {
                 $_SESSION['failed'] = "Error: There was an error uploading your file!";
                 header("Location: " . URLROOT . "/pages/edit_profile");
             }
-            
+
 
             //No need hidden value if for multiple functions
             // $_POST['update_student'] hidden value from form //update partner //update administrator
-        //    if ($_POST['update_student']) {
+            //    if ($_POST['update_student']) {
 
-        //         if (isset($_FILES["file"]) && $_FILES["file"]["error"] == 0) { //Nak update gambar
+            //         if (isset($_FILES["file"]) && $_FILES["file"]["error"] == 0) { //Nak update gambar
 
-        //             $data = [
+            //             $data = [
 
 
-        //                 'st_ic' => trim($_POST['st_ic']),
-        //                 'st_email' => trim($_POST['st_email']),
-        //                 'st_fullname' => trim($_POST['st_fullname']),
-        //                 'st_gender' => trim($_POST['st_gender']),
-        //                 'st_race' => trim($_POST['st_race']),
-        //                 'univ_code' => trim($_POST['univ_code']),
-        //                 'st_address' => trim($_POST['st_address']),
-        //                 'st_image' => $location
-    
-        //             ];
+            //                 'st_ic' => trim($_POST['st_ic']),
+            //                 'st_email' => trim($_POST['st_email']),
+            //                 'st_fullname' => trim($_POST['st_fullname']),
+            //                 'st_gender' => trim($_POST['st_gender']),
+            //                 'st_race' => trim($_POST['st_race']),
+            //                 'univ_code' => trim($_POST['univ_code']),
+            //                 'st_address' => trim($_POST['st_address']),
+            //                 'st_image' => $location
 
-        //         }else{ //Xnak update gambar
+            //             ];
 
-        //             $data = [
+            //         }else{ //Xnak update gambar
 
-        //                 'st_ic' => trim($_POST['st_ic']),
-        //                 'st_email' => trim($_POST['st_email']),
-        //                 'st_fullname' => trim($_POST['st_fullname']),
-        //                 'st_gender' => trim($_POST['st_gender']),
-        //                 'st_race' => trim($_POST['st_race']),
-        //                 'univ_code' => trim($_POST['univ_code']),
-        //                 'st_address' => trim($_POST['st_address']),
-               
-        //             ];
-        //         }
+            //             $data = [
 
-        //     } //elseif ($_POST['update_partner'])
+            //                 'st_ic' => trim($_POST['st_ic']),
+            //                 'st_email' => trim($_POST['st_email']),
+            //                 'st_fullname' => trim($_POST['st_fullname']),
+            //                 'st_gender' => trim($_POST['st_gender']),
+            //                 'st_race' => trim($_POST['st_race']),
+            //                 'univ_code' => trim($_POST['univ_code']),
+            //                 'st_address' => trim($_POST['st_address']),
+
+            //             ];
+            //         }
+
+            //     } //elseif ($_POST['update_partner'])
             //elseif ($_POST['update_masteradmin'])
 
             //var_dump($data);
@@ -178,9 +179,9 @@ class Pages extends Controller {
                         //Profile table
                         // 'p_email' => trim($_POST['p_email']),
                         'p_name' => trim($_POST['p_name']),
-                        'gender' => trim($_POST['gender']),
-                        'race' => trim($_POST['race']),
-                        'age' => trim($_POST['age']),
+                        // 'gender' => trim($_POST['gender']),
+                        // 'race' => trim($_POST['race']),
+                        // 'age' => trim($_POST['age']),
                         'dob' => trim($_POST['dob']),
                         'profileimage' => $location,
                         'position' => trim($_POST['position']),
@@ -192,7 +193,6 @@ class Pages extends Controller {
                         //Student table
                         // 's_email' => trim($_POST['s_email']),
                         's_fName' => trim($_POST['s_fName']),
-                        's_lName' => trim($_POST['s_lName']),
                         's_telephone_no' => trim($_POST['s_telephone_no']),
                         's_address' => trim($_POST['s_address']),
                         's_institution' => trim($_POST['s_institution']),
@@ -201,22 +201,24 @@ class Pages extends Controller {
                         's_hobby' => trim($_POST['s_hobby']),
                         's_achievement' => trim($_POST['s_achievement']),
                         's_ambition' => trim($_POST['s_ambition']),
-                        // 's_academic_cert' => trim($_POST['s_academic_cert']),
-                        's_academic_cert' => $locationpdf1,
+                        's_academic_cert' => trim($_POST['s_academic_cert']),
+                        // 's_academic_cert' => $locationpdf1,
                         's_cocurriculum_cert' => trim($_POST['s_cocurriculum_cert']),
-    
-                    ];
+                        's_race' => trim($_POST['s_race']),
+                        's_age' => trim($_POST['s_age']),
+                        's_gender' => trim($_POST['s_gender']),
 
-                }else{ //Xnak update gambar
+                    ];
+                } else { //Xnak update gambar
 
                     $data = [
 
                         //Profile table
                         // 'p_email' => trim($_POST['p_email']),
                         'p_name' => trim($_POST['p_name']),
-                        'gender' => trim($_POST['gender']),
-                        'race' => trim($_POST['race']),
-                        'age' => trim($_POST['age']),
+                        // 'gender' => trim($_POST['gender']),
+                        // 'race' => trim($_POST['race']),
+                        // 'age' => trim($_POST['age']),
                         'dob' => trim($_POST['dob']),
                         'position' => trim($_POST['position']),
                         'headline' => trim($_POST['headline']),
@@ -227,7 +229,6 @@ class Pages extends Controller {
                         //Student table
                         // 's_email' => trim($_POST['s_email']),
                         's_fName' => trim($_POST['s_fName']),
-                        's_lName' => trim($_POST['s_lName']),
                         's_telephone_no' => trim($_POST['s_telephone_no']),
                         's_address' => trim($_POST['s_address']),
                         's_institution' => trim($_POST['s_institution']),
@@ -236,15 +237,18 @@ class Pages extends Controller {
                         's_hobby' => trim($_POST['s_hobby']),
                         's_achievement' => trim($_POST['s_achievement']),
                         's_ambition' => trim($_POST['s_ambition']),
-                        // 's_academic_cert' => trim($_POST['s_academic_cert']),
-                        's_academic_cert' => $locationpdf1,
+                        's_academic_cert' => trim($_POST['s_academic_cert']),
+                        // 's_academic_cert' => $locationpdf1,
                         's_cocurriculum_cert' => trim($_POST['s_cocurriculum_cert']),
-               
+                        's_race' => trim($_POST['s_race']),
+                        's_age' => trim($_POST['s_age']),
+                        's_gender' => trim($_POST['s_gender']),
+
                     ];
                 }
             }
 
-            elseif ($_POST['update_admin']) {
+            elseif ($_POST['update_lecturer']) {
 
                 if (isset($_FILES["file"]) && $_FILES["file"]["error"] == 0) { //Nak update gambar
 
@@ -253,9 +257,9 @@ class Pages extends Controller {
                         //Profile table
                         // 'p_email' => trim($_POST['p_email']),
                         'p_name' => trim($_POST['p_name']),
-                        'gender' => trim($_POST['gender']),
-                        'race' => trim($_POST['race']),
-                        'age' => trim($_POST['age']),
+                        // 'gender' => trim($_POST['gender']),
+                        // 'race' => trim($_POST['race']),
+                        // 'age' => trim($_POST['age']),
                         'dob' => trim($_POST['dob']),
                         'profileimage' => $location,
                         'position' => trim($_POST['position']),
@@ -264,12 +268,16 @@ class Pages extends Controller {
                         'country' => trim($_POST['country']),
                         'citystate' => trim($_POST['citystate']),
 
-                        //Admin table
-                        // 'a_email' => trim($_POST['a_email']),
-                        'a_organization' => trim($_POST['a_organization']),
-                        'a_org_num' => trim($_POST['a_org_num']),
-                        'a_address' => trim($_POST['a_address']),
-    
+                        //Lecturer table
+                        // 'l_email' => trim($_POST['l_email']),
+                        'l_fName' => trim($_POST['l_fName']),
+                        'l_telephone_no' => trim($_POST['l_telephone_no']),
+                        'l_address' => trim($_POST['l_address']),
+                        'l_institution' => trim($_POST['l_institution']),
+                        'l_gender' => trim($_POST['l_gender']),
+                        'l_age' => trim($_POST['l_age']),
+                        'l_race' => trim($_POST['l_race']),
+
                     ];
 
                 }else{ //Xnak update gambar
@@ -279,9 +287,9 @@ class Pages extends Controller {
                         //Profile table
                         // 'p_email' => trim($_POST['p_email']),
                         'p_name' => trim($_POST['p_name']),
-                        'gender' => trim($_POST['gender']),
-                        'race' => trim($_POST['race']),
-                        'age' => trim($_POST['age']),
+                        // 'gender' => trim($_POST['gender']),
+                        // 'race' => trim($_POST['race']),
+                        // 'age' => trim($_POST['age']),
                         'dob' => trim($_POST['dob']),
                         'position' => trim($_POST['position']),
                         'headline' => trim($_POST['headline']),
@@ -289,30 +297,33 @@ class Pages extends Controller {
                         'country' => trim($_POST['country']),
                         'citystate' => trim($_POST['citystate']),
 
-                        //Admin table
-                        // 'a_email' => trim($_POST['a_email']),
-                        'a_organization' => trim($_POST['a_organization']),
-                        'a_org_num' => trim($_POST['a_org_num']),
-                        'a_address' => trim($_POST['a_address']),
-               
+                        //Lecturer table
+                        // 'l_email' => trim($_POST['l_email']),
+                        'l_fName' => trim($_POST['l_fName']),
+                        'l_telephone_no' => trim($_POST['l_telephone_no']),
+                        'l_address' => trim($_POST['l_address']),
+                        'l_institution' => trim($_POST['l_institution']),
+                        'l_gender' => trim($_POST['l_gender']),
+                        'l_age' => trim($_POST['l_age']),
+                        'l_race' => trim($_POST['l_race']),
+
                     ];
                 }
             }
 
-          if ($_POST['update_student']) {
+            if ($_POST['update_student']) {
                 if ($this->pageModel->updateStudentProfile($data)) { //Hantar ke page model 
                     header("Location: " . URLROOT . "/pages/edit_profile");
                 } else {
                     die("Something went wrong, please try again!");
                 }
-            } elseif ($_POST['update_admin']) {
-                if ($this->pageModel->updateAdminProfile($data)) { //Hantar ke page model 
+            } elseif ($_POST['update_lecturer']) {
+                if ($this->pageModel->updateLecturerProfile($data)) { //Hantar ke page model 
                     header("Location: " . URLROOT . "/pages/edit_profile");
                 } else {
                     die("Something went wrong, please try again!");
                 }
-            }
-            else {
+            } else {
                 $this->view('pages/edit_profile');
             } //elseif ($_POST['update_partner'])
             //     if ($this->pageModel->updatePartnerProfile($data)) {
@@ -327,28 +338,28 @@ class Pages extends Controller {
         } // end of if statement 
 
         $studentProfile = $this->pageModel->studentProfile(); //Pulling data
-        $adminProfile = $this->pageModel->adminProfile();
+        // $lecturerProfile = $this->pageModel->lecturerProfile();
 
         $data = [
             'studentProfile' => $studentProfile, //Connecting data
-            'adminProfile' => $adminProfile //Connecting data
+            // 'lecturerProfile' => $lecturerProfile //Connecting data
         ];
 
         $this->view('pages/index', $data); //Display data
     }
 
-    public function view_profile() {
+    public function view_profile()
+    {
         // Fetch the data you want to pass to the view
         $studentProfile = $this->pageModel->studentProfile(); // Replace with your actual method to fetch student data
-    
+
         // Prepare the data array
         $data = [
             'studentProfile' => $studentProfile // Assuming this is the data you want to pass to the view
             // Add more data here if needed
         ];
-    
+
         // Load the view and pass the data to it
         $this->view('pages/view_profile_student', $data);
     }
-    
 }

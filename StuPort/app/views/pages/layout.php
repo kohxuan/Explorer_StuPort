@@ -24,6 +24,8 @@
 
         $h_url = URLROOT .  "/"; //home_url
         $e_url = URLROOT . "/pages/edit_profile"; //edit_user_url
+        $r_url = URLROOT . "/resume";
+        $v_url = URLROOT . "/pages/view_profile";
 
 
         if ($url == $e_url) {
@@ -31,9 +33,27 @@
 
             if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "Student") {
                 require 'edit_profile_student.php';
-            } elseif (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "Administrator") {
-                require 'edit_profile_admin.php';
+            } elseif (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "Lecturer") {
+                require 'edit_profile_lecturer.php';
             } else {
+                echo "Session not set.";
+            }
+        }
+        elseif ($url == $r_url) {
+
+            if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "Student") {
+                // require URLROOT . '/resume/generate_resume.php';
+            } 
+            else {
+                echo "Session not set.";
+            }
+        }
+        elseif ($url == $v_url) {
+
+            if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "Student") {
+                require 'view_profile_student.php';
+            } 
+            else {
                 echo "Session not set.";
             }
         }
