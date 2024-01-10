@@ -43,6 +43,7 @@ require APPROOT . '/views/includes/head.php';
     form {
         display: flex;
         flex-direction: column;
+        align-items: center; /* Center items horizontally */
     }
 
     .form-group {
@@ -64,10 +65,11 @@ require APPROOT . '/views/includes/head.php';
     button {
         background-color: #007bff;
         color: white;
-        padding: 0.5rem;
+        padding: 0.5rem 2rem; /* Increase padding for a larger button */
         border: none;
         border-radius: 4px;
         cursor: pointer;
+        margin-top: 1rem; /* Add margin to space the button from other elements */
     }
 
     button:hover {
