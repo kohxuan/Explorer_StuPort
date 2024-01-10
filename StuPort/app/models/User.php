@@ -10,12 +10,10 @@ class User {
         $user_datetime = date('Y-m-d H:i:s');
         $user_reg_status = "active";
 
-        $this->db->query("INSERT INTO profile (p_email, p_name, gender, race, age, dob, profileimage, position, headline, about, country, citystate) 
-                          VALUES(:p_email, :p_name, :gender, :race, :age, :dob, :profileimage, :position, :headline, :about, :country, :citystate);
-                        
-                          INSERT INTO student (s_email, s_fName, s_lName, s_telephone_no, s_address, s_institution, s_course, s_skills, s_hobby, s_achievement, s_ambition, s_academic_cert, s_cocurriculum_cert) 
-                          VALUES(:s_email, :s_fName, :s_lName, :s_telephone_no, :s_address, :s_institution, :s_course, :s_skills, :s_hobby, :s_achievement, :s_ambition, :s_academic_cert, :s_cocurriculum_cert);");
-    
+        $this->db->query('INSERT INTO profile (p_email, p_name, gender, race, age, dob, profileimage, position, headline, about, country, citystate) 
+        VALUES(:p_email, :p_name, :gender, :race, :age, :dob, :profileimage, :position, :headline, :about, :country, :citystate)');
+
+                       
         //Bind values for profile table
         $p_name = "";
         $dob = "";
@@ -24,20 +22,6 @@ class User {
         $about = "";
         $country = "Malaysia";
         $citystate = "";
-
-        //Bind values for student table
-        $s_fName = "";
-        $s_lName = "";
-        $s_telephone_no = "";
-        $s_address = "";
-        $s_institution = "";
-        $s_course = "";
-        $s_skills = "";
-        $s_hobby = "";
-        $s_achievement = "";
-        $s_ambition = "";
-        $s_academic_cert = "";
-        $s_cocurriculum_cert = "";
 
         //Bind values for profile table
         $this->db->bind(':p_email', $data['email']);
@@ -53,10 +37,30 @@ class User {
         $this->db->bind(':country', $country);
         $this->db->bind(':citystate', $citystate);
 
+        $this->db->execute();
+
+        $this->db->query('INSERT INTO student (s_email, s_fName, s_telephone_no, s_address, s_institution, s_course, s_skills, s_hobby, s_achievement, s_ambition, s_academic_cert, s_cocurriculum_cert, s_age, s_gender, s_race) 
+                  VALUES(:s_email, :s_fName, :s_telephone_no, :s_address, :s_institution, :s_course, :s_skills, :s_hobby, :s_achievement, :s_ambition, :s_academic_cert, :s_cocurriculum_cert, :s_age , :s_gender, :s_race)');
+
+        //Bind values for student table
+        $s_fName = "";
+        $s_lName = "";
+        $s_telephone_no = "";
+        $s_address = "";
+        $s_institution = "";
+        $s_course = "";
+        $s_skills = "";
+        $s_hobby = "";
+        $s_achievement = "";
+        $s_ambition = "";
+        $s_academic_cert = "";
+        $s_cocurriculum_cert = "";
+
+
+
         //Bind values for student table
         $this->db->bind(':s_email', $data['email']);
-        $this->db->bind(':s_fName', $s_fName);
-        $this->db->bind(':s_lName', $s_lName);
+        $this->db->bind(':s_fName', $data['full_name']);
         $this->db->bind(':s_telephone_no', $s_telephone_no);
         $this->db->bind(':s_address', $s_address);
         $this->db->bind(':s_institution', $s_institution);
@@ -67,6 +71,77 @@ class User {
         $this->db->bind(':s_ambition', $s_ambition);
         $this->db->bind(':s_academic_cert', $s_academic_cert);
         $this->db->bind(':s_cocurriculum_cert', $s_cocurriculum_cert);
+        $this->db->bind(':s_age', $data['age']);
+        $this->db->bind(':s_gender', $data['gender']);
+        $this->db->bind(':s_race', $data['race']);
+    
+        $this->db->execute();
+    
+        $dataUser = [
+            'username' => $data['username'],
+            'password' => $data['password'],
+            'email' => $data['email'],
+            'user_role' => $data['user_role'],
+            'datetime_register' => $user_datetime,
+            'user_reg_status' => $user_reg_status
+        ];
+    
+        $this->registerUser($dataUser);
+    }
+
+    public function registerLecturer($data) {
+        date_default_timezone_set("Asia/Taipei");
+        $user_datetime = date('Y-m-d H:i:s');
+        $user_reg_status = "active";
+
+        $this->db->query('INSERT INTO profile (p_email, p_name, gender, race, age, dob, profileimage, position, headline, about, country, citystate) 
+        VALUES(:p_email, :p_name, :gender, :race, :age, :dob, :profileimage, :position, :headline, :about, :country, :citystate)');
+
+                       
+        //Bind values for profile table
+        $p_name = "";
+        $dob = "";
+        $profileimage = "images/dummy/user.png";
+        $headline = "";
+        $about = "";
+        $country = "Malaysia";
+        $citystate = "";
+
+        //Bind values for profile table
+        $this->db->bind(':p_email', $data['email']);
+        $this->db->bind(':p_name', $p_name);
+        $this->db->bind(':gender', $data['gender']);
+        $this->db->bind(':race', $data['race']);
+        $this->db->bind(':age', $data['age']);
+        $this->db->bind(':dob', $dob);
+        $this->db->bind(':profileimage', $profileimage);
+        $this->db->bind(':position', $data['user_role']);
+        $this->db->bind(':headline', $headline);
+        $this->db->bind(':about', $about);
+        $this->db->bind(':country', $country);
+        $this->db->bind(':citystate', $citystate);
+
+        $this->db->execute();
+
+        $this->db->query('INSERT INTO lecturer (l_email, l_fName, l_telephone_no, l_address, l_institution, l_age, l_gender, l_race) 
+                  VALUES(:l_email, :l_fName, :l_telephone_no, :l_address, :l_institution, :l_age, :l_gender, :l_race)');
+
+        //Bind values for student table
+        $l_fName = "";
+        $l_telephone_no = "";
+        $l_address = "";
+        $l_institution = "";
+      
+
+        //Bind values for student table
+        $this->db->bind(':l_email', $data['email']);
+        $this->db->bind(':l_fName', $data['full_name']);
+        $this->db->bind(':l_telephone_no', $l_telephone_no);
+        $this->db->bind(':l_address', $l_address);
+        $this->db->bind(':l_institution', $l_institution);
+        $this->db->bind(':l_age', $data['age']);
+        $this->db->bind(':l_gender', $data['gender']);
+        $this->db->bind(':l_race', $data['race']);
     
         $this->db->execute();
     

@@ -1,191 +1,154 @@
-<?php
-require APPROOT . '/views/includes/head.php';
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
 
-<?php require APPROOT . '/views/includes/head.php'; ?>
+        .registration-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
 
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f8f9fa;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+        .form-group {
+            margin-bottom: 20px;
+        }
 
-    .navbar {
-        background-color: #343a40;
-        color: white;
-        padding: 1rem;
-        text-align: center;
-    }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
 
-    .container-login {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
 
-    .wrapper-login {
-        background-color: white;
-        padding: 2rem;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        width: 400px;
-    }
+        select {
+            appearance: none;
+        }
 
-    h2 {
-        text-align: center;
-        color: #343a40;
-    }
+        .invalid-feedback {
+            color: #ff0000;
+            font-size: 14px;
+        }
 
-    form {
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Center items horizontally */
-    }
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-    .form-group {
-        margin-bottom: 1rem;
-    }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-form">
+        <h2>Registration Form</h2>
+        <form action="<?php echo URLROOT . "/users/register" ?>" method="post">
+        <input type="text" placeholder="Username *" name="username">
+                        <span class="invalidFeedback">
+                            <?php echo $data['usernameError']; ?>
+                        </span>
 
-    input {
-        padding: 0.5rem;
-        margin-top: 0.5rem;
-        border: 1px solid #ced4da;
-        border-radius: 4px;
-    }
+                        <input type="email" placeholder="Email *" name="email">
+                        <span class="invalidFeedback">
+                            <?php echo $data['emailError']; ?>
+                        </span>
 
-    select {
-        padding: 0.5rem;
-        margin-top: 0.5rem;
-    }
+                        <input type="text" placeholder="Full Name *" name="full_name">
+                        <span class="invalidFeedback">
+                            <?php echo $data['fullNameError']; ?>
+                        </span>
 
-    button {
-        background-color: #007bff;
-        color: white;
-        padding: 0.5rem 2rem; /* Increase padding for a larger button */
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        margin-top: 1rem; /* Add margin to space the button from other elements */
-    }
+                        <label for="gender">Gender:</label>
+                        <select id="gender" name="gender">
+                            <option value="Male" <?php echo ($data['gender'] == 'Male') ? 'selected' : ''; ?>>Male</option>
+                            <option value="Female" <?php echo ($data['gender'] == 'Female') ? 'selected' : ''; ?>>Female</option>
+                        </select>
+                        <span class="invalidFeedback">
+                            <?php echo $data['genderError']; ?>
+                        </span>
 
-    button:hover {
-        background-color: #0056b3;
-    }
+                        <input type="number" placeholder="Age *" name="age">
+                        <span class="invalidFeedback">
+                            <?php echo $data['ageError']; ?>
+                        </span>
 
-    .invalidFeedback {
-        color: #dc3545;
-        margin-top: 0.2rem;
-    }
+                        <label for="user_role">User Role:</label>
+                        <select id="user_role" name="user_role">
+                            <option value="Student" <?php echo ($data['user_role'] == 'Student') ? 'selected' : ''; ?>>Student</option>
+                            <option value="Lecturer" <?php echo ($data['user_role'] == 'Lecturer') ? 'selected' : ''; ?>>Lecturer</option>
+                        </select>
 
-    .options {
-        text-align: center;
-        margin-top: 1rem;
-    }
+                        <span class="invalidFeedback">
+                            <?php echo isset($data['userRoleError']) ? $data['userRoleError'] : ''; ?>
+                        </span>
+                    </td>
+                    <td>
+                        <input type="password" placeholder="Password *" name="password">
+                        <span class="invalidFeedback">
+                            <?php echo $data['passwordError']; ?>
+                        </span>
 
-    a {
-        color: #007bff;
-        text-decoration: none;
-    }
+                        <input type="password" placeholder="Confirm Password *" name="confirmPassword">
+                        <span class="invalidFeedback">
+                            <?php echo $data['confirmPasswordError']; ?>
+                        </span>
 
-    a:hover {
-        text-decoration: underline;
-    }
-</style>
+                        <input type="text" placeholder="Address *" name="address">
+                        <span class="invalidFeedback">
+                            <?php echo $data['addressError']; ?>
+                        </span>
 
-<div class="navbar">
-    <?php
-    require APPROOT . '/views/includes/navigation.php';
-    ?>
-</div>
+                        <input type="text" placeholder="Course *" name="course">
+                        <span class="invalidFeedback">
+                            <?php echo $data['courseError']; ?>
+                        </span>
 
-<div class="container-login">
-    <div class="wrapper-login">
-        <h2>Register</h2>
+                        <input type="text" placeholder="Institution *" name="institution">
+                        <span class="invalidFeedback">
+                           
+                        </span>
 
-        <form
-            id="register-form"
-            method="POST"
-            action="<?php echo URLROOT; ?>/users/register"
-        >
-            <input type="text" placeholder="Username *" name="username">
-            <span class="invalidFeedback">
-                <?php echo $data['usernameError']; ?>
-            </span>
+                        <input type="number" placeholder="Telephone *" name="telephone">
+                        <span class="invalidFeedback">
+                           
+                        </span>
 
-            <input type="email" placeholder="Email *" name="email">
-            <span class="invalidFeedback">
-                <?php echo $data['emailError']; ?>
-            </span>
+                        <input type="text" placeholder="Race *" name="race">
+                        <span class="invalidFeedback">
 
-            <input type="text" placeholder="Full Name *" name="full_name">
-            <span class="invalidFeedback">
-                <?php echo $data['fullNameError']; ?>
-            </span>
-
-            <label for="gender">Gender:</label>
-            <select id="gender" name="gender">
-                <option value="Male" <?php echo ($data['gender'] == 'Male') ? 'selected' : ''; ?>>Male</option>
-                <option value="Female" <?php echo ($data['gender'] == 'Female') ? 'selected' : ''; ?>>Female</option>
-            </select>
-            <span class="invalidFeedback">
-                <?php echo $data['genderError']; ?>
-            </span>
-
-            <input type="number" placeholder="Age *" name="age">
-            <span class="invalidFeedback">
-                <?php echo $data['ageError']; ?>
-            </span>
-
-            <input type="hidden" name="user_role" value="Student">
-
-            <span class="invalidFeedback">
-                <?php echo isset($data['userRoleError']) ? $data['userRoleError'] : ''; ?>
-            </span>
-
-            <input type="password" placeholder="Password *" name="password">
-            <span class="invalidFeedback">
-                <?php echo $data['passwordError']; ?>
-            </span>
-
-            <input type="password" placeholder="Confirm Password *" name="confirmPassword">
-            <span class="invalidFeedback">
-                <?php echo $data['confirmPasswordError']; ?>
-            </span>
-
-            <input type="text" placeholder="Address *" name="address">
-            <span class="invalidFeedback">
-                <?php echo $data['addressError']; ?>
-            </span>
-
-            <input type="text" placeholder="Course *" name="course">
-            <span class="invalidFeedback">
-                <?php echo $data['courseError']; ?>
-            </span>
-
-
-            <input type="text" placeholder="Institution *" name="institution">
-            <span class="invalidFeedback">
-               
-            </span>
-
-            <input type="number" placeholder="Telephone *" name="telephone">
-            <span class="invalidFeedback">
-               
-            </span>
-
-            <input type="text" placeholder="Race *" name="race">
-            <span class="invalidFeedback">
-              
-            </span>
-
-
-            <button id="submit" type="submit" value="submit">Submit</button>
-
-            <p class="options">Not registered yet?<a href="<?php echo URLROOT; ?>/users/login">Login here</a></p>
+            <div class="form-group">
+                <button type="submit">Register</button>
+            </div>
         </form>
+        <a href="<?php echo URLROOT; ?>/users/login" class="link-primary">Back to Login</a>
     </div>
-</div>
+</body>
+</html>

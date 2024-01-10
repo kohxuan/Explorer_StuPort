@@ -118,6 +118,9 @@ class Users extends Controller {
                 if ($data['user_role'] == "Student") {
                     $this->userModel->registerStudent($data);
                     header('location:'. URLROOT . '/user/login');
+                } else if ($data['user_role'] == "Lecturer") {
+                    $this->userModel->registerLecturer($data);
+                    header('location:'. URLROOT . '/user/login');
                 }
             }
 
