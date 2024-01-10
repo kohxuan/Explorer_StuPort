@@ -1,315 +1,106 @@
 <?php
 
-    class Rewards extends Controller {
-        private $rewardModel;
-        public function __construct() {
+class Rewards extends Controller
+{
+    private $rewardModel;
 
-            $this->rewardModel = $this->model('Reward');
+    public function __construct()
+    {
+        $this->rewardModel = $this->model('Reward');
+    }
 
+    public function index()
+    {
+        $rewards = $this->rewardModel->findAllRewards();
+        $data = [
+            'rewards' => $rewards
+        ];
+
+        $this->view('rewards/index', $data);
+    }
+
+    public function create()
+    {
+        if (!isLoggedIn()) {
+            header("Location: " . URLROOT . "/rewards/index");
         }
 
-        public function index() {
+        $data = [
+            'badge_name' => '',
+            'badge_description' => '',
+            'points_required' => ''
+        ];
 
-            $rewards = $this->rewardModel->findAllRewards();
-            $data = [
-
-                'rewards' => $rewards
-
-            ];
-
-            $this->view('rewards/index', $data);
-
-        }
-
-        public function create() {
-
-            if (!isLoggedIn()){
-
-                header("Location: " . URLROOT. "/rewards/create" );
-
-            }
-
-
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
-
-                'badge_name' => '',
-                'achievement_status' => '',
-                'badge_description' => ''
-
-            ];
-
-            if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-    
-                
-                $data = 
-                [
-                'user_id' => $_SESSION['user_id'],
                 'badge_name' => trim($_POST['badge_name']),
                 'badge_description' => trim($_POST['badge_description']),
-                'achievement_status' => trim($_POST['achievement_status']),
-                ];
-    
-    
-                if ($data['badge_name'] && $data['badge_description'] && $data['achievement_status']){
-                    if ($this->rewardModel->addReward($data)){
-                        header("Location: " . URLROOT. "/rewards" );
-                    }
-                    else
-                    {
-                        die("Something went wrong :(");
-                    }
-                }
-                else
-                {
-                    $this->view('rewards/index', $data);
-                }
-            }
-
-           
-
-            $this->view('rewards/index', $data);
-
-            
-
-        }
-
-        public function update($id) {
-
-            $rewards = $this->rewardModel->findRewardById($id);
-
-            if(!isLoggedIn()) {
-
-                header("Location: " . URLROOT . "/rewards");
-
-            } 
-            // elseif($badge->user_id != $_SESSION['user_id']) {
-
-            //     header("Location: " . URLROOT . "/posts");
-
-            // }
-
-            $data = [
-
-                'rewards' => $rewards,
-                'badge_name' => '',
-                'badge_description' => '',
-                'achievement_status' => '',
-                'badge_name_Error' => '',
-                'badge_description_Error' => '',
-                'achievement_status_Error' => ''
-
+                'points_required' => trim($_POST['points_required'])
             ];
 
-            if($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-                if(!empty($_FILES['image'])) {
-
-                    $filename = $_FILES['image']['name'];
-                    $filesize = $_FILES['image']['size'];
-                    $tempname = $_FILES['image']['tmp_name'];
-                    $error = $_FILES['image']['error'];
-
-                    if($error === 0) {
-
-                        // check filesize
-                        $maxsize = 5 * 1024 * 1024;
-                        if($filesize > $maxsize) {
-
-                            $_SESSION['error'] = "Sorry, your file is greater than 5Mb";
-                            header("Location: " . URLROOT . "/rewards/update/" . $data['rewards']->reward_id);
-
-                        } else {
-
-                            $ext = pathinfo($filename, PATHINFO_EXTENSION);
-                            $ext_lc = strtolower($ext);
-
-                            $allowed = array("jpg", "jpeg", "png");
-
-                            if(in_array($ext_lc, $allowed)) {
-
-                                $uploadDir = 'assets/media/rewards/';
-                                $newIconPath = $uploadDir . basename($filename);
-
-                                // exit if file already existed
-                                if(file_exists($newIconPath)) {
-
-                                    echo $filename . " is already exists.";
-
-                                } else {
-
-                                    // Create the directory if it doesn't exist
-                                    if(!file_exists($uploadDir)) {
-
-                                        mkdir($uploadDir, 0755, true);
-
-                                    }
-
-                                    // Set appropriate permissions on the directory
-                                    chmod($uploadDir, 0755);
-
-                                    // $filenameNew = uniqid('', true) . "." . $ext_lc;
-
-                                    $uploadDir .= "/" . $filename;
-
-                                    move_uploaded_file($tempname, $uploadDir);
-
-                                }
-        
-                            } else {
-                                
-                                $_SESSION['error'] = "Sorry, your file is not supported";
-                                header("Location: " . URLROOT . "/rewards/update/" . $data['rewards']->reward_id);
-
-                            }
-
-                        }
-
-                    } 
-                    // else {
-
-                    //     $_SESSION['error'] = "Error uploading file";
-                    //     header("Location: " . URLROOT . "/badges/update/" . $data['badge']->badge_id);
-
-                    // }
-
-                } 
-                // else {
-
-                //     $newIconPath = trim($_POST['existing_icon']);
-
-                // }
-
-                $data = [
-
-                    'reward_id' => $id,
-                    'rewards' => $rewards,
-                    // 'user_id' => $_SESSION['user_id'],
-                    'badge_name' => trim($_POST['badge_name']),
-                    'badge_description' => trim($_POST['badge_description']),
-                    'achievement_status' => $newIconPath,
-                    'badge_name_Error' => '',
-                    'badge_description_Error' => '',
-                    'achievement_status_Error' => ''
-
-                ];
-
-                // Check empty
-                if(empty($data['badge_name'])) {
-
-                    $data['badge_name_Error'] = 'The name of a reward cannot be empty';
-
-                }
-
-                if(empty($data['badge_description'])) {
-
-                    $data['badge_description_Error'] = 'The description of a reward cannot be empty';
-
-                }
-
-                if(empty($data['achievement_status'])) {
-
-                    $data['achievement_status_Error'] = $this->rewardModel->findRewardById($id)->achievement_status;
-
-                }
-                // End of Check empty
-
-                // Check changes
-                if($data['badge_name'] == $this->rewardModel->findRewardById($id)->badge_name) {
-
-                    $data['badge_name_Error'] = "At least change the name!";
-
-                }
-
-                if($data['badge_description'] == $this->rewardModel->findRewardById($id)->badge_description) {
-
-                    $data['badge_description_Error'] = "At least change the description!";
-
-                }
-
-                if($data['achievement_status'] == $this->rewardModel->findRewardById($id)->achievement_status) {
-
-                    $data['achievement_status_Error'] = "At least change the icon!";
-
-                }
-                // End of Check changes
-
-
-                if (empty($data['badge_name_Error'] && $data['badge_description_Error'] && $data['achievement_status_Error'])) {
-
-                    if ($this->rewardModel->updateReward($data)) {
-
-                        $_SESSION['error'] = "";
-
-                        header("Location: " . URLROOT. "/rewards" );
-
-                    } else {
-
-                        die("Something went wrong :(");
-
-                    }
-
+            if ($data['badge_name'] && $data['badge_description'] && $data['points_required']) {
+                if ($this->rewardModel->addReward($data)) {
+                    header("Location: " . URLROOT . "/rewards/index");
                 } else {
-
-                    $this->view('rewards/index', $data);
-
+                    die("Something went wrong :(");
                 }
-
+            } else {
+                $this->view('rewards/create', $data);
             }
-
-            $this->view('rewards/index', $data);
-
         }
 
-        public function delete($id) {
+        $this->view('rewards/create', $data);
+    }
 
-            $rewards = $this->rewardModel->findRewardById($id);
+    public function update($id)
+    {
+        $reward = $this->rewardModel->findRewardById($id);
 
-            if(!isLoggedIn()) {
+        if (!isLoggedIn()) {
+            header("Location: " . URLROOT . "/rewards/index");
+        }
 
-                header("Location: " . URLROOT . "/rewards");
+        $data = [
+            'reward' => $reward,
+            'badge_name' => $reward->badge_name,
+            'badge_description' => $reward->badge_description,
+            'points_required' => $reward->points_required
+        ];
 
-            }
-            // elseif($post->user_id != $_SESSION['user_id'])
-            // {
-            //     header("Location: " . URLROOT . "/posts");
-
-            // }
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
-
-                'reward' => $rewards,
-                'badge_name' => '',
-                'badge_description' => '',
-                'achievement_status' => '',
-                'badge_name_Error' => '',
-                'badge_description_Error' => '',
-                'achievement_status_Error' => ''
-
+                'reward_id' => $id,
+                'badge_name' => trim($_POST['badge_name']),
+                'badge_description' => trim($_POST['badge_description']),
+                'points_required' => trim($_POST['points_required'])
             ];
 
-            
-            if($_SERVER['REQUEST_METHOD'] == 'POST'){
-
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-            }
-
-            if($this->rewardModel->deleteReward($id)){
-
-                header("Location: " . URLROOT . "/rewards");
-
+            if ($this->rewardModel->updateReward($data)) {
+                header("Location: " . URLROOT . "/rewards/index");
             } else {
-
-                die('Something went wrong..');
-
+                die("Something went wrong :(");
             }
-            
         }
 
+        $this->view('rewards/update', $data);
     }
+
+    public function delete($id)
+    {
+        if (!isLoggedIn()) {
+            header("Location: " . URLROOT . "/rewards/index");
+        }
+
+        if ($this->rewardModel->deleteReward($id)) {
+            header("Location: " . URLROOT . "/rewards/index");
+        } else {
+            die('Something went wrong..');
+        }
+    }
+}
 
 ?>

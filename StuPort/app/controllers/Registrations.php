@@ -41,8 +41,8 @@ class Registrations extends Controller {
         }
     }
 
-    public function update($id) {
-        $registration = $this->registrationModel->findRegistrationById($id);
+    public function update($activity_id) {
+        $registration = $this->registrationModel->findRegistrationById($activity_id);
         $data = [
             'activity_id' => trim($_POST['activity_id']),
             'link' => trim($_POST['link']),
