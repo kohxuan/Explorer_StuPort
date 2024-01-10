@@ -37,7 +37,7 @@
                             <td><?php echo $activity->organizer_name; ?></td>
                             <td><?php echo $activity->skill_acquired; ?></td>
                             <td>
-
+                            <?php if ($_SESSION['user_role'] !== 'Student') : ?>
                                     <a href="<?php echo URLROOT . "/activities/update/" . $activity->activity_id ?>" class="btn btn-light-warning">Update</a>
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt<?php echo $activity->activity_id?>">
                                         Delete
@@ -63,7 +63,12 @@
                                             </div>
                                         </div>
                                     </div>
-                            
+                                    <?php endif; ?>
+
+                                    <?php if ($_SESSION['user_role'] === 'Student') : ?>
+                    <a href="<?php echo URLROOT . "/activities/join/" . $activity->activity_id ?>" class="btn btn-light-warning">Join</a>
+                <?php endif; ?>
+
                             </td>
                             <td>
                                 <?php
