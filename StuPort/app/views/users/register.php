@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Form</title>
+    <title>Registration here !</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gagalin&display=swap">
+    <style>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Gagalin', sans-serif;
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
@@ -16,12 +18,18 @@
             height: 100vh;
         }
 
+        .centered-word {
+            color: darkred;
+            text-align: center; /* Center the text within h2 */
+        }
+
         .registration-form {
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 400px;
+            margin: auto; /* Add this line for centering */
         }
 
         .form-group {
@@ -40,7 +48,7 @@
             padding: 10px;
             margin-bottom: 10px;
             border: 1px solid #ccc;
-            border-radius: 4px;
+            border-radius: 3px;
             box-sizing: border-box;
         }
 
@@ -69,7 +77,12 @@
 </head>
 <body>
     <div class="registration-form">
-        <h2>Registration Form</h2>
+        <br>
+    <h2 class="centered-word"><img src="https://i.ibb.co/7byWKRt/youth-venture-logo.png" alt="youth-venture-logo " style="height: 40px; margin-right: 10px;">
+    </br>
+        Registration Here !</h2>
+
+
         <form action="<?php echo URLROOT . "/users/register" ?>" method="post">
         <input type="text" placeholder="Username *" name="username">
                         <span class="invalidFeedback">
