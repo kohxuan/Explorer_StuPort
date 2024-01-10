@@ -57,7 +57,7 @@
                         <div class="d-flex flex-column">
                             <!--begin::Name-->
                             <div class="d-flex align-items-center mb-2">
-                                <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1"><?php echo $studentProfile->p_name; ?></a>
+                                <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1"><?php echo $studentProfile->s_fName; ?></a>
                                 <a href="#">
                                     <i class="ki-duotone ki-verify fs-1 text-primary">
                                         <span class="path1"></span>
@@ -83,7 +83,7 @@
                                     <i class="ki-duotone ki-sms fs-4">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
-                                    </i><?php echo $studentProfile->p_email; ?></a>
+                                    </i><?php echo $studentProfile->s_email; ?></a>
                             </div>
                             <!--end::Info-->
                         </div>
@@ -255,15 +255,24 @@
                             <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('<?php echo URLROOT . "/public/" . $studentProfile->profileimage; ?>')">
                                 <div class="image-input-wrapper w-125px h-125px" style="background-image: url('<?php echo URLROOT . "/public/" . $studentProfile->profileimage; ?>')"></div>
                                 <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
-                                    <i class="ki-duotone ki-pencil fs-7"></i>
+                                    <i class="ki-duotone ki-pencil fs-7">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
                                     <input type="file" name="file" accept=".png, .jpg, .jpeg" />
                                     <input type="hidden" name="profile_avatar_remove" />
                                 </label>
                                 <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
-                                    <i class="ki-duotone ki-cross fs-2"></i>
+                                    <i class="ki-duotone ki-cross fs-2">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
                                 </span>
                                 <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
-                                    <i class="ki-duotone ki-cross fs-2"></i>
+                                    <i class="ki-duotone ki-cross fs-2">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
                                 </span>
                             </div>
                             <div class="form-text">Allowed file types: png, jpg, jpeg.</div>
@@ -274,7 +283,7 @@
                     <div class="row mb-6">
                         <label class="col-lg-4 col-form-label required fw-semibold fs-6">Email Address</label>
                         <div class="col-lg-8">
-                            <input class="form-control form-control-lg form-control-solid" name="p_email" type="text" readonly value="<?php echo $studentProfile->p_email; ?>" />
+                            <input class="form-control form-control-lg form-control-solid" name="s_email" type="text" readonly value="<?php echo $studentProfile->s_email; ?>" />
                         </div>
                     </div>
 
@@ -282,7 +291,7 @@
                     <div class="row mb-6">
                         <label class="col-lg-4 col-form-label fw-semibold fs-6">Name</label>
                         <div class="col-lg-8">
-                            <input class="form-control form-control-lg form-control-solid" name="p_name" type="text" maxlength="255" value="<?php echo $studentProfile->p_name; ?>" />
+                            <input class="form-control form-control-lg form-control-solid" name="s_fName" type="text" maxlength="255" value="<?php echo $studentProfile->s_fName; ?>" />
                             <div class="form-text">Full Name</div>
                         </div>
                     </div>
@@ -300,8 +309,8 @@
                     <div class="row mb-6">
                         <label class="col-lg-4 col-form-label fw-semibold fs-6">Gender</label>
                         <div class="col-lg-8">
-                            <select class="form-select form-select-solid form-select-lg" name="gender">
-                                <option value="<?php echo $studentProfile->gender ?>"><?php echo $studentProfile->gender ?></option>
+                            <select class="form-select form-select-solid form-select-lg" name="s_gender">
+                                <option value="<?php echo $studentProfile->s_gender ?>"><?php echo $studentProfile->s_gender ?></option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                             </select>
@@ -312,8 +321,8 @@
                     <div class="row mb-6">
                         <label class="col-lg-4 col-form-label fw-semibold fs-6">Race</label>
                         <div class="col-lg-8">
-                            <select class="form-select form-select-solid form-select-lg" name="race">
-                                <option value="<?php echo $studentProfile->race ?>"><?php echo $studentProfile->race ?></option>
+                            <select class="form-select form-select-solid form-select-lg" name="s_race">
+                                <option value="<?php echo $studentProfile->s_race ?>"><?php echo $studentProfile->s_race ?></option>
                                 <option value="Malay">Malay</option>
                                 <option value="Chinese">Chinese</option>
                                 <option value="Indian">Indian</option>
@@ -327,7 +336,7 @@
                     <div class="row mb-6">
                         <label class="col-lg-4 col-form-label fw-semibold fs-6">Age</label>
                         <div class="col-lg-8">
-                            <input class="form-control form-control-lg form-control-solid" name="age" type="number" maxlength="11" value="<?php echo $studentProfile->age; ?>" />
+                            <input class="form-control form-control-lg form-control-solid" name="s_age" type="number" maxlength="11" value="<?php echo $studentProfile->s_age; ?>" />
                             <div class="form-text">Please enter numbers.</div>
                             <div class="form-text">Eg. 20</div>
                         </div>
@@ -405,17 +414,9 @@
                 <!-- Student Table -->
                 <!-- s_fName Section -->
                 <div class="row mb-6">
-                    <label class="col-lg-4 col-form-label fw-semibold fs-6">First Name</label>
+                    <label class="col-lg-4 col-form-label fw-semibold fs-6">Full Name</label>
                     <div class="col-lg-8">
                         <input class="form-control form-control-lg form-control-solid" name="s_fName" type="text" value="<?php echo $studentProfile->s_fName; ?>" />
-                    </div>
-                </div>
-
-                <!-- s_lName Section -->
-                <div class="row mb-6">
-                    <label class="col-lg-4 col-form-label fw-semibold fs-6">Last Name</label>
-                    <div class="col-lg-8">
-                        <input class="form-control form-control-lg form-control-solid" name="s_lName" type="text" value="<?php echo $studentProfile->s_lName; ?>" />
                     </div>
                 </div>
 
@@ -533,4 +534,3 @@
         <!-- </div> -->
     </div>
 </div>
-

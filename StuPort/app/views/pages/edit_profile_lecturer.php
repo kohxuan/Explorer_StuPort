@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="card-body">
-        <?php foreach ($data['adminProfile'] as $adminProfile) : ?>
+        <?php foreach ($data['lecturerProfile'] as $lecturerProfile) : ?>
             <!-- Display admin profile data -->
         <?php endforeach; ?>
 

@@ -1,39 +1,41 @@
 <?php require APPROOT . '/views/includes/head_metronic.php'; ?>
 <?php require APPROOT . '/views/includes/begin_app.php'; ?>
 
-<div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
-    <!--begin::Toolbar container-->
-    <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
-        <!--begin::Page title-->
-        <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
-            <!--begin::Title-->
-            <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">Profile Overview</h1>
-            <!--end::Title-->
-            <!--begin::Breadcrumb-->
-            <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
-                <!--begin::Item-->
-                <li class="breadcrumb-item text-muted">
-                    <a href="index.html" class="text-muted text-hover-primary">Home</a>
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="breadcrumb-item">
-                    <span class="bullet bg-gray-500 w-5px h-2px"></span>
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="breadcrumb-item text-muted">Profile</li>
-                <!--end::Item-->
-            </ul>
-            <!--end::Breadcrumb-->
-        </div>
-        <!--end::Page title-->
-    </div>
-</div>
-
 <div id="kt_app_content" class="app-content flex-column-fluid">
     <!--begin::Content container-->
     <div id="kt_app_content_container" class="app-container container-fluid">
+
+
+        <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+            <!--begin::Toolbar container-->
+            <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
+                <!--begin::Page title-->
+                <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+                    <!--begin::Title-->
+                    <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">Profile Overview</h1>
+                    <!--end::Title-->
+                    <!--begin::Breadcrumb-->
+                    <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+                        <!--begin::Item-->
+                        <li class="breadcrumb-item text-muted">
+                            <a href="index.html" class="text-muted text-hover-primary">Home</a>
+                        </li>
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <li class="breadcrumb-item">
+                            <span class="bullet bg-gray-500 w-5px h-2px"></span>
+                        </li>
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <li class="breadcrumb-item text-muted">Profile</li>
+                        <!--end::Item-->
+                    </ul>
+                    <!--end::Breadcrumb-->
+                </div>
+                <!--end::Page title-->
+            </div>
+        </div>
+
 
         <div class="card-body">
             <?php foreach ($data['studentProfile'] as $studentProfile) : ?>
@@ -60,7 +62,7 @@
                                     <div class="d-flex flex-column">
                                         <!--begin::Name-->
                                         <div class="d-flex align-items-center mb-2">
-                                            <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1"><?php echo $studentProfile->p_name; ?></a>
+                                            <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1"><?php echo $studentProfile->s_fName; ?></a>
                                             <a href="#">
                                                 <i class="ki-duotone ki-verify fs-1 text-primary">
                                                     <span class="path1"></span>
@@ -258,7 +260,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $studentProfile->p_name; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800"><?php echo $studentProfile->s_fName; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -282,7 +284,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 d-flex align-items-center">
-                                <span class="fw-bold fs-6 text-gray-800 me-2"><?php echo $studentProfile->gender; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800 me-2"><?php echo $studentProfile->s_gender; ?></span>
                                 <!-- <span class="badge badge-success">Verified</span> -->
                             </div>
                             <!--end::Col-->
@@ -295,7 +297,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <a href="#" class="fw-bold fs-6 text-gray-800 text-hover-primary"><?php echo $studentProfile->race; ?></a>
+                                <a href="#" class="fw-bold fs-6 text-gray-800 text-hover-primary"><?php echo $studentProfile->s_race; ?></a>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -307,7 +309,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $studentProfile->age; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800"><?php echo $studentProfile->s_age; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -376,7 +378,7 @@
                         <!--begin::Row-->
                         <div class="row mb-7">
                             <!--begin::Label-->
-                            <label class="col-lg-4 fw-semibold text-muted">First Name</label>
+                            <label class="col-lg-4 fw-semibold text-muted">Full Name</label>
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
@@ -385,18 +387,6 @@
                             <!--end::Col-->
                         </div>
                         <!--end::Row-->
-                        <!--begin::Input group-->
-                        <div class="row mb-7">
-                            <!--begin::Label-->
-                            <label class="col-lg-4 fw-semibold text-muted">Last Name</label>
-                            <!--end::Label-->
-                            <!--begin::Col-->
-                            <div class="col-lg-8 fv-row">
-                                <span class="fw-semibold text-gray-800 fs-6"><?php echo $studentProfile->s_lName; ?></span>
-                            </div>
-                            <!--end::Col-->
-                        </div>
-                        <!--end::Input group-->
                         <!--begin::Input group-->
                         <div class="row mb-7">
                             <!--begin::Label-->
@@ -512,7 +502,8 @@
 
     <!-- Download Resume Button -->
     <!-- <div class="text-end mt-4">
-        <a href="<?php //echo URLROOT; ?>/resume/generate_resume" class="btn btn-primary" target="_blank">Download Resume</a>
+        <a href="<?php //echo URLROOT; 
+                    ?>/resume/generate_resume" class="btn btn-primary" target="_blank">Download Resume</a>
     </div> -->
     </div>
 </div>
