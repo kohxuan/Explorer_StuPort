@@ -29,7 +29,7 @@
         ?>
         <?php endforeach; ?>
                 <img class="profile" src="assets/images/profile.png" alt="" />
-                <h1 class="name"><?php echo $studentProfile->p_name; ?></h1>
+                <h1 class="name"><?php echo $studentProfile->s_fName; ?></h1>
                 <h3 class="tagline">Full Stack Developer</h3>
             </div><!--//profile-container-->
             

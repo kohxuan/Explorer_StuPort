@@ -183,7 +183,7 @@
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3 my-1">
-                                        <a href="<?php echo URLROOT; ?>/pages/view_profile" class="menu-link px-3">Overview</a>
+                                        <a href="<?php echo URLROOT; ?>/pages/view_profile_lecturer" class="menu-link px-3">Overview</a>
                                     </div>
                                     <!--end::Menu item-->
                                 </div>
@@ -218,7 +218,7 @@
             <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bold">
                 <!--begin::Nav item-->
                 <li class="nav-item mt-2">
-                    <a class="nav-link text-active-primary ms-0 me-10 py-5" href="<?php echo URLROOT; ?>/pages/view_profile">Profile</a>
+                    <a class="nav-link text-active-primary ms-0 me-10 py-5" href="<?php echo URLROOT; ?>/pages/view_profile_lecturer">Profile</a>
                 </li>
                 <!--end::Nav item-->
                 <!--begin::Nav item-->

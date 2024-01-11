@@ -43,8 +43,9 @@
 
             if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "Student") {
                 require 'generate_resume_student.php';
-            } 
-            else {
+            } elseif (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "Lecturer") {
+                echo "Session not set.";
+            } else {
                 echo "Session not set.";
             }
         }
