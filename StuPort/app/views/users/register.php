@@ -9,7 +9,8 @@
     <style>
         body {
             font-family: 'Gagalin', sans-serif;
-            background-color: #7C1C2B margin: 0;
+            background-color: #7C1C2B;
+            margin: 0;
             padding: 0;
             display: flex;
             align-items: center;
