@@ -94,7 +94,7 @@
             </br>
             Registration Here !</h2>
 
-
+<center>
         <form action="<?php echo URLROOT . "/users/register" ?>" method="post">
             <label for="text">Username:</label>
             <input type="text" placeholder="Username *" name="username">
@@ -189,6 +189,7 @@
                         <button type="submit">Register</button>
                     </div>
         </form>
+        </center>
         <a href="<?php echo URLROOT; ?>/users/login" class="link-primary">Back to Login</a>
     </div>
 </body>
