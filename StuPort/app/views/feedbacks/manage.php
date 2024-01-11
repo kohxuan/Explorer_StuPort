@@ -3,7 +3,7 @@
         <h3 class="card-title">Manage Feedback</h3>
         <div class="card-toolbar">
             <?php if(isLoggedIn()): ?>
-            <a href="<?php echo URLROOT;?>/activities" class="btn btn-light-primary">Go To Activity Page</a>
+            <a href="<?php echo URLROOT;?>/activities" class="btn btn-light-primary">Select Activity</a>
             <?php endif; ?>
         </div>
     </div>
