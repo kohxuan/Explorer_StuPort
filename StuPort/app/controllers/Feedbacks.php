@@ -64,6 +64,7 @@ class Feedbacks extends Controller {
     public function edit($id)
     {
         $feedback = $this->feedbackModel->findFeedbackById($id);
+        $activity_id = $this->feedbackModel->findActivityById($activity_id);
 
         $data = 
         [
@@ -77,7 +78,7 @@ class Feedbacks extends Controller {
             [
             'feedback_id' => $feedback_id,
             'feedback' => $feedback,
-            'activity_id' => $_SESSION['id'],
+            'activity_id' => $activity_id,
             'link_form' => trim($_POST['link_form'])
             ];
 

@@ -76,11 +76,11 @@
                             <td>
                                 <?php
                                 echo $activity->link_form;
-                                // if (!empty($activity->link_form)) {
-                                //     echo '<a href="' . $activity->link_form . '">' . $activity->link_form . '</a>';
-                                // } else {
-                                //     echo '<a href="' . URLROOT . '/feedbacks/create/?activity_id=' . $activity->activity_id . '" class="btn btn-light-primary">Add Feedback</a>';
-                                // }
+                                if (!empty($activity->link_form)) {
+                                    echo '<a href="' . $activity->link_form . '">' . $activity->link_form . '</a>';
+                                } else {
+                                    echo '<a href="' . URLROOT . '/feedbacks/create/?activity_id=' . $activity->activity_id . '" class="btn btn-light-primary">Add Feedback</a>';
+                                }
                                 ?>
                             </td>
 

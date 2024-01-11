@@ -19,23 +19,25 @@
                     
                     ?>
 
-        <?php
-        if (isset($_GET['activity_id']))
-        {
-            $activity_id = $_GET['activity_id'];
-            $t_url = URLROOT . "/feedbacks/create/?activity_id=$activity_id";
-        }
-        else
-        {
-
-        }
-                    $c_url = URLROOT . "/feedbacks"; 
+                    <?php
                     
+                    if (isset($_GET['activity_id']))
+                    {
+                        $activity_id = $_GET['activity_id'];
+                        $t_url = URLROOT . "/feedbacks/create/?activity_id=$activity_id";
+                    }
+                    else
+                    {
 
+                    }
+
+                    $c_url = URLROOT . "/feedbacks";
+
+                    
                     if (isset($data['feedback']) && is_object($data['feedback'])) {
-                    //$u_url = URLROOT . "/feedbacks/edit/".$data['feedback']->feedback_id; 
+                    $u_url = URLROOT . "/feedbacks/edit/".$data['feedback']->feedback_id; 
                     }else{
-                        echo "No feedback data send<br>";
+                        
                     }
 
                     //echo $t_url."<br>";
@@ -43,10 +45,9 @@
 
                     //error_reporting(0);
                     if ($url == $c_url) {
-
                         require 'manage.php';
-                    }elseif($url == $t_url){
-                        require 'create.php';
+                    }else if($url == $u_url){
+                        require 'edit.php';
                     } else {
 
                     }

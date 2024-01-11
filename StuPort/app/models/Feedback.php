@@ -46,11 +46,13 @@ class Feedback {
 
     public function editFeedback($data)
     {
-        $this->db->query('UPDATE feedbacks SET link_form = :link_form WHERE feedback_id = :feedback_id');
+        $this->db->query('UPDATE feedbacks SET link_form = :link_form WHERE feedback_id = :feedback_id;
+        UPDATE activity SET link_form = :link_form WHERE activity_id = :activity_id');
 
         $this->db->bind(':feedback_id', $data['feedback_id']);
         $this->db->bind(':link_form', $data['link_form']);
-
+        $this->db->bind(':activity_id', $data['activity_id']);
+        
         if ($this->db->execute())
         {
             return true;
