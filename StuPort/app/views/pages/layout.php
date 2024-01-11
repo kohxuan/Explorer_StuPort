@@ -160,70 +160,81 @@
 
         <?php if ($_SESSION['user_role'] == 'Administrator') : ?>
 
-        <!-- Display the card with dynamic data -->
-        <div class="card card-flush h-md-50 mb-5 mb-xl-10">
-            <!--begin::Header-->
-            <div class="card-header pt-5">
-                <!--begin::Title-->
-                <div class="card-title d-flex flex-column">
-                    <!--begin::Info-->
-                    <div class="d-flex align-items-center">
-                        <!--begin::Amount for total registered users-->
-                        <span class="fs-2hx fw-bold text-gray-900 me-2 lh-1 ls-n2"><?php echo $userCount; ?></span>
-                        <!--end::Amount-->
-                        <!--begin::Badge-->
-                        <span class="badge badge-light-success fs-base">
-                            <i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                            </i>2.2%</span>
-                        <!--end::Badge-->
+            <!-- Display the card with dynamic data -->
+            <div class="card card-flush h-md-50 mb-5 mb-xl-10">
+                <!--begin::Header-->
+                <div class="card-header pt-5">
+                    <!--begin::Title-->
+                    <div class="card-title d-flex flex-column">
+                        <!--begin::Info-->
+                        <div class="d-flex align-items-center">
+                            <!--begin::Amount for total registered users-->
+                            <span class="fs-2hx fw-bold text-gray-900 me-2 lh-1 ls-n2"><?php echo $userCount; ?></span>
+                            <!--end::Amount-->
+                            <!--begin::Badge-->
+                            <span class="badge badge-light-success fs-base">
+                                <i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>2.2%</span>
+                            <!--end::Badge-->
+                        </div>
+                        <!--end::Info-->
+                        <!--begin::Subtitle-->
+                        <span class="text-gray-500 pt-1 fw-semibold fs-6">Registered Users</span>
+                        <!--end::Subtitle-->
                     </div>
-                    <!--end::Info-->
-                    <!--begin::Subtitle-->
-                    <span class="text-gray-500 pt-1 fw-semibold fs-6">Registered Users</span>
-                    <!--end::Subtitle-->
+                    <!--end::Title-->
                 </div>
-                <!--end::Title-->
-            </div>
-            <!--end::Header-->
-            <!--begin::Card body-->
-            <div class="card-body pt-2 pb-4 d-flex align-items-center">
-                <!-- Display the dynamic data -->
-                <div class="d-flex flex-column content-justify-center w-100">
-                    <!--begin::Label for clients/partners-->
-                    <div class="d-flex fs-6 fw-semibold align-items-center">
-                        <!--begin::Bullet-->
-                        <div class="bullet w-8px h-6px rounded-2 bg-danger me-3"></div>
-                        <!--end::Bullet-->
-                        <!--begisn::Label-->
-                        <div class="text-gray-500 flex-grow-1 me-4">Clients / Partners</div>
+                <!--end::Header-->
+                <!--begin::Card body-->
+                <div class="card-body pt-2 pb-4 d-flex align-items-center">
+                    <!-- Display the dynamic data -->
+                    <div class="d-flex flex-column content-justify-center w-100">
+                        <!--begin::Label for clients/partners-->
+                        <div class="d-flex fs-6 fw-semibold align-items-center">
+                            <!--begin::Bullet-->
+                            <div class="bullet w-8px h-6px rounded-2 bg-danger me-3"></div>
+                            <!--end::Bullet-->
+                            <!--begisn::Label-->
+                            <div class="text-gray-500 flex-grow-1 me-4">Clients / Partners</div>
+                            <!--end::Label-->
+                            <!--begin::Stats-->
+                            <div class="fw-bolder text-gray-700 text-xxl-end"><?php echo $clientCount; ?></div>
+                            <!--end::Stats-->
+                        </div>
                         <!--end::Label-->
-                        <!--begin::Stats-->
-                        <div class="fw-bolder text-gray-700 text-xxl-end"><?php echo $clientCount; ?></div>
-                        <!--end::Stats-->
-                    </div>
-                    <!--end::Label-->
-                    <!--begin::Label for students-->
-                    <div class="d-flex fs-6 fw-semibold align-items-center my-3">
-                        <!--begin::Bullet-->
-                        <div class="bullet w-8px h-6px rounded-2 bg-primary me-3"></div>
-                        <!--end::Bullet-->
-                        <!--begin::Label-->
-                        <div class="text-gray-500 flex-grow-1 me-4">Students</div>
+                        <!--begin::Label for students-->
+                        <div class="d-flex fs-6 fw-semibold align-items-center my-3">
+                            <!--begin::Bullet-->
+                            <div class="bullet w-8px h-6px rounded-2 bg-primary me-3"></div>
+                            <!--end::Bullet-->
+                            <!--begin::Label-->
+                            <div class="text-gray-500 flex-grow-1 me-4">Students</div>
+                            <!--end::Label-->
+                            <!--begin::Stats-->
+                            <div class="fw-bolder text-gray-700 text-xxl-end"><?php echo $studentCount; ?></div>
+                            <!--end::Stats-->
+                        </div>
                         <!--end::Label-->
-                        <!--begin::Stats-->
-                        <div class="fw-bolder text-gray-700 text-xxl-end"><?php echo $studentCount; ?></div>
-                        <!--end::Stats-->
                     </div>
-                    <!--end::Label-->
+                    <!--end::Labels-->
                 </div>
-                <!--end::Labels-->
+                <!--end::Card body-->
             </div>
-            <!--end::Card body-->
-        </div>
-        <!--end::Card widget 4-->
+            <!--end::Card widget 4-->
+
         <?php endif; ?>
+
+        <?php if ($_SESSION['user_role'] == 'Student') : ?>
+
+                <!--begin::Card body-->
+                <div class="card-body pt-2 pb-4 d-flex align-items-center">
+                    <!-- Content of layout for student -->
+                </div>
+                <!--end::Card body-->
+
+            <?php endif; ?>
 
 
         <!--End of Content area here-->
