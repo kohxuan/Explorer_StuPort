@@ -61,10 +61,10 @@ class User {
         //Bind values for student table
         $this->db->bind(':s_email', $data['email']);
         $this->db->bind(':s_fName', $data['full_name']);
-        $this->db->bind(':s_telephone_no', $s_telephone_no);
-        $this->db->bind(':s_address', $s_address);
-        $this->db->bind(':s_institution', $s_institution);
-        $this->db->bind(':s_course', $s_course);
+        $this->db->bind(':s_telephone_no', $data['telephone']);
+        $this->db->bind(':s_address', $data['address']);
+        $this->db->bind(':s_institution', $data['institution']);
+        $this->db->bind(':s_course', $data['course']);
         $this->db->bind(':s_skills', $s_skills);
         $this->db->bind(':s_hobby', $s_hobby);
         $this->db->bind(':s_achievement', $s_achievement);

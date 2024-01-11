@@ -102,14 +102,6 @@ class Activity
         $this->db->query('SELECT * FROM student WHERE s_email = :email');
         $this->db->bind(':email', $email);
         $row2 = $this->db->single();
-    
-        // $st_id = $row2->st_id;
-        // $st_fullname = $row2->st_fullname;
-        // $st_email = $row2->st_email;
-        // $st_gender = $row2->st_gender;
-        // $univ_code = $row2->univ_code;
-        // $st_address = $row2->st_address;
-        // $st_ic = $row2->st_ic;
 
         $s_id = $row2->s_id;
         $s_fName = $row2->s_fName;
@@ -146,9 +138,11 @@ class Activity
         return $this->db->execute();
     }
     
-        public function isStudentJoined($user_id, $activity_id)
+       
+
+        public function getJoinedActivities($user_id)
         {
-            // Fetch user details
+            // Fetch student profile based on user_id
             $this->db->query('SELECT * FROM user WHERE id = :user_id');
             $this->db->bind(':user_id', $user_id);
             $row = $this->db->single();
@@ -171,15 +165,86 @@ class Activity
                 return false;
             }
         
-            $st_id = $row2->st_id;
+            $s_id = $row2->s_id;
         
-            // Check if the student is already a participant in the specified activity
-            $this->db->query('SELECT * FROM activity_participant WHERE s_id = :s_id AND activity_id = :activity_id');
+            // Fetch the activities that the student has joined
+            $this->db->query('SELECT * FROM activity_participant WHERE s_id = :s_id');
             $this->db->bind(':s_id', $s_id);
-            $this->db->bind(':activity_id', $activity_id);
+            $rows = $this->db->resultSet();
         
-            return $this->db->single();
+            if (!$rows) {
+                // No activities found
+                return false;
+            }
+        
+            $joinedActivities = [];
+        
+            foreach ($rows as $row) {
+                // Fetch activity details for each ac_id
+                $this->db->query('SELECT * FROM activity WHERE activity_id = :activity_id');
+                $this->db->bind(':activity_id', $row->activity_id);
+                $activityDetails = $this->db->single();
+        
+                if ($activityDetails) {
+                    // Add activity details to the result array
+                    $joinedActivities[] = $activityDetails;
+                }
+            }
+        
+            return $joinedActivities;
         }
+        
+        public function findAllActivityOrganizer($user_id) {
+            $this->db->query('SELECT * FROM activity WHERE uploader_id = :uploader_id');
+            $this->db->bind(':uploader_id', $user_id);
+            
+            // Execute the query and fetch results, return them as needed
+            return $this->db->resultSet();
+        }
+        
+         public function isActivityEnd($ac_id, $activity_id) {
+            $currentDate = date('Y-m-d');
+        
+            return $currentDate > $activityend;
+         }
+
+
+         public function isStudentJoined($user_id, $activity_id)
+    {
+        // Fetch user details
+        $this->db->query('SELECT * FROM user WHERE id = :user_id');
+        $this->db->bind(':user_id', $user_id);
+        $row = $this->db->single();
+    
+        if (!$row) {
+            // User not found, cannot be a student
+            return false;
+        }
+    
+        $email = $row->email;
+    
+        // Fetch student profile based on email
+        $this->db->query('SELECT * FROM student WHERE s_email = :email');
+        $this->db->bind(':email', $email);
+        $row2 = $this->db->single();
+    
+        // Check if the student profile exists
+        if (!$row2) {
+            // Student profile not found
+            return false;
+        }
+    
+        $s_id = $row2->s_id;
+    
+        // Check if the student is already a participant in the specified activity
+        $this->db->query('SELECT * FROM activity_participant WHERE s_id = :s_id AND activity_id = :activity_id');
+        $this->db->bind(':s_id', $s_id);
+        $this->db->bind(':activity_id', $activity_id);
+    
+        return $this->db->single();
+    }
+
+           
 
 } // Closing brace for the Activity class
 ?>

@@ -138,9 +138,26 @@
 							</a>
 							<!--end:Menu link-->
 						</div>
+
+						<div class="menu-item">
+							<!--begin:Menu link-->
+
+
+							<a class="menu-link" href="<?php echo URLROOT; ?>/activities/particip">
+
+							
+								<span class="menu-bullet">
+									<span class="bullet bullet-dot"></span>
+								</span>
+								<span class="menu-title">Joined Activities</span>
+							</a>
+							<!--end:Menu link-->
+						</div>
+						
 						<!--end:Menu item-->
 						<!--begin:Menu item-->
 						<div class="menu-item">
+						<a class="menu-link" href="<?php echo URLROOT; ?>/activities/particip">
 							<!--begin:Menu link-->
 							<a class="menu-link" href="<?php echo URLROOT; ?>/registration">
 								<span class="menu-bullet">

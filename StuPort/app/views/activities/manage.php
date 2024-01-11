@@ -2,8 +2,8 @@
     <div class="card-header">
         <h3 class="card-title">Manage Activities</h3>
         <div class="card-toolbar">
-            <?php if(isLoggedIn()): ?>
-                <a href="<?php echo URLROOT;?>/activities/create" class="btn btn-light-primary">Create</a>
+            <?php if (isLoggedIn()): ?>
+                <a href="<?php echo URLROOT; ?>/activities/create" class="btn btn-light-primary">Create</a>
             <?php endif; ?>
         </div>
     </div>
@@ -27,7 +27,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($data['activities'] as $activity): ?>  
+                    <?php foreach ($data['activities'] as $activity): ?>
                         <tr>
                             <td><?php echo $activity->title; ?></td>
                             <td><?php echo $activity->category; ?></td>
@@ -37,9 +37,9 @@
                             <td><?php echo $activity->organizer_name; ?></td>
                             <td><?php echo $activity->skill_acquired; ?></td>
                             <td>
-                            <?php if ($_SESSION['user_role'] !== 'Student') : ?>
+                                <?php if ($_SESSION['user_role'] !== 'Student') : ?>
                                     <a href="<?php echo URLROOT . "/activities/update/" . $activity->activity_id ?>" class="btn btn-light-warning">Update</a>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt<?php echo $activity->activity_id?>">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt<?php echo $activity->activity_id ?>">
                                         Delete
                                     </button>
                                     <div class="modal fade" tabindex="-1" id="kt<?php echo $activity->activity_id?>">
@@ -62,13 +62,16 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                        </div>
+                                <?php endif; ?>
+
+                                <?php if ($_SESSION['user_role'] === 'Student') : ?>
+                                    <?php if ($this->activityModel->isStudentJoined($_SESSION['user_id'], $activity->activity_id)) : ?>
+                                        <button class="btn btn-success" disabled>Join</button>
+                                    <?php else : ?>
+                                        <a href="<?php echo URLROOT . "/activities/join/" . $activity->activity_id ?>" class="btn btn-light-warning">Join</a>
                                     <?php endif; ?>
-
-                                    <?php if ($_SESSION['user_role'] === 'Student') : ?>
-                    <a href="<?php echo URLROOT . "/activities/join/" . $activity->activity_id ?>" class="btn btn-light-warning">Join</a>
-                <?php endif; ?>
-
+                                <?php endif; ?>
                             </td>
                             <td>
                                 <?php
@@ -93,7 +96,9 @@
                                 }
                                 ?>
                             </td>
-                            <td> <img scr="<?php echo $activity->attachment ?>"> </td>
+                            <td>
+                                <img src="<?php echo $activity->attachment; ?>" alt="Attachment">
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -101,7 +106,7 @@
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
-            $(document).ready(function() {
+            $(document).ready(function () {
                 var table = $('#kt_datatable_posts').DataTable({});
             });
         </script>
@@ -109,4 +114,3 @@
     <div class="card-footer">
         Footer
     </div>
-</div>
