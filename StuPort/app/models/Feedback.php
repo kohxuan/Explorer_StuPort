@@ -17,7 +17,9 @@ class Feedback {
 
     public function addFeedback($data)
     {
-        $this->db->query('INSERT INTO feedbacks (link_form, activity_id) VALUES (:link_form, :activity_id)');
+        $this->db->query('INSERT INTO feedbacks (link_form, activity_id) VALUES (:link_form, :activity_id);
+
+        UPDATE activity SET link_form = :link_form WHERE activity_id = :activity_id');
         
         $this->db->bind(':link_form', $data['link_form']);
         $this->db->bind(':activity_id', $data['activity_id']);
