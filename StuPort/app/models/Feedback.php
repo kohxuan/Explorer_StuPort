@@ -51,7 +51,6 @@ class Feedback {
 
         $this->db->bind(':feedback_id', $data['feedback_id']);
         $this->db->bind(':link_form', $data['link_form']);
-        $this->db->bind(':activity_id', $data['activity_id']);
         
         if ($this->db->execute())
         {

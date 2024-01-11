@@ -7,49 +7,42 @@
 
         <!--Content area here-->
         <?php //Baca current URL
-                    if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+                    // Read the current URL
+                    if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
                         $url = "https://";
-                    else
+                    } else {
                         $url = "http://";
-                    // Append the host(domain name, ip) to the URL.   
+                    }
+                    
+                    // Append the host (domain name, IP) to the URL.
                     $url .= $_SERVER['HTTP_HOST'];
-
-                    // Append the requested resource location to the URL   
+                    
+                    // Append the requested resource location to the URL.
                     $url .= $_SERVER['REQUEST_URI'];
                     
-                    ?>
-
-                    <?php
+                    $t_url = ''; // Initialize $t_url
                     
-                    if (isset($_GET['activity_id']))
-                    {
+                    if (isset($_GET['activity_id'])) {
                         $activity_id = $_GET['activity_id'];
                         $t_url = URLROOT . "/feedbacks/create/?activity_id=$activity_id";
                     }
-                    else
-                    {
-
-                    }
-
-                    $c_url = URLROOT . "/feedbacks";
-
                     
+                    $c_url = URLROOT . "/feedbacks";
+                    
+                    // Check if feedback data is set and is an object
                     if (isset($data['feedback']) && is_object($data['feedback'])) {
-                    $u_url = URLROOT . "/feedbacks/edit/".$data['feedback']->feedback_id; 
-                    }else{
-                        
+                        $u_url = URLROOT . "/feedbacks/edit/" . $data['feedback']->feedback_id;
+                    } else {
+                        // $u_url is not set in the provided code
                     }
-
-                    //echo $t_url."<br>";
-                    //echo $url."<br>";
-
-                    //error_reporting(0);
+                    
+                    // Compare the current URL with defined URLs and include the corresponding files
                     if ($url == $c_url) {
                         require 'manage.php';
-                    }else if($url == $u_url){
+                    } elseif ($url == $u_url) {
                         require 'edit.php';
                     } else {
-
+                        // Handle other cases if needed
                     }
 
         ?>
