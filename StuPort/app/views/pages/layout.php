@@ -60,7 +60,7 @@
             }
         }
         else {
-            echo "Session not set.";
+            // echo "Session not set.";
         }
 
             // if (isset($_SESSION['email'])) {
