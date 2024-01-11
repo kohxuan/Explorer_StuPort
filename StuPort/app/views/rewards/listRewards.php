@@ -4,7 +4,7 @@
         <!-- Check whether logged in or not -->
         <div class="card-toolbar">
             <?php if (isLoggedIn()): ?>
-                <a href="<?php echo URLROOT; ?>/rewards/create" class="btn btn-light-primary">Create</a>
+                <a href="<?php echo URLROOT; ?>/rewards/create" class="btn btn-light-primary">Create Rewards</a>
             <?php endif; ?>
         </div>
     </div>

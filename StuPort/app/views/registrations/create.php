@@ -6,21 +6,25 @@
     <title>Create Registration</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .container {
-            margin-top: 20px;
-        }
-        .form-control, .form-select {
-            margin-bottom: 15px;
-        }
-        .btn-primary {
-            width: 100%;
-        }
-        .card-header {
-            background-color: #007bff;
-            color: white;
-        }
-    </style>
+    
+<style>
+    .container {
+        margin-top: 20px;
+    }
+    .form-control, .form-select {
+        margin-bottom: 15px;
+        border-color: #183D64; /* Blue border for form elements */
+    }
+    .btn-primary {
+        background-color: #7C1C2B; /* Red button */
+        border-color: #7C1C2B; /* Red border for buttons */
+    }
+    .btn-primary:hover {
+        background-color: darken(#7C1C2B, 10%); /* Slightly darker red on hover */
+    }
+    /* Additional custom styles can be added here */
+</style>
+
 </head>
 <body>
     <div class="container">

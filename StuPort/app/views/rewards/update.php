@@ -42,38 +42,30 @@
     </div>
 </div>
 
+
 <style>
     .card {
-        border: 1px solid #e0e0e0;
+        border: 1px solid #FCBD32; /* Yellow border */
         border-radius: 8px;
         padding: 20px;
     }
 
     .card-header {
-        background-color: #f0f0f0;
+        background-color: #183D64; /* Blue header */
+        color: #fff; /* White text */
         padding: 10px 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
 
-    .card-title {
-        font-size: 20px;
-        margin: 0;
-    }
-
-    .card-toolbar {
-        display: flex;
-        gap: 10px;
-    }
-
     .btn-light-primary {
-        background-color: #007bff;
-        color: #fff;
+        background-color: #7C1C2B; /* Red button */
+        color: #fff; /* White text */
     }
 
     .btn-light-primary:hover {
-        background-color: #0056b3;
+        background-color: darken(#7C1C2B, 10%); /* Slightly darker red on hover */
     }
 
     .form-label {
@@ -91,3 +83,4 @@
         color: #ff0000;
     }
 </style>
+

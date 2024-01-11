@@ -54,9 +54,9 @@ class Rewards extends Controller
         $this->view('rewards/create', $data);
     }
 
-    public function update($id)
+    public function update($reward_id)
     {
-        $reward = $this->rewardModel->findRewardById($id);
+        $reward = $this->rewardModel->findRewardById($reward_id);
 
         if (!isLoggedIn()) {
             header("Location: " . URLROOT . "/rewards/index");
@@ -73,7 +73,7 @@ class Rewards extends Controller
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
-                'reward_id' => $id,
+                'reward_id' => $reward_id,
                 'badge_name' => trim($_POST['badge_name']),
                 'badge_description' => trim($_POST['badge_description']),
                 'points_required' => trim($_POST['points_required'])
