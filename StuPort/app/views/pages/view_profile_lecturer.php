@@ -12,7 +12,7 @@
                 <!--begin::Page title-->
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
-                    <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">Profile Overview</h1>
+                    <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">Profile Overview L</h1>
                     <!--end::Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -38,7 +38,7 @@
 
 
         <div class="card-body">
-            <?php foreach ($data['studentProfile'] as $studentProfile) : ?>
+            <?php foreach ($data['lecturerProfile'] as $lecturerProfile) : ?>
                 <div class="card mb-5 mb-xl-10">
                     <div class="card-body pt-9 pb-0">
 
@@ -48,7 +48,7 @@
                             <!--begin: Pic-->
                             <div class="me-7 mb-4">
                                 <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
-                                    <img src="<?php echo URLROOT . '/public/' . $studentProfile->profileimage; ?>" alt="Profile Image" />
+                                    <img src="<?php echo URLROOT . '/public/' . $lecturerProfile->profileimage; ?>" alt="Profile Image" />
                                     <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-body h-20px w-20px"></div>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                                     <div class="d-flex flex-column">
                                         <!--begin::Name-->
                                         <div class="d-flex align-items-center mb-2">
-                                            <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1"><?php echo $studentProfile->s_fName; ?></a>
+                                            <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1"><?php echo $lecturerProfile->l_fName; ?></a>
                                             <a href="#">
                                                 <i class="ki-duotone ki-verify fs-1 text-primary">
                                                     <span class="path1"></span>
@@ -78,17 +78,17 @@
                                                     <span class="path1"></span>
                                                     <span class="path2"></span>
                                                     <span class="path3"></span>
-                                                </i><?php echo $studentProfile->position; ?></a>
+                                                </i><?php echo $lecturerProfile->position; ?></a>
                                             <a href="#" class="d-flex align-items-center text-gray-500 text-hover-primary me-5 mb-2">
                                                 <i class="ki-duotone ki-geolocation fs-4 me-1">
                                                     <span class="path1"></span>
                                                     <span class="path2"></span>
-                                                </i><?php echo $studentProfile->citystate . ", " . $studentProfile->country; ?></a>
+                                                </i><?php echo $lecturerProfile->citystate . ", " . $lecturerProfile->country; ?></a>
                                             <a href="#" class="d-flex align-items-center text-gray-500 text-hover-primary mb-2">
                                                 <i class="ki-duotone ki-sms fs-4">
                                                     <span class="path1"></span>
                                                     <span class="path2"></span>
-                                                </i><?php echo $studentProfile->p_email; ?></a>
+                                                </i><?php echo $lecturerProfile->p_email; ?></a>
                                         </div>
                                         <!--end::Info-->
                                     </div>
@@ -119,9 +119,9 @@
                                                 </div>
                                                 <!--end::Heading-->
                                                 <!--begin::Menu item-->
-                                                <div class="menu-item px-3">
+                                                <!-- <div class="menu-item px-3">
                                                     <a href="<?php echo URLROOT; ?>/pages/generate_resume" class="menu-link px-3" target="_blank">Download Resume</a>
-                                                </div>
+                                                </div> -->
                                                 <!--end::Menu item-->
                                                 <!--begin::Menu item-->
                                                 <!-- <div class="menu-item px-3">
@@ -238,7 +238,7 @@
 
                 <!-- Profile Details -->
                 <!--begin::details View-->
-                <div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
+                <div class="card mb-5 mb-xl-10" id="kt_profile_detaill_view">
                     <!--begin::Card header-->
                     <div class="card-header cursor-pointer">
                         <!--begin::Card title-->
@@ -260,7 +260,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $studentProfile->s_fName; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800"><?php echo $lecturerProfile->l_fName; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -272,7 +272,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row">
-                                <span class="fw-bold text-gray-800 fs-6"><?php echo $studentProfile->p_email; ?></span>
+                                <span class="fw-bold text-gray-800 fs-6"><?php echo $lecturerProfile->p_email; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -284,7 +284,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 d-flex align-items-center">
-                                <span class="fw-bold fs-6 text-gray-800 me-2"><?php echo $studentProfile->s_gender; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800 me-2"><?php echo $lecturerProfile->l_gender; ?></span>
                                 <!-- <span class="badge badge-success">Verified</span> -->
                             </div>
                             <!--end::Col-->
@@ -297,7 +297,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <a href="#" class="fw-bold fs-6 text-gray-800 text-hover-primary"><?php echo $studentProfile->s_race; ?></a>
+                                <a href="#" class="fw-bold fs-6 text-gray-800 text-hover-primary"><?php echo $lecturerProfile->l_race; ?></a>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -309,7 +309,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $studentProfile->s_age; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800"><?php echo $lecturerProfile->l_age; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -321,7 +321,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $studentProfile->headline; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800"><?php echo $lecturerProfile->headline; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -333,7 +333,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $studentProfile->about; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800"><?php echo $lecturerProfile->about; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -345,7 +345,7 @@
                             <!--begin::Label-->
                             <!--begin::Label-->
                             <div class="col-lg-8">
-                                <span class="fw-semibold fs-6 text-gray-800"><?php echo $studentProfile->country; ?></span>
+                                <span class="fw-semibold fs-6 text-gray-800"><?php echo $lecturerProfile->country; ?></span>
                             </div>
                             <!--begin::Label-->
                         </div>
@@ -357,7 +357,7 @@
                             <!--begin::Label-->
                             <!--begin::Label-->
                             <div class="col-lg-8">
-                                <span class="fw-semibold fs-6 text-gray-800"><?php echo $studentProfile->citystate; ?></span>
+                                <span class="fw-semibold fs-6 text-gray-800"><?php echo $lecturerProfile->citystate; ?></span>
                             </div>
                             <!--begin::Label-->
                         </div>
@@ -368,7 +368,7 @@
                     <div class="card-header cursor-pointer">
                         <!--begin::Card title-->
                         <div class="card-title m-0">
-                            <h3 class="fw-bold m-0">Academic Details</h3>
+                            <h3 class="fw-bold m-0">Education Details</h3>
                         </div>
                         <!--end::Card title-->
                     </div>
@@ -382,7 +382,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $studentProfile->s_fName; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800"><?php echo $lecturerProfile->l_fName; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -401,7 +401,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 d-flex align-items-center">
-                                <span class="fw-bold fs-6 text-gray-800 me-2"><?php echo $studentProfile->s_telephone_no; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800 me-2"><?php echo $lecturerProfile->l_telephone_no; ?></span>
                                 <!-- <span class="badge badge-success">Verified</span> -->
                             </div>
                             <!--end::Col-->
@@ -414,7 +414,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <a href="#" class="fw-semibold fs-6 text-gray-800 text-hover-primary"><?php echo $studentProfile->s_address; ?></a>
+                                <a href="#" class="fw-semibold fs-6 text-gray-800 text-hover-primary"><?php echo $lecturerProfile->l_address; ?></a>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -426,69 +426,9 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $studentProfile->s_institution; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800"><?php echo $lecturerProfile->l_institution; ?></span>
                             </div>
                             <!--end::Col-->
-                        </div>
-                        <!--end::Input group-->
-                        <!--begin::Input group-->
-                        <div class="row mb-7">
-                            <!--begin::Label-->
-                            <label class="col-lg-4 fw-semibold text-muted">Course</label>
-                            <!--end::Label-->
-                            <!--begin::Col-->
-                            <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $studentProfile->s_course; ?></span>
-                            </div>
-                            <!--end::Col-->
-                        </div>
-                        <!--end::Input group-->
-                        <!--begin::Input group-->
-                        <div class="row mb-7">
-                            <!--begin::Label-->
-                            <label class="col-lg-4 fw-semibold text-muted">Skills</label>
-                            <!--end::Label-->
-                            <!--begin::Col-->
-                            <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $studentProfile->s_skills; ?></span>
-                            </div>
-                            <!--end::Col-->
-                        </div>
-                        <!--end::Input group-->
-                        <!--begin::Input group-->
-                        <div class="row mb-10">
-                            <!--begin::Label-->
-                            <label class="col-lg-4 fw-semibold text-muted">Hobby</label>
-                            <!--begin::Label-->
-                            <!--begin::Label-->
-                            <div class="col-lg-8">
-                                <span class="fw-semibold fs-6 text-gray-800"><?php echo $studentProfile->s_hobby; ?></span>
-                            </div>
-                            <!--begin::Label-->
-                        </div>
-                        <!--end::Input group-->
-                        <!--begin::Input group-->
-                        <div class="row mb-10">
-                            <!--begin::Label-->
-                            <label class="col-lg-4 fw-semibold text-muted">Achievement</label>
-                            <!--begin::Label-->
-                            <!--begin::Label-->
-                            <div class="col-lg-8">
-                                <span class="fw-semibold fs-6 text-gray-800"><?php echo $studentProfile->s_achievement; ?></span>
-                            </div>
-                            <!--begin::Label-->
-                        </div>
-                        <!--end::Input group-->
-                        <!--begin::Input group-->
-                        <div class="row mb-10">
-                            <!--begin::Label-->
-                            <label class="col-lg-4 fw-semibold text-muted">Ambition</label>
-                            <!--begin::Label-->
-                            <!--begin::Label-->
-                            <div class="col-lg-8">
-                                <span class="fw-semibold fs-6 text-gray-800"><?php echo $studentProfile->s_ambition; ?></span>
-                            </div>
-                            <!--begin::Label-->
                         </div>
                         <!--end::Input group-->
                     </div>

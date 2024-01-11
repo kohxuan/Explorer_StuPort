@@ -228,7 +228,7 @@ class Page
                                   SET l_email = :email, l_fName = :l_fName, l_telephone_no = :l_telephone_no, 
                                   l_address = :l_address, l_institution = :l_institution, l_gender = :l_gender,
                                   l_age = :l_age, l_race = :l_race
-                                  WHERE a_email = :email;");
+                                  WHERE l_email = :email;");
 
             //Profile table
             $this->db->bind(':email', $_SESSION['email']);
@@ -252,6 +252,7 @@ class Page
             $this->db->bind(':l_gender', $data['l_gender']);
             $this->db->bind(':l_age', $data['l_age']);
             $this->db->bind(':l_race', $data['l_race']);
+
         } else { //Update without image
 
             //Profile table and Lecturer table
@@ -265,7 +266,7 @@ class Page
                                   SET l_email = :email, l_fName = :l_fName, l_telephone_no = :l_telephone_no, 
                                   l_address = :l_address, l_institution = :l_institution, l_gender = :l_gender,
                                   l_age = :l_age, l_race = :l_race
-                                  WHERE a_email = :email;");
+                                  WHERE l_email = :email;");
 
             //Profile table
             $this->db->bind(':email', $_SESSION['email']);

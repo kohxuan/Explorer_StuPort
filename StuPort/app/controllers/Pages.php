@@ -338,11 +338,11 @@ class Pages extends Controller
         } // end of if statement 
 
         $studentProfile = $this->pageModel->studentProfile(); //Pulling data
-        // $lecturerProfile = $this->pageModel->lecturerProfile();
+        $lecturerProfile = $this->pageModel->lecturerProfile();
 
         $data = [
             'studentProfile' => $studentProfile, //Connecting data
-            // 'lecturerProfile' => $lecturerProfile //Connecting data
+            'lecturerProfile' => $lecturerProfile //Connecting data
         ];
 
         $this->view('pages/index', $data); //Display data
@@ -361,5 +361,35 @@ class Pages extends Controller
 
         // Load the view and pass the data to it
         $this->view('pages/view_profile_student', $data);
+    }
+
+    public function view_profile_lecturer()
+    {
+        // Fetch the data you want to pass to the view
+        $lecturerProfile = $this->pageModel->lecturerProfile(); // Replace with your actual method to fetch student data
+
+        // Prepare the data array
+        $data = [
+            'lecturerProfile' => $lecturerProfile // Assuming this is the data you want to pass to the view
+            // Add more data here if needed
+        ];
+
+        // Load the view and pass the data to it
+        $this->view('pages/view_profile_lecturer', $data);
+    }
+
+    public function generate_stud_resume()
+    {
+        // Fetch the data you want to pass to the view
+        $studentProfile = $this->pageModel->studentProfile(); // Replace with your actual method to fetch student data
+
+        // Prepare the data array
+        $data = [
+            'studentProfile' => $studentProfile // Assuming this is the data you want to pass to the view
+            // Add more data here if needed
+        ];
+
+        // Load the view and pass the data to it
+        $this->view('pages/generate_resume_student', $data);
     }
 }

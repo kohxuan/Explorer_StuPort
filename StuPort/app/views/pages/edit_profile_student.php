@@ -115,7 +115,7 @@
                                     <!--end::Heading-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a href="<?php echo URLROOT; ?>/resume/generate_resume" class="menu-link px-3" target="_blank">Download Resume</a>
+                                        <a href="<?php echo URLROOT; ?>/pages/generate_resume" class="menu-link px-3" target="_blank">Download Resume</a>
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
@@ -385,7 +385,7 @@
 
                     <!-- City/State Section -->
                     <div class="row mb-6">
-                        <label class="col-lg-4 col-form-label fw-semibold fs-6">City/ State</label>
+                        <label class="col-lg-4 col-form-label fw-semibold fs-6">City/State</label>
                         <div class="col-lg-8">
                             <input class="form-control form-control-lg form-control-solid" name="citystate" type="text" maxlength="50" value="<?php echo $studentProfile->citystate; ?>" />
                         </div>
