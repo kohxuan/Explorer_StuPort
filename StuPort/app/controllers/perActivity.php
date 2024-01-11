@@ -371,40 +371,40 @@ public function approve($pac_id)
     $this->view('peractivity/index', $data);
 }
 
-public function join($activity_id)
-{
+// public function join($activity_id)
+// {
 
-    $this->db->query('UPDATE activity_participant SET title = :title, activity_desc = :activity_desc,  location = :location, 
-        organizer_name = :organizer_name, skill_acquired = :skill_acquired WHERE activity_id = :activity_id');
+//     $this->db->query('UPDATE activity_participant SET title = :title, activity_desc = :activity_desc,  location = :location, 
+//         organizer_name = :organizer_name, skill_acquired = :skill_acquired WHERE activity_id = :activity_id');
     
-        $this->db->bind(':activity_id', $data['activity_id']);
-        $this->db->bind(':title', $data['title']);
-        $this->db->bind(':activity_desc', $data['activity_desc']);
-        $this->db->bind(':location', $data['location']);
-        $this->db->bind(':organizer_name', $data['organizer_name']);
-        $this->db->bind(':skill_acquired', $data['skill_acquired']);
+//         $this->db->bind(':activity_id', $data['activity_id']);
+//         $this->db->bind(':title', $data['title']);
+//         $this->db->bind(':activity_desc', $data['activity_desc']);
+//         $this->db->bind(':location', $data['location']);
+//         $this->db->bind(':organizer_name', $data['organizer_name']);
+//         $this->db->bind(':skill_acquired', $data['skill_acquired']);
 
-    if (!isLoggedIn()) {
-        header("Location: " . URLROOT . "/activity");
-        exit();
-    }
+//     if (!isLoggedIn()) {
+//         header("Location: " . URLROOT . "/activity");
+//         exit();
+//     }
 
-    $activity = $this->activityModel->findActivityById($ac_id);
+//     $activity = $this->activityModel->findActivityById($activity_id);
 
-    // Redirect if the user is the owner of the activity
+//     // Redirect if the user is the owner of the activity
     
-    {
-        // Perform the join operation
-        if ($this->activityModel->joinActivity($ac_id, $_SESSION['user_id'])) {
-            echo '<script>alert("You have successfully joined the activity.")</script>';
-            echo '<script>window.location.href = "http://localhost/explorer/StuPort/activity/";</script>';
-        } else {
-            die("Something went wrong :(");
-        }
+//     {
+//         // Perform the join operation
+//         if ($this->activityModel->joinActivity($ac_id, $_SESSION['user_id'])) {
+//             echo '<script>alert("You have successfully joined the activity.")</script>';
+//             echo '<script>window.location.href = "http://localhost/explorer/StuPort/activity/";</script>';
+//         } else {
+//             die("Something went wrong :(");
+//         }
     
 
-}
-}
+// }
+// }
 
 }
 
