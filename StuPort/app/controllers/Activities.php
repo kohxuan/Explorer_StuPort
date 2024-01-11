@@ -164,6 +164,25 @@ class Activities extends Controller
     }
 }
 
+
+public function particip()
+{
+    if (!isLoggedIn() || $_SESSION['user_role'] !== "Student") {
+        header("Location: " . URLROOT . "/activity");
+        exit();
+    }
+
+   // Fetch activities that the current student has joined
+    $joinedActivities = $this->activityModel->getJoinedActivities($_SESSION['user_id']);
+
+    $data = [
+        'joinedActivities' => $joinedActivities,
+    ];
+
+
+    $this->view('activity/index', $data);
+}
+
 }
 
 ?>
