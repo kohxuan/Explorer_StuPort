@@ -12,7 +12,7 @@ class perActivities
 
 
     public function findAllperActivity() {
-        $this->db->query('SELECT * FROM peractivity ORDER BY date ASC');
+        $this->db->query('SELECT * FROM per_activity ORDER BY date ASC');
         $result = $this->db->resultSet();
 
         return $result;
@@ -20,7 +20,7 @@ class perActivities
 
     public function findperActivityById($id)
     {
-        $this->db->query('SELECT * FROM peractivity WHERE pac_id = :pac_id');
+        $this->db->query('SELECT * FROM per_activity WHERE pac_id = :pac_id');
         $this->db->bind(':pac_id', $id);
 
         $row = $this->db->single();
@@ -30,7 +30,7 @@ class perActivities
 
     public function updateperActivity($data)
 {
-    $this->db->query('UPDATE peractivity SET name = :name, venue = :venue, date = :date , `description` = :description WHERE pac_id = :pac_id');
+    $this->db->query('UPDATE per_activity SET name = :name, venue = :venue, date = :date , `description` = :description WHERE pac_id = :pac_id');
 
     $this->db->bind(':pac_id', $data['pac_id']);
     $this->db->bind(':name', $data['name']);
@@ -46,10 +46,10 @@ class perActivities
 
 public function addperActivity($data)
 {
-    $this->db->query('INSERT INTO peractivity (st_id, name, date, venue, description, status, evidence) VALUES (:st_id, :name, :date, :venue, :description, "Waiting", :evidence)');
+    $this->db->query('INSERT INTO per_activity (st_id, name, date, venue, description, status, evidence) VALUES (:st_id, :name, :date, :venue, :description, "Waiting", :evidence)');
 
     // Bind values
-    $this->db->bind(':st_id', $data['st_id']);
+    $this->db->bind(':s_id', $data['s_id']);
     $this->db->bind(':name', $data['name']);
     $this->db->bind(':date', $data['date']);
     $this->db->bind(':venue', $data['venue']);
@@ -61,7 +61,7 @@ public function addperActivity($data)
 }
 
     public function deleteperActivity($pac_id){
-        $this->db->query('DELETE FROM peractivity WHERE pac_id = :pac_id');
+        $this->db->query('DELETE FROM per_activity WHERE pac_id = :pac_id');
 
         $this->db->bind(':pac_id', $pac_id);
 
@@ -77,10 +77,10 @@ public function addperActivity($data)
     }
 
     // In perActivities model
-public function findApprovedPerActivities($st_id)
+public function findApprovedPerActivities($s_id)
 {
-    $this->db->query('SELECT * FROM peractivity WHERE st_id = :st_id AND status = "Approved"');
-    $this->db->bind(':st_id', $st_id);
+    $this->db->query('SELECT * FROM per_activity WHERE s_id = :s_id AND status = "Approved"');
+    $this->db->bind(':s_id', $s_id);
 
     $result = $this->db->resultSet();
 
@@ -89,10 +89,10 @@ public function findApprovedPerActivities($st_id)
 
 public function assignperActivity($data)
 {
-    $this->db->query('UPDATE peractivity SET lc_id = :lc_id WHERE pac_id = :pac_id');
+    $this->db->query('UPDATE per_activity SET l_id = :l_id WHERE pac_id = :pac_id');
 
     $this->db->bind(':pac_id', $data['pac_id']);
-    $this->db->bind(':lc_id', $data['lc_id']);
+    $this->db->bind(':l_id', $data['l_id']);
 
     // Execute the query and handle the result (if needed)
     $this->db->execute();
@@ -101,17 +101,17 @@ public function assignperActivity($data)
 
 public function lecturerList()
 {
-    $this->db->query('SELECT * FROM lc_profile');
+    $this->db->query('SELECT * FROM lecturer');
 
     $result = $this->db->resultSet();
 
     return $result;
 }
 
-public function findperActivityByLecturer($lc_id)
+public function findperActivityByLecturer($l_id)
 {
-    $this->db->query('SELECT * FROM peractivity WHERE lc_id = :lc_id AND status = "Waiting"');
-    $this->db->bind(':lc_id', $lc_id);
+    $this->db->query('SELECT * FROM per_activity WHERE l_id = :l_id AND status = "Waiting"');
+    $this->db->bind(':l_id', $l_id);
 
     $result = $this->db->resultSet();
 
@@ -120,10 +120,10 @@ public function findperActivityByLecturer($lc_id)
 }
 
 
-public function WaitAllperActivity($st_id)
+public function WaitAllperActivity($s_id)
 {
-    $this->db->query('SELECT * FROM peractivity WHERE st_id = :st_id AND status = "Waiting" ORDER BY date ASC');
-    $this->db->bind(':st_id', $st_id);
+    $this->db->query('SELECT * FROM per_activity WHERE s_id = :s_id AND status = "Waiting" ORDER BY date ASC');
+    $this->db->bind(':s_id', $s_id);
 
     $result = $this->db->resultSet();
 
@@ -132,7 +132,7 @@ public function WaitAllperActivity($st_id)
 
 public function setApprove($pac_id)
 {
-    $this->db->query('UPDATE peractivity SET status = "Approved" WHERE pac_id = :pac_id');
+    $this->db->query('UPDATE per_activity SET status = "Approved" WHERE pac_id = :pac_id');
 
     $this->db->bind(':pac_id', $pac_id);
 
@@ -140,40 +140,40 @@ public function setApprove($pac_id)
     $this->db->execute();
 }
 
-public function getStudentFullName($st_id)
+public function getStudentFullName($s_id)
 {
-    $this->db->query('SELECT st_fullname FROM st_profile WHERE st_id = :st_id');
-    $this->db->bind(':st_id', $st_id);
+    $this->db->query('SELECT s_fName FROM student WHERE s_id = :s_id');
+    $this->db->bind(':s_id', $s_id);
 
     $row = $this->db->single();
 
     return $row ? $row->st_fullname : ''; // Return the full name if it exists, otherwise an empty string
 }
 
-public function getLecturerFullName($lc_id)
+public function getLecturerFullName($l_id)
 {
-    $this->db->query('SELECT lc_fullname FROM lc_profile WHERE lc_id = :lc_id');
-    $this->db->bind(':lc_id', $lc_id);
+    $this->db->query('SELECT l_fName FROM lecturer WHERE l_id = :l_id');
+    $this->db->bind(':l_id', $l_id);
 
     $row = $this->db->single();
 
-    return $row ? $row->lc_fullname : ''; // Return the full name if it exists, otherwise an empty string
+    return $row ? $row->l_fName: ''; // Return the full name if it exists, otherwise an empty string
 }
 
-public function join($ac_id)
+public function join($activity_id)
 {
     if (!isLoggedIn()) {
         header("Location: " . URLROOT . "/activity");
         exit();
     }
 
-    $activity = $this->activityModel->findActivityById($ac_id);
+    $activity = $this->activityModel->findActivityById($activity_id);
 
     // Redirect if the user is the owner of the activity
     
     {
         // Perform the join operation
-        if ($this->activityModel->joinActivity($ac_id, $_SESSION['user_id'])) {
+        if ($this->activityModel->joinActivity($activity_id, $_SESSION['user_id'])) {
             echo '<script>alert("You have successfully joined the activity.")</script>';
             echo '<script>window.location.href = "http://localhost/explorer/StuPort/activity/";</script>';
         } else {

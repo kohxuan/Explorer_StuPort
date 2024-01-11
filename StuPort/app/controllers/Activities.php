@@ -140,6 +140,31 @@ class Activities extends Controller
         
     }
 
+    public function join($activity_id)
+{
+       
+    if (!isLoggedIn()) {
+        header("Location: " . URLROOT . "/activity");
+        exit();
+    }
+
+    $activity = $this->activityModel->findActivityById($activity_id);
+
+    // Redirect if the user is the owner of the activity
+    
+    {
+        // Perform the join operation
+        if ($this->activityModel->joinActivity($activity_id, $_SESSION['user_id'])) {
+            echo '<script>alert("You have successfully joined the activity.")</script>';
+            echo '<script>window.location.href = "http://localhost/explorer/StuPort/activity/";</script>';
+        } else {
+            die("Something went wrong :(");
+        }
+    
+    }
+}
+
 }
 
 ?>
+
