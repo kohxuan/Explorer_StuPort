@@ -143,7 +143,20 @@
                     <!--begin::Image-->
                     
                     <!--begin::Title-->
-          
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+  
                     <h1 class="d-none d-lg-block text-white fs-2qx fw-bolder text-center mb-7">Expert In Youth</h1>
                     <!--end::Title-->
                     <!--begin::Text-->
@@ -156,13 +169,17 @@
                     </div> -->
                     <!--end::Text-->
                     
+                    
                 </div>
                 <!--end::Content-->
             </div>
             <!--end::Aside-->
         </div>
+        
         <!--end::Authentication - Sign-in-->
     </div>
+
+    
     <!--end::Root-->
     <!--begin::Javascript-->
     <script>
