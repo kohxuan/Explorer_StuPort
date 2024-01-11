@@ -22,7 +22,7 @@
         <?php
                     $activity_id = $_GET['activity_id'];
                     $c_url = URLROOT . "/feedbacks"; 
-                    $t_url = URLROOT . "/feedbacks/create/?activity_id=$activity_id"; 
+                    $t_url = URLROOT . "/feedbacks/create/?activity_id=$activity_id";
 
                     if (isset($data['feedback']) && is_object($data['feedback'])) {
                     //$u_url = URLROOT . "/feedbacks/edit/".$data['feedback']->feedback_id; 
