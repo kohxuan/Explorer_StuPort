@@ -27,11 +27,11 @@
                     if (isset($data['feedback']) && is_object($data['feedback'])) {
                     //$u_url = URLROOT . "/feedbacks/edit/".$data['feedback']->feedback_id; 
                     }else{
-                        echo "No data send<br>";
+                        echo "No feedback data send<br>";
                     }
 
-                    echo $t_url."<br>";
-                    echo $url."<br>";
+                    //echo $t_url."<br>";
+                    //echo $url."<br>";
 
                     //error_reporting(0);
                     if ($url == $c_url) {
