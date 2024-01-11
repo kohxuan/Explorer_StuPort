@@ -86,5 +86,15 @@ class Feedback {
         return $row;
     }
 
+    public function getFeedbackLinkByActivityId($activity_id)
+    {
+        $this->db->query('SELECT link_form FROM feedbacks WHERE activity_id = :activity_id');
+        $this->db->bind(':activity_id', $activity_id);
+
+        $row = $this->db->single();
+
+        return ($row);
+    }
+
 }
 ?>
