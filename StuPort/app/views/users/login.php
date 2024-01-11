@@ -59,6 +59,7 @@
                             <!--begin::Heading-->
                             <div class="text-center mb-11">
                                 <!--begin::Title-->
+                                <img src="https://i.ibb.co/7byWKRt/youth-venture-logo.png" alt="youth-venture-logo " style="height: 80px; margin-right: 10px;">
                                 <h1 class="text-gray-900 fw-bolder mb-3">Sign In</h1>
                                 <!--end::Title-->
                                 <!--begin::Subtitle-->
