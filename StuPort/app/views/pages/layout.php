@@ -120,6 +120,7 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
+        
         // Query to retrieve the total number of registered users
         $userSql = "SELECT COUNT(*) as userCount FROM user";
         $userResult = $conn->query($userSql);
@@ -156,6 +157,8 @@
         // Close the database connection
         $conn->close();
         ?>
+
+        <?php if ($_SESSION['user_role'] == 'Administrator') : ?>
 
         <!-- Display the card with dynamic data -->
         <div class="card card-flush h-md-50 mb-5 mb-xl-10">
@@ -220,7 +223,7 @@
             <!--end::Card body-->
         </div>
         <!--end::Card widget 4-->
-	
+        <?php endif; ?>
 
 
         <!--End of Content area here-->
