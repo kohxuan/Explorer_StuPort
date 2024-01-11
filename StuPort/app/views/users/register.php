@@ -9,7 +9,8 @@
     <style>
         body {
             font-family: 'Gagalin', sans-serif;
-            background-color: #f4f4f4;
+            background-color: #7C1C2B
+
             margin: 0;
             padding: 0;
             display: flex;
@@ -24,7 +25,9 @@
         }
 
         .registration-form {
-            background-color: #FFDAB9;
+            background-color: #FCBD32
+
+;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -46,11 +49,11 @@
 
         input,
         select {
-            width: calc(60% - 1px); /* Adjust width for two columns with a small gap */
+            width: calc(75% - 1px); /* Adjust width for two columns with a small gap */
             padding: 10px;
             margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
+            border: 3px solid #183D64;
+            border-radius: 50px;
             box-sizing: border-box;
             display: inline-block; /* Display inline for side-by-side arrangement */
         }
@@ -65,7 +68,8 @@
         }
 
         button {
-            background-color: #4caf50;
+            background-color: #7C1C2B
+;
             color: #fff;
             padding: 10px;
             border: none;
@@ -76,7 +80,8 @@
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #7C1C2B
+;
         }
 
         
@@ -85,7 +90,7 @@
 <body>
     <div class="registration-form">
         <br>
-    <h2 class="centered-word"><img src="https://i.ibb.co/7byWKRt/youth-venture-logo.png" alt="youth-venture-logo " style="height: 40px; margin-right: 10px;">
+    <h2 class="centered-word"><img src="https://i.ibb.co/7byWKRt/youth-venture-logo.png" alt="youth-venture-logo " style="height: 80px; margin-right: 10px;">
     </br>
         Registration Here !</h2>
 
