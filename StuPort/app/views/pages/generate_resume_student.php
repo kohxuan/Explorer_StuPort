@@ -1,140 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto-Generated Resume</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            font-size: 12pt;
-            line-height: 1.2;
-            color: #333;
-            background-color: #fff;
-        }
+<?php foreach ($data['studentProfile'] as $studentProfile) : ?>
 
-        .heading {
-            font-size: 16pt;
-            font-weight: bold;
-            text-align: center;
-            margin: 20px 0;
-            color: #183D64;
-            /* Blue */
-        }
-
-        .wrapper {
-            display: flex;
-            justify-content: space-between;
-            margin: 20px;
-        }
-
-        .sidebar-wrapper {
-            width: 30%;
-        }
-
-        .main-wrapper {
-            width: 65%;
-        }
-
-        .profile-container {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .profile {
-            width: 140px;
-            /* Set the width as needed */
-            max-width: 100%;
-            border-radius: 50%;
-        }
-
-        .name {
-            font-size: 14pt;
-            margin: 10px 0 5px 0;
-            color: #7C1C2B;
-            /* Red */
-        }
-
-        .tagline {
-            font-size: 14pt;
-            margin-bottom: 20px;
-            color: #183D64;
-            /* Blue */
-        }
-
-        .contact-container {
-            margin-bottom: 30px;
-        }
-
-        .contact-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .contact-list li {
-            margin-bottom: 8px;
-            color: #555;
-        }
-
-        .section {
-            margin-bottom: 15px;
-        }
-
-        .section-title {
-            font-size: 14pt;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #183D64;
-            /* Blue */
-        }
-
-        .summary {
-            font-size: 10pt;
-            color: #333;
-        }
-
-        .footer {
-            background-color: #f8f8f8;
-            padding: 20px;
-            color: #666;
-            text-align: center;
-            border-top: 1px solid #ddd;
-        }
-
-        .print-button {
-            background-color: #FCBD32;
-            /* Yellow */
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 14pt;
-            color: #7C1C2B;
-            cursor: pointer;
-            float: right;
-            margin-right: 60px;
-            border-radius: 8px;
-        }
-
-
-        @media print {
-            .print-button {
-                display: none;
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Resume of <?php echo $studentProfile->s_fName; ?>_Brought by Youth Ventures Asia</title>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                font-size: 12pt;
+                line-height: 1.2;
+                color: #333;
+                background-color: #fff;
             }
-        }
-    </style>
-</head>
 
-<body>
-    <div class="heading">Resume</div>
-    <!-- Print Button -->
-    <button class="print-button" onclick="printResume()">Print</button>
-    <!-- Download as PDF Button -->
-    <!-- <button class="print-button" onclick="downloadAsPDF()">Download Resume as PDF</button> -->
+            .heading {
+                font-size: 16pt;
+                font-weight: bold;
+                text-align: center;
+                margin: 20px 0;
+                color: #183D64;
+                /* Blue */
+            }
+
+            .wrapper {
+                display: flex;
+                justify-content: space-between;
+                margin: 20px;
+            }
+
+            .sidebar-wrapper {
+                width: 30%;
+            }
+
+            .main-wrapper {
+                width: 65%;
+            }
+
+            .profile-container {
+                text-align: center;
+                margin-bottom: 25px;
+            }
+
+            .profile {
+                width: 140px;
+                /* Set the width as needed */
+                max-width: 100%;
+                border-radius: 50%;
+            }
+
+            .name {
+                font-size: 14pt;
+                margin: 10px 0 5px 0;
+                color: #7C1C2B;
+                /* Red */
+            }
+
+            .tagline {
+                font-size: 14pt;
+                margin-bottom: 20px;
+                color: #183D64;
+                /* Blue */
+            }
+
+            .contact-container {
+                margin-bottom: 30px;
+            }
+
+            .contact-list {
+                list-style: none;
+                padding: 0;
+            }
+
+            .contact-list li {
+                margin-bottom: 8px;
+                color: #555;
+            }
+
+            .section {
+                margin-bottom: 15px;
+            }
+
+            .section-title {
+                font-size: 14pt;
+                font-weight: bold;
+                margin-bottom: 15px;
+                color: #183D64;
+                /* Blue */
+            }
+
+            .summary {
+                font-size: 10pt;
+                color: #333;
+            }
+
+            .footer {
+                background-color: #f8f8f8;
+                padding: 20px;
+                color: #666;
+                text-align: center;
+                border-top: 1px solid #ddd;
+            }
+
+            .print-button {
+                background-color: #FCBD32;
+                /* Yellow */
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                font-size: 14pt;
+                color: #7C1C2B;
+                cursor: pointer;
+                float: right;
+                margin-right: 60px;
+                border-radius: 8px;
+            }
 
 
+            @media print {
+                .print-button {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
 
-    <?php foreach ($data['studentProfile'] as $studentProfile) : ?>
+    <body>
+        <div class="heading">Resume</div>
+        <!-- Print Button -->
+        <button class="print-button" onclick="printResume()">Print</button>
+        <!-- Download as PDF Button -->
+        <!-- <button class="print-button" onclick="downloadAsPDF()">Download Resume as PDF</button> -->
+
         <div class="wrapper">
             <div class="sidebar-wrapper">
                 <div class="profile-container">
@@ -204,7 +203,7 @@
 
     <footer class="footer">
         <div class="text-center">
-            <small class="copyright">This resume is auto-generated by Youth Ventures Asia system. Designed by Explorer for StuPort</small>
+            <small class="copyright">This resume is auto-generated by Youth Ventures Asia. Designed by Explorer for StuPort</small>
         </div>
     </footer>
 
@@ -214,6 +213,6 @@
             window.print();
         }
     </script>
-</body>
+    </body>
 
 </html>
