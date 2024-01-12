@@ -169,9 +169,6 @@
 					</div>
 				</div>
 
-				
-
-				
 
 				<div class="menu-item pt-5">
 					<!--begin:Menu content-->
