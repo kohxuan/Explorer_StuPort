@@ -195,6 +195,7 @@
 					<!--begin:Menu sub-->
 					<div class="menu-sub menu-sub-accordion">
 						<!--begin:Menu item-->
+						<?php if ($_SESSION['user_role'] !== 'Student'): ?>
 						<div class="menu-item">
 							<!--begin:Menu link-->
 							<a class="menu-link" href="<?php echo URLROOT; ?>/rewards">
@@ -205,6 +206,7 @@
 							</a>
 							<!--end:Menu link-->
 						</div>
+						<?php endif; ?>
 						<!--end:Menu item-->
 						<!--begin:Menu item-->
 						<div class="menu-item">
@@ -212,6 +214,7 @@
 						</div>
 						<!--end:Menu item-->
 						<!--begin:Menu item-->
+						<?php if ($_SESSION['user_role'] !== 'Student'): ?>
 						<div class="menu-item">
 							<!--begin:Menu link-->
 							<a class="menu-link" href="<?php echo URLROOT; ?>/rewards/create">
@@ -222,6 +225,23 @@
 							</a>
 							<!--end:Menu link-->
 						</div>
+						<?php endif; ?>
+						<!--end:Menu item-->
+						<!--begin:Menu item-->
+						<?php if ($_SESSION['user_role'] == 'Student'): ?>
+							<div class="menu-item">
+								<!--begin:Menu link-->
+								<a class="menu-link" href="<?php echo URLROOT; ?>/rewards/viewReward">
+									<span class="menu-bullet">
+										<span class="bullet bullet-dot"></span>
+									</span>
+									<span class="menu-title">View Reward</span> 
+								</a>
+								<!--end:Menu link-->
+							</div>
+							<?php endif; ?>
+							<!--end:Menu item-->
+						
 						<!--end:Menu item-->
 					</div>
 					<!--end:Menu sub-->

@@ -66,7 +66,7 @@
                 <h3 class="card-title">Create Rewards</h3>
             </div>
             <div class="card-body">
-                <form action="<?php echo URLROOT; ?>/rewards/create" method="POST" enctype="multipart/form-data" id="rewardForm">
+                <form action="<?php echo URLROOT; ?>/rewards/create" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="badge_name" class="required">Badge Name</label>
                         <input type="text" name="badge_name" class="form-control" placeholder="Badge Name..." required />
@@ -76,7 +76,7 @@
                         <textarea name="badge_description" class="form-control" placeholder="Badge Description..." required></textarea>
                     </div>
 
-                    <div class="row mb-6">
+                    <div class="mb-10">
                         <label class="col-lg-4 col-form-label fw-semibold fs-6">Badge icon</label>
                         <div class="col-lg-8">
                             <div class="image-input image-input-outline" data-kt-image-input="true">

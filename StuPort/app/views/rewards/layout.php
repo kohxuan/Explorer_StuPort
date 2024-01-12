@@ -24,6 +24,7 @@
                     // rule to access each file
                     $c_url = URLROOT . "/rewards";
                     $t_url = URLROOT . "/rewards/create";
+                    $v_url = URLROOT . "/rewards/viewRewards";
 
                     if (isset($data['rewards']) && is_object($data['rewards'])) {
                         $u_url = URLROOT . "/rewards/update/".$data['rewards']->badge_name; 
@@ -42,9 +43,15 @@
 
                         require 'update.php';
 
-                    } else {
+                    } else if($url == $v_url) {
+
+                        require 'viewRewards.php';
+
+                    } else{
 
                     }
+
+                    
 
                     ?>
 

@@ -1,12 +1,11 @@
 <div class="card shadow-sm">
     <div class="card-header">
-        <h3 class="card-title">List of Rewards</h3>
-        <!-- Check whether logged in or not -->
-        <div class="card-toolbar">
-            <?php if (isLoggedIn()): ?>
-                <a href="<?php echo URLROOT; ?>/rewards/create" class="btn btn-light-primary">Create Rewards</a>
+        <h3 class="card-title">Your rewards details</h3>
+        <?php if (isLoggedIn()): ?>
+            <a href="<?php echo URLROOT; ?>/rewards/viewRewards/<?php echo $reward->reward_id; ?>">View Details</a>
+
             <?php endif; ?>
-        </div>
+        
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -15,7 +14,7 @@
                     <tr class="fw-semibold fs-6 text-muted">
                         <th>Badge Icon</th>
                         <th>Badge Name</th>
-                        <th> Badge Description</th>
+                        <th>Badge Description</th>
                         <th>Activities Joined</th>
                         <th>Action</th>
                     </tr>
@@ -23,7 +22,7 @@
                 <tbody>
                     <?php foreach ($data['rewards'] as $reward): ?>
                         <tr>
-                            <td><img src="<?php echo $reward->badge_icon_path ?>" alt="Badge Icon" style="width: 90px; height: 90px;"></td>
+                            <td><img class="icon" src="<?php echo URLROOT . '/rewards/' . $reward->badge_icon_path; ?>" alt="Badge icon"></td>
                             <td><?php echo $reward->badge_name; ?></td>
                             <td><?php echo $reward->badge_description; ?></td>
                             <td><?php echo $reward->points_required; ?></td>
