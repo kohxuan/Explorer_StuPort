@@ -26,6 +26,7 @@
         $e_url = URLROOT . "/pages/edit_profile"; //edit_user_url
         $r_url = URLROOT . "/pages/generate_resume";
         $v_url = URLROOT . "/pages/view_profile";
+        $d_url = URLROOT . "/pages/dashboard";
 
         // if($url == $p_url){
         //     // Redirect based on user_role
@@ -74,6 +75,18 @@
             } elseif (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "Lecturer") {
                 require 'view_profile_lecturer.php';
             } else {
+                echo "Session not set.";
+            }
+        }
+        elseif ($url == $d_url) {
+
+            if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "Student") {
+                require 'dashboard_stud.php';
+            } elseif (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "Lecturer") {
+                require 'dashboard_lect.php';
+            } elseif (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "Administrator") {
+                require 'dashboard_admin.php';
+            }else {
                 echo "Session not set.";
             }
         }
