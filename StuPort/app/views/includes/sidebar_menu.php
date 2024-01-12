@@ -231,7 +231,7 @@
 						<?php if ($_SESSION['user_role'] == 'Student'): ?>
 							<div class="menu-item">
 								<!--begin:Menu link-->
-								<a class="menu-link" href="<?php echo URLROOT; ?>/rewards/viewReward">
+								<a class="menu-link" href="<?php echo URLROOT; ?>/studentBadge/view">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
