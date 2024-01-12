@@ -246,9 +246,7 @@ class Pages extends Controller
 
                     ];
                 }
-            }
-
-            elseif ($_POST['update_lecturer']) {
+            } elseif ($_POST['update_lecturer']) {
 
                 if (isset($_FILES["file"]) && $_FILES["file"]["error"] == 0) { //Nak update gambar
 
@@ -279,8 +277,7 @@ class Pages extends Controller
                         'l_race' => trim($_POST['l_race']),
 
                     ];
-
-                }else{ //Xnak update gambar
+                } else { //Xnak update gambar
 
                     $data = [
 
@@ -391,5 +388,31 @@ class Pages extends Controller
 
         // Load the view and pass the data to it
         $this->view('pages/generate_resume_student', $data);
+    }
+
+    public function deleteAccount()
+    {
+        // Check if the confirmation checkbox is checked
+        if (isset($_POST['confirm_deletion']) && $_POST['confirm_deletion'] == 1) {
+            // Call the deleteProfile method in your Page model
+            if ($this->pageModel->deleteProfile($_SESSION['email'])) {
+                session_unset();
+                session_destroy();
+                // Print JavaScript to open a pop-up window
+                echo '<script>
+                var confirmation = confirm("Account deleted successfully! Click OK to go back to login page.");
+                if (confirmation) {
+                    window.location.href = "' . URLROOT . '/users/login";
+                }
+                </script>';
+                exit();
+            } else {
+                // Something went wrong
+                die("Something went wrong, please try again!");
+            }
+        } else {
+            // User did not confirm the deletion
+            die("Please confirm your account deletion!");
+        }
     }
 }

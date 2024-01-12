@@ -298,4 +298,20 @@ class Page
             return false;
         }
     }
+
+    public function deleteProfile($email)
+    {
+        $this->db->query("DELETE FROM profile WHERE p_email = :email;
+                          DELETE FROM user WHERE email = :email;
+                          DELETE FROM student WHERE s_email = :email;
+                          DELETE FROM lecturer WHERE l_email = :email;");
+        $this->db->bind(':email', $email);
+
+        // Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
