@@ -530,7 +530,6 @@
         </div>
     </div>
 
-
     <!--begin::Deactivate Account-->
     <div class="card">
         <!--begin::Card header-->
@@ -587,10 +586,8 @@
     </div>
     <!--end::Deactivate Account-->
 
-
     <!-- <div class="card-footer"> -->
     <!-- Footer -->
-    <!-- </div> -->
-
+    <!-- </div> --> 
 
 </div>

@@ -440,7 +440,7 @@
                 <div class="row mb-6">
                     <label class="col-lg-4 col-form-label fw-semibold fs-6">Institution</label>
                     <div class="col-lg-8">
-                    <input class="form-control form-control-lg form-control-solid" name="l_institution" type="text" maxlength="255" value="<?php echo $lecturerProfile->l_institution; ?>" />
+                        <input class="form-control form-control-lg form-control-solid" name="l_institution" type="text" maxlength="255" value="<?php echo $lecturerProfile->l_institution; ?>" />
                     </div>
                 </div>
             </div>
@@ -454,8 +454,67 @@
             </form>
 
         </div>
-        <!-- <div class="card-footer"> -->
-        <!-- Footer -->
-        <!-- </div> -->
+
     </div>
+
+    <!--begin::Deactivate Account-->
+    <div class="card">
+        <!--begin::Card header-->
+        <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_deactivate" aria-expanded="true" aria-controls="kt_account_deactivate">
+            <div class="card-title m-0">
+                <h3 class="fw-bold m-0">Delete Account</h3>
+            </div>
+        </div>
+        <!--end::Card header-->
+        <!--begin::Content-->
+        <div id="kt_account_settings_deactivate" class="collapse show">
+            <!--begin::Form-->
+            <form id="kt_account_deactivate_form" class="form" method="post" action="<?php echo URLROOT; ?>/user/deleteAccount">
+                <!--begin::Card body-->
+                <div class="card-body border-top p-9">
+                    <!--begin::Notice-->
+                    <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed mb-9 p-6">
+                        <!--begin::Icon-->
+                        <i class="ki-duotone ki-information fs-2tx text-warning me-4">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                            <span class="path3"></span>
+                        </i>
+                        <!--end::Icon-->
+                        <!--begin::Wrapper-->
+                        <div class="d-flex flex-stack flex-grow-1">
+                            <!--begin::Content-->
+                            <div class="fw-semibold">
+                                <h4 class="text-gray-900 fw-bold">You Are Deleting Your Account</h4>
+                                <div class="fs-6 text-gray-700">For extra security, this requires you to confirm your deletion.</div>
+                            </div>
+                            <!--end::Content-->
+                        </div>
+                        <!--end::Wrapper-->
+                    </div>
+                    <!--end::Notice-->
+                    <!--begin::Form input row-->
+                    <div class="form-check form-check-solid fv-row">
+                        <input name="confirm_deletion" class="form-check-input" type="checkbox" value="1" id="confirm_deletion" required />
+                        <label class="form-check-label fw-semibold ps-2 fs-6" for="confirm_deletion">I confirm my account deletion</label>
+                    </div>
+                    <!--end::Form input row-->
+                </div>
+                <!--end::Card body-->
+                <!--begin::Card footer-->
+                <div class="card-footer d-flex justify-content-end py-6 px-9">
+                    <button id="kt_account_deactivate_account_submit" type="submit" class="btn btn-danger fw-semibold">Delete Account</button>
+                </div>
+                <!--end::Card footer-->
+            </form>
+            <!--end::Form-->
+        </div>
+        <!--end::Content-->
+    </div>
+    <!--end::Deactivate Account-->
+
+    <!-- <div class="card-footer"> -->
+    <!-- Footer -->
+    <!-- </div> -->
+
 </div>
