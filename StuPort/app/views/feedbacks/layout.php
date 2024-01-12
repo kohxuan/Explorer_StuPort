@@ -39,6 +39,8 @@
                     // Compare the current URL with defined URLs and include the corresponding files
                     if ($url == $c_url) {
                         require 'manage.php';
+                    } elseif ($url == $t_url) {
+                        require 'create.php';
                     } elseif ($url == $u_url) {
                         require 'edit.php';
                     } else {
