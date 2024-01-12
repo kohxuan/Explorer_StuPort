@@ -33,24 +33,24 @@ class Reward
         }
     }
 
-    public function findRewardById($id)
+    public function findRewardById($reward_id)
     {
-        $this->db->query('SELECT * FROM reward WHERE reward_id = :id');
-        $this->db->bind(':id', $id);
+        $this->db->query('SELECT * FROM reward WHERE reward_id = :reward_id');
+        $this->db->bind(':reward_id', $reward_id);
         $row = $this->db->single();
         return $row;
     }
 
-    public function updateReward($data)
+   public function updateReward($data)
     {
-        $this->db->query('UPDATE reward SET badge_name = :badge_name, badge_description = :badge_description, badge_icon_path = :badge_icon_path, points_required = :points_required WHERE reward_id = :id');
+        $this->db->query('UPDATE reward SET badge_name = :badge_name, badge_description = :badge_description, badge_icon_path = :badge_icon_path, points_required = :points_required WHERE reward_id = :reward_id');
 
-        $this->db->bind(':id', $data['reward_id']);
+        $this->db->bind(':reward_id', $data['reward_id']);
         $this->db->bind(':badge_name', $data['badge_name']);
         $this->db->bind(':badge_description', $data['badge_description']);
         $this->db->bind(':badge_icon_path', $data['badge_icon_path']);
         $this->db->bind(':points_required', $data['points_required']);
-
+ 
         if ($this->db->execute()) {
             return true;
         } else {
