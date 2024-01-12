@@ -42,7 +42,7 @@ class Rewards extends Controller
 
             if ($data['badge_name'] && $data['badge_description'] && $data['points_required']) {
                 if ($this->rewardModel->addReward($data)) {
-                    header("Location: " . URLROOT . "/rewards/index");
+                    header("Location: " . URLROOT . "/rewards");
                 } else {
                     die("Something went wrong :(");
                 }
@@ -66,6 +66,7 @@ class Rewards extends Controller
             'reward' => $reward,
             'badge_name' => $reward->badge_name,
             'badge_description' => $reward->badge_description,
+            'badge_icon_path' => $reward->badge_icon_path, // TODO: Add badge_icon_path to the database
             'points_required' => $reward->points_required
         ];
 
@@ -76,11 +77,12 @@ class Rewards extends Controller
                 'reward_id' => $reward_id,
                 'badge_name' => trim($_POST['badge_name']),
                 'badge_description' => trim($_POST['badge_description']),
+                'badge_icon_path' => trim($_POST['badge_icon_path']),
                 'points_required' => trim($_POST['points_required'])
             ];
 
             if ($this->rewardModel->updateReward($data)) {
-                header("Location: " . URLROOT . "/rewards/index");
+                header("Location: " . URLROOT . "/rewards");
             } else {
                 die("Something went wrong :(");
             }
@@ -96,7 +98,7 @@ class Rewards extends Controller
         }
 
         if ($this->rewardModel->deleteReward($id)) {
-            header("Location: " . URLROOT . "/rewards/index");
+            header("Location: " . URLROOT . "/rewards");
         } else {
             die('Something went wrong..');
         }
