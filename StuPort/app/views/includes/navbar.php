@@ -1,8 +1,13 @@
 <div class="app-navbar flex-shrink-0">
 	<!--begin::Search-->
 
+	
+
 	<!--begin::Activities-->
 	<div class="app-navbar-item ms-1 ms-md-4">
+			<!--begin::Button-->
+			<a href="<?php echo URLROOT; ?>/pages/index" class="btn btn-light-primary">Homepage</a>
+			<!--end::Button-->
 		<!--begin::Drawer toggle-->
 		<div class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-35px h-35px" id="kt_activities_toggle">
 			<i class="ki-duotone ki-messages fs-2">

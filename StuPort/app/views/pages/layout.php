@@ -27,22 +27,22 @@
         $r_url = URLROOT . "/pages/generate_resume";
         $v_url = URLROOT . "/pages/view_profile";
 
-        if($url == $p_url){
-            // Redirect based on user_role
-            if ($_SESSION['user_role'] == 'Administrator') {
-                require 'dashboard_administrator.php';
-            } elseif ($_SESSION['user_role'] == 'Master Administrator') {
-                require 'dashboard_masteradministrator.php';
-            } elseif ($_SESSION['user_role'] == 'Student') {
-                // Default redirect for other user roles
-                require 'dashboard_student.php';
-            } elseif ($_SESSION['user_role'] == 'Lecturer') {
-                require 'dashboard_lecturer.php';
-            } else {
-                echo "User_role undefined.";
-                header('location:' . URLROOT . '/users/login');
-            }
-        }
+        // if($url == $p_url){
+        //     // Redirect based on user_role
+        //     if ($_SESSION['user_role'] == 'Administrator') {
+        //         require 'dashboard_administrator.php';
+        //     } elseif ($_SESSION['user_role'] == 'Master Administrator') {
+        //         require 'dashboard_masteradministrator.php';
+        //     } elseif ($_SESSION['user_role'] == 'Student') {
+        //         // Default redirect for other user roles
+        //         require 'dashboard_student.php';
+        //     } elseif ($_SESSION['user_role'] == 'Lecturer') {
+        //         require 'dashboard_lecturer.php';
+        //     } else {
+        //         echo "User_role undefined.";
+        //         header('location:' . URLROOT . '/users/login');
+        //     }
+        // }
 
 
 

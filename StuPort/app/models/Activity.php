@@ -19,7 +19,8 @@ class Activity
 
     public function addActivity($data)
 {
-    $this->db->query('INSERT INTO activity (user_id, title, activity_desc, act_datetime, category, location, organizer_name, skill_acquired, attachment, link_form) VALUES (:user_id, :title, :activity_desc, :act_datetime, :category, :location, :organizer_name, :skill_acquired, :attachment, :link_form)');
+    $this->db->query('INSERT INTO activity (user_id, title, activity_desc, act_datetime, category, location, organizer_name, skill_acquired, attachment, link_form) VALUES (:user_id, :title, :activity_desc, :act_datetime, :category, :location, :organizer_name, :skill_acquired, :attachment, :link_form);
+    UPDATE feedbacks SET title = :title WHERE activity_id = :activity_id');
 
     // Bind values
     $this->db->bind(':user_id', $data['user_id']);
@@ -55,7 +56,8 @@ class Activity
     public function updateActivity($data)
     {
         $this->db->query('UPDATE activity SET title = :title, activity_desc = :activity_desc,  location = :location, 
-        organizer_name = :organizer_name, skill_acquired = :skill_acquired WHERE activity_id = :activity_id');
+        organizer_name = :organizer_name, skill_acquired = :skill_acquired WHERE activity_id = :activity_id;
+        UPDATE feedbacks SET title = :title WHERE activity_id = :activity_id');
     
         $this->db->bind(':activity_id', $data['activity_id']);
         $this->db->bind(':title', $data['title']);

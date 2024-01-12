@@ -191,19 +191,7 @@ class Users extends Controller {
 
     
         // Redirect based on user_role
-        if ($user->user_role == 'Administrator') {
-            header('location:' . URLROOT . '/pages/dashboard_administrator');
-        } elseif ($user->user_role == 'Master Administrator') {
-            header('location:' . URLROOT . '/pages/dashboard_masteradministrator');
-        } elseif ($user->user_role == 'Student') {
-            // Default redirect for other user roles
-            header('location:' . URLROOT . '/pages/dashboard_student');
-        } elseif ($user->user_role == 'Lecturer') {
-            header('location:' . URLROOT . '/pages/dashboard_lecturer');
-        } else {
-            echo "User_role undefined.";
-            header('location:' . URLROOT . '/users/login');
-        }
+        header('location:' . URLROOT . '/pages/index');
     }
     
     
