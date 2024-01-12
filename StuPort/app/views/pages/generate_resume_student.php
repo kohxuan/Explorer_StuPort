@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Resume of <?php echo $studentProfile->s_fName; ?>_Brought by Youth Ventures Asia</title>
+        <title>Resume_of_<?php echo str_replace(' ', '', $studentProfile->s_fName); ?>_Brought_by_Youth_Ventures_Asia</title>
         <style>
             body {
                 font-family: 'Arial', sans-serif;
