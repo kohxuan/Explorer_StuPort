@@ -16,8 +16,7 @@
                         <th>Activity's Name</th>
                         <th>Activity Date</th>
                         <th>Venue</th>
-                        <th>Description</th>
-    
+                        <th>Description</th>  
                         <th>Action</th>
                     </tr>
                 </thead>

@@ -168,7 +168,7 @@ class Activities extends Controller
 public function particip()
 {
     if (!isLoggedIn() || $_SESSION['user_role'] !== "Student") {
-        header("Location: " . URLROOT . "/activity");
+        header("Location: " . URLROOT . "/activities");
         exit();
     }
 
@@ -180,7 +180,7 @@ public function particip()
     ];
 
 
-    $this->view('activity/index', $data);
+    $this->view('activities/index', $data);
 }
 
 }

@@ -1,8 +1,8 @@
 
-
 <!--begin::Content-->
 <div id="kt_app_content" class="app-content flex-column-fluid">
     <!--begin::Content container-->
+
 
 
 
@@ -13,7 +13,7 @@
                     if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
                         $url = "https://";
                     else
-                        $url = "http://";
+                    $url = "http://";
                     // Append the host(domain name, ip) to the URL.   
                     $url .= $_SERVER['HTTP_HOST'];
 
@@ -26,7 +26,7 @@
                     //rule :depend what root file u wanna use
                     $c_url = URLROOT . "/activities"; 
                     $t_url = URLROOT . "/activities/create"; 
-                    $w_url = URLROOT . "/activities/particip";
+                    $w_url = URLROOT . "/activities/particip/";
 
                     if (isset($data['activities']) && is_object($data['activities'])) {
                     $u_url = URLROOT . "/activities/update/".$data['activities']->activity_id; //Update must have id // Dynamic URL (id from database) 
@@ -44,16 +44,16 @@
 
                         require 'create.php'; //All are Form
                         
+                    }elseif($url == $w_url){
+
+                        require 'particip.php'; //All are Form
+                            
                     }elseif($url == $u_url){
 
                     require 'update.php'; //All are Form
                         
                     }
-                    elseif($url == $w_url){
-
-                    require 'particip.php'; //All are Form
-                        
-                    }
+                   
                     
                     else{
                        

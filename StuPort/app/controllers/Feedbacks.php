@@ -61,7 +61,7 @@ class Feedbacks extends Controller {
         $this->view('feedbacks/index', $data);
     }
 
-    public function edit($activity_id)
+    public function edit($activity_id) // not sure use $id or $activity_id, but should be act because feedback follow activity
     {
         $feedback = $this->feedbackModel->findFeedbackById($activity_id);
 

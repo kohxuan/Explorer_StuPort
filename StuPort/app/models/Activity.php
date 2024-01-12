@@ -91,6 +91,7 @@ class Activity
     }
 
    
+    
     public function joinActivity($activity_id, $user_id)
     {
         // Your existing code to fetch user details
@@ -195,6 +196,8 @@ class Activity
         
             return $joinedActivities;
         }
+
+
         
         public function findAllActivityOrganizer($user_id) {
             $this->db->query('SELECT * FROM activity WHERE uploader_id = :uploader_id');
@@ -209,6 +212,8 @@ class Activity
         
             return $currentDate > $activityend;
          }
+
+
 
 
          public function isStudentJoined($user_id, $activity_id)
