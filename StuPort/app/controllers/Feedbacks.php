@@ -61,21 +61,21 @@ class Feedbacks extends Controller {
         $this->view('feedbacks/index', $data);
     }
 
-    public function edit($id)
+    public function edit($activity_id)
     {
-        $feedback = $this->feedbackModel->findFeedbackById($id);
+        $feedback = $this->feedbackModel->findFeedbackById($activity_id);
 
         $data = 
         [
             'feedback' => $feedback,
-            'link_form' => ''
+            'link_form' => trim($_POST['link_form'])
         ];
         
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data = 
             [
-            'feedback_id' => $id,
+            'feedback_id' => $activity_id,
             'feedback' => $feedback,
             'link_form' => trim($_POST['link_form'])
             ];
