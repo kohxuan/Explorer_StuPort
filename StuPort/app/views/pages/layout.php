@@ -164,41 +164,76 @@
 
         <?php if ($_SESSION['user_role'] == 'Administrator') : ?>
 
-            <div class="card card-flush h-md-50 mb-5 mb-xl-10">
-            <div class="card-header pt-5">
-                <div class="card-title d-flex flex-column">
-                    <div class="d-flex align-items-center">
-                        <span class="fs-2hx fw-bold text-gray-900 me-2 lh-1 ls-n2"><?php echo $userCount; ?></span>
-                        <span class="badge badge-light-success fs-base">
-                            <i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                            </i>2.2%
-                        </span>
-                    </div>
-                    <span class="text-gray-500 pt-1 fw-semibold fs-6">Registered Users</span>
-                </div>
+    <!-- Include Chart.js library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="card card-flush h-md-50 mb-5 mb-xl-10">
+    <div class="card-header pt-5">
+        <div class="card-title d-flex flex-column">
+            <div class="d-flex align-items-center">
+                <span class="fs-2hx fw-bold text-gray-900 me-2 lh-1 ls-n2"><?php echo $userCount; ?></span>
+                <span class="badge badge-light-success fs-base">
+                    <i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
+                        <span class="path1"></span>
+                        <span class="path2"></span>
+                    </i>2.2%
+                </span>
             </div>
-            <div class="card-body pt-2 pb-4 d-flex align-items-center">
-                <div class="d-flex flex-column content-justify-center w-100">
-                    <div class="d-flex fs-6 fw-semibold align-items-center">
-                        <div class="bullet w-8px h-6px rounded-2 bg-danger me-3"></div>
-                        <div class="text-gray-500 flex-grow-1 me-4">Clients / Partners</div>
-                        <div class="fw-bolder text-gray-700 text-xxl-end"><?php echo ($userCount-$lecturerCount-$studentCount); ?></div>
-                    </div>
-                    <div class="d-flex fs-6 fw-semibold align-items-center my-3">
-                        <div class="bullet w-8px h-6px rounded-2 bg-primary me-3"></div>
-                        <div class="text-gray-500 flex-grow-1 me-4">Lecturers</div>
-                        <div class="fw-bolder text-gray-700 text-xxl-end"><?php echo $lecturerCount; ?></div>
-                    </div>
-                    <div class="d-flex fs-6 fw-semibold align-items-center my-3">
-                        <div class="bullet w-8px h-6px rounded-2 bg-primary me-3"></div>
-                        <div class="text-gray-500 flex-grow-1 me-4">Students</div>
-                        <div class="fw-bolder text-gray-700 text-xxl-end"><?php echo $studentCount; ?></div>
-                    </div>
-                </div>
-            </div>
+            <span class="text-gray-500 pt-1 fw-semibold fs-6">Registered Users</span>
         </div>
+    </div>
+    <div class="card-body d-flex align-items-center">
+        <!-- Doughnut Chart -->
+        <div style="flex: 1;">
+            <canvas id="userChart" width="200" height="180"></canvas>
+        </div>
+
+        <div class="d-flex flex-column content-justify-center" style="flex: 1; margin-left: 20px;">
+    <div class="d-flex fs-6 fw-semibold align-items-center mb-3">
+        <div class="bullet w-8px h-6px rounded-2" style="background-color: #dc3545; margin-right: 10px;"></div>
+        <div class="text-gray-500 flex-grow-1">Clients / Partners</div>
+        <div class="fw-bolder text-gray-700 text-xxl-end"><?php echo ($userCount - $lecturerCount - $studentCount); ?></div>
+    </div>
+    <div class="d-flex fs-6 fw-semibold align-items-center mb-3">
+        <div class="bullet w-8px h-6px rounded-2" style="background-color: #007bff; margin-right: 10px;"></div>
+        <div class="text-gray-500 flex-grow-1">Lecturers</div>
+        <div class="fw-bolder text-gray-700 text-xxl-end"><?php echo $lecturerCount; ?></div>
+    </div>
+    <div class="d-flex fs-6 fw-semibold align-items-center">
+        <div class="bullet w-8px h-6px rounded-2" style="background-color: #28a745; margin-right: 10px;"></div>
+        <div class="text-gray-500 flex-grow-1">Students</div>
+        <div class="fw-bolder text-gray-700 text-xxl-end"><?php echo $studentCount; ?></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Script to initialize Doughnut Chart -->
+<script>
+    var ctx = document.getElementById('userChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: [<?php echo ($userCount - $lecturerCount - $studentCount); ?>, <?php echo $lecturerCount; ?>, <?php echo $studentCount; ?>],
+                backgroundColor: ['#dc3545', '#007bff', '#28a745'],
+            }]
+        },
+        options: {
+            cutoutPercentage: 80,
+            responsive: false,
+            maintainAspectRatio: false,
+            legend: {
+                display: true
+            }
+        }
+    });
+</script>
+
+
+
+
 
         <div class="container">
     <div class="row">
