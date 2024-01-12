@@ -1,219 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Resume</title>
-    
-    <!-- Meta -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Responsive HTML5 Resume/CV Template for Developers">
-    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
-    <link rel="shortcut icon" href="favicon.ico">  
-    <!-- Google Font -->
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <!-- FontAwesome JS-->
-	<script defer src="assets/fontawesome/js/all.min.js"></script>
-    <!-- Global CSS -->
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
-    <!-- Theme CSS -->  
-    <link id="theme-style" rel="stylesheet" href="assets/css/orbit-1.css">
-</head> 
+    <title>Auto-Generated Resume</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            font-size: 12pt;
+            line-height: 1.2;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .heading {
+            font-size: 16pt;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            color: #183D64;
+            /* Blue */
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+        }
+
+        .sidebar-wrapper {
+            width: 30%;
+        }
+
+        .main-wrapper {
+            width: 65%;
+        }
+
+        .profile-container {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .profile {
+            width: 140px;
+            /* Set the width as needed */
+            max-width: 100%;
+            border-radius: 50%;
+        }
+
+        .name {
+            font-size: 14pt;
+            margin: 10px 0 5px 0;
+            color: #7C1C2B;
+            /* Red */
+        }
+
+        .tagline {
+            font-size: 14pt;
+            margin-bottom: 20px;
+            color: #183D64;
+            /* Blue */
+        }
+
+        .contact-container {
+            margin-bottom: 30px;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-list li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .section {
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 14pt;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #183D64;
+            /* Blue */
+        }
+
+        .summary {
+            font-size: 10pt;
+            color: #333;
+        }
+
+        .footer {
+            background-color: #f8f8f8;
+            padding: 20px;
+            color: #666;
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
+
+        .print-button {
+            background-color: #FCBD32;
+            /* Yellow */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14pt;
+            color: #7C1C2B;
+            cursor: pointer;
+            float: right;
+            margin-right: 60px;
+            border-radius: 8px;
+        }
+
+
+        @media print {
+            .print-button {
+                display: none;
+            }
+        }
+    </style>
+</head>
 
 <body>
-    <div class="wrapper mt-lg-5">
-        <div class="sidebar-wrapper">
-            <div class="profile-container">
-            <?php
-        foreach ($data['studentProfile'] as $studentProfile) :
-        ?>
-        <?php endforeach; ?>
-                <img class="profile" src="assets/images/profile.png" alt="" />
-                <h1 class="name"><?php echo $studentProfile->s_fName; ?></h1>
-                <h3 class="tagline">Full Stack Developer</h3>
-            </div><!--//profile-container-->
-            
-            <div class="contact-container container-block">
-                <ul class="list-unstyled contact-list">
-                    <li class="email"><i class="fa-solid fa-envelope"></i><a href="mailto: yourname@email.com">alan.doe@website.com</a></li>
-                    <li class="phone"><i class="fa-solid fa-phone"></i><a href="tel:0123 456 789">0123 456 789</a></li>
-                    <li class="website"><i class="fa-solid fa-globe"></i><a href="https://themes.3rdwavemedia.com/bootstrap-templates/resume/orbit-free-resume-cv-bootstrap-theme-for-developers/" target="_blank">portfoliosite.com</a></li>
-                    <li class="linkedin"><i class="fa-brands fa-linkedin-in"></i><a href="#" target="_blank">linkedin.com/in/alandoe</a></li>
-                    <li class="github"><i class="fa-brands fa-github"></i><a href="#" target="_blank">github.com/username</a></li>
-                    <li class="twitter"><i class="fa-brands fa-twitter"></i><a href="https://twitter.com/3rdwave_themes" target="_blank">@twittername</a></li>
-                </ul>
-            </div><!--//contact-container-->
-            <div class="education-container container-block">
-                <h2 class="container-block-title">Education</h2>
-                <div class="item">
-                    <h4 class="degree">MSc in Computer Science</h4>
-                    <h5 class="meta">University of London</h5>
-	                    <div class="time">2016 - 2018</div>
-                </div><!--//item-->
-                <div class="item">
-                    <h4 class="degree">BSc in Applied Mathematics</h4>
-                    <h5 class="meta">Bristol University</h5>
-                    <div class="time">2012 - 2016</div>
-                </div><!--//item-->
-            </div><!--//education-container-->
-            
-            <div class="languages-container container-block">
-                <h2 class="container-block-title">Languages</h2>
-                <ul class="list-unstyled interests-list">
-                    <li>English <span class="lang-desc">(Native)</span></li>
-                    <li>French <span class="lang-desc">(Professional)</span></li>
-                    <li>Spanish <span class="lang-desc">(Professional)</span></li>
-                </ul>
-            </div><!--//interests-->
-            
-            <div class="interests-container container-block">
-                <h2 class="container-block-title">Interests</h2>
-                <ul class="list-unstyled interests-list">
-                    <li>Climbing</li>
-                    <li>Snowboarding</li>
-                    <li>Cooking</li>
-                </ul>
-            </div><!--//interests-->
-            
-        </div><!--//sidebar-wrapper-->
-        
-        <div class="main-wrapper">
-            
-            <section class="section summary-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-user"></i></span>Career Profile</h2>
-                <div class="summary">
-                    <p>Summarise your career here lorem ipsum dolor sit amet, consectetuer adipiscing elit. You can <a href="https://themes.3rdwavemedia.com/bootstrap-templates/resume/orbit-free-resume-cv-bootstrap-theme-for-developers/" target="_blank">download this free resume/CV template here</a>. Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu.</p>
-                </div><!--//summary-->
-            </section><!--//section-->
-            
-            <section class="section experiences-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-briefcase"></i></span>Experiences</h2>
-                
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Lead Developer</h3>
-                            <div class="time">2023 - Present</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Startup Hubs, San Francisco</div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <p>Describe your role here lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo.</p>  
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
-                    </div><!--//details-->
-                </div><!--//item-->
-                
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Senior Software Engineer</h3>
-                            <div class="time">2018 - 2023</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Google, London</div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <p>Describe your role here lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>  
-                        
-                    </div><!--//details-->
-                </div><!--//item-->
-                
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">UI Developer</h3>
-                            <div class="time">2016 - 2018</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Amazon, London</div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <p>Describe your role here lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>  
-                    </div><!--//details-->
-                </div><!--//item-->
-                
-            </section><!--//section-->
-            
-            <section class="section projects-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-archive"></i></span>Projects</h2>
-                <div class="intro">
-                    <p>You can list your side projects or open source libraries in this section. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus.</p>
-                </div><!--//intro-->
-                <div class="item">
-                    <span class="project-title"><a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderpro-bootstrap-5-startup-template-for-software-projects/" target="_blank">CoderPro</a></span> - <span class="project-tagline">A responsive website template designed to help developers launch their software projects. </span>
-                    
-                </div><!--//item-->
-                <div class="item">
-                    <span class="project-title"><a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/launch-bootstrap-5-template-for-saas-businesses/" target="_blank">Launch</a></span> - <span class="project-tagline">A responsive website template designed to help startups promote their products or services.</span>
-                </div><!--//item-->
-                <div class="item">
-                    <span class="project-title"><a href="https://themes.3rdwavemedia.com/bootstrap-templates/resume/devcard-bootstrap-5-vcard-portfolio-template-for-software-developers/" target="_blank">DevCard</a></span> - <span class="project-tagline">A portfolio website template designed for software developers.</span>
-                </div><!--//item-->
-                <div class="item">
-                    <span class="project-title"><a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/bootstrap-template-for-mobile-apps-nova-pro/" target="_blank">Nova Pro</a></span> - <span class="project-tagline">A responsive Bootstrap theme designed to help app developers promote their mobile apps</span>
-                </div><!--//item-->
-                <div class="item">
-                    <span class="project-title"><a href="http://themes.3rdwavemedia.com/website-templates/responsive-bootstrap-theme-web-development-agencies-devstudio/" target="_blank">DevStudio</a></span> - 
-                    <span class="project-tagline">A responsive website template designed to help web developers/designers market their services. </span>
-                </div><!--//item-->
-            </section><!--//section-->
-            
-            <section class="skills-section section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-rocket"></i></span>Skills &amp; Proficiency</h2>
-                <div class="skillset">        
-                    <div class="item">
-                        <h3 class="level-title">Python &amp; Django</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 99%" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                               
-                    </div><!--//item-->
-                    
-                    <div class="item">
-                        <h3 class="level-title">Javascript</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 98%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                              
-                    </div><!--//item-->
-                    
-                    <div class="item">
-                        <h3 class="level-title">React &amp; Angular</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 98%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                                 
-                    </div><!--//item-->
-                    
-                    <div class="item">
-                        <h3 class="level-title">HTML5 &amp; CSS</h3>
-                        <div class="progress level-bar">
-							    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                                
-                    </div><!--//item-->
-                    
-                    <div class="item">
-                        <h3 class="level-title">Ruby on Rails</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                                  
-                    </div><!--//item-->
-                    
-                    <div class="item">
-                        <h3 class="level-title">Sketch &amp; Photoshop</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                                 
-                    </div><!--//item-->
-                    
-                </div>  
-            </section><!--//skills-section-->
-            
-        </div><!--//main-body-->
-    </div>
- 
+    <div class="heading">Resume</div>
+    <!-- Print Button -->
+    <button class="print-button" onclick="printResume()">Print</button>
+    <!-- Download as PDF Button -->
+    <!-- <button class="print-button" onclick="downloadAsPDF()">Download Resume as PDF</button> -->
+
+
+
+    <?php foreach ($data['studentProfile'] as $studentProfile) : ?>
+        <div class="wrapper">
+            <div class="sidebar-wrapper">
+                <div class="profile-container">
+                    <img class="profile" src="<?php echo URLROOT . '/public/' . $studentProfile->profileimage; ?>" alt="Profile Image" />
+                    <h1 class="name"><?php echo $studentProfile->s_fName; ?></h1>
+                    <h3 class="tagline"><?php echo $studentProfile->position; ?></h3>
+                    <div class="summary">
+                        <p style="text-align: left;"><?php echo empty($studentProfile->headline) ? '-' : $studentProfile->headline; ?></p>
+                    </div>
+                </div>
+
+                <div class="contact-container container-block">
+                    <ul class="list-unstyled contact-list">
+                        <li class="email" style="font-size: 14px;"><i class="fa-solid fa-envelope"></i><a href="mailto: <?php echo $studentProfile->s_email; ?>" style="color: #7C1C2B;"><?php echo $studentProfile->s_email; ?></a></li>
+                        <li class="phone" style="font-size: 14px;"><i class="fa-solid fa-phone"></i><a href="tel:<?php echo $studentProfile->s_telephone_no; ?>" style="color: #7C1C2B;"><?php echo empty($studentProfile->s_telephone_no) ? '-' : $studentProfile->s_telephone_no; ?></a></li>
+                        <li class="phone" style="font-size: 14px;"><i class="fa-solid fa-phone"></i><?php echo empty($studentProfile->citystate) ? '-' : ($studentProfile->citystate . ", " . (empty($studentProfile->country) ? '-' : $studentProfile->country)); ?></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="main-wrapper">
+
+                <section class="section summary-section">
+                    <h2 class="section-title">About Me</h2>
+                    <div class="summary">
+                        <p><?php echo empty($studentProfile->about) ? '-' : $studentProfile->about; ?></p>
+                    </div>
+                </section>
+
+                <section class="section summary-section">
+                    <h2 class="section-title">Personal Details</h2>
+                    <div class="summary">
+                        <p>Date of Birth: <?php echo empty($studentProfile->dob) ? '-' : $studentProfile->dob; ?></p>
+                        <p>Age : <?php echo empty($studentProfile->s_age) ? '-' : $studentProfile->s_age; ?></p>
+                        <p>Gender : <?php echo empty($studentProfile->s_gender) ? '-' : $studentProfile->s_gender; ?></p>
+                        <p>Race : <?php echo empty($studentProfile->s_race) ? '-' : $studentProfile->s_race; ?></p>
+                        <p>Address : <?php echo empty($studentProfile->s_address) ? '-' : $studentProfile->s_address; ?></p>
+
+                        <p>Institution : <?php echo empty($studentProfile->s_institution) ? '-' : $studentProfile->s_institution; ?></p>
+                        <p>Course : <?php echo empty($studentProfile->s_course) ? '-' : $studentProfile->s_course; ?></p>
+
+                        <p>Hobby : <?php echo empty($studentProfile->s_hobby) ? '-' : $studentProfile->s_hobby; ?></p>
+                        <p>Ambition : <?php echo empty($studentProfile->s_ambition) ? '-' : $studentProfile->s_ambition; ?></p>
+                    </div>
+                </section>
+
+                <!-- <section class="section experiences-section">
+                    <h2 class="section-title">Experiences</h2>
+                </section> -->
+
+                <section class="section projects-section">
+                    <h2 class="section-title">Achievement</h2>
+                    <p><?php echo empty($studentProfile->s_achievement) ? '-' : $studentProfile->s_achievement; ?></p>
+                    <!-- Add more project items as needed -->
+                </section>
+
+                <section class="skills-section section">
+                    <h2 class="section-title">Skills &amp; Proficiency</h2>
+                    <div class="summary">
+                        <p><?php echo empty($studentProfile->s_skills) ? '-' : $studentProfile->s_skills; ?></p>
+                    </div>
+                    <!-- Add more skill items as needed -->
+                </section>
+            </div>
+        </div>
+    <?php endforeach; ?>
+
     <footer class="footer">
         <div class="text-center">
-            <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-            <small class="copyright">Designed with <i class="fa-solid fa-heart"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
-        </div><!--//container-->
-    </footer><!--//footer-->
-        
-</body>
-</html> 
+            <small class="copyright">This resume is auto-generated by Youth Ventures Asia system. Designed by Explorer for StuPort</small>
+        </div>
+    </footer>
 
+    <!-- JavaScript for Print Functionality -->
+    <script>
+        function printResume() {
+            window.print();
+        }
+    </script>
+</body>
+
+</html>
