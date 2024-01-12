@@ -29,6 +29,9 @@ class Users extends Controller {
             'addressError' => '',
             'courseError' => '',
             'institutionError' => '',
+            'telephoneError' => '',
+            'raceError' => ''
+    
         ];
         
 
@@ -61,7 +64,10 @@ class Users extends Controller {
                 'ageError' => '',
                 'addressError' => '',
                 'courseError' => '',
-                'institutionError' => ''
+                'institutionError' => '',
+                'telephoneError' => '',
+                'raceError' => ''
+        
                 //'userRoleError' => ''  // Add user role error to the data array
             ];
 
@@ -102,12 +108,58 @@ class Users extends Controller {
                 $data['confirmPasswordError'] = 'Passwords do not match, please try again.';
                 }
             }
-            // Validate user role
+
+            // Validate Age
+            if (empty($data['age'])) {
+                $data['ageError'] = 'Please enter age.';
+            } elseif (!is_numeric($data['age']) || $data['age'] < 0) {
+                $data['ageError'] = 'Age must be a positive number.';
+            }
+
+            // Validate Address
+            if (empty($data['addressError']) && empty($data['address'])) {
+                $data['addressError'] = 'Please enter address.';
+            }
+
+            
+            // Validate course
+            if (empty($data['courseError']) && empty($data['course'])) {
+                $data['courseError'] = 'Please enter course.';
+            }
+            
+            // Validate institution
+            if (empty($data['institutionError']) && empty($data['institution'])) {
+                $data['institutionError'] = 'Please enter institution.';
+            }
+            
+            // Validate telephone
+            if (empty($data['telephoneError']) && empty($data['telephone'])) {
+                $data['telephoneError'] = 'Please enter telephone.';
+            }
+
+            // Validate race
+            if (empty($data['raceError']) && empty($data['race'])) {
+                $data['raceError'] = 'Please enter race.';
+            }
+
+               
+
 
 
 
             // Make sure that errors are empty
-            if (empty($data['usernameError']) && empty($data['emailError']) && empty($data['passwordError']) && empty($data['confirmPasswordError'])) {
+            if (empty($data['usernameError']) &&
+                empty($data['emailError']) && 
+                empty($data['passwordError']) && 
+                empty($data['confirmPasswordError']) && 
+                empty($data['ageError']) &&
+                empty($data['addressError']) &&
+                empty($data['courseError']) &&
+                empty($data['institutionError']) &&
+                empty($data['telephoneError']) &&
+                empty($data['raceError'])
+
+                ) {
                 // Hash password
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
@@ -160,6 +212,15 @@ class Users extends Controller {
             // Validate password
             if (empty($data['password'])) {
                 $data['passwordError'] = 'Please enter a password.';
+            }
+
+                // Validate other fields to ensure they are not empty
+            $requiredFields = ['address', 'course', 'institution', 'telephone', 'race'];
+
+            foreach ($requiredFields as $field) {
+                if (empty($data[$field])) {
+                    $data[$field . 'Error'] = 'Please enter ' . $field . '.';
+                }
             }
     
             // Check if all errors are empty
