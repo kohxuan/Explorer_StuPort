@@ -11,7 +11,7 @@
             <h3 class="card-title">View Reward</h3>
             <div class="card-toolbar">
                 <?php if (isLoggedIn()): ?>
-                    <a href="<?php echo URLROOT; ?>/studentBadge/update" class="btn btn-light-primary"><i class="fa fa-home"></i> Back</a>
+                    <a href="<?php echo URLROOT; ?>/studentBadge" class="btn btn-light-primary"><i class="fa fa-home"></i> Back</a>
                 <?php endif; ?>
             </div>
         </div>

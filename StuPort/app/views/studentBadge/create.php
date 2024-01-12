@@ -12,7 +12,7 @@
         <p>Error: <?php echo $data['error']; ?></p>
     <?php endif; ?>
 
-    <form action="<?php echo URLROOT; ?>/stuBadges/create" method="POST">
+    <form action="<?php echo URLROOT; ?>/studentBadge/create" method="POST">
         <label for="student_id">Student ID:</label>
         <input type="number" name="student_id" required><br>
 

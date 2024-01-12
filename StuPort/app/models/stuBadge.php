@@ -1,30 +1,26 @@
 <?php
+// StuBadge.php (Model)
+
 class StuBadge {
     private $db;
 
     public function __construct() {
-        $this->db = new Database;
+        $this->db = new Database; // Make sure you have a Database class that handles DB connections
     }
 
-    // Add methods to interact with the student_badges table here
+    public function getAllStudentBadgesWithTypes() {
+        // The SQL query now includes a CASE statement to calculate the badge_type
+        $this->db->query("SELECT student_id, reward_id, date_awarded, act_joined,
+                          CASE
+                            WHEN act_joined < 10 THEN 'Bronze'
+                            WHEN act_joined >= 10 AND act_joined < 20 THEN 'Silver'
+                            WHEN act_joined >= 20 AND act_joined < 40 THEN 'Gold'
+                            ELSE 'Diamond'
+                          END AS badge_type
+                          FROM student_badges");
 
-    // Example method to fetch all student badges
-    public function getAllStudentBadges() {
-        $this->db->query("SELECT * FROM student_badges");
-        return $this->db->resultSet();
+        return $this->db->resultSet(); // Assuming resultSet returns an array of objects
     }
 
-    // Example method to add a new student badge
-    public function addStudentBadge($student_id, $reward_id, $date_awarded, $act_joined) {
-        $this->db->query("INSERT INTO student_badges (student_id, reward_id, date_awarded, act_joined) VALUES (:student_id, :reward_id, :date_awarded, :act_joined)");
-
-        $this->db->bind(':student_id', $student_id);
-        $this->db->bind(':reward_id', $reward_id);
-        $this->db->bind(':date_awarded', $date_awarded);
-        $this->db->bind(':act_joined', $act_joined);
-
-        return $this->db->execute();
-    }
-
-    // Add more methods for updating, deleting, or retrieving specific student badges as needed
+    // Other methods like addStudentBadge, updateStudentBadge, etc.
 }

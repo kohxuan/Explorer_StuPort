@@ -22,23 +22,23 @@
         <?php
 
                     // rule to access each file
-                    $c_url = URLROOT . "/studentBadge";
-                    $t_url = URLROOT . "/studentBadge/create";
+                     $c_url = URLROOT . "/studentBadge";
+                     $t_url = URLROOT . "/studentBadge/create";
 
                     if (isset($data['studentBadge']) && is_object($data['studentBadge'])) {
-                        $u_url = URLROOT . "/studentBadge/update/".$data['studentBadge']->badge_name; 
-                    }
+                         $u_url = URLROOT . "/studentBadge/update/".$data['studentBadge']->badge_name; 
+                     }
 
-                    //error_reporting(0);
+                    // //error_reporting(0);
                     if ($url == $c_url) {
         
                         require 'manage.php';
 
-                    } elseif($url == $t_url) {
+                     } elseif($url == $t_url) {
 
-                        require 'create.php';
+                         require 'view.php';
 
-                    }
+                     }
                     
 
                     ?>
