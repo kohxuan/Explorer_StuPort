@@ -77,7 +77,7 @@
                     </div>
 
                     <div class="row mb-6">
-                        <label class="col-lg-4 col-form-label fw-semibold fs-6">Profile Image</label>
+                        <label class="col-lg-4 col-form-label fw-semibold fs-6">Badge icon</label>
                         <div class="col-lg-8">
                             <div class="image-input image-input-outline" data-kt-image-input="true">
                                 <div class="image-input-wrapper w-125px h-125px"></div>
