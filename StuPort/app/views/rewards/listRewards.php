@@ -14,9 +14,9 @@
                 <thead>
                     <tr class="fw-semibold fs-6 text-muted">
                         <th>Badge Icon</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Points</th>
+                        <th>Badge Name</th>
+                        <th> Badge Description</th>
+                        <th>Activities Joined</th>
                         <th>Action</th>
                     </tr>
                 </thead>

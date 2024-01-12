@@ -75,17 +75,14 @@
                         <label for="badge_description" class="required">Badge Description</label>
                         <textarea name="badge_description" class="form-control" placeholder="Badge Description..." required></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="achievement_status" class="required">Achievement Status</label>
-                        <input type="text" name="achievement_status" class="form-control" placeholder="Status..." required />
-                    </div>
+        
                     <div class="form-group">
                         <label for="badge_icon" class="required">Badge Icon</label>
                         <input type="file" name="badge_icon" class="form-control" accept="image/*" required />
                     </div>
                     <div class="form-group">
-                        <label for="points_required" class="required">Points Required</label>
-                        <input type="number" name="points_required" class="form-control" placeholder="Points Required..." required />
+                        <label for="points_required" class="required">Activity Joined</label>
+                        <input type="number" name="points_required" class="form-control" placeholder="Activity Joined..." required />
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Submit</button>

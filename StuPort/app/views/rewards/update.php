@@ -23,10 +23,7 @@
                     <?php echo $data['badge_description_Error']; ?>
                 </span>
             </div>
-            <div class="mb-3">
-                <label for="existing_icon" class="form-label">Existing Icon</label>
-                <input type="text" name="existing_icon" class="form-control" value="<?php echo $data['rewards']->badge_icon_path; ?>" disabled/>
-            </div>
+
             <div class="mb-3">
                 <label for="image" class="form-label">New Icon (if any)</label>
                 <?php if (isset($_SESSION['error']) && ($_SESSION['error'] != "")): ?>
