@@ -378,7 +378,7 @@ class Pages extends Controller
         $this->view('pages/view_profile_lecturer', $data);
     }
 
-    public function generate_stud_resume()
+    public function generate_resume()
     {
         // Fetch the data you want to pass to the view
         $studentProfile = $this->pageModel->studentProfile(); // Replace with your actual method to fetch student data
