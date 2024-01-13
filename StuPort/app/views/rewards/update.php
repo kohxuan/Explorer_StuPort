@@ -8,7 +8,8 @@
         </div>
     </div>
     <div class="card-body">
-        <form action="<?php echo URLROOT; ?>/rewards/update/<?php echo $data['reward']->reward_id; ?>" method="POST" enctype="multipart/form-data">
+    <form action="<?php echo URLROOT; ?>/rewards/update/<?php echo $data['reward']->reward_id; ?>" method="POST" enctype="multipart/form-data">
+
             <div class="mb-3">
                 <label for="badge_name" class="form-label">Badge Name</label>
                 <input type="text" name="badge_name" class="form-control" value="<?php echo $data['reward']->badge_name; ?>" required />
