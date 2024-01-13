@@ -49,6 +49,59 @@
 						<!--end::Menu-->
 				</div>
 
+				<!--begin:Menu item-->
+				<div class="menu-item pt-5">
+					<!--begin:Menu content-->
+					<div class="menu-content">
+						<span class="menu-heading fw-bold text-uppercase fs-7">Personal Activity</span>
+					</div>
+					<!--end:Menu content-->
+				</div>
+				<!--end:Menu item-->
+				<!--begin:Menu item-->
+				<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+					<!--begin:Menu link-->
+					<span class="menu-link">
+						<span class="menu-icon">
+							<i class="ki-duotone ki-element-7 fs-2">
+								<span class="path1"></span>
+								<span class="path2"></span>
+							</i>
+						</span>
+						<span class="menu-title">Personal Activity Options</span>
+						<span class="menu-arrow"></span>
+					</span>
+					<!--end:Menu link-->
+					<!--begin:Menu sub-->
+					<div class="menu-sub menu-sub-accordion">
+						<!--begin:Menu item-->
+						<div class="menu-item">
+							<!--begin:Menu link-->
+							<a class="menu-link" href="<?php echo URLROOT; ?>/peractivity">
+								<span class="menu-bullet">
+									<span class="bullet bullet-dot"></span>
+								</span>
+								<span class="menu-title">Manage Personal Activity</span>
+							</a>
+							<!--end:Menu link-->
+						</div>
+						<!--end:Menu item-->
+						<!--begin:Menu item-->
+						<div class="menu-item">
+							<!--begin:Menu link-->
+							<a class="menu-link" href="<?php echo URLROOT; ?>/peractivity/approved">
+								<span class="menu-bullet">
+									<span class="bullet bullet-dot"></span>
+								</span>
+								<span class="menu-title">Approved Personal Activity</span>
+							</a>
+							<!--end:Menu link-->
+						</div>
+						<!--end:Menu item-->
+					</div>
+					<!--end:Menu sub-->
+				</div>
+
 
 				<!--begin:Menu item-->
 				<div class="menu-item pt-5">
@@ -97,93 +150,9 @@
 								</a>
 								<!--end:Menu link-->
 							</div>
-
-							<div class="menu-item">
-								<!--begin:Menu link-->
-								<a class="menu-link" href="<?php echo URLROOT; ?>/activities/"> <!-- Student personal activity -->
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Personal Activity</span>
-								</a>
-								<!--end:Menu link-->
-							</div>
 						</div>
 						<!--end::Menu-->
 				</div>
-
-
-				<!-- Personal Activity section -->
-<!--begin:Menu item-->
-<div class="menu-item pt-5">
-    <!--begin:Menu content-->
-    <div class="menu-content">
-        <span class="menu-heading fw-bold text-uppercase fs-7">Personal Activity</span>
-    </div>
-    <!--end:Menu content-->
-</div>
-<!--end:Menu item-->
-<!--begin:Menu item-->
-<?php if ($_SESSION['user_role'] == 'Student'): ?>
-    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-        <!--begin:Menu link-->
-        <span class="menu-link">
-            <span class="menu-icon">
-                <i class="ki-duotone ki-element-7 fs-2">
-                    <span class="path1"></span>
-                    <span class="path2"></span>
-                </i>
-            </span>
-            <span class="menu-title">Personal Activity Options</span>
-            <span class="menu-arrow"></span>
-        </span>
-        <!--end:Menu link-->
-        <!--begin:Menu sub-->
-        <div class="menu-sub menu-sub-accordion">
-            <!--begin:Menu item-->
-            <div class="menu-item">
-                <!--begin:Menu link-->
-                <a class="menu-link" href="<?php echo URLROOT; ?>/peractivity">
-                    <span class="menu-bullet">
-                        <span class="bullet bullet-dot"></span>
-                    </span>
-                    <span class="menu-title">Manage Personal Activity</span>
-                </a>
-                <!--end:Menu link-->
-            </div>
-            <!--end:Menu item-->
-            <!--begin:Menu item-->
-            <div class="menu-item">
-                <!--begin:Menu link-->
-                <a class="menu-link" href="<?php echo URLROOT; ?>/peractivity/approved">
-                    <span class="menu-bullet">
-                        <span class="bullet bullet-dot"></span>
-                    </span>
-                    <span class="menu-title">Approved Personal Activity</span>
-                </a>
-                <!--end:Menu link-->
-            </div>
-            <!--end:Menu item-->
-        </div>
-        <!--end:Menu sub-->
-    </div>
-<?php endif; ?>
-<!--end:Menu item-->
-<!--begin:Menu item-->
-<?php if ($_SESSION['user_role'] == 'Lecturer'): ?>
-    <div class="menu-item">
-        <!--begin:Menu link-->
-        <a class="menu-link" href="<?php echo URLROOT; ?>/peractivity">
-            <span class="menu-bullet">
-                <span class="bullet bullet-dot"></span>
-            </span>
-            <span class="menu-title">Manage Personal Activity</span>
-        </a>
-        <!--end:Menu link-->
-    </div>
-<?php endif; ?>
-<!--end:Menu item-->	
-				
 
 				<!--begin:Menu item-->
 				<div class="menu-item pt-5">
@@ -269,11 +238,11 @@
 
 				<!--begin:Menu item-->
 				<div class="menu-item pt-5">
-						<!--begin:Menu content-->
-						<div class="menu-content">
-							<span class="menu-heading fw-bold text-uppercase fs-7">Activity</span>
-						</div>
-						<!--end:Menu content-->
+					<!--begin:Menu content-->
+					<div class="menu-content">
+						<span class="menu-heading fw-bold text-uppercase fs-7">Student Personal Activity</span>
+					</div>
+					<!--end:Menu content-->
 				</div>
 				<!--end:Menu item-->
 				<!--begin:Menu item-->
@@ -281,36 +250,24 @@
 						<!--begin:Menu link-->
 						<span class="menu-link">
 							<span class="menu-icon">
-								<i class="fa fa-calendar">
+								<i class="fas fa-running">
 									<span class="path1"></span>
 									<span class="path2"></span>
 								</i>
 							</span>
-						<span class="menu-title">Activity Options</span>
+						<span class="menu-title">Manage Student Personal Activity</span>
 							<span class="menu-arrow"></span>
 						</span>
 						<!--end:Menu link-->
 						<!--begin:Menu sub-->
 						<div class="menu-sub menu-sub-accordion">
-							<!--begin:Menu item-->
 							<div class="menu-item">
 								<!--begin:Menu link-->
-								<a class="menu-link" href="<?php echo URLROOT; ?>/activities">
+								<a class="menu-link" href="<?php echo URLROOT; ?>/peractivity">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
-									<span class="menu-title">View Activities</span>
-								</a>
-								<!--end:Menu link-->
-							</div>
-							<!--begin:Menu item-->
-							<div class="menu-item">
-								<!--begin:Menu link-->
-								<a class="menu-link" href="<?php echo URLROOT; ?>/activities/"> <!-- Validate student personal activity -->
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">View Student Personal Activity</span>
+									<span class="menu-title">Manage Personal Activity</span>
 								</a>
 								<!--end:Menu link-->
 							</div>
@@ -423,7 +380,7 @@
 					</div>
 				</div>
 			<?php endif; ?>
-			
+
 <!-- Here is for master admin sidebar -->
 			<?php if ($_SESSION['user_role'] == 'Master Administrator') : ?>
 				<!--begin:Menu item-->
