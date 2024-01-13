@@ -17,7 +17,7 @@
                         <th>Venue</th>
                         <th>Description</th>
                         <th>Evidence</th>
-                        <?php if ($_SESSION['user_role'] == "Lecturer" || $_SESSION['user_role'] == "Admin"): ?>
+                        <?php if ($_SESSION['user_role'] == "Lecturer" || $_SESSION['user_role'] == "Administrator"): ?>
                             <th>Student</th>
                         <?php elseif($_SESSION['user_role'] == "Student"): ?>
                             <th>Lecturer</th>   
@@ -40,16 +40,16 @@
     }
     ?>
 </td></td>
-        <?php if ($_SESSION['user_role'] == "Lecturer" || $_SESSION['user_role'] == "Admin"): ?>
+        <?php if ($_SESSION['user_role'] == "Lecturer" || $_SESSION['user_role'] == "Administrator"): ?>
             <td> 
                 <?php
-                $studentFullName = $this->peractivityModel->getStudentFullName($peractivities->st_id);
+                $studentFullName = $this->peractivityModel->getStudentFullName($peractivities->s_id);
                 echo is_string($studentFullName) ? $studentFullName : '';
                 ?>
             </td>
         <?php elseif ($_SESSION['user_role'] == "Student"): ?>
             <td> <?php
-                $lecturerFullName = $this->peractivityModel->getLecturerFullName($peractivities->lc_id);
+                $lecturerFullName = $this->peractivityModel->getLecturerFullName($peractivities->l_id);
                 echo is_string($lecturerFullName) ? $lecturerFullName : '';
                 ?></td>
             <?php endif ?>
@@ -64,9 +64,9 @@
                     data-bs-target="#kt<?php echo $peractivities->pac_id?>">
                     Delete
                 </button>
-            <?php elseif ($_SESSION['user_role'] == "Lecturer" || $_SESSION['user_role'] == "Admin"): ?>
+            <?php elseif ($_SESSION['user_role'] == "Lecturer" || $_SESSION['user_role'] == "Administrator"): ?>
                 <!-- Lecturer actions -->
-                <a href="<?php echo URLROOT . "/peractivity/approve/" . $peractivities->pac_id ?>"
+                <a href="<?php echo URLROOT . "/peractivity/approve/" . $peractivities->pac_id ?>" 
                     class="btn btn-light-warning">Approve</a>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                     data-bs-target="#kt<?php echo $peractivities->pac_id?>">
@@ -74,6 +74,10 @@
                 </button>
                 <!-- Add additional code for assigning to lecturers if needed -->
             <?php endif; ?>
+            
+            <!-- approve or approved ???-->
+
+
             <!-- Delete modal -->
            
                 <!-- ... modal content ... -->

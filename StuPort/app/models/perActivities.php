@@ -46,7 +46,7 @@ class perActivities
 
 public function addperActivity($data)
 {
-    $this->db->query('INSERT INTO per_activity (st_id, name, date, venue, description, status, evidence) VALUES (:st_id, :name, :date, :venue, :description, "Waiting", :evidence)');
+    $this->db->query('INSERT INTO per_activity (s_id, name, date, venue, description, status, evidence) VALUES (:s_id, :name, :date, :venue, :description, "Waiting", :evidence)');
 
     // Bind values
     $this->db->bind(':s_id', $data['s_id']);
@@ -160,28 +160,6 @@ public function getLecturerFullName($l_id)
     return $row ? $row->l_fName: ''; // Return the full name if it exists, otherwise an empty string
 }
 
-public function join($activity_id)
-{
-    if (!isLoggedIn()) {
-        header("Location: " . URLROOT . "/activity"); // take note here to change the path
-        exit();
-    }
 
-    $activity = $this->activityModel->findActivityById($activity_id);
-
-    // Redirect if the user is the owner of the activity
-    
-    {
-        // Perform the join operation
-        if ($this->activityModel->joinActivity($activity_id, $_SESSION['user_id'])) {
-            echo '<script>alert("You have successfully joined the activity.")</script>';
-            echo '<script>window.location.href = "http://localhost/explorer/StuPort/activity/";</script>';
-        } else {
-            die("Something went wrong :(");
-        }
-    
-
-}
-}
 }
 ?>

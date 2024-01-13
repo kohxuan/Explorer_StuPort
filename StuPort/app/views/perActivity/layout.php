@@ -49,13 +49,15 @@
 
                         }
 
-                        } elseif ($_SESSION['user_role'] == 'Lecturer' || $_SESSION['user_role'] == 'Admin') {
+                        } elseif ($_SESSION['user_role'] == 'Lecturer' || $_SESSION['user_role'] == 'Administrator') {
                             if ($url == $c_url){
                                 require 'manage.php';
                             } else {
 
                             }
                         }
+
+                        
                     ?>
 
         <!--end::Row-->

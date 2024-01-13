@@ -251,6 +251,104 @@ class Activity
         return $this->db->single();
     }
 
+
+
+ public function getParticipantID($ac_id, $user_id) {
+    // Fetch user details
+    $this->db->query('SELECT * FROM user WHERE id = :user_id');
+    $this->db->bind(':user_id', $user_id);
+    $row = $this->db->single();
+
+    if (!$row) {
+        // User not found, cannot be a student
+        return false;
+    }
+
+    $email = $row->email;
+
+    // Fetch student profile based on email
+    $this->db->query('SELECT * FROM student WHERE s_email = :email');
+    $this->db->bind(':email', $email);
+    $row2 = $this->db->single();
+
+    // Check if the student profile exists
+    if (!$row2) {
+        // Student profile not found
+        return false;
+    }
+
+    $st_id = $row2->st_id;
+
+    // Fetch the participant_id for the given ac_id and st_id
+    $this->db->query('SELECT participant_id FROM activity_participants WHERE activity_id = :activity_id AND s_id = :s_id');
+    $this->db->bind(':activity_id', $activity_id);
+    $this->db->bind(':s_id', $s_id);
+    $row3 = $this->db->single();
+
+    if ($row3) {
+        // Check if the query was successful before accessing the result
+        return $row3->participant_id;
+    } else {
+        // Query failed
+        return false;
+    }
+}
+
+
+public function getStudentID($user_id) {
+    // Fetch user details
+    $this->db->query('SELECT * FROM user WHERE id = :user_id');
+    $this->db->bind(':user_id', $user_id);
+    $row = $this->db->single();
+
+    if (!$row) {
+        // User not found, cannot be a student
+        return false;
+    }
+
+    $email = $row->email;
+
+    // Fetch student profile based on email
+    $this->db->query('SELECT * FROM student WHERE s_email = :email');
+    $this->db->bind(':email', $email);
+    $row2 = $this->db->single();
+
+    // Check if the student profile exists
+    if (!$row2) {
+        // Student profile not found
+        return false;
+    }
+
+    $s_id = $row2->s_id;
+
+    return $s_id;
+}
+
+public function getLecturerID($user_id) {
+    // Fetch user details
+    $this->db->query('SELECT * FROM user WHERE id = :user_id');
+    $this->db->bind(':user_id', $user_id);
+    $user = $this->db->single();
+
+    // Check if user exists
+    if (!$user) {
+        return false;
+    }
+
+    $email = $user->email;
+
+    // Fetch lecturer profile based on email
+    $this->db->query('SELECT * FROM lecturer WHERE l_email = :email');
+    $this->db->bind(':email', $email);
+    $lecturerProfile = $this->db->single();
+
+    // Check if the lecturer profile exists
+    if (!$lecturerProfile) {
+        return false;
+    }
+
+    return $lecturerProfile->l_id;
+}
            
 
 } // Closing brace for the Activity class

@@ -7,18 +7,18 @@ class perActivity extends Controller
 {
     public function __construct()
     {
-        $this->peractivityModel = $this->model('perActivities');
-        $this->activityModel = $this->model('Activities');
+        $this->peractivityModel = $this->model('perActivities'); //model name
+        $this->activityModel = $this->model('Activity'); //model name
     }
 
     public function index()
 {
     if ($_SESSION['user_role'] == "Student") {
-        $st_id = $this->activityModel->getStudentID($_SESSION['user_id']);
-        $perActivities = $this->peractivityModel->WaitAllperActivity($st_id);
+        $s_id = $this->activityModel->getStudentID($_SESSION['user_id']);
+        $perActivities = $this->peractivityModel->WaitAllperActivity($s_id);
     } else if ($_SESSION['user_role'] == "Lecturer") {
-        $lc_id = $this->activityModel->getLecturerID($_SESSION['user_id']);
-        $perActivities = $this->peractivityModel->findperActivityByLecturer($lc_id);
+        $l_id = $this->activityModel->getLecturerID($_SESSION['user_id']);
+        $perActivities = $this->peractivityModel->findperActivityByLecturer($l_id);
     } else {
         $perActivities = $this->peractivityModel->findAllperActivity();
     }
@@ -81,7 +81,7 @@ public function create()
             
             $data = 
             [
-            'st_id' => $st_id,
+            's_id' => $s_id,
             'name' => trim($_POST['name']),
             'date' => trim($_POST['date']),
             'venue' => trim($_POST['venue']),
