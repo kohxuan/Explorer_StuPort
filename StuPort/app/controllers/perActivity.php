@@ -194,10 +194,10 @@ public function create()
         }
     
         // Get the student ID
-        $st_id = $this->activityModel->getStudentID($_SESSION['user_id']);
+        $s_id = $this->activityModel->getStudentID($_SESSION['user_id']);
     
         // Get only approved personal activities
-        $approvedPerActivities = $this->peractivityModel->findApprovedPerActivities($st_id);
+        $approvedPerActivities = $this->peractivityModel->findApprovedPerActivities($s_id);
     
         $data = [
             'perActivity' => $approvedPerActivities
@@ -309,16 +309,16 @@ public function create()
 
     $data = [
         'perActivity' => $perActivities,
-        'lc_id' => '',
+        'l_id' => '',
         'pac_id' => $pac_id,
     ];
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-        $data['lc_id'] = trim($_POST['lc_id']);
+        $data['l_id'] = trim($_POST['l_id']);
 
-        if ($data['lc_id']) {
+        if ($data['l_id']) {
             $this->peractivityModel->assignperActivity($data);
             header("Location: " . URLROOT . "/peractivity");
             exit;
@@ -328,10 +328,10 @@ public function create()
     }
 
     // Retrieve lecturer list
-    $lc_list = $this->peractivityModel->lecturerList();
+    $lecturer = $this->peractivityModel->lecturerList();
 
     $data_2 = [
-        'lc_list' => $lc_list
+        'lecturer' => $lecturer
     ];
 
     $this->view('peractivity/index', $data, $data_2);
@@ -360,51 +360,18 @@ public function approve($pac_id)
 
         if ($this->peractivityModel->setApprove($pac_id)) {
             echo '<script>alert("You have successfully approved the personal activity.");</script>';
-            echo '<script>window.location.href = "http://localhost/mvcprojectnew/peractivity";</script>';
+            echo '<script>window.location.href = "http://localhost/explorer/StuPort/peractivity";</script>';
             exit;
         }  else {
             echo '<script>alert("You have successfully approved the personal activity.");</script>';
-            echo '<script>window.location.href = "http://localhost/mvcprojectnew/peractivity";</script>';
+            echo '<script>window.location.href = "http://localhost/explorer/StuPort/peractivity";</script>';
         }
     
 
     $this->view('peractivity/index', $data);
 }
 
-// public function join($activity_id)
-// {
 
-//     $this->db->query('UPDATE activity_participant SET title = :title, activity_desc = :activity_desc,  location = :location, 
-//         organizer_name = :organizer_name, skill_acquired = :skill_acquired WHERE activity_id = :activity_id');
-    
-//         $this->db->bind(':activity_id', $data['activity_id']);
-//         $this->db->bind(':title', $data['title']);
-//         $this->db->bind(':activity_desc', $data['activity_desc']);
-//         $this->db->bind(':location', $data['location']);
-//         $this->db->bind(':organizer_name', $data['organizer_name']);
-//         $this->db->bind(':skill_acquired', $data['skill_acquired']);
-
-//     if (!isLoggedIn()) {
-//         header("Location: " . URLROOT . "/activity");
-//         exit();
-//     }
-
-//     $activity = $this->activityModel->findActivityById($activity_id);
-
-//     // Redirect if the user is the owner of the activity
-    
-//     {
-//         // Perform the join operation
-//         if ($this->activityModel->joinActivity($ac_id, $_SESSION['user_id'])) {
-//             echo '<script>alert("You have successfully joined the activity.")</script>';
-//             echo '<script>window.location.href = "http://localhost/explorer/StuPort/activity/";</script>';
-//         } else {
-//             die("Something went wrong :(");
-//         }
-    
-
-// }
-// }
 
 }
 

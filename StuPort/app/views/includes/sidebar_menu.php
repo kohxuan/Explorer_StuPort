@@ -5,119 +5,7 @@
 		<div id="kt_app_sidebar_menu_scroll" class="scroll-y my-5 mx-3" data-kt-scroll="true" data-kt-scroll-activate="true" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_app_sidebar_logo, #kt_app_sidebar_footer" data-kt-scroll-wrappers="#kt_app_sidebar_menu" data-kt-scroll-offset="5px" data-kt-scroll-save-state="true">
 			
 		
-		<!-- (Lecturer）PS_Activities section -->
 
-		<!--begin::Menu-->
-		<div class="menu menu-column menu-rounded menu-sub-indention fw-semibold fs-6" id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false">
-
-<!--begin:Menu item-->
-<div class="menu-item pt-5">
-	<!--begin:Menu content-->
-	<div class="menu-content">
-		<span class="menu-heading fw-bold text-uppercase fs-7">Student Personal Activity(lecturer)</span>
-	</div>
-	<!--end:Menu content-->
-</div>
-<!--end:Menu item-->
-<!--begin:Menu item-->
-<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-	<!--begin:Menu link-->
-	<span class="menu-link">
-		<span class="menu-icon">
-			<i class="ki-duotone ki-element-7 fs-2">
-				<span class="path1"></span>
-				<span class="path2"></span>
-			</i>
-		</span>
-		<span class="menu-title">Student Personal Activity Options</span>
-		<span class="menu-arrow"></span>
-	</span>
-	<!--end:Menu link-->
-	<!--begin:Menu sub-->
-	<div class="menu-sub menu-sub-accordion">
-		<!--begin:Menu item-->
-		<div class="menu-item">
-			<!--begin:Menu link-->
-			<a class="menu-link" href="<?php echo URLROOT; ?>/peractivity">
-				<span class="menu-bullet">
-					<span class="bullet bullet-dot"></span>
-				</span>
-				<span class="menu-title">Student Personal Activities List</span>
-			</a>
-			<!--end:Menu link-->
-		</div>
-		<!--begin:Menu item-->
-
-		<!--end:Menu item-->
-	</div>
-	<!--end::Menu-->
-</div>
-		
-		
-		<!-- (Student）PS_Activities section -->
-
-		<!--begin::Menu-->
-		<div class="menu menu-column menu-rounded menu-sub-indention fw-semibold fs-6" id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false">
-
-<!--begin:Menu item-->
-<div class="menu-item pt-5">
-	<!--begin:Menu content-->
-	<div class="menu-content">
-		<span class="menu-heading fw-bold text-uppercase fs-7">Personal Activity(student)</span>
-	</div>
-	<!--end:Menu content-->
-</div>
-<!--end:Menu item-->
-<!--begin:Menu item-->
-<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-	<!--begin:Menu link-->
-	<span class="menu-link">
-		<span class="menu-icon">
-			<i class="ki-duotone ki-element-7 fs-2">
-				<span class="path1"></span>
-				<span class="path2"></span>
-			</i>
-		</span>
-		<span class="menu-title">Personal Activity Options</span>
-		<span class="menu-arrow"></span>
-	</span>
-	<!--end:Menu link-->
-
-		<div class="menu-item">
-			<!--begin:Menu link-->
-
-
-			<a class="menu-link" href="<?php echo URLROOT; ?>/peractivity">
-
-			
-				<span class="menu-bullet">
-					<span class="bullet bullet-dot"></span>
-				</span>
-				<span class="menu-title">Manage Personal Activities</span>
-			</a>
-			<!--end:Menu link-->
-		</div>
-		<!--end:Menu item-->
-		<!--begin:Menu item-->
-		<div class="menu-item">
-			<!--begin:Menu link-->
-			<a class="menu-link" href="<?php echo URLROOT; ?>/peractivity/approved">
-
-			
-				<span class="menu-bullet">
-					<span class="bullet bullet-dot"></span>
-				</span>
-				<span class="menu-title">Approved Personal Activities</span>
-			</a>
-			<!--end:Menu link-->
-		</div>
-		<!--end:Menu item-->
-	</div>
-	<!--end::Menu-->
-</div>
-		
-		
-		
 		
 		<!-- Activities section -->
 		<!--begin::Menu-->
@@ -182,8 +70,8 @@
 					<!--end::Menu-->
 				</div>
 
-
-
+						
+				
 				<!-- Feedback section -->
 				<!--begin:Menu item-->
 				<div class="menu-item pt-5">
@@ -351,7 +239,7 @@
 						<?php if ($_SESSION['user_role'] == 'Student'): ?>
 							<div class="menu-item">
 								<!--begin:Menu link-->
-								<a class="menu-link" href="<?php echo URLROOT; ?>/studentBadge">
+								<a class="menu-link" href="<?php echo URLROOT; ?>/rewards/viewReward">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
