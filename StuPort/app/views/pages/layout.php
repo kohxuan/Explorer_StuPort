@@ -271,7 +271,8 @@
                             <i class="bi bi-bookmark-check-fill" style="font-size: 3rem; color: black; margin-right: 1rem;"></i>
                             <div>
                                 <h3 class="card-title">Manage Activity</h3>
-                                <p class="card-text">YouthVentures activity with its clients/partners</p>
+                                <p class="card-text">YouthVentures activity which collaborate with its clients and partners</p>
+                                <p class="card-text">Aimed to improve the student participation</p>
                                 <a href="<?php echo URLROOT . '/activities'; ?>" class="btn btn-primary">Explore More</a>
                             </div>
                         </div>
@@ -359,7 +360,7 @@
         <div class="col-md-6 mb-3">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title">Activity Statistics</h5>
+                    <h5 class="card-title">Activity Categorization Statistics</h5>
                 </div>
                 <div class="card-body">
                     <!-- Create a canvas for the chart with adjusted width and height -->
