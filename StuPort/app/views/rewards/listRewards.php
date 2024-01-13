@@ -23,7 +23,21 @@
                 <tbody>
                     <?php foreach ($data['rewards'] as $reward): ?>
                         <tr>
-                            <td><img src="<?php echo URLROOT . "/public/" . $reward->badge_icon_path ?>" alt="Badge Icon" style="width: 90px; height: 90px;"></td>
+                        <td>
+                            <?php $badge_name_lowercase = strtolower($reward->badge_name); ?>
+                            <?php if ($badge_name_lowercase === 'gold'): ?>
+                                <img src="<?php echo URLROOT . "/public/images/rewards/2.png" ?>" alt="Gold Badge" style="width: 150px; height: 150px;">
+                            <?php elseif ($badge_name_lowercase === 'silver'): ?>
+                                <img src="<?php echo URLROOT . "/public/images/rewards/1.png" ?>" alt="Silver Badge" style="width: 150px; height: 150px;">
+                            <?php elseif ($badge_name_lowercase === 'bronze'): ?>
+                                <img src="<?php echo URLROOT . "/public/images/rewards/3.png" ?>" alt="Bronze Badge" style="width: 150px; height: 150px;">
+                            <?php elseif ($badge_name_lowercase === 'diamond'): ?>
+                                <img src="<?php echo URLROOT . "/public/images/rewards/4.png" ?>" alt="Diamond Badge" style="width: 150px; height: 150px;">
+                            <?php else: ?>
+                                <!-- Default image if badge_name doesn't match any of the above -->
+                            <?php endif; ?>
+                        </td>
+
                             <td><?php echo $reward->badge_name; ?></td>
                             <td><?php echo $reward->badge_description; ?></td>
                             <td><?php echo $reward->points_required; ?></td>
