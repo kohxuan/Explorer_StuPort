@@ -16,6 +16,7 @@
                         <th>Description</th>
                         <th>Evidence</th>
                         <th>Action</th>
+                        <th>Comment</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,6 +29,17 @@
                                 <td><?php echo $peractivity->description; ?></td>
                                 <td><?php echo $peractivity->evidence; ?></td>
                                 <td> <button class="btn btn-success" disabled>Approved</button></td>
+                                <td>
+                                <form id="commentForm_<?php echo $activity->activity_id; ?>">
+                                    <div class="comment-container">
+                                        <textarea id="commentInput_<?php echo $activity->activity_id; ?>" placeholder="Type your comment here"></textarea>
+                                        <button type="button" onclick="addComment(<?php echo $activity->activity_id; ?>)">Enter</button>
+                                    </div>
+                                    <div id="reviewText_<?php echo $activity->activity_id; ?>" class="review-text">
+                                        <?php if (!empty($activity->review)) echo $activity->review; ?>
+                                    </div>
+                                </form>
+                                </td>
                             </tr>
                         <?php endif; ?>
                     <?php endforeach; ?>
@@ -41,8 +53,16 @@
             var table = $('#kt_datatable_posts').DataTable({});
         });
         </script>
-    </div>
-    <div class="card-footer">
-        Footer
+
+        <script>
+            function addComment(activityId) {
+                var commentInput = document.getElementById('commentInput_' + activityId);
+                var commentText = commentInput.value;
+
+                var reviewText = document.getElementById('reviewText_' + activityId);
+                reviewText.innerHTML = commentText;
+                commentInput.value = '';
+            }
+        </script>
     </div>
 </div>
