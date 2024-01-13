@@ -2,7 +2,7 @@
 // StuBadges.php (Controller)
 
 class StuBadges extends Controller {
-    private $stuBadgeModel;
+    
 
     public function __construct() {
         $this->stuBadgeModel = $this->model('StuBadge'); // Ensure the model method properly loads the model

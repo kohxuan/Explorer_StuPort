@@ -23,8 +23,8 @@
                 <tbody>
                     <?php foreach ($data['rewards'] as $reward): ?>
                         <tr>
-                            <td><img src="<?php echo $reward->badge_icon_path ?>" alt="Badge Icon" style="width: 90px; height: 90px;"></td>
-                            <td><?php echo $reward->badge_name; ?></td>
+                            <td><img src="<?php echo URLROOT . "/public/" . $reward->badge_icon_path ?>" alt="Badge Icon" style="width: 90px; height: 90px;"></td>
+                            <td><?php echo $reward->badge_icon_path; ?></td>
                             <td><?php echo $reward->badge_description; ?></td>
                             <td><?php echo $reward->points_required; ?></td>
                             <td>
