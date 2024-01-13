@@ -163,7 +163,7 @@ public function getLecturerFullName($l_id)
 public function join($activity_id)
 {
     if (!isLoggedIn()) {
-        header("Location: " . URLROOT . "/activity");
+        header("Location: " . URLROOT . "/activity"); // take note here to change the path
         exit();
     }
 

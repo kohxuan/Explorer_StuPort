@@ -39,11 +39,11 @@ public function create()
             header("Location: " . URLROOT. "/users/login" );
         }
 
-        $st_id = $this->activityModel->getStudentID($_SESSION['user_id']);
+        $s_id = $this->activityModel->getStudentID($_SESSION['user_id']);
 
         $data = 
         [
-            'st_id' => $st_id,
+            's_id' => $s_id,
             'name' => '',
             'date' => '',
             'venue' => '',
@@ -92,7 +92,7 @@ public function create()
 
             if ($data['name'] && $data['date'] && $data['venue'] && $data['description'] && $data['evidence']){
                 if ($this->peractivityModel->addperActivity($data)){
-                    header("Location: " . URLROOT. "/peractivity" );
+                    header("Location: " . URLROOT. "/peractivity" ); //same name with naming of controller file 
                 }
                 else
                 {
