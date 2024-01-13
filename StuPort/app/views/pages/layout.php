@@ -1,5 +1,7 @@
 <!-- Include Chart.js library -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.css" />
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.js"></script>
 
 <!--begin::Content-->
 <div id="kt_app_content" class="app-content flex-column-fluid">
@@ -212,6 +214,73 @@
         // Close the database connection
         $conn->close();
         ?>
+
+        <?php if ($_SESSION['user_role'] == 'Administrator') : ?>
+            <div class="container">
+            <div class="row">
+            <div class="col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Activity Statistics</h5>
+                    </div>
+                    <div class="card-body">
+                        <!-- Create a canvas for the chart with adjusted width and height -->
+                        <canvas id="myChart" width="210" height="90"></canvas>
+                    </div>
+
+                    <!-- Script to initialize the bar chart -->
+                    <script>
+                        // Your existing Bar Chart script
+                        var ctxBar = document.getElementById('myChart').getContext('2d');
+                        var myBarChart = new Chart(ctxBar, {
+                            type: 'bar',
+                            data: <?php echo json_encode($data); ?>,
+                            options: {
+                                scales: {
+                                    x: {
+                                        beginAtZero: true,
+                                        maxTicksLimit: 6,
+                                        title: {
+                                            display: true,
+                                            text: 'Type of Category' // Label for the x-axis
+                                        }
+                                    },
+                                    y: {
+                                        beginAtZero: true,
+                                        stepSize: 1,
+                                        title: {
+                                            display: true,
+                                            text: 'Number of Activities Created' // Label for the y-axis
+                                        },
+                                        ticks: {
+                                            display: false // Hide the tick labels
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+            </div>
+            <div class="row">
+                <div class="card">
+                    <!--begin::Card body-->
+                    <div class="card h-100">
+                        <div class="card-body d-flex align-items-center">
+                            <i class="bi bi-bookmark-check-fill" style="font-size: 3rem; color: black; margin-right: 1rem;"></i>
+                            <div>
+                                <h3 class="card-title">Manage Activity</h3>
+                                <p class="card-text">YouthVentures activity with its clients/partners</p>
+                                <a href="<?php echo URLROOT . '/activities'; ?>" class="btn btn-primary">Explore More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end::Card body-->
+                </div>
+            </div>
+        <?php endif; ?>
+
         
 
         <?php if ($_SESSION['user_role'] == 'Master Administrator') : ?>
@@ -364,7 +433,7 @@
                         <div>
                             <h3 class="card-title">Student Activity</h3>
                             <p class="card-text">To validate student joined activity</p>
-                            <a href="<?php echo URLROOT . '/'; ?>" class="btn btn-primary">See More</a>
+                            <a href="<?php echo URLROOT . '/perActivity'; ?>" class="btn btn-primary">See More</a>
                         </div>
                     </div>
                 </div>
