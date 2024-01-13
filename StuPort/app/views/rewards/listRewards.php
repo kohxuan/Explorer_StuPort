@@ -38,8 +38,6 @@
                             <?php endif; ?>
                         </td>
 
-
-
                             <td><?php echo $reward->badge_name; ?></td>
                             <td><?php echo $reward->badge_description; ?></td>
                             <td><?php echo $reward->points_required; ?></td>
