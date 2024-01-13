@@ -66,9 +66,6 @@ class Activities extends Controller
         // Load the view with the data
         $this->view('activities/index', $data);
     }
-    
-
-
 
     public function update($activity_id)
 {

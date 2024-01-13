@@ -33,6 +33,7 @@ class Activity
     $this->db->bind(':skill_acquired', $data['skill_acquired']);
     $this->db->bind(':attachment', $data['attachment']);
     $this->db->bind(':link_form', $data['link_form']);
+    $this->db->bind(':review', $data['review']);
 
     if ($this->db->execute()) {
         return true;

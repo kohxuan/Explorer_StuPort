@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="path/to/styles.css">
 <?php if ($_SESSION['user_role'] == 'Administrator' || $_SESSION['user_role'] == 'Master Administrator') : ?>
 <div class="card shadow-sm">
     <div class="card-header">
@@ -23,6 +24,7 @@
                         <th>Attachment</th>
                         <th>Action</th>
                         <th>Feedback given</th>
+                        <th>Comment</th>
                     </tr>
                 </thead>
                 <tbody>

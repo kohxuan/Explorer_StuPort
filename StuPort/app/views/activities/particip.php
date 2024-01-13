@@ -18,6 +18,7 @@
                         <th>Venue</th>
                         <th>Description</th>  
                         <th>Action</th>
+                        <th>Comment</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,6 +36,13 @@
                             <td> <button class="btn btn-success" disabled>Joined</button>
                            
                             <a href="<?php echo URLROOT . "/activities/form/" . $activity->activity_id ?>" class="btn btn-light-warning">Feedback</a></td>
+                            
+                            <td>
+                            <form id="commentForm">
+                                <textarea id="comment" name="comment" required></textarea>
+                                <button type="submit">Submit</button>
+                            </form>
+                            </td>
                             
                         </tr>
                     <?php endforeach; ?>
@@ -56,8 +64,5 @@
                 });
             });
         </script>
-    </div>
-    <div class="card-footer">
-        Footer
     </div>
 </div>

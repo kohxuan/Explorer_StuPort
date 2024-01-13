@@ -373,6 +373,19 @@
         </div>
         <?php endif; ?>
 
+        <?php if ($_SESSION['user_role'] == 'Lecturer') : ?>
+
+        <div class="card">
+            <!--begin::Card body-->
+            <div class="card-body pt-2 pb-4 d-flex align-items-center">
+                <?php require "view_profile_lecturer.php"; ?>
+            </div>
+            <!--end::Card body-->
+        </div>
+
+        <?php endif; ?>
+
+
         <?php if ($_SESSION['user_role'] == 'Student') : ?>
 
             <div class="card">
