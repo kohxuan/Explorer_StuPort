@@ -294,48 +294,49 @@ public function create()
     // }
 
     public function assign($pac_id)
-{
-    if (!isLoggedIn()) {
-        header("Location: " . URLROOT . "/peractivity");
-        exit; // Added exit to stop further execution
-    }
-
-    $perActivities = $this->peractivityModel->findperActivityById($pac_id);
-
-    if (!$perActivities) {
-        header("Location: " . URLROOT . "/peractivity");
-        exit; // Added exit to stop further execution
-    }
-
-    $data = [
-        'perActivity' => $perActivities,
-        'l_id' => '',
-        'pac_id' => $pac_id,
-    ];
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-        $data['l_id'] = trim($_POST['l_id']);
-
-        if ($data['l_id']) {
-            $this->peractivityModel->assignperActivity($data);
+    {
+        if (!isLoggedIn()) {
             header("Location: " . URLROOT . "/peractivity");
-            exit;
-        } else {
-            $this->view('peractivity/index', $data);
+            exit; // Added exit to stop further execution
         }
+    
+        $perActivities = $this->peractivityModel->findperActivityById($pac_id);
+    
+        if (!$perActivities) {
+            header("Location: " . URLROOT . "/peractivity");
+            exit; // Added exit to stop further execution
+        }
+    
+        $data = [
+            'perActivity' => $perActivities,
+            'l_id' => '',
+            'pac_id' => $pac_id,
+        ];
+    
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    
+            $data['l_id'] = trim($_POST['l_id']);
+    
+            if ($data['l_id']) {
+                $this->peractivityModel->assignperActivity($data);
+                header("Location: " . URLROOT . "/peractivity");
+                exit;
+            } else {
+                $this->view('peractivity/index', $data);
+            }
+        }
+    
+        // Retrieve lecturer list
+        $lecturer = $this->peractivityModel->lecturerList();
+    
+        $data_2 = [
+            'lecturer' => $lecturer
+        ];
+    
+        $this->view('peractivity/index', $data, $data_2);
     }
-
-    // Retrieve lecturer list
-    $lecturer = $this->peractivityModel->lecturerList();
-
-    $data_2 = [
-        'lecturer' => $lecturer
-    ];
-
-    $this->view('peractivity/index', $data, $data_2);
-}
+    
 
 public function approve($pac_id)
 {

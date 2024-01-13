@@ -81,7 +81,7 @@
             <!-- Delete modal -->
            
                 <!-- ... modal content ... -->
-                <?php if ($_SESSION['user_role'] !== "Student"): ?>
+                <?php if ($_SESSION['user_role'] === "Student"): ?>
                 <div class="modal fade" tabindex="-1" id="kt<?php echo $peractivities->pac_id?>">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -96,7 +96,38 @@
                             </div>
 
                             <div class="modal-body">
-                                Are you sure want to reject this activity?
+                                Are you sure want to delete this personal activity?
+                            </div>
+
+                            <div class="modal-footer">
+                                <form action="<?php echo URLROOT . "/peractivity/delete/" . $peractivities->pac_id; ?>" method="POST">
+                                    <input type="hidden" id="expenses" name="expenses" value="expenses">
+                                    
+                                    <button type="submit" class="btn btn-primary font-weight-bold">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php endif ?>
+
+<!-- Lecturer reject modal -->
+                <?php if ($_SESSION['user_role'] === "Lecturer"): ?>
+                <div class="modal fade" tabindex="-1" id="kt<?php echo $peractivities->pac_id?>">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title">Reject</h3>
+
+                                <!--begin::Close-->
+                                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                                    <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+                                </div>
+                                <!--end::Close-->
+                            </div>
+
+                            <div class="modal-body">
+                                Are you sure want to reject this personal activity?
                             </div>
 
                             <div class="modal-footer">
@@ -110,6 +141,8 @@
                     </div>
                 </div>
                 <?php endif ?>
+
+
             </div>
         </td>
     </tr>
