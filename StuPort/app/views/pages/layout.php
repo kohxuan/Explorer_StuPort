@@ -299,7 +299,7 @@
                             <i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
                                 <span class="path1"></span>
                                 <span class="path2"></span>
-                            </i>2.2%
+                            </i>0.2%
                         </span>
                     </div>
                     <span class="text-gray-500 pt-1 fw-semibold fs-6">Registered Users</span>
@@ -422,6 +422,7 @@
                         <div>
                             <h3 class="card-title">Manage Rewards</h3>
                             <p class="card-text">Rewards to the registered students</p>
+                            <p class="card-text">Aimed to encourage students to add and join activities with us.</p>
                             <a href="<?php echo URLROOT . '/rewards'; ?>" class="btn btn-primary">See More</a>
                         </div>
                     </div>
