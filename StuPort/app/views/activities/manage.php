@@ -39,7 +39,7 @@
                             <td><?php echo $activity->organizer_name; ?></td>
                             <td><?php echo $activity->skill_acquired; ?></td>
                             <td>
-                                <img src="<?php echo $activity->attachment; ?>" alt="Attachment">
+                                <img src="<?php echo $activity->attachment; ?>" alt="Attachment" style="max-width: 100px; max-height: 100px; object-fit: cover;">
                             </td>
                             <td>
                                     <a href="<?php echo URLROOT . "/activities/update/" . $activity->activity_id ?>" class="btn btn-light-warning">Update</a>
