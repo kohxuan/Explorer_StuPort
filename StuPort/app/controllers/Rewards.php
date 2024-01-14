@@ -103,11 +103,11 @@ class Rewards extends Controller
                     die("Something went wrong :(");
                 }
             } else {
-                $this->view('rewards/create', $data);
+                $this->view('rewards/index', $data);
             }
         }
 
-        $this->view('rewards/create', $data);
+        $this->view('rewards/index', $data);
     }
 
     public function update($reward_id)
