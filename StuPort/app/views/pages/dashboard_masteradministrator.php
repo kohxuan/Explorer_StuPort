@@ -59,7 +59,6 @@ if ($clientResult->num_rows > 0) {
     $clientRow = $clientResult->fetch_assoc();
     $clientCount = $clientRow["clientCount"];
 }
-
 ?>
 
 <?php
@@ -112,13 +111,81 @@ $stmt->close();
 $conn->close();
 ?>
 
-
 <div class="container">
     <div class="row">
+        <!-- First Card -->
+        <div class="col-md-6 mb8">
+            <div class="card card-flush h-md-75 mb-5 mb-xl-10">
+                <div class="card-header pt-5">
+                    <div class="card-title d-flex flex-column">
+                        <div class="d-flex align-items-center">
+                            <span class="fs-2hx fw-bold text-gray-900 me-2 lh-1 ls-n2"><?php echo $userCount; ?></span>
+                            <span class="badge badge-light-success fs-base">
+                                <i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>0.2%
+                            </span>
+                        </div>
+                        <span class="text-gray-500 pt-1 fw-semibold fs-6">Registered Users</span>
+                    </div>
+                </div>
+                <div class="card-body d-flex align-items-center">
+                    <!-- Doughnut Chart -->
+                    <div style="flex: 1;">
+                        <canvas id="userChart" width="200" height="130"></canvas>
+                    </div>
+
+                    <div class="d-flex flex-column content-justify-center" style="flex: 1; margin-left: 20px;">
+                        <div class="d-flex fs-6 fw-semibold align-items-center mb-3">
+                            <div class="bullet w-8px h-6px rounded-2" style="background-color: #dc3545; margin-right: 10px;"></div>
+                            <div class="text-gray-500 flex-grow-1">Clients / Partners</div>
+                            <div class="fw-bolder text-gray-700 text-xxl-end"><?php echo ($userCount - $lecturerCount - $studentCount); ?></div>
+                        </div>
+                        <div class="d-flex fs-6 fw-semibold align-items-center mb-3">
+                            <div class="bullet w-8px h-6px rounded-2" style="background-color: #007bff; margin-right: 10px;"></div>
+                            <div class="text-gray-500 flex-grow-1">Lecturers</div>
+                            <div class="fw-bolder text-gray-700 text-xxl-end"><?php echo $lecturerCount; ?></div>
+                        </div>
+                        <div class="d-flex fs-6 fw-semibold align-items-center">
+                            <div class="bullet w-8px h-6px rounded-2" style="background-color: #28a745; margin-right: 10px;"></div>
+                            <div class="text-gray-500 flex-grow-1">Students</div>
+                            <div class="fw-bolder text-gray-700 text-xxl-end"><?php echo $studentCount; ?></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Script to initialize Doughnut Chart -->
+            <script>
+                var ctx = document.getElementById('userChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        datasets: [{
+                            data: [<?php echo ($userCount - $lecturerCount - $studentCount); ?>, <?php echo $lecturerCount; ?>, <?php echo $studentCount; ?>],
+                            backgroundColor: ['#dc3545', '#007bff', '#28a745'],
+                        }]
+                    },
+                    options: {
+                        cutoutPercentage: 80,
+                        responsive: false,
+                        maintainAspectRatio: false,
+                        legend: {
+                            display: true
+                        }
+                    }
+                });
+            </script>
+
+
+        </div>
+
+        <!-- Second Card -->
         <div class="col-md-6 mb-3">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title">Activity Statistics</h5>
+                    <h5 class="card-title">Activity Categorization Statistics</h5>
                 </div>
                 <div class="card-body">
                     <!-- Create a canvas for the chart with adjusted width and height -->
@@ -161,19 +228,42 @@ $conn->close();
         </div>
     </div>
     <div class="row">
-        <div class="card">
-            <!--begin::Card body-->
+        <div class="col-md-4 mb-4">
             <div class="card h-100">
                 <div class="card-body d-flex align-items-center">
                     <i class="bi bi-bookmark-check-fill" style="font-size: 3rem; color: black; margin-right: 1rem;"></i>
                     <div>
                         <h3 class="card-title">Manage Activity</h3>
-                        <p class="card-text">YouthVentures activity which collaborate with its clients and partners</p>
-                        <p class="card-text">Aimed to improve the student participation</p>
-                        <a href="<?php echo URLROOT . '/activities'; ?>" class="btn btn-primary">Explore More</a>
+                        <p class="card-text">YouthVentures activity with its clients/partners</p>
+                        <a href="<?php echo URLROOT . '/activities'; ?>" class="btn btn-primary">See More</a>
                     </div>
                 </div>
             </div>
-            <!--end::Card body-->
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body d-flex align-items-center">
+                    <i class="bi bi-patch-check-fill" style="font-size: 3rem; color: black; margin-right: 1rem;"></i>
+                    <div>
+                        <h3 class="card-title">Manage Rewards</h3>
+                        <p class="card-text">Rewards to the registered students</p>
+                        <p class="card-text">Aimed to encourage students to add and join activities with us.</p>
+                        <a href="<?php echo URLROOT . '/rewards'; ?>" class="btn btn-primary">See More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body d-flex align-items-center">
+                    <i class="bi bi-chat-right-text" style="font-size: 3rem; color: black; margin-right: 1rem;"></i>
+                    <div>
+                        <h3 class="card-title">Student Activity</h3>
+                        <p class="card-text">To validate student joined activity</p>
+                        <a href="<?php echo URLROOT . '/peractivity'; ?>" class="btn btn-primary">See More</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</div>
