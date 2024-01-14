@@ -37,7 +37,7 @@
 							<!--begin:Menu item-->
 							<div class="menu-item">
 								<!--begin:Menu link-->
-								<a class="menu-link" href="<?php echo URLROOT; ?>/view_profile_student">
+								<a class="menu-link" href="<?php echo URLROOT . '/pages/view_profile'; ?>">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
@@ -181,7 +181,7 @@
 							<!--begin:Menu item-->
 							<div class="menu-item">
 								<!--begin:Menu link-->
-								<a class="menu-link" href="<?php echo URLROOT; ?>/studentBadge/view">
+								<a class="menu-link" href="<?php echo URLROOT; ?>/rewards">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
@@ -224,7 +224,7 @@
 							<!--begin:Menu item-->
 							<div class="menu-item">
 								<!--begin:Menu link-->
-								<a class="menu-link" href="<?php echo URLROOT; ?>/view_profile_lecturer">
+								<a class="menu-link" href="<?php echo URLROOT; ?>/pages/view_profile_lecturer">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>

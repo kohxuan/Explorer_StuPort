@@ -444,18 +444,6 @@
         </div>
         <?php endif; ?>
 
-        <?php if ($_SESSION['user_role'] == 'Lecturer') : ?>
-
-        <div class="card">
-            <!--begin::Card body-->
-            <div class="card-body pt-2 pb-4 d-flex align-items-center">
-                <?php require "view_profile_lecturer.php"; ?>
-            </div>
-            <!--end::Card body-->
-        </div>
-
-        <?php endif; ?>
-
 
         <?php if ($_SESSION['user_role'] == 'Student') : ?>
             <div class="row">
@@ -468,7 +456,7 @@
                                 <p class="card-text">Make your profile to be completed.</p>
                                 <p class="card-text">Help for internship.</p>
                                 <p class="card-text">Attract clients/partners to select you as one of their employee.</p>
-                                <a href="<?php echo URLROOT . '/view_profile_student'; ?>" class="btn btn-primary">See More</a>
+                                <a href="<?php echo URLROOT . '/pages/view_profile'; ?>" class="btn btn-primary">See More</a>
                             </div>
                         </div>
                     </div>
@@ -543,14 +531,75 @@
         <?php endif; ?>
 
         <?php if ($_SESSION['user_role'] == 'Lecturer') : ?>
-
-        <div class="card">
-            <!--begin::Card body-->
-            <div class="card-body pt-2 pb-4 d-flex align-items-center">
-                <?php require "view_profile_lecturer.php"; ?>
+            <div class="row">
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <div class="card-body d-flex align-items-center">
+                            <i class="bi bi-person-lines-fill" style="font-size: 3rem; color: black; margin-right: 1rem;"></i>
+                            <div>
+                                <h3 class="card-title">View Profile</h3>
+                                <p class="card-text">Make your profile to be completed.</p>
+                                <p class="card-text">Get to let YouthVentures know more information about you..</p>
+                                <a href="<?php echo URLROOT . '/pages/view_profile_lecturer'; ?>" class="btn btn-primary">See More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!--end::Card body-->
-        </div>
+
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h3 class="card-title">Student Personal Activity</h3>
+                    <div class="card-toolbar">
+                        <?php if(isLoggedIn()): ?>
+                        <a href="<?php echo URLROOT;?>/peractivity" class="btn btn-light-primary">View More Details</a>
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <!--begin::Card body-->
+                <div class="card-body">
+                    <div class="table-responsive">
+                    <table id="kt_datatable_posts" class="table table-row-bordered gy-5">
+                        <thead>
+                            <tr class="fw-semibold fs-6 text-muted">
+                                <th>Activity Name</th>
+                                <th>Activity Date</th>
+                                <th>Venue</th>
+                                <th>Student</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <?php
+                                    $servername = "localhost";
+                                    $username = "root";
+                                    $password = "";
+                                    $dbname = "niagaped_Explorer";
+                            
+                                    $conn = new mysqli($servername, $username, $password, $dbname);
+
+                                    if (!$conn) {
+                                        die("Connection failed: " . mysqli_connect_error());
+                                    }
+
+                                    $query = "SELECT name, date, venue FROM per_activity";
+                                    $result = mysqli_query($conn, $query);
+
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        echo "<tr>";
+                                        echo "<td>{$row['name']}</td>";
+                                        echo "<td>{$row['date']}</td>";
+                                        echo "<td>{$row['venue']}</td>";
+                                        echo "</tr>";
+                                    }
+
+                                    mysqli_close($conn);
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--end::Card body-->
+            </div>
 
         <?php endif; ?>
 
