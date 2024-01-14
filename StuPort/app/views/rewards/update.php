@@ -51,43 +51,55 @@
 
 
 <style>
-    .card {
-        border: 1px solid #FCBD32; /* Yellow border */
-        border-radius: 8px;
-        padding: 20px;
-    }
-
-    .card-header {
-        background-color: #183D64; /* Blue header */
-        color: #fff; /* White text */
-        padding: 10px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .btn-light-primary {
-        background-color: #7C1C2B; /* Red button */
-        color: #fff; /* White text */
-    }
-
-    .btn-light-primary:hover {
-        background-color: darken(#7C1C2B, 10%); /* Slightly darker red on hover */
-    }
-
-    .form-label {
-        font-weight: bold;
-    }
-
-    .form-control {
-        border: 1px solid #d1d1d1;
-        border-radius: 5px;
-        padding: 10px;
-        width: 100%;
-    }
-
-    .text-danger {
-        color: #ff0000;
-    }
+    body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .card-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: maroon; /* Maroon color for card title */
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"], input[type="number"], textarea, input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button[type="submit"] {
+            background-color: maroon; /* Maroon color for submit button */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #800000; /* Darker shade of maroon on hover */
+        }
+        .alert {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e74c3c;
+            color: #fff;
+            border-radius: 5px;
+            display: none;
+        }
 </style>
 

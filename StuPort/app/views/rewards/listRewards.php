@@ -8,6 +8,7 @@
             <?php endif; ?>
         </div>
     </div>
+    
     <div class="card-body">
         <div class="table-responsive">
             <table id="kt_datatable_posts" class="table table-row-bordered gy-5">
