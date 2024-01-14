@@ -468,7 +468,7 @@
                             <div>
                                 <h3 class="card-title">View Rewards</h3>
                                 <p class="card-text">Rewards get from YouthVentures.</p>
-                                <a href="<?php echo URLROOT . '/studentBadge/view'; ?>" class="btn btn-primary">See More</a>
+                                <a href="<?php echo URLROOT . '/rewards'; ?>" class="btn btn-primary">See More</a>
                             </div>
                         </div>
                     </div>

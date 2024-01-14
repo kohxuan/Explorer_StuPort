@@ -14,6 +14,7 @@
             <table id="kt_datatable_posts" class="table table-row-bordered gy-5">
                 <thead>
                     <tr class="fw-semibold fs-6 text-muted">
+                        <th>Activity CodeNo</th>
                         <th>Title</th>
                         <th>Category</th>
                         <th>Content</th>
@@ -30,6 +31,7 @@
                 <tbody>
                     <?php foreach ($data['activities'] as $activity): ?>
                         <tr>
+                            <td><?php echo $activity->activity_id; ?></td>
                             <td><?php echo $activity->title; ?></td>
                             <td><?php echo $activity->category; ?></td>
                             <td><?php echo $activity->activity_desc; ?></td>
