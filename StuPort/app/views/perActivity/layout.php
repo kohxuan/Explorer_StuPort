@@ -49,7 +49,7 @@
 
                         }
 
-                        } elseif ($_SESSION['user_role'] == 'Lecturer' || $_SESSION['user_role'] == 'Administrator') {
+                        } elseif ($_SESSION['user_role'] == 'Lecturer' || $_SESSION['user_role'] == 'Administrator' || $_SESSION['user_role'] == 'Master Administrator') {
                             if ($url == $c_url){
                                 require 'manage.php';
                             } else {

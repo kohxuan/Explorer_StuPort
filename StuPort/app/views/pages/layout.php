@@ -435,7 +435,7 @@
                         <div>
                             <h3 class="card-title">Student Activity</h3>
                             <p class="card-text">To validate student joined activity</p>
-                            <a href="<?php echo URLROOT . '/perActivity'; ?>" class="btn btn-primary">See More</a>
+                            <a href="<?php echo URLROOT . '/peractivity'; ?>" class="btn btn-primary">See More</a>
                         </div>
                     </div>
                 </div>
