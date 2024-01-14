@@ -292,7 +292,7 @@ public function create()
     //     $this->view('skills/index', $data, $data_2, $data_3);
 
     // }
-
+   
     public function assign($pac_id)
     {
         if (!isLoggedIn()) {
@@ -328,10 +328,10 @@ public function create()
         }
     
         // Retrieve lecturer list
-        $lecturer = $this->peractivityModel->lecturerList();
+        $lc_list = $this->peractivityModel->lecturerList();
     
         $data_2 = [
-            'lecturer' => $lecturer
+            'lc_list' => $lc_list
         ];
     
         $this->view('peractivity/index', $data, $data_2);

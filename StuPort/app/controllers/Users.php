@@ -186,9 +186,9 @@ class Users extends Controller {
     public function login() {
         $data = [
             'title' => 'Login page',
-            'username' => '',
+            'email' => '',
             'password' => '',
-            'usernameError' => '',
+            'emailError' => '',
             'passwordError' => ''
         ];
     
@@ -198,15 +198,15 @@ class Users extends Controller {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
     
             $data = [
-                'username' => trim($_POST['username']),
+                'email' => trim($_POST['email']),
                 'password' => trim($_POST['password']),
-                'usernameError' => '',
+                'emailError' => '',
                 'passwordError' => '',
             ];
     
-            // Validate username
-            if (empty($data['username'])) {
-                $data['usernameError'] = 'Please enter a username.';
+            // Validate email
+            if (empty($data['email'])) {
+                $data['emailError'] = 'Please enter a email.';
             }
     
             // Validate password
@@ -224,17 +224,28 @@ class Users extends Controller {
             }
     
             // Check if all errors are empty
-            if (empty($data['usernameError']) && empty($data['passwordError'])) {
-                $loggedInUser = $this->userModel->login($data['username'], $data['password']);
+            if (empty($data['emailError']) && empty($data['passwordError'])) {
+                $loggedInUser = $this->userModel->login($data['email'], $data['password']);
                 if ($loggedInUser) {
                     // If the login is successful, redirect to the home page or some other page
                     $this->createUserSession($loggedInUser);
                 } else {
-                    $data['passwordError'] = 'Password or username is incorrect. Please try again.';
-                    // Log the entered username and password
-                    error_log("Entered Username: {$data['username']}, Entered Password: {$data['password']}");
+                    $data['passwordError'] = 'Password or email is incorrect. Please try again.';
+                    // Log the entered email and password
+                    error_log("Entered email: {$data['email']}, Entered Password: {$data['password']}");
+                
+                    $this->view('users/login', $data);
                 }
             }
+        }else{
+            $data = [
+                'username' => '',
+                'password' => '',
+                'emailError' => '',
+                'passwordError' => ''
+
+            ];
+
         }
     
         $this->view('users/login', $data);
@@ -263,4 +274,105 @@ class Users extends Controller {
         unset($_SESSION['user_role']);
         header('location:' . URLROOT . '/users/login');
     }
+
+    public function forgot() {
+        $data = [
+            'email' => '',
+            'emailError' => '',
+            'emailSuccess' => ''
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $data['email'] = trim($_POST['email']);
+
+            // Validate email
+            if (empty($data['email'])) {
+                $data['emailError'] = 'Please enter your email address.';
+            } elseif (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+                $data['emailError'] = 'Invalid email format.';
+            } else {
+                // Check if email exists
+                if ($this->userModel->findUserByEmail($data['email'])) {
+                    // Generate a unique token and store it in the database
+                    $token = bin2hex(random_bytes(32)); // You can use a stronger method for token generation
+                    $this->userModel->storePasswordResetToken($data['email'], $token);
+
+                    // Send password reset email
+                    $resetLink = URLROOT . '/users/resetPassword/' . $token;
+                    $this->sendPasswordResetEmail($data['email'], $resetLink);
+
+                    $data['emailSuccess'] = 'An email with instructions to reset your password has been sent.';
+                } else {
+                    $data['emailError'] = 'Email not found.';
+                }
+            }
+        }
+
+        $this->view('users/forgot', $data);
+    }
+
+    public function resetPassword($token) {
+        $data = [
+            'token' => $token,
+            'password' => '',
+            'confirmPassword' => '',
+            'passwordError' => '',
+            'confirmPasswordError' => '',
+            'resetError' => ''
+        ];
+
+        // Validate token and retrieve email associated with the token
+        $email = $this->userModel->validatePasswordResetToken($token);
+
+        if (!$email) {
+            $data['resetError'] = 'Invalid or expired token.';
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $data['password'] = trim($_POST['password']);
+            $data['confirmPassword'] = trim($_POST['confirmPassword']);
+
+            // Validate password
+            if (empty($data['password'])) {
+                $data['passwordError'] = 'Please enter a new password.';
+            } elseif (strlen($data['password']) < 6) {
+                $data['passwordError'] = 'Password must be at least 6 characters.';
+            }
+
+            // Validate confirm password
+            if (empty($data['confirmPassword'])) {
+                $data['confirmPasswordError'] = 'Please confirm your new password.';
+            } elseif ($data['password'] !== $data['confirmPassword']) {
+                $data['confirmPasswordError'] = 'Passwords do not match.';
+            }
+
+            // If no errors, update the password in the database
+            if (empty($data['passwordError']) && empty($data['confirmPasswordError'])) {
+                $hashedPassword = password_hash($data['password'], PASSWORD_DEFAULT);
+                $this->userModel->updatePassword($email, $hashedPassword);
+
+                // Optionally, expire or delete the used token from the database
+
+                // Redirect to login page or display success message
+                // header('location: ' . URLROOT . '/users/login');
+                // exit;
+                $data['resetSuccess'] = 'Password reset successfully. You can now login with your new password.';
+            }
+        }
+
+        $this->view('users/reset_password', $data);
+    }
+
+    // Additional methods...
+
+    private function sendPasswordResetEmail($email, $resetLink) {
+        // Implement your email sending logic here
+        // You may use libraries like PHPMailer or use your server's email sending capabilities
+        // Include a link to $resetLink in the email body
+    }
+
 }
