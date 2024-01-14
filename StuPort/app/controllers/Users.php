@@ -255,13 +255,13 @@ class Users extends Controller {
 
 
 
-    public function createUserSession($user) {
+    public function createUserSession($user) { 
         $_SESSION['user_id'] = $user->id;
         $_SESSION['username'] = $user->username;
         $_SESSION['email'] = $user->email;
         $_SESSION['user_role'] = $user->user_role;
 
-    
+        $_SESSION['user_image'] = $this->userModel->getUserImage($user->email);
         // Redirect based on user_role
         header('location:' . URLROOT . '/pages/index');
     }
@@ -272,6 +272,7 @@ class Users extends Controller {
         unset($_SESSION['username']);
         unset($_SESSION['email']);
         unset($_SESSION['user_role']);
+        unset($_SESSION['user_image']);
         header('location:' . URLROOT . '/users/login');
     }
 

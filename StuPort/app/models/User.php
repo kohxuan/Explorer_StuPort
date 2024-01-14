@@ -247,6 +247,17 @@ class User {
         return false; // User not found or authentication failed
     }
 
+    public function getUserImage($email) {
+        $this->db->query('SELECT profileimage FROM profile WHERE p_email = :email');
+    
+        $this->db->bind(':email', $email);
+
+        $row = $this->db->single();
+    
+        return $row;
+    }
+    
+
     //Find user by email. Email is passed in by the Controller.
     public function findUserByEmail($email) {
         //Prepared statement
