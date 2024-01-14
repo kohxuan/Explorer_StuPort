@@ -468,7 +468,7 @@
                                 <p class="card-text">Make your profile to be completed.</p>
                                 <p class="card-text">Help for internship.</p>
                                 <p class="card-text">Attract clients/partners to select you as one of their employee.</p>
-                                <a href="<?php echo URLROOT . '/view_profile_student'; ?>" class="btn btn-primary">See More</a>
+                                <a href="<?php echo URLROOT . '/pages/view_profile'; ?>" class="btn btn-primary">See More</a>
                             </div>
                         </div>
                     </div>
