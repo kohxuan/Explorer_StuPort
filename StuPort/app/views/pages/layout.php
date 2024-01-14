@@ -540,7 +540,7 @@
                                 <h3 class="card-title">View Profile</h3>
                                 <p class="card-text">Make your profile to be completed.</p>
                                 <p class="card-text">Get to let YouthVentures know more information about you..</p>
-                                <a href="<?php echo URLROOT . '/pages/view_profile'; ?>" class="btn btn-primary">See More</a>
+                                <a href="<?php echo URLROOT . '/pages/view_profile_lecturer'; ?>" class="btn btn-primary">See More</a>
                             </div>
                         </div>
                     </div>
@@ -549,7 +549,7 @@
 
             <div class="card shadow-sm">
                 <div class="card-header">
-                    <h3 class="card-title">Registered Activity</h3>
+                    <h3 class="card-title">Student Personal Activity</h3>
                     <div class="card-toolbar">
                         <?php if(isLoggedIn()): ?>
                         <a href="<?php echo URLROOT;?>/peractivity" class="btn btn-light-primary">View More Details</a>
@@ -565,6 +565,7 @@
                                 <th>Activity Name</th>
                                 <th>Activity Date</th>
                                 <th>Venue</th>
+                                <th>Student</th>
                             </tr>
                         </thead>
                         <tbody>
