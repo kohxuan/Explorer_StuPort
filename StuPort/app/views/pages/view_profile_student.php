@@ -1,5 +1,6 @@
 <?php require APPROOT . '/views/includes/head_metronic.php'; ?>
 <?php require APPROOT . '/views/includes/begin_app.php'; ?>
+
 <div id="kt_app_content" class="app-content flex-column-fluid">
     <!--begin::Content container-->
     <div id="kt_app_content_container" class="app-container container-fluid">
