@@ -45,7 +45,7 @@ class Activities extends Controller
                 'location' => trim($_POST['location']),
                 'organizer_name' => trim($_POST['organizer_name']),
                 'skill_acquired' => trim($_POST['skill_acquired']),
-                'attachment' => trim($_POST['attachment'])
+                'attachment' => trim($_POST['attachment'])               
             ];
     
             // Perform additional validation if necessary
