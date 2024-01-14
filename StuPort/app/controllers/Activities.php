@@ -68,7 +68,7 @@ class Activities extends Controller
                  }
  
                  $email = $_SESSION['email']; //Email will be the name of folder created
-                 $maxsize = 5 * 1024 * 1024;
+                 $maxsize = 1 * 720 * 720;
                  if ($filesize > $maxsize) {
                      $_SESSION['failed'] = "Error: File size is larger than the allowed limit.";
                      header("Location: " . URLROOT . "/activities/create");
