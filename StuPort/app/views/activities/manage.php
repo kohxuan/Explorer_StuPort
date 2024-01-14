@@ -98,7 +98,7 @@
         <div class="card-toolbar">
             <?php if (isLoggedIn()): ?>
                 <!-- Need to change later -->
-                <a href="<?php echo URLROOT; ?>/activities/create" class="btn btn-light-primary">Create</a> 
+                
             <?php endif; ?>
         </div>
     </div>
