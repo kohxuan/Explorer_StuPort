@@ -160,18 +160,17 @@
 			<!--begin::Menu separator-->
 			<div class="separator my-2"></div>
 			<!--end::Menu separator-->
+			<?php if ($_SESSION['user_role'] == 'Student' || $_SESSION['user_role'] == 'Lecturer' ) : ?>
 			<!--begin::Menu item-->
 			<div class="menu-item px-5">
 				<a href="<?php echo URLROOT; ?>/pages/edit_profile" class="menu-link px-5">Profile</a>
 			</div>
 			<!--end::Menu item-->
+			<?php endif; ?>
 			<!--begin::Menu item-->
 			<div class="menu-item px-5">
-				<a href="apps/projects/list.html" class="menu-link px-5">
+				<a href="<?php echo URLROOT . '/activities'; ?>" class="menu-link px-5">
 					<span class="menu-text">Activity</span>
-					<span class="menu-badge">
-						<span class="badge badge-light-danger badge-circle fw-bold fs-7">3</span>
-					</span>
 				</a>
 			</div>
 			<!--end::Menu item-->
