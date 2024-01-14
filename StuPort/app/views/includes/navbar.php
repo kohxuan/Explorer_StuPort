@@ -5,8 +5,8 @@
 
 	<!--begin::Activities-->
 	<div class="app-navbar-item ms-1 ms-md-4">
-			<input class="form-control me-2" type="search" placeholder="Search...." aria-label="Search" style="font-size: 14px; padding: 7px 10px; margin-right: 20px;"> <!--btn btn-sm btn-primary align-self-center-->
-			<button class="btn btn-outline-success" type="submit" style="font-size: 14px; padding: 7px 10px; margin-right: 20px;">Search</button>
+			<!-- <input class="form-control me-2" type="search" placeholder="Search...." aria-label="Search" style="font-size: 14px; padding: 7px 10px; margin-right: 20px;"> btn btn-sm btn-primary align-self-center -->
+			<!-- <button class="btn btn-outline-success" type="submit" style="font-size: 14px; padding: 7px 10px; margin-right: 20px;">Search</button> -->
 			<!--begin::Button-->
 			<a href="<?php echo URLROOT; ?>/pages/index" class="btn btn-light-primary" style="font-size: 14px; padding: 7px 10px; margin-right: 20px;" >Homepage</a>
 			<!--end::Button-->

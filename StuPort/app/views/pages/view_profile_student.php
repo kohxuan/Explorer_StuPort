@@ -83,12 +83,19 @@
                                                 <i class="ki-duotone ki-geolocation fs-4 me-1">
                                                     <span class="path1"></span>
                                                     <span class="path2"></span>
-                                                </i><?php echo $studentProfile->citystate . ", " . $studentProfile->country; ?></a>
+                                                </i><?php
+                                                    if (!empty($studentProfile->citystate)) {
+                                                        echo $studentProfile->citystate . ", " . $studentProfile->country;
+                                                    } else {
+                                                        echo $studentProfile->country;
+                                                    }
+                                                    ?>
+                                            </a>
                                             <a href="#" class="d-flex align-items-center text-gray-500 text-hover-primary mb-2">
                                                 <i class="ki-duotone ki-sms fs-4">
                                                     <span class="path1"></span>
                                                     <span class="path2"></span>
-                                                </i><?php echo $studentProfile->p_email; ?></a>
+                                                </i><?php echo $studentProfile->s_email; ?></a>
                                         </div>
                                         <!--end::Info-->
                                     </div>
@@ -139,52 +146,6 @@
                                                 <!-- <div class="menu-item px-3">
                                                     <a href="#" class="menu-link px-3">Generate Bill</a>
                                                 </div> -->
-                                                <!--end::Menu item-->
-                                                <!--begin::Menu item-->
-                                                <div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
-                                                    <!-- <a href="#" class="menu-link px-3">
-                                                        <span class="menu-title">Subscription</span>
-                                                        <span class="menu-arrow"></span>
-                                                    </a> -->
-                                                    <!--begin::Menu sub-->
-                                                    <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="#" class="menu-link px-3">Plans</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="#" class="menu-link px-3">Billing</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="#" class="menu-link px-3">Statements</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                        <!--begin::Menu separator-->
-                                                        <div class="separator my-2"></div>
-                                                        <!--end::Menu separator-->
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <div class="menu-content px-3">
-                                                                <!--begin::Switch-->
-                                                                <label class="form-check form-switch form-check-custom form-check-solid">
-                                                                    <!--begin::Input-->
-                                                                    <input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />
-                                                                    <!--end::Input-->
-                                                                    <!--end::Label-->
-                                                                    <span class="form-check-label text-muted fs-6">Recuring</span>
-                                                                    <!--end::Label-->
-                                                                </label>
-                                                                <!--end::Switch-->
-                                                            </div>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                    </div>
-                                                    <!--end::Menu sub-->
-                                                </div>
                                                 <!--end::Menu item-->
                                                 <!--begin::Menu item-->
                                                 <div class="menu-item px-3 my-1">
@@ -256,11 +217,11 @@
                         <!--begin::Row-->
                         <div class="row mb-7">
                             <!--begin::Label-->
-                            <label class="col-lg-4 fw-semibold text-muted">Full Name</label>
+                            <label class="col-lg-4 fw-semibold text-muted">Name</label>
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $studentProfile->s_fName; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800"><?php echo empty($studentProfile->s_fName) ? '-' : $studentProfile->s_fName; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -272,7 +233,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row">
-                                <span class="fw-bold text-gray-800 fs-6"><?php echo $studentProfile->p_email; ?></span>
+                                <span class="fw-bold text-gray-800 fs-6"><?php echo empty($studentProfile->s_email) ? '-' : $studentProfile->s_email; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -284,7 +245,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 d-flex align-items-center">
-                                <span class="fw-bold fs-6 text-gray-800 me-2"><?php echo $studentProfile->s_gender; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800 me-2"><?php echo empty($studentProfile->s_gender) ? '-' : $studentProfile->s_gender; ?></span>
                                 <!-- <span class="badge badge-success">Verified</span> -->
                             </div>
                             <!--end::Col-->
@@ -297,7 +258,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <a href="#" class="fw-bold fs-6 text-gray-800 text-hover-primary"><?php echo $studentProfile->s_race; ?></a>
+                                <a href="#" class="fw-bold fs-6 text-gray-800 text-hover-primary"><?php echo empty($studentProfile->s_race) ? '-' : $studentProfile->s_race; ?></a>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -309,7 +270,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $studentProfile->s_age; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800"><?php echo empty($studentProfile->s_age) ? '-' : $studentProfile->s_age; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -321,7 +282,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $studentProfile->headline; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800"><?php echo empty($studentProfile->headline) ? '-' : $studentProfile->headline; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -333,7 +294,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $studentProfile->about; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800"><?php echo empty($studentProfile->about) ? '-' : $studentProfile->about; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -345,7 +306,7 @@
                             <!--begin::Label-->
                             <!--begin::Label-->
                             <div class="col-lg-8">
-                                <span class="fw-semibold fs-6 text-gray-800"><?php echo $studentProfile->country; ?></span>
+                                <span class="fw-semibold fs-6 text-gray-800"><?php echo empty($studentProfile->country) ? '-' : $studentProfile->country; ?></span>
                             </div>
                             <!--begin::Label-->
                         </div>
@@ -357,7 +318,7 @@
                             <!--begin::Label-->
                             <!--begin::Label-->
                             <div class="col-lg-8">
-                                <span class="fw-semibold fs-6 text-gray-800"><?php echo $studentProfile->citystate; ?></span>
+                                <span class="fw-semibold fs-6 text-gray-800"><?php echo empty($studentProfile->citystate) ? '-' : $studentProfile->citystate; ?></span>
                             </div>
                             <!--begin::Label-->
                         </div>
@@ -382,7 +343,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $studentProfile->s_fName; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800"><?php echo empty($studentProfile->s_fName) ? '-' : $studentProfile->s_fName; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -391,17 +352,18 @@
                         <div class="row mb-7">
                             <!--begin::Label-->
                             <label class="col-lg-4 fw-semibold text-muted">Contact Phone
-                                <span class="ms-1" data-bs-toggle="tooltip" title="Phone number must be active">
+                                <!-- <span class="ms-1" data-bs-toggle="tooltip" title="Phone number must be active">
                                     <i class="ki-duotone ki-information fs-7">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
                                         <span class="path3"></span>
-                                    </i>
-                                </span></label>
+                                    </i> -->
+                                <!-- </span> -->
+                            </label>
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 d-flex align-items-center">
-                                <span class="fw-bold fs-6 text-gray-800 me-2"><?php echo $studentProfile->s_telephone_no; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800 me-2"><?php echo empty($studentProfile->s_telephone_no) ? '-' : $studentProfile->s_telephone_no; ?></span>
                                 <!-- <span class="badge badge-success">Verified</span> -->
                             </div>
                             <!--end::Col-->
@@ -414,7 +376,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <a href="#" class="fw-semibold fs-6 text-gray-800 text-hover-primary"><?php echo $studentProfile->s_address; ?></a>
+                                <a href="#" class="fw-semibold fs-6 text-gray-800 text-hover-primary"><?php echo empty($studentProfile->s_address) ? '-' : $studentProfile->s_address; ?></a>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -426,7 +388,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $studentProfile->s_institution; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800"><?php echo empty($studentProfile->s_institution) ? '-' : $studentProfile->s_institution; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -438,7 +400,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $studentProfile->s_course; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800"><?php echo empty($studentProfile->s_course) ? '-' : $studentProfile->s_course; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -450,7 +412,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $studentProfile->s_skills; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800"><?php echo empty($studentProfile->s_skills) ? '-' : $studentProfile->s_skills; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -462,7 +424,7 @@
                             <!--begin::Label-->
                             <!--begin::Label-->
                             <div class="col-lg-8">
-                                <span class="fw-semibold fs-6 text-gray-800"><?php echo $studentProfile->s_hobby; ?></span>
+                                <span class="fw-semibold fs-6 text-gray-800"><?php echo empty($studentProfile->s_hobby) ? '-' : $studentProfile->s_hobby; ?></span>
                             </div>
                             <!--begin::Label-->
                         </div>
@@ -474,7 +436,7 @@
                             <!--begin::Label-->
                             <!--begin::Label-->
                             <div class="col-lg-8">
-                                <span class="fw-semibold fs-6 text-gray-800"><?php echo $studentProfile->s_achievement; ?></span>
+                                <span class="fw-semibold fs-6 text-gray-800"><?php echo empty($studentProfile->s_achievement) ? '-' : $studentProfile->s_achievement; ?></span>
                             </div>
                             <!--begin::Label-->
                         </div>
@@ -486,7 +448,7 @@
                             <!--begin::Label-->
                             <!--begin::Label-->
                             <div class="col-lg-8">
-                                <span class="fw-semibold fs-6 text-gray-800"><?php echo $studentProfile->s_ambition; ?></span>
+                                <span class="fw-semibold fs-6 text-gray-800"><?php echo empty($studentProfile->s_ambition) ? '-' : $studentProfile->s_ambition; ?></span>
                             </div>
                             <!--begin::Label-->
                         </div>

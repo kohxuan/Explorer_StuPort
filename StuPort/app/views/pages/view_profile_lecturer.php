@@ -62,7 +62,7 @@
                                     <div class="d-flex flex-column">
                                         <!--begin::Name-->
                                         <div class="d-flex align-items-center mb-2">
-                                            <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1"><?php echo $lecturerProfile->l_fName; ?></a>
+                                            <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1"><?php echo empty($lecturerProfile->l_fName) ? '-' : $lecturerProfile->l_fName; ?></a>
                                             <a href="#">
                                                 <i class="ki-duotone ki-verify fs-1 text-primary">
                                                     <span class="path1"></span>
@@ -83,12 +83,18 @@
                                                 <i class="ki-duotone ki-geolocation fs-4 me-1">
                                                     <span class="path1"></span>
                                                     <span class="path2"></span>
-                                                </i><?php echo $lecturerProfile->citystate . ", " . $lecturerProfile->country; ?></a>
+                                                </i><?php
+                                                    if (!empty($lecturerProfile->citystate)) {
+                                                        echo $lecturerProfile->citystate . ", " . $lecturerProfile->country;
+                                                    } else {
+                                                        echo $lecturerProfile->country;
+                                                    }
+                                                    ?></a>
                                             <a href="#" class="d-flex align-items-center text-gray-500 text-hover-primary mb-2">
                                                 <i class="ki-duotone ki-sms fs-4">
                                                     <span class="path1"></span>
                                                     <span class="path2"></span>
-                                                </i><?php echo $lecturerProfile->p_email; ?></a>
+                                                </i><?php echo empty($lecturerProfile->l_email) ? '-' : $lecturerProfile->l_email; ?></a>
                                         </div>
                                         <!--end::Info-->
                                     </div>
@@ -139,52 +145,6 @@
                                                 <!-- <div class="menu-item px-3">
                                                     <a href="#" class="menu-link px-3">Generate Bill</a>
                                                 </div> -->
-                                                <!--end::Menu item-->
-                                                <!--begin::Menu item-->
-                                                <div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
-                                                    <!-- <a href="#" class="menu-link px-3">
-                                                        <span class="menu-title">Subscription</span>
-                                                        <span class="menu-arrow"></span>
-                                                    </a> -->
-                                                    <!--begin::Menu sub-->
-                                                    <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="#" class="menu-link px-3">Plans</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="#" class="menu-link px-3">Billing</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="#" class="menu-link px-3">Statements</a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                        <!--begin::Menu separator-->
-                                                        <div class="separator my-2"></div>
-                                                        <!--end::Menu separator-->
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <div class="menu-content px-3">
-                                                                <!--begin::Switch-->
-                                                                <label class="form-check form-switch form-check-custom form-check-solid">
-                                                                    <!--begin::Input-->
-                                                                    <input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />
-                                                                    <!--end::Input-->
-                                                                    <!--end::Label-->
-                                                                    <span class="form-check-label text-muted fs-6">Recuring</span>
-                                                                    <!--end::Label-->
-                                                                </label>
-                                                                <!--end::Switch-->
-                                                            </div>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                    </div>
-                                                    <!--end::Menu sub-->
-                                                </div>
                                                 <!--end::Menu item-->
                                                 <!--begin::Menu item-->
                                                 <div class="menu-item px-3 my-1">
@@ -256,11 +216,11 @@
                         <!--begin::Row-->
                         <div class="row mb-7">
                             <!--begin::Label-->
-                            <label class="col-lg-4 fw-semibold text-muted">Full Name</label>
+                            <label class="col-lg-4 fw-semibold text-muted">Name</label>
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $lecturerProfile->l_fName; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800"><?php echo empty($lecturerProfile->l_fName) ? '-' : $lecturerProfile->l_fName; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -272,7 +232,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row">
-                                <span class="fw-bold text-gray-800 fs-6"><?php echo $lecturerProfile->p_email; ?></span>
+                                <span class="fw-bold text-gray-800 fs-6"><?php echo empty($lecturerProfile->l_email) ? '-' : $lecturerProfile->l_email; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -284,7 +244,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 d-flex align-items-center">
-                                <span class="fw-bold fs-6 text-gray-800 me-2"><?php echo $lecturerProfile->l_gender; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800 me-2"><?php echo empty($lecturerProfile->l_gender) ? '-' : $lecturerProfile->l_gender; ?></span>
                                 <!-- <span class="badge badge-success">Verified</span> -->
                             </div>
                             <!--end::Col-->
@@ -297,7 +257,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <a href="#" class="fw-bold fs-6 text-gray-800 text-hover-primary"><?php echo $lecturerProfile->l_race; ?></a>
+                                <a href="#" class="fw-bold fs-6 text-gray-800 text-hover-primary"><?php echo empty($lecturerProfile->l_race) ? '-' : $lecturerProfile->l_race; ?></a>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -309,7 +269,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $lecturerProfile->l_age; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800"><?php echo empty($lecturerProfile->l_age) ? '-' : $lecturerProfile->l_age; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -321,7 +281,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $lecturerProfile->headline; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800"><?php echo empty($lecturerProfile->headline) ? '-' : $lecturerProfile->headline; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -333,7 +293,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $lecturerProfile->about; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800"><?php echo empty($lecturerProfile->about) ? '-' : $lecturerProfile->about; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -345,7 +305,7 @@
                             <!--begin::Label-->
                             <!--begin::Label-->
                             <div class="col-lg-8">
-                                <span class="fw-semibold fs-6 text-gray-800"><?php echo $lecturerProfile->country; ?></span>
+                                <span class="fw-semibold fs-6 text-gray-800"><?php echo empty($lecturerProfile->country) ? '-' : $lecturerProfile->country; ?></span>
                             </div>
                             <!--begin::Label-->
                         </div>
@@ -357,7 +317,7 @@
                             <!--begin::Label-->
                             <!--begin::Label-->
                             <div class="col-lg-8">
-                                <span class="fw-semibold fs-6 text-gray-800"><?php echo $lecturerProfile->citystate; ?></span>
+                                <span class="fw-semibold fs-6 text-gray-800"><?php echo empty($lecturerProfile->citystate) ? '-' : $lecturerProfile->citystate; ?></span>
                             </div>
                             <!--begin::Label-->
                         </div>
@@ -382,7 +342,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $lecturerProfile->l_fName; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800"><?php echo empty($lecturerProfile->l_fName) ? '-' : $lecturerProfile->l_fName; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -391,17 +351,18 @@
                         <div class="row mb-7">
                             <!--begin::Label-->
                             <label class="col-lg-4 fw-semibold text-muted">Contact Phone
-                                <span class="ms-1" data-bs-toggle="tooltip" title="Phone number must be active">
+                                <!-- <span class="ms-1" data-bs-toggle="tooltip" title="Phone number must be active">
                                     <i class="ki-duotone ki-information fs-7">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
                                         <span class="path3"></span>
                                     </i>
-                                </span></label>
+                                </span> -->
+                            </label>
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 d-flex align-items-center">
-                                <span class="fw-bold fs-6 text-gray-800 me-2"><?php echo $lecturerProfile->l_telephone_no; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800 me-2"><?php echo empty($lecturerProfile->l_telephone_no) ? '-' : $lecturerProfile->l_telephone_no; ?></span>
                                 <!-- <span class="badge badge-success">Verified</span> -->
                             </div>
                             <!--end::Col-->
@@ -414,7 +375,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <a href="#" class="fw-semibold fs-6 text-gray-800 text-hover-primary"><?php echo $lecturerProfile->l_address; ?></a>
+                                <a href="#" class="fw-semibold fs-6 text-gray-800 text-hover-primary"><?php echo empty($lecturerProfile->l_address) ? '-' : $lecturerProfile->l_address; ?></a>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -426,7 +387,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                <span class="fw-bold fs-6 text-gray-800"><?php echo $lecturerProfile->l_institution; ?></span>
+                                <span class="fw-bold fs-6 text-gray-800"><?php echo empty($lecturerProfile->l_institution) ? '-' : $lecturerProfile->l_institution; ?></span>
                             </div>
                             <!--end::Col-->
                         </div>

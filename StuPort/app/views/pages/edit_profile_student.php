@@ -78,7 +78,13 @@
                                     <i class="ki-duotone ki-geolocation fs-4 me-1">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
-                                    </i><?php echo $studentProfile->citystate . ", " . $studentProfile->country; ?></a>
+                                    </i><?php
+                                        if (!empty($studentProfile->citystate)) {
+                                            echo $studentProfile->citystate . ", " . $studentProfile->country;
+                                        } else {
+                                            echo $studentProfile->country;
+                                        }
+                                        ?></a>
                                 <a href="#" class="d-flex align-items-center text-gray-500 text-hover-primary mb-2">
                                     <i class="ki-duotone ki-sms fs-4">
                                         <span class="path1"></span>
@@ -134,52 +140,6 @@
                                     <!-- <div class="menu-item px-3">
                                                     <a href="#" class="menu-link px-3">Generate Bill</a>
                                                 </div> -->
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
-                                        <!-- <a href="#" class="menu-link px-3">
-                                                        <span class="menu-title">Subscription</span>
-                                                        <span class="menu-arrow"></span>
-                                                    </a> -->
-                                        <!--begin::Menu sub-->
-                                        <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3">Plans</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3">Billing</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3">Statements</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu separator-->
-                                            <div class="separator my-2"></div>
-                                            <!--end::Menu separator-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <div class="menu-content px-3">
-                                                    <!--begin::Switch-->
-                                                    <label class="form-check form-switch form-check-custom form-check-solid">
-                                                        <!--begin::Input-->
-                                                        <input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />
-                                                        <!--end::Input-->
-                                                        <!--end::Label-->
-                                                        <span class="form-check-label text-muted fs-6">Recuring</span>
-                                                        <!--end::Label-->
-                                                    </label>
-                                                    <!--end::Switch-->
-                                                </div>
-                                            </div>
-                                            <!--end::Menu item-->
-                                        </div>
-                                        <!--end::Menu sub-->
-                                    </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3 my-1">
@@ -283,16 +243,15 @@
                     <div class="row mb-6">
                         <label class="col-lg-4 col-form-label required fw-semibold fs-6">Email Address</label>
                         <div class="col-lg-8">
-                            <input class="form-control form-control-lg form-control-solid" name="s_email" type="text" readonly value="<?php echo $studentProfile->s_email; ?>" />
+                            <input class="form-control form-control-lg form-control-solid" name="s_email" type="text" readonly value="<?php echo $studentProfile->s_email; ?> " style="background-color: #f0f0f0; color: #555;" />
                         </div>
                     </div>
 
                     <!-- Name Section -->
                     <div class="row mb-6">
-                        <label class="col-lg-4 col-form-label fw-semibold fs-6">Name</label>
+                        <label class="col-lg-4 col-form-label required fw-semibold fs-6">Name</label>
                         <div class="col-lg-8">
-                            <input class="form-control form-control-lg form-control-solid" name="s_fName" type="text" maxlength="255" value="<?php echo $studentProfile->s_fName; ?>" />
-                            <div class="form-text">Full Name</div>
+                            <input class="form-control form-control-lg form-control-solid" name="s_fName" type="text" maxlength="255" readonly value="<?php echo $studentProfile->s_fName; ?>" style="background-color: #f0f0f0; color: #555;" />
                         </div>
                     </div>
 
@@ -307,9 +266,9 @@
 
                     <!-- Gender Section -->
                     <div class="row mb-6">
-                        <label class="col-lg-4 col-form-label fw-semibold fs-6">Gender</label>
+                        <label class="col-lg-4 col-form-label required fw-semibold fs-6">Gender</label>
                         <div class="col-lg-8">
-                            <select class="form-select form-select-solid form-select-lg" name="s_gender">
+                            <select class="form-select form-select-solid form-select-lg" name="s_gender" required>
                                 <option value="<?php echo $studentProfile->s_gender ?>"><?php echo $studentProfile->s_gender ?></option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
@@ -319,9 +278,9 @@
 
                     <!-- Race Section -->
                     <div class="row mb-6">
-                        <label class="col-lg-4 col-form-label fw-semibold fs-6">Race</label>
+                        <label class="col-lg-4 col-form-label required fw-semibold fs-6">Race</label>
                         <div class="col-lg-8">
-                            <select class="form-select form-select-solid form-select-lg" name="s_race">
+                            <select class="form-select form-select-solid form-select-lg" name="s_race" required>
                                 <option value="<?php echo $studentProfile->s_race ?>"><?php echo $studentProfile->s_race ?></option>
                                 <option value="Malay">Malay</option>
                                 <option value="Chinese">Chinese</option>
@@ -334,11 +293,10 @@
 
                     <!-- Age Section -->
                     <div class="row mb-6">
-                        <label class="col-lg-4 col-form-label fw-semibold fs-6">Age</label>
+                        <label class="col-lg-4 col-form-label required fw-semibold fs-6">Age</label>
                         <div class="col-lg-8">
-                            <input class="form-control form-control-lg form-control-solid" name="s_age" type="number" maxlength="11" value="<?php echo $studentProfile->s_age; ?>" />
-                            <div class="form-text">Please enter numbers.</div>
-                            <div class="form-text">Eg. 20</div>
+                            <input class="form-control form-control-lg form-control-solid" name="s_age" type="text" pattern="[0-9]{2}" title="Please enter valid numeric numbers. [2 digits value]" required value="<?php echo $studentProfile->s_age; ?>" />
+                            <div class="form-text">Please enter valid numeric numbers.</div>
                         </div>
                     </div>
 
@@ -355,7 +313,7 @@
                     <div class="row mb-6">
                         <label class="col-lg-4 col-form-label required fw-semibold fs-6">Position</label>
                         <div class="col-lg-8">
-                            <input class="form-control form-control-lg form-control-solid" name="position" type="text" maxlength="50" readonly value="<?php echo $studentProfile->position; ?>" />
+                            <input class="form-control form-control-lg form-control-solid" name="position" type="text" maxlength="50" readonly value="<?php echo $studentProfile->position; ?>" style="background-color: #f0f0f0; color: #555;" />
                         </div>
                     </div>
 
@@ -377,17 +335,17 @@
 
                     <!-- Country Section -->
                     <div class="row mb-6">
-                        <label class="col-lg-4 col-form-label fw-semibold fs-6">Country</label>
+                        <label class="col-lg-4 col-form-label required fw-semibold fs-6">Country</label>
                         <div class="col-lg-8">
-                            <input class="form-control form-control-lg form-control-solid" name="country" type="text" maxlength="50" value="<?php echo $studentProfile->country; ?>" />
+                            <input class="form-control form-control-lg form-control-solid" name="country" type="text" maxlength="50" required value="<?php echo $studentProfile->country; ?>" />
                         </div>
                     </div>
 
                     <!-- City/State Section -->
                     <div class="row mb-6">
-                        <label class="col-lg-4 col-form-label fw-semibold fs-6">City/State</label>
+                        <label class="col-lg-4 col-form-label required fw-semibold fs-6">City/State</label>
                         <div class="col-lg-8">
-                            <input class="form-control form-control-lg form-control-solid" name="citystate" type="text" maxlength="50" value="<?php echo $studentProfile->citystate; ?>" />
+                            <input class="form-control form-control-lg form-control-solid" name="citystate" type="text" maxlength="50" required value="<?php echo $studentProfile->citystate; ?>" />
                         </div>
                     </div>
 
@@ -414,45 +372,42 @@
                 <!-- Student Table -->
                 <!-- s_fName Section -->
                 <div class="row mb-6">
-                    <label class="col-lg-4 col-form-label fw-semibold fs-6">Full Name</label>
+                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Full Name</label>
                     <div class="col-lg-8">
-                        <input class="form-control form-control-lg form-control-solid" name="s_fName" type="text" value="<?php echo $studentProfile->s_fName; ?>" />
+                        <input class="form-control form-control-lg form-control-solid" name="s_fName" type="text" readonly value="<?php echo $studentProfile->s_fName; ?>" style="background-color: #f0f0f0; color: #555;" />
                     </div>
                 </div>
 
                 <!-- s_telephone_no Section -->
                 <div class="row mb-6">
-                    <label class="col-lg-4 col-form-label fw-semibold fs-6">Telephone Number</label>
+                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Telephone Number</label>
                     <div class="col-lg-8">
-                        <input class="form-control form-control-lg form-control-solid" name="s_telephone_no" type="text" value="<?php echo $studentProfile->s_telephone_no; ?>" />
-                        <div class="form-text">Eg. 01116781234</div>
+                        <input class="form-control form-control-lg form-control-solid" name="s_telephone_no" type="text" pattern="[0-9]+" title="Please enter valid numeric numbers." required value="<?php echo $studentProfile->s_telephone_no; ?>" />
+                        <div class="form-text">Eg. 01234567891</div>
                     </div>
                 </div>
 
                 <!-- Address Section -->
                 <div class="row mb-6">
-                    <label class="col-lg-4 col-form-label fw-semibold fs-6">Address</label>
+                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Address</label>
                     <div class="col-lg-8">
-                        <textarea class="form-control form-control-solid" name="s_address" rows="3"><?php echo $studentProfile->s_address ?></textarea>
+                        <textarea class="form-control form-control-solid" name="s_address" rows="3" required><?php echo $studentProfile->s_address ?></textarea>
                     </div>
                 </div>
 
                 <!-- Institution of Higher Learning Section -->
                 <div class="row mb-6">
-                    <label class="col-lg-4 col-form-label fw-semibold fs-6">Institution</label>
+                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Institution</label>
                     <div class="col-lg-8">
-                        <select class="form-select form-select-solid form-select-lg" name="s_institution">
-                            <option value="UTM">UTM</option>
-                            <!-- Additional options here -->
-                        </select>
+                        <input class="form-control form-control-lg form-control-solid" name="s_institution" type="text" required value="<?php echo $studentProfile->s_institution; ?>" />
                     </div>
                 </div>
 
                 <!-- s_course Section -->
                 <div class="row mb-6">
-                    <label class="col-lg-4 col-form-label fw-semibold fs-6">Course</label>
+                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Course</label>
                     <div class="col-lg-8">
-                        <input class="form-control form-control-lg form-control-solid" name="s_course" type="text" value="<?php echo $studentProfile->s_course; ?>" />
+                        <input class="form-control form-control-lg form-control-solid" name="s_course" type="text" required value="<?php echo $studentProfile->s_course; ?>" />
                     </div>
                 </div>
 
@@ -460,7 +415,7 @@
                 <div class="row mb-6">
                     <label class="col-lg-4 col-form-label fw-semibold fs-6">Skills</label>
                     <div class="col-lg-8">
-                        <input class="form-control form-control-lg form-control-solid" name="s_skills" type="text" value="<?php echo $studentProfile->s_skills; ?>" />
+                        <textarea class="form-control form-control-lg form-control-solid" name="s_skills" rows="3"><?php echo $studentProfile->s_skills; ?></textarea>
                     </div>
                 </div>
 
@@ -468,7 +423,7 @@
                 <div class="row mb-6">
                     <label class="col-lg-4 col-form-label fw-semibold fs-6">Hobby</label>
                     <div class="col-lg-8">
-                        <input class="form-control form-control-lg form-control-solid" name="s_hobby" type="text" value="<?php echo $studentProfile->s_hobby; ?>" />
+                        <textarea class="form-control form-control-lg form-control-solid" name="s_hobby" rows="1"><?php echo $studentProfile->s_hobby; ?></textarea>
                     </div>
                 </div>
 
@@ -476,7 +431,7 @@
                 <div class="row mb-6">
                     <label class="col-lg-4 col-form-label fw-semibold fs-6">Achievement</label>
                     <div class="col-lg-8">
-                        <input class="form-control form-control-lg form-control-solid" name="s_achievement" type="text" value="<?php echo $studentProfile->s_achievement; ?>" />
+                        <textarea class="form-control form-control-lg form-control-solid" name="s_achievement" rows="3"><?php echo $studentProfile->s_achievement; ?></textarea>
                     </div>
                 </div>
 
@@ -484,9 +439,10 @@
                 <div class="row mb-6">
                     <label class="col-lg-4 col-form-label fw-semibold fs-6">Ambition</label>
                     <div class="col-lg-8">
-                        <input class="form-control form-control-lg form-control-solid" name="s_ambition" type="text" value="<?php echo $studentProfile->s_ambition; ?>" />
+                        <textarea class="form-control form-control-lg form-control-solid" name="s_ambition" rows="1"><?php echo $studentProfile->s_ambition; ?></textarea>
                     </div>
                 </div>
+
 
                 <!-- s_academic_cert Section -->
                 <!-- <div class="row mb-6">
@@ -498,7 +454,7 @@
             </div> -->
 
                 <!-- s_academic_cert Section -->
-                <div class="row mb-6">
+                <!-- <div class="row mb-6">
                     <label class="col-lg-4 col-form-label fw-semibold fs-6">Academic Certificate</label>
                     <div class="col-lg-8">
                         <div class="input-group">
@@ -506,88 +462,88 @@
                         </div>
                         <div class="form-text">Allowed file type: PDF.</div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- s_cocurriculum_cert Section -->
-                <div class="row mb-6">
+                <!-- <div class="row mb-6">
                     <label class="col-lg-4 col-form-label fw-semibold fs-6">Co-curriculum Certificate</label>
                     <div class="col-lg-8">
                         <input class="form-control form-control-lg form-control-solid" name="s_cocurriculum_cert" type="text" />
                         <div class="form-text">Allowed file types: pdf.</div>
-                    </div>
-                    <!-- Submit Button -->
-                </div>
-            </div>
+                    </div> -->
+                <!-- Submit Button -->
+                <!-- </div> -->
+                <!-- </div> -->
 
-            <!-- Submit Button -->
-            <div class="card-footer d-flex justify-content-end py-6 px-9">
-                <button type="reset" class="btn btn-light btn-active-light-primary me-2">Discard</button>
-                <input type="hidden" id="update_student" name="update_student" value="update_student"> <!-- Hidden value, modify if use same form for other roles //use if statement -->
-                <button type="submit" name="submit" class="btn btn-primary">Update</button>
-            </div>
-            </form>
-
-        </div>
-    </div>
-
-    <!--begin::Deactivate Account-->
-    <div class="card">
-        <!--begin::Card header-->
-        <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_deactivate" aria-expanded="true" aria-controls="kt_account_deactivate">
-            <div class="card-title m-0">
-                <h3 class="fw-bold m-0">Delete Account</h3>
-            </div>
-        </div>
-        <!--end::Card header-->
-        <!--begin::Content-->
-        <div id="kt_account_settings_deactivate" class="collapse show">
-            <!--begin::Form-->
-            <form id="kt_account_deactivate_form" class="form" method="post" action="<?php echo URLROOT; ?>/user/deleteAccount">
-                <!--begin::Card body-->
-                <div class="card-body border-top p-9">
-                    <!--begin::Notice-->
-                    <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed mb-9 p-6">
-                        <!--begin::Icon-->
-                        <i class="ki-duotone ki-information fs-2tx text-warning me-4">
-                            <span class="path1"></span>
-                            <span class="path2"></span>
-                            <span class="path3"></span>
-                        </i>
-                        <!--end::Icon-->
-                        <!--begin::Wrapper-->
-                        <div class="d-flex flex-stack flex-grow-1">
-                            <!--begin::Content-->
-                            <div class="fw-semibold">
-                                <h4 class="text-gray-900 fw-bold">You Are Deleting Your Account</h4>
-                                <div class="fs-6 text-gray-700">For extra security, this requires you to confirm your deletion.</div>
-                            </div>
-                            <!--end::Content-->
-                        </div>
-                        <!--end::Wrapper-->
-                    </div>
-                    <!--end::Notice-->
-                    <!--begin::Form input row-->
-                    <div class="form-check form-check-solid fv-row">
-                        <input name="confirm_deletion" class="form-check-input" type="checkbox" value="1" id="confirm_deletion" required />
-                        <label class="form-check-label fw-semibold ps-2 fs-6" for="confirm_deletion">I confirm my account deletion</label>
-                    </div>
-                    <!--end::Form input row-->
-                </div>
-                <!--end::Card body-->
-                <!--begin::Card footer-->
+                <!-- Submit Button -->
                 <div class="card-footer d-flex justify-content-end py-6 px-9">
-                    <button id="kt_account_deactivate_account_submit" type="submit" class="btn btn-danger fw-semibold">Delete Account</button>
+                    <button type="reset" class="btn btn-light btn-active-light-primary me-2">Discard</button>
+                    <input type="hidden" id="update_student" name="update_student" value="update_student"> <!-- Hidden value, modify if use same form for other roles //use if statement -->
+                    <button type="submit" name="submit" class="btn btn-primary">Update</button>
                 </div>
-                <!--end::Card footer-->
-            </form>
-            <!--end::Form-->
+                </form>
+
+            </div>
         </div>
-        <!--end::Content-->
+
+        <!--begin::Deactivate Account-->
+        <div class="card">
+            <!--begin::Card header-->
+            <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_deactivate" aria-expanded="true" aria-controls="kt_account_deactivate">
+                <div class="card-title m-0">
+                    <h3 class="fw-bold m-0">Delete Account</h3>
+                </div>
+            </div>
+            <!--end::Card header-->
+            <!--begin::Content-->
+            <div id="kt_account_settings_deactivate" class="collapse show">
+                <!--begin::Form-->
+                <form id="kt_account_deactivate_form" class="form" method="post" action="<?php echo URLROOT; ?>/user/deleteAccount">
+                    <!--begin::Card body-->
+                    <div class="card-body border-top p-9">
+                        <!--begin::Notice-->
+                        <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed mb-9 p-6">
+                            <!--begin::Icon-->
+                            <i class="ki-duotone ki-information fs-2tx text-warning me-4">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                                <span class="path3"></span>
+                            </i>
+                            <!--end::Icon-->
+                            <!--begin::Wrapper-->
+                            <div class="d-flex flex-stack flex-grow-1">
+                                <!--begin::Content-->
+                                <div class="fw-semibold">
+                                    <h4 class="text-gray-900 fw-bold">You Are Deleting Your Account</h4>
+                                    <div class="fs-6 text-gray-700">For extra security, this requires you to confirm your deletion.</div>
+                                </div>
+                                <!--end::Content-->
+                            </div>
+                            <!--end::Wrapper-->
+                        </div>
+                        <!--end::Notice-->
+                        <!--begin::Form input row-->
+                        <div class="form-check form-check-solid fv-row">
+                            <input name="confirm_deletion" class="form-check-input" type="checkbox" value="1" id="confirm_deletion" required />
+                            <label class="form-check-label fw-semibold ps-2 fs-6" for="confirm_deletion">I confirm my account deletion</label>
+                        </div>
+                        <!--end::Form input row-->
+                    </div>
+                    <!--end::Card body-->
+                    <!--begin::Card footer-->
+                    <div class="card-footer d-flex justify-content-end py-6 px-9">
+                        <button id="kt_account_deactivate_account_submit" type="submit" class="btn btn-danger fw-semibold">Delete Account</button>
+                    </div>
+                    <!--end::Card footer-->
+                </form>
+                <!--end::Form-->
+            </div>
+            <!--end::Content-->
+        </div>
+        <!--end::Deactivate Account-->
+
+        <!-- <div class="card-footer"> -->
+        <!-- Footer -->
+        <!-- </div> -->
+
     </div>
-    <!--end::Deactivate Account-->
-
-    <!-- <div class="card-footer"> -->
-    <!-- Footer -->
-    <!-- </div> --> 
-
-</div>

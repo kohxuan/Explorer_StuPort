@@ -78,7 +78,13 @@
                                     <i class="ki-duotone ki-geolocation fs-4 me-1">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
-                                    </i><?php echo $lecturerProfile->citystate . ", " . $lecturerProfile->country; ?></a>
+                                    </i><?php
+                                        if (!empty($lecturerProfile->citystate)) {
+                                            echo $lecturerProfile->citystate . ", " . $lecturerProfile->country;
+                                        } else {
+                                            echo $lecturerProfile->country;
+                                        }
+                                        ?></a>
                                 <a href="#" class="d-flex align-items-center text-gray-500 text-hover-primary mb-2">
                                     <i class="ki-duotone ki-sms fs-4">
                                         <span class="path1"></span>
@@ -134,52 +140,6 @@
                                     <!-- <div class="menu-item px-3">
                                                     <a href="#" class="menu-link px-3">Generate Bill</a>
                                                 </div> -->
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
-                                        <!-- <a href="#" class="menu-link px-3">
-                                                        <span class="menu-title">Subscription</span>
-                                                        <span class="menu-arrow"></span>
-                                                    </a> -->
-                                        <!--begin::Menu sub-->
-                                        <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3">Plans</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3">Billing</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3">Statements</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu separator-->
-                                            <div class="separator my-2"></div>
-                                            <!--end::Menu separator-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <div class="menu-content px-3">
-                                                    <!--begin::Switch-->
-                                                    <label class="form-check form-switch form-check-custom form-check-solid">
-                                                        <!--begin::Input-->
-                                                        <input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />
-                                                        <!--end::Input-->
-                                                        <!--end::Label-->
-                                                        <span class="form-check-label text-muted fs-6">Recuring</span>
-                                                        <!--end::Label-->
-                                                    </label>
-                                                    <!--end::Switch-->
-                                                </div>
-                                            </div>
-                                            <!--end::Menu item-->
-                                        </div>
-                                        <!--end::Menu sub-->
-                                    </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3 my-1">
@@ -283,15 +243,15 @@
                     <div class="row mb-6">
                         <label class="col-lg-4 col-form-label required fw-semibold fs-6">Email Address</label>
                         <div class="col-lg-8">
-                            <input class="form-control form-control-lg form-control-solid" name="l_email" type="text" readonly value="<?php echo $lecturerProfile->l_email; ?>" />
+                            <input class="form-control form-control-lg form-control-solid" name="l_email" type="text" readonly value="<?php echo $lecturerProfile->l_email; ?>" style="background-color: #f0f0f0; color: #555;"/>
                         </div>
                     </div>
 
                     <!-- Name Section -->
                     <div class="row mb-6">
-                        <label class="col-lg-4 col-form-label fw-semibold fs-6">Name</label>
+                        <label class="col-lg-4 col-form-label required fw-semibold fs-6">Name</label>
                         <div class="col-lg-8">
-                            <input class="form-control form-control-lg form-control-solid" name="l_fName" type="text" maxlength="255" value="<?php echo $lecturerProfile->l_fName; ?>" />
+                            <input class="form-control form-control-lg form-control-solid" name="l_fName" type="text" maxlength="255" readonly value="<?php echo $lecturerProfile->l_fName; ?>" style="background-color: #f0f0f0; color: #555;"/>
                         </div>
                     </div>
 
@@ -306,9 +266,9 @@
 
                     <!-- Gender Section -->
                     <div class="row mb-6">
-                        <label class="col-lg-4 col-form-label fw-semibold fs-6">Gender</label>
+                        <label class="col-lg-4 col-form-label required fw-semibold fs-6">Gender</label>
                         <div class="col-lg-8">
-                            <select class="form-select form-select-solid form-select-lg" name="l_gender">
+                            <select class="form-select form-select-solid form-select-lg" name="l_gender" required>
                                 <option value="<?php echo $lecturerProfile->l_gender ?>"><?php echo $lecturerProfile->l_gender ?></option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
@@ -318,9 +278,9 @@
 
                     <!-- Race Section -->
                     <div class="row mb-6">
-                        <label class="col-lg-4 col-form-label fw-semibold fs-6">Race</label>
+                        <label class="col-lg-4 col-form-label required fw-semibold fs-6">Race</label>
                         <div class="col-lg-8">
-                            <select class="form-select form-select-solid form-select-lg" name="l_race">
+                            <select class="form-select form-select-solid form-select-lg" name="l_race" required>
                                 <option value="<?php echo $lecturerProfile->l_race ?>"><?php echo $lecturerProfile->l_race ?></option>
                                 <option value="Malay">Malay</option>
                                 <option value="Chinese">Chinese</option>
@@ -333,11 +293,10 @@
 
                     <!-- Age Section -->
                     <div class="row mb-6">
-                        <label class="col-lg-4 col-form-label fw-semibold fs-6">Age</label>
+                        <label class="col-lg-4 col-form-label required fw-semibold fs-6">Age</label>
                         <div class="col-lg-8">
-                            <input class="form-control form-control-lg form-control-solid" name="l_age" type="number" maxlength="11" value="<?php echo $lecturerProfile->l_age; ?>" />
-                            <div class="form-text">Please enter numbers.</div>
-                            <div class="form-text">Eg. 30</div>
+                            <input class="form-control form-control-lg form-control-solid" name="l_age" type="text" pattern="[0-9]{2}" title="Please enter valid numeric numbers. [2 digits value]" required value="<?php echo $lecturerProfile->l_age; ?>" />
+                            <div class="form-text">Please enter valid numeric numbers.</div>
                         </div>
                     </div>
 
@@ -354,7 +313,7 @@
                     <div class="row mb-6">
                         <label class="col-lg-4 col-form-label required fw-semibold fs-6">Position</label>
                         <div class="col-lg-8">
-                            <input class="form-control form-control-lg form-control-solid" name="position" type="text" maxlength="50" readonly value="<?php echo $lecturerProfile->position; ?>" />
+                            <input class="form-control form-control-lg form-control-solid" name="position" type="text" maxlength="50" readonly value="<?php echo $lecturerProfile->position; ?>" style="background-color: #f0f0f0; color: #555;"/>
                         </div>
                     </div>
 
@@ -376,17 +335,17 @@
 
                     <!-- Country Section -->
                     <div class="row mb-6">
-                        <label class="col-lg-4 col-form-label fw-semibold fs-6">Country</label>
+                        <label class="col-lg-4 col-form-label required fw-semibold fs-6">Country</label>
                         <div class="col-lg-8">
-                            <input class="form-control form-control-lg form-control-solid" name="country" type="text" maxlength="50" value="<?php echo $lecturerProfile->country; ?>" />
+                            <input class="form-control form-control-lg form-control-solid" name="country" type="text" maxlength="50" required value="<?php echo $lecturerProfile->country; ?>" />
                         </div>
                     </div>
 
                     <!-- City/State Section -->
                     <div class="row mb-6">
-                        <label class="col-lg-4 col-form-label fw-semibold fs-6">City/State</label>
+                        <label class="col-lg-4 col-form-label required fw-semibold fs-6">City/State</label>
                         <div class="col-lg-8">
-                            <input class="form-control form-control-lg form-control-solid" name="citystate" type="text" maxlength="50" value="<?php echo $lecturerProfile->citystate; ?>" />
+                            <input class="form-control form-control-lg form-control-solid" name="citystate" type="text" maxlength="50" required value="<?php echo $lecturerProfile->citystate; ?>" />
                         </div>
                     </div>
 
@@ -413,34 +372,34 @@
                 <!-- Student Table -->
                 <!-- l_fName Section -->
                 <div class="row mb-6">
-                    <label class="col-lg-4 col-form-label fw-semibold fs-6">Full Name</label>
+                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Full Name</label>
                     <div class="col-lg-8">
-                        <input class="form-control form-control-lg form-control-solid" name="l_fName" type="text" value="<?php echo $lecturerProfile->l_fName; ?>" />
+                        <input class="form-control form-control-lg form-control-solid" name="l_fName" type="text" readonly value="<?php echo $lecturerProfile->l_fName; ?>" style="background-color: #f0f0f0; color: #555;"/>
                     </div>
                 </div>
 
-                <!-- l_telephone_no Section -->
+                <!-- s_telephone_no Section -->
                 <div class="row mb-6">
-                    <label class="col-lg-4 col-form-label fw-semibold fs-6">Telephone Number</label>
+                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Telephone Number</label>
                     <div class="col-lg-8">
-                        <input class="form-control form-control-lg form-control-solid" name="l_telephone_no" type="text" value="<?php echo $lecturerProfile->l_telephone_no; ?>" />
-                        <div class="form-text">Eg. 01116781234</div>
+                        <input class="form-control form-control-lg form-control-solid" name="l_telephone_no" type="text" pattern="[0-9]+" title="Please enter valid numeric numbers." required value="<?php echo $lecturerProfile->l_telephone_no; ?>" />
+                        <div class="form-text">Eg. 01234567891</div>
                     </div>
                 </div>
 
                 <!-- Address Section -->
                 <div class="row mb-6">
-                    <label class="col-lg-4 col-form-label fw-semibold fs-6">Address</label>
+                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Address</label>
                     <div class="col-lg-8">
-                        <textarea class="form-control form-control-solid" name="l_address" rows="3"><?php echo $lecturerProfile->l_address ?></textarea>
+                        <textarea class="form-control form-control-solid" name="l_address" rows="3" required><?php echo $lecturerProfile->l_address ?></textarea>
                     </div>
                 </div>
 
                 <!-- Institution of Higher Learning Section -->
                 <div class="row mb-6">
-                    <label class="col-lg-4 col-form-label fw-semibold fs-6">Institution</label>
+                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">Institution</label>
                     <div class="col-lg-8">
-                        <input class="form-control form-control-lg form-control-solid" name="l_institution" type="text" maxlength="255" value="<?php echo $lecturerProfile->l_institution; ?>" />
+                        <input class="form-control form-control-lg form-control-solid" name="l_institution" type="text" maxlength="255" required value="<?php echo $lecturerProfile->l_institution; ?>" />
                     </div>
                 </div>
             </div>
