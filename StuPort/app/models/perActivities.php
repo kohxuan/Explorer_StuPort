@@ -102,7 +102,6 @@ public function assignperActivity($data)
 public function lecturerList()
 {
     $this->db->query('SELECT * FROM lecturer');
-
     $result = $this->db->resultSet();
 
     return $result;

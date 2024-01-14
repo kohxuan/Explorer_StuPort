@@ -228,11 +228,11 @@ class User {
     // }
     
 
-    public function login($username, $password) {
-        $this->db->query('SELECT * FROM user WHERE username = :username');
+    public function login($email, $password) {
+        $this->db->query('SELECT * FROM user WHERE email = :email');
 
         //Bind value
-        $this->db->bind(':username', $username);
+        $this->db->bind(':email', $email);
 
         $row = $this->db->single();
 
@@ -262,4 +262,27 @@ class User {
             return false;
         }
     }
+
+    public function storePasswordResetToken($email, $token) {
+        $this->db->query('INSERT INTO password_reset (email, token, created_at) VALUES(:email, :token, NOW())');
+        $this->db->bind(':email', $email);
+        $this->db->bind(':token', $token);
+        $this->db->execute();
+    }
+
+    public function validatePasswordResetToken($token) {
+        $this->db->query('SELECT email FROM password_reset WHERE token = :token AND created_at > DATE_SUB(NOW(), INTERVAL 1 HOUR)');
+        $this->db->bind(':token', $token);
+        $row = $this->db->single();
+
+        return $row ? $row->email : null;
+    }
+
+    public function updatePassword($email, $hashedPassword) {
+        $this->db->query('UPDATE user SET password = :password WHERE email = :email');
+        $this->db->bind(':password', $hashedPassword);
+        $this->db->bind(':email', $email);
+        $this->db->execute();
+    }
+
 }

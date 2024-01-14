@@ -72,11 +72,11 @@
                             <!--begin::Input group=-->
                             <div class="fv-row mb-8">
                                 <!--begin::Email-->
-                                <input type="text" placeholder="username" name="username" autocomplete="off" class="form-control bg-transparent" />
+                                <input type="text" placeholder="Email" name="email" autocomplete="off" class="form-control bg-transparent" />
                                 <!--end::Email-->
 
-                                <?php if ($data['usernameError'] != "") { ?>
-                                    <span class="badge badge-danger"><?php echo $data['usernameError']; ?></span>
+                                <?php if ($data['emailError'] != "") { ?>
+                                    <span class="badge badge-danger"><?php echo $data['emailError']; ?></span>
                                 <?php } ?>
 
                             </div>

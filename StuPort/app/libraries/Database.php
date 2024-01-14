@@ -1,5 +1,6 @@
 <?php
     class Database {
+       
         private $dbHost = DB_HOST;
         private $dbUser = DB_USER;
         private $dbPass = DB_PASS;
@@ -68,4 +69,6 @@
         public function rowCount() {
             return $this->statement->rowCount();
         }
+
+        
     }
