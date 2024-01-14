@@ -25,7 +25,6 @@
                         <th>Attachment</th>
                         <th>Action</th>
                         <th>Feedback given</th>
-                        <th>Comment</th>
                     </tr>
                 </thead>
                 <tbody>
