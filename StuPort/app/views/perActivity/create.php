@@ -3,7 +3,7 @@
         <h3 class="card-title">Create Personal Activity</h3>
         <div class="card-toolbar">
             <?php if(isLoggedIn()): ?>
-            <a href="<?php echo URLROOT;?>/posts" class="btn btn-light-primary">Manage Personal Activity</a>
+            <a href="<?php echo URLROOT;?>/peractivity" class="btn btn-light-primary">Manage Personal Activity</a>
             <?php endif; ?>
         </div>
     </div>
