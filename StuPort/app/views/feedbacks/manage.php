@@ -13,7 +13,7 @@
             <table id="kt_datatable_posts" class="table table-row-bordered gy-5">
                 <thead>
                     <tr class="fw-semibold fs-6 text-muted">
-                        <th>Activity</th>
+                        <th>Activity Code No</th>
                         <th>Feedback Form Link</th>
                         <th>Action</th>
                     </tr>
@@ -53,7 +53,7 @@
                                             <div class="modal-footer">
                                                 <form action="<?php echo URLROOT . "/feedbacks/delete/" . $feedback->feedback_id; ?>"
                                                     method="POST">
-                                                    <!--<input type="hidden" id="expenses" name="expenses" value="expenses">-->
+                                                    <input type="hidden" id="activity_id" name="activity_id" value="<?php echo $feedback->activity_id; ?>">
                                                     <button type="button" class="btn btn-light-primary font-weight-bold"
                                                         data-dismiss="modal">Back</button>
                                                     <button type="submit"

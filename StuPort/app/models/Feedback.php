@@ -62,10 +62,16 @@ class Feedback {
         }
     }
 
-    public function deleteFeedback($feedback_id){
-        $this->db->query('DELETE FROM feedbacks WHERE feedback_id = :feedback_id;');
+    public function deleteFeedback($feedback_id, $data){
+        $this->db->query('DELETE FROM feedbacks WHERE feedback_id = :feedback_id;
+        
+        UPDATE activity SET link_form = :link_form WHERE activity_id = :activity_id');
+
+        $link_form = NULL;
 
         $this->db->bind(':feedback_id', $feedback_id);
+        $this->db->bind(':activity_id', $data['activity_id']);
+        $this->db->bind(':link_form', $link_form);
 
         if ($this->db->execute())
         {

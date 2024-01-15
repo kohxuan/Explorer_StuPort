@@ -103,10 +103,16 @@ class Feedbacks extends Controller {
     {
         $feedback = $this->feedbackModel->findFeedbackById($feedback_id);
 
+        $data = 
+        [
+            'activity_id' => $_POST['activity_id']
+        ];
+
+
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-            if($this->feedbackModel->deleteFeedback($feedback_id)){
+            if($this->feedbackModel->deleteFeedback($feedback_id, $data)){
             header("Location: " . URLROOT . "/feedbacks");
             }
             else
