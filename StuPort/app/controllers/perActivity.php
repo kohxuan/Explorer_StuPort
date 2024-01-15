@@ -3,11 +3,11 @@
 
 <?php
 
-class perActivity extends Controller
+class PerActivity extends Controller
 {
     public function __construct()
     {
-        $this->peractivityModel = $this->model('perActivities'); //model name
+        $this->peractivityModel = $this->model('PerActivities'); //model name
         $this->activityModel = $this->model('Activity'); //model name
     }
 
@@ -55,26 +55,18 @@ public function create()
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
               // Handle file upload
-    $uploadDir = 'uploads/';
-    $evidenceFile = $_FILES['evidence'];
-
-    if (!empty($evidenceFile['name'])) {
-        $allowedExtensions = ['pdf', 'docx', 'jpg', 'jpeg', 'png', 'gif'];
-
-        $fileExtension = strtolower(pathinfo($evidenceFile['name'], PATHINFO_EXTENSION));
-
-        if (in_array($fileExtension, $allowedExtensions)) {
-            $uploadPath = $uploadDir . uniqid() . '.' . $fileExtension;
-
-            if (move_uploaded_file($evidenceFile['tmp_name'], $uploadPath)) {
-                $data['evidence'] = $uploadPath;
-            } else {
-                die("File upload failed");
+              if (!empty($_FILES['evidence']['name'])){            
+                $file_name=$_FILES['evidence']['name'];
+                $file_temp=$_FILES['evidence']['tmp_name'];
+                $file_destination= 'uploads/'.$file_name;
+    
+                if(move_uploaded_file($file_temp, $file_destination)){
+                    $data['evidence']=$file_destination;
+                }
+                else{
+                    echo "File upload failed!";
+                }
             }
-        } else {
-            die("Invalid file type");
-        }
-    }
 
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
