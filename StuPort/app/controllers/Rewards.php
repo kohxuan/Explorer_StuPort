@@ -115,8 +115,12 @@ class Rewards extends Controller
         $reward = $this->rewardModel->findRewardById($reward_id);
 
         if (!isLoggedIn()) {
-            header("Location: " . URLROOT . "/rewards/index");
+            header("Location: " . URLROOT . "/rewards");
+            exit;
         }
+        
+       
+
 
         $data = [
             'reward' => $reward,
@@ -189,14 +193,16 @@ class Rewards extends Controller
                     'points_required' => trim($_POST['points_required']),
                     'badge_icon_path' => $location
                 ];
-
+            
             if ($this->rewardModel->updateReward($data)) {
                 header("Location: " . URLROOT . "/rewards");
             } else {
                 die("Something went wrong :(");
+                
             }
-        }
+           
 
+        }
         $this->view('rewards/update', $data);
     }
 
