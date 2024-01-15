@@ -3,11 +3,11 @@
 
 <?php
 
-class PerActivity extends Controller
+class Peractivity extends Controller
 {
     public function __construct()
     {
-        $this->peractivityModel = $this->model('PerActivities'); //model name
+        $this->peractivityModel = $this->model('Peractivities'); //model name
         $this->activityModel = $this->model('Activity'); //model name
     }
 
@@ -54,8 +54,7 @@ public function create()
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-              // Handle file upload
-              if (!empty($_FILES['evidence']['name'])){            
+            if (!empty($_FILES['evidence']['name'])){            
                 $file_name=$_FILES['evidence']['name'];
                 $file_temp=$_FILES['evidence']['tmp_name'];
                 $file_destination= 'uploads/'.$file_name;
@@ -78,7 +77,7 @@ public function create()
             'date' => trim($_POST['date']),
             'venue' => trim($_POST['venue']),
             'description' => trim($_POST['description']),
-            'evidence' => trim($_POST['evidence'])
+            'evidence' => $data['evidence']
             ];
 
 
@@ -286,49 +285,61 @@ public function create()
     // }
    
     public function assign($pac_id)
-    {
-        if (!isLoggedIn()) {
-            header("Location: " . URLROOT . "/peractivity");
-            exit; // Added exit to stop further execution
-        }
-    
-        $perActivities = $this->peractivityModel->findperActivityById($pac_id);
-    
-        if (!$perActivities) {
-            header("Location: " . URLROOT . "/peractivity");
-            exit; // Added exit to stop further execution
-        }
-    
-        $data = [
-            'perActivity' => $perActivities,
-            'l_id' => '',
-            'pac_id' => $pac_id,
-        ];
-    
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-    
-            $data['l_id'] = trim($_POST['l_id']);
-    
-            if ($data['l_id']) {
-                $this->peractivityModel->assignperActivity($data);
-                header("Location: " . URLROOT . "/peractivity");
-                exit;
-            } else {
-                $this->view('peractivity/index', $data);
-            }
-        }
-    
-        // Retrieve lecturer list
-        $lc_list = $this->peractivityModel->lecturerList();
-    
-        $data_2 = [
-            'lc_list' => $lc_list
-        ];
-    
-        $this->view('peractivity/index', $data, $data_2);
+{
+    if (!isLoggedIn()) {
+        redirectToPeractivity();
     }
-    
+
+    $perActivities = $this->peractivityModel->findperActivityById($pac_id);
+
+    if (!$perActivities) {
+        redirectToPeractivity();
+    }
+
+    $data = [
+        'perActivity' => $perActivities,
+        'l_id' => '',
+        'pac_id' => $pac_id,
+    ];
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        handlePostRequest($data);
+    }
+
+    // Retrieve lecturer list
+    $lc_list = $this->peractivityModel->lecturerList();
+
+    $data_2 = [
+        'lc_list' => $lc_list
+    ];
+
+    $this->view('peractivity/index', $data, $data_2);
+}
+
+// Helper function for consistent redirection
+function redirectToPeractivity()
+{
+    header("Location: " . URLROOT . "/peractivity");
+    exit;
+}
+
+// Handle POST request logic
+function handlePostRequest(&$data)
+{
+    $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+    $data['l_id'] = trim($_POST['l_id']);
+
+    if ($data['l_id']) {
+        $this->peractivityModel->assignperActivity($data);
+        redirectToPeractivity();
+    } else {
+        $this->view('peractivity/index', $data);
+    }
+}
+
+
+
 
 public function approve($pac_id)
 {
