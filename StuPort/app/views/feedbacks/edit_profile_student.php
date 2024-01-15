@@ -72,9 +72,11 @@
                             }
                         ?>
                         <!-- Display the badge image next to the profile image -->
-                        <img src="<?php echo URLROOT . $badgePath; ?>" alt="Rewards Badge" style="position: absolute; bottom: -15px; right: 10px; width: 50px; height: 50px;" />
+                        <img src="<?php echo URLROOT . $badgePath; ?>" alt="Rewards Badge" style="position: absolute; top: 50%; left: 100%; transform: translate(-50%, -50%); width: 70px; height: 70px;" />
                         
-                       
+                        <!-- Online Indicator -->
+                        <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-body h-20px w-20px"></div>
+                    </div>
                 </div>
 
 

@@ -54,6 +54,8 @@
                             </div>
                             <!--end::Pic-->
 
+                            
+
                             <!--begin::Info-->
                             <div class="flex-grow-1">
                                 <!--begin::Title-->
