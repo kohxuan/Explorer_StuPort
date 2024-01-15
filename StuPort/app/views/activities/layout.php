@@ -28,8 +28,8 @@
                     $t_url = URLROOT . "/activities/create"; 
                     $w_url = URLROOT . "/activities/particip";
 
-                    if (isset($data['activities']) && is_object($data['activities'])) {
-                    $u_url = URLROOT . "/activities/update/".$data['activities']->activity_id; //Update must have id // Dynamic URL (id from database) 
+                    if (isset($data['activity']) && is_object($data['activity'])) {
+                    $u_url = URLROOT . "/activities/update/".$data['activity']->activity_id; //Update must have id // Dynamic URL (id from database) 
                     }
                     // echo $url."<br>".$u_url;
 
