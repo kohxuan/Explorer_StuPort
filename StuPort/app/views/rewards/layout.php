@@ -26,10 +26,10 @@
                     $t_url = URLROOT . "/rewards/create";
                     //$v_url = URLROOT . "/rewards/viewRewards";
 
-                    if (isset($data['rewards']) && is_object($data['rewards'])) {
-                        $u_url = URLROOT . "/rewards/update/".$data['rewards']->badge_name; 
+                    if (isset($data['reward']) && is_object($data['reward'])) {
+                        $u_url = URLROOT . "/rewards/update/".$data['reward']->reward_id;
                     }
-
+                        
                     //error_reporting(0);
                     if ($url == $c_url) {
         

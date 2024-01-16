@@ -44,12 +44,12 @@ class Reward
    public function updateReward($data)
     {
         $this->db->query('UPDATE reward SET badge_name = :badge_name, badge_description = :badge_description, badge_icon_path = :badge_icon_path, points_required = :points_required WHERE reward_id = :reward_id');
-
-        $this->db->bind(':reward_id', $data['reward_id']);
         $this->db->bind(':badge_name', $data['badge_name']);
         $this->db->bind(':badge_description', $data['badge_description']);
         $this->db->bind(':badge_icon_path', $data['badge_icon_path']);
         $this->db->bind(':points_required', $data['points_required']);
+        $this->db->bind(':reward_id', $data['reward']->reward_id);
+
  
         if ($this->db->execute()) {
             return true;
