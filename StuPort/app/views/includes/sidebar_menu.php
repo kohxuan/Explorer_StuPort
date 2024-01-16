@@ -21,15 +21,28 @@
         animation: gradientMotion 5s infinite;
     }
 
+	#kt_app_sidebar_menu_wrapper {
+        background: #your_desired_color; /* Set your desired background color */
+    }
+
+    #kt_app_sidebar_menu_wrapper::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        background: linear-gradient(to left, #FCBD32, #183D64, #7C1C2B);
+        background-size: 200% 100%;
+        animation: gradientMotion 5s infinite;
+    }
+
 </style>
 
 
-
-
-
-
 	<!--begin::Menu wrapper-->
-	<div id="kt_app_sidebar_menu_wrapper" class="app-sidebar-wrapper" style>
+	<div id="kt_app_sidebar_menu_wrapper" class="app-sidebar-wrapper" style="">
 		<!--begin::Scroll wrapper-->
 		<div id="kt_app_sidebar_menu_scroll" class="scroll-y my-5 mx-3" data-kt-scroll="true" data-kt-scroll-activate="true" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_app_sidebar_logo, #kt_app_sidebar_footer" data-kt-scroll-wrappers="#kt_app_sidebar_menu" data-kt-scroll-offset="5px" data-kt-scroll-save-state="true">
 			<!--begin::Menu-->

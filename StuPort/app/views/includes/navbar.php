@@ -1,14 +1,21 @@
+<style>
+	#kt_app_sidebar_footer a.btn {
+        font-family: "Times New Roman", Times, serif; /* Set the font family to Times New Roman, Times, serif */
+        font-size: 14px; /* Set the font size as needed */
+        padding: 7px 10px; /* Set the padding as needed */
+        margin-right: 20px; /* Set the right margin as needed */
+    }
+</style>
+
 <div class="app-navbar flex-shrink-0">
-	<!--begin::Search-->
-
-
-
 	<!--begin::Activities-->
 	<div class="app-navbar-item ms-1 ms-md-4">
 		<!-- <input class="form-control me-2" type="search" placeholder="Search...." aria-label="Search" style="font-size: 14px; padding: 7px 10px; margin-right: 20px;"> btn btn-sm btn-primary align-self-center -->
 		<!-- <button class="btn btn-outline-success" type="submit" style="font-size: 14px; padding: 7px 10px; margin-right: 20px;">Search</button> -->
 		<!--begin::Button-->
-		<a href="<?php echo URLROOT; ?>/pages/index" class="btn btn-light-primary" style="font-size: 14px; padding: 7px 10px; margin-right: 20px;">Homepage</a>
+		<a href="<?php echo URLROOT; ?>/pages/index" class="btn btn-light-info" style="font-size: 14px; padding: 7px 10px; margin-right: 20px;">
+			<i class="fas fa-home" style="margin-right: 5px;"></i> Homepage
+		</a>
 		<!--end::Button-->
 
 	</div>
