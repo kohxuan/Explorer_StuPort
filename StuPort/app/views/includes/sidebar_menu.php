@@ -1,7 +1,35 @@
 
 <div class="app-sidebar-menu overflow-hidden flex-column-fluid">
+
+<style>
+    @keyframes gradientMotion {
+        0% {
+            background-position: 90% 50%;
+        }
+        50% {
+            background-position: 30% 50%;
+        }
+        100% {
+            background-position: 90% 50%;
+        }
+    }
+
+    .app-sidebar-menu {
+		background-color: #your_desired_color;
+        background: linear-gradient(to left , #FCBD32, #183D64, #7C1C2B);
+        background-size: 200% 100%;
+        animation: gradientMotion 5s infinite;
+    }
+
+</style>
+
+
+
+
+
+
 	<!--begin::Menu wrapper-->
-	<div id="kt_app_sidebar_menu_wrapper" class="app-sidebar-wrapper">
+	<div id="kt_app_sidebar_menu_wrapper" class="app-sidebar-wrapper" style>
 		<!--begin::Scroll wrapper-->
 		<div id="kt_app_sidebar_menu_scroll" class="scroll-y my-5 mx-3" data-kt-scroll="true" data-kt-scroll-activate="true" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_app_sidebar_logo, #kt_app_sidebar_footer" data-kt-scroll-wrappers="#kt_app_sidebar_menu" data-kt-scroll-offset="5px" data-kt-scroll-save-state="true">
 			<!--begin::Menu-->
@@ -181,7 +209,7 @@
 							<!--begin:Menu item-->
 							<div class="menu-item">
 								<!--begin:Menu link-->
-								<a class="menu-link" href="<?php echo URLROOT; ?>/pages/edit_profile">
+								<a class="menu-link" href="<?php echo URLROOT; ?>/badges">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>

@@ -7,6 +7,55 @@
 
 
     <div class="card-body">
+
+    <style>
+/* Common table styles for both tables */
+/* Common table styles for both tables */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 20px;
+    border: 20px solid #dcdcdc; /* Border style for both tables */
+    text-align: left;
+}
+
+.table th {
+    background-color: #183D64; /* Blue */
+    color: #ffffff;
+}
+
+/* Style for the first table (Administrator and Master Administrator) */
+.card-header {
+    background-color: #FCBD32; /* Yellow */
+    color: white;
+}
+
+.btn-light-primary {
+    background-color: #183D64 !important; /* Blue */
+    color: white !important;
+}
+
+/* Style for the second table (Student) */
+.card-header {
+    background-color: #7C1C2B; /* Red */
+    color: white;
+}
+
+.btn-light-warning {
+    background-color: #7C1C2B !important; /* Red */
+    color: white !important;
+}
+
+.btn-success[disabled] {
+    background-color: #FCBD32 !important; /* Yellow */
+    color: white !important;
+}
+
+
+    </style>
         <div class="table-responsive">
             <table id="kt_datatable_posts" class="table table-row-bordered gy-5">
                 <thead>

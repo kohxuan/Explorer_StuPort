@@ -1,15 +1,17 @@
-<div class="card shadow-sm">
-    <div class="card-header">
-        <h3 class="card-title">Create Personal Activity</h3>
+<div class="card shadow-sm"style="border-color: #183D64;">
+    <div class="card-header"style="background-color: #183D64; color: white;">
+        <h3 class="card-title"style="color: white;font-family: 'Your Special Font', gagalin;font-size: 2em;">Create Personal Activity</h3>
         <div class="card-toolbar">
             <?php if(isLoggedIn()): ?>
-            <a href="<?php echo URLROOT;?>/peractivity" class="btn btn-light-primary">Manage Personal Activity</a>
+            <a href="<?php echo URLROOT;?>/peractivity" class="btn btn-light-primary"style="background-color: #FCBD32; color: white;">Manage Personal Activity</a>
             <?php endif; ?>
         </div>
     </div>
     <div class="card-body">
 
+<style>
 
+</style>
     <form action="<?php echo URLROOT; ?>/peractivity/create" method="POST"  enctype="multipart/form-data">
             <div class="mb-10">
                 <label for="exampleFormControlInput1" class="required form-label">Name of Personal Activity</label>
@@ -51,7 +53,7 @@
 
 
 
-            <button type="submit" class="btn btn-primary font-weight-bold">Submit</button>
+            <button type="submit" class="btn btn-primary font-weight-bold"style="background-color:#183D64; color: white;">Submit</button>
 
         </form>
 
