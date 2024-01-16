@@ -586,7 +586,7 @@
 <!--begin::Footer-->
 <div class="app-sidebar-footer flex-column-auto pt-2 pb-6 px-6" id="kt_app_sidebar_footer">
 	<a href="https://www.youthventures.asia/our-story/" class="btn btn-flex flex-center btn-custom btn-primary overflow-hidden text-nowrap px-0 h-40px w-100" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click" title="200+ in-house components and 3rd-party plugins" target="blank">
-		<span class="btn-label">About Us</span>
+		<span class="btn-label" style="font-family: sans-serif;">About Us</span>
 		<i class="ki-duotone ki-document btn-icon fs-2 m-0">
 			<span class="path1"></span>
 			<span class="path2"></span>
