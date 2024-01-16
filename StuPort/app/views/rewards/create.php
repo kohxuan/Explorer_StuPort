@@ -1,9 +1,9 @@
-<div class="card shadow-sm">
-    <div class="card-header">
-        <h3 class="card-title">Create Rewards</h3>
+<div class="card shadow-sm" style="border-color: #183D64;" >
+    <div class="card-header" style="background-color: #183D64; color: white;">
+        <h3 class="card-title" style="color: white;font-family: 'Your Special Font', gagalin;font-size: 2em;">Create Rewards</h3>
         <div class="card-toolbar">
             <?php if(isLoggedIn()): ?>
-            <a href="<?php echo URLROOT;?>/rewards" class="btn btn-light-primary">Manage Rewards</a>
+            <a href="<?php echo URLROOT;?>/rewards" class="btn btn-light-primary" style="background-color: #FCBD32; color: white;">Manage Rewards</a>
             <?php endif; ?>
         </div>
     </div>
@@ -62,7 +62,7 @@
 
             <!-- Submit Button -->
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" style="background-color: #183D64;">Submit</button>
             </div>
         </form>
     </div>
