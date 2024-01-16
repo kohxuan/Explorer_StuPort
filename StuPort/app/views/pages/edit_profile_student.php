@@ -72,7 +72,7 @@
                             }
                         ?>
                         <!-- Display the badge image next to the profile image -->
-                        <img src="<?php echo URLROOT . $badgePath; ?>" alt="Rewards Badge" style="position: absolute; bottom: -15px; right: 10px; width: 50px; height: 50px;" />
+                        <img src="<?php echo URLROOT . $badgePath; ?>" alt="Rewards Badge" style="position: absolute; bottom: -15px; right: 10px; width: 40px; height: 40px;" />
                         
                        
                 </div>
