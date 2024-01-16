@@ -222,7 +222,7 @@ class Activities extends Controller
         // Perform the join operation
         if ($this->activityModel->joinActivity($activity_id, $_SESSION['user_id'])) {
             echo '<script>alert("You have successfully joined the activity.")</script>';
-            echo '<script>window.location.href = "http://localhost/explorer/StuPort/activity/";</script>';
+            echo '<script>window.location.href = "http://localhost/explorer/StuPort/activities";</script>';
         } else {
             die("Something went wrong :(");
         }

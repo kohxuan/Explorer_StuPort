@@ -126,9 +126,9 @@ class Activity
         $participant_id = $max_participant_id + 1;
     
         // Insert the participant into the activity_participants table
-        $this->db->query('INSERT INTO activity_participant (participant_id, activity_id, s_id, s_fName, s_email, s_gender, s_institution, s_address) VALUES (:participant_id, :activity_id, :s_id, :s_fName, :s_email, :s_gender, :s_institution, :s_address)');
+        $this->db->query('INSERT INTO activity_participant ( activity_id, s_id, s_fName, s_email, s_gender, s_institution, s_address) VALUES ( :activity_id, :s_id, :s_fName, :s_email, :s_gender, :s_institution, :s_address)');
     
-        $this->db->bind(':participant_id', $participant_id);
+       
         $this->db->bind(':activity_id', $activity_id);
         $this->db->bind(':s_id', $s_id);
         $this->db->bind(':s_fName', $s_fName);

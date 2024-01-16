@@ -144,9 +144,9 @@
 <?php endif; ?>
 
 <?php if ($_SESSION['user_role'] == 'Student') : ?>
-<div class="card shadow-sm">
-    <div class="card-header">
-        <h3 class="card-title">Activities</h3>
+<div class="card shadow-sm"style="border-color: #FCBD32;">
+    <div class="card-header" style="background-color: #FCBD32; color: white;">
+        <h3 class="card-title"style="color: white;font-family: 'Your Special Font', gagalin;font-size: 2em;">Activities</h3>
         <div class="card-toolbar">
             <?php if (isLoggedIn()): ?>
                 <!-- Need to change later -->

@@ -13,7 +13,7 @@
         <div class="mb-10">
     <label for="lecturer">Lecturer:</label>
     <select class="form-control selectpicker" id="lecturer" name="l_id" data-live-search="true" required>
-        <?php foreach ($data_2['lc_list'] as $row): ?>
+        <?php foreach ($data['lc_list'] as $row): ?>
             <option value="<?php echo $row->l_id; ?>">
                 <?php echo $row->l_fName; ?> [<?php echo $row->l_id; ?>]
             </option>

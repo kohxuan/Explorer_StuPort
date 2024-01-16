@@ -146,7 +146,7 @@ public function getStudentFullName($s_id)
 
     $row = $this->db->single();
 
-    return $row ? $row->st_fullname : ''; // Return the full name if it exists, otherwise an empty string
+    return $row ? $row->s_fName : ''; // Return the full name if it exists, otherwise an empty string
 }
 
 public function getLecturerFullName($l_id)

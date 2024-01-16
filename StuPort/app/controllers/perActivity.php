@@ -291,6 +291,7 @@ public function create()
     }
 
     $perActivities = $this->peractivityModel->findperActivityById($pac_id);
+    $lc_list = $this->peractivityModel->lecturerList();
 
     if (!$perActivities) {
         redirectToPeractivity();
@@ -300,20 +301,26 @@ public function create()
         'perActivity' => $perActivities,
         'l_id' => '',
         'pac_id' => $pac_id,
-    ];
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        handlePostRequest($data);
-    }
-
-    // Retrieve lecturer list
-    $lc_list = $this->peractivityModel->lecturerList();
-
-    $data_2 = [
         'lc_list' => $lc_list
     ];
 
-    $this->view('peractivity/index', $data, $data_2);
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        $data = [
+            'perActivity' => $perActivities,
+            'l_id' => trim($_POST['l_id']),
+            'pac_id' => $pac_id,
+            'lc_list' => $lc_list
+        ];
+
+      if($this->peractivityModel->assignperActivity($data)){
+        header("Location: " . URLROOT . "/peractivity");
+      }else{
+        header("Location: " . URLROOT . "/peractivity");
+      }
+    }
+
+    $this->view('peractivity/index', $data);
 }
 
 // Helper function for consistent redirection
