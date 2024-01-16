@@ -85,3 +85,59 @@
 </div>
 <?php endif; ?>
 
+<?php if ($_SESSION['user_role'] == 'Student') : ?>
+    
+    <div class="card-header">
+        <h3 class="card-title">List of Rewards</h3>
+        <!-- Check whether logged in or not -->
+
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="kt_datatable_posts" class="table table-row-bordered gy-5">
+                <thead>
+                    <tr class="fw-semibold fs-6 text-muted">
+                        <th>Badge Icon</th>
+                        <th>Badge Name</th>
+                        <th> Badge Description</th>
+                        <th>Activities Joined</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($data['rewards'] as $reward): ?>
+                        <tr>
+                        <td>
+                            <?php $badge_name_lowercase = strtolower($reward->badge_name); ?>
+                            <?php if ($badge_name_lowercase === 'gold'): ?>
+                                <img src="<?php echo URLROOT . "/public/images/rewards/2.png" ?>" alt="Gold Badge" style="width: 150px; height: 150px;">
+                            <?php elseif ($badge_name_lowercase === 'silver'): ?>
+                                <img src="<?php echo URLROOT . "/public/images/rewards/1.png" ?>" alt="Silver Badge" style="width: 150px; height: 150px;">
+                            <?php elseif ($badge_name_lowercase === 'bronze'): ?>
+                                <img src="<?php echo URLROOT . "/public/images/rewards/3.png" ?>" alt="Bronze Badge" style="width: 150px; height: 150px;">
+                            <?php elseif ($badge_name_lowercase === 'diamond'): ?>
+                                <img src="<?php echo URLROOT . "/public/images/rewards/4.png" ?>" alt="Diamond Badge" style="width: 150px; height: 150px;">
+                            <?php else: ?>
+                                <!-- Default image if badge_name doesn't match any of the above -->
+                            <?php endif; ?>
+                        </td>
+
+                            <td><?php echo $reward->badge_name; ?></td>
+                            <td><?php echo $reward->badge_description; ?></td>
+                            <td><?php echo $reward->points_required; ?></td>
+                            
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                var table = $('#kt_datatable_posts').DataTable({});
+            });
+        </script>
+    </div>
+</div>
+<?php endif; ?>
+
+
