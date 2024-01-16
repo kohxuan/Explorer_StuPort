@@ -110,7 +110,7 @@ if ($peractivities->evidence != null) {
                 <a href="<?php echo URLROOT . "/peractivity/update/" . $peractivities->pac_id ?>"
                     class="btn btn-light-warning">Update</a>
                 <a href="<?php echo URLROOT . "/peractivity/assign/" . $peractivities->pac_id ?>"
-                    class="btn btn-light-primary">Assign To</a>
+                    class="btn btn-light-primary">Assign</a>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                     data-bs-target="#kt<?php echo $peractivities->pac_id?>">
                     Delete

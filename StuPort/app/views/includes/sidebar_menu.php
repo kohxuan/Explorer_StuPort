@@ -1,4 +1,3 @@
-
 <div class="app-sidebar-menu overflow-hidden flex-column-fluid">
 
 <style>
@@ -357,37 +356,6 @@
 							</div>
 						</div>
 				</div>
-				
-				<!--begin:Menu item-->
-				<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-						<!--begin:Menu link-->
-						<span class="menu-link">
-							<span class="menu-icon">
-								<i class="fas fa-user-plus">
-									<span class="path1"></span>
-									<span class="path2"></span>
-								</i>
-							</span>
-							<span class="menu-title">Registration Options</span>
-							<span class="menu-arrow"></span>
-						</span>
-						<!--end:Menu link-->
-						<!--begin:Menu sub-->
-						<div class="menu-sub menu-sub-accordion">
-							<!--begin:Menu item-->
-							<div class="menu-item">
-								<!--begin:Menu link-->
-								<a class="menu-link" href="<?php echo URLROOT; ?>/activities/particip">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Student Registered Activity List</span>
-								</a>
-								<!--end:Menu link-->
-							</div>
-						</div>
-						<!--end::Menu-->
-				</div>
 
 				<!--begin:Menu item-->
 				<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
@@ -460,37 +428,6 @@
 								<!--end:Menu link-->
 							</div>
 						</div>
-				</div>
-
-				<!--begin:Menu item-->
-				<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-					<!--begin:Menu link-->
-					<span class="menu-link">
-						<span class="menu-icon">
-							<i class="far fa-comment">
-								<span class="path1"></span>
-								<span class="path2"></span>
-							</i>
-						</span>
-						<span class="menu-title">Registration Options</span>
-						<span class="menu-arrow"></span>
-					</span>
-					<!--end:Menu link-->
-					<!--begin:Menu sub-->
-					<div class="menu-sub menu-sub-accordion">
-						<!--begin:Menu item-->
-						<div class="menu-item">
-							<!--begin:Menu link-->
-							<a class="menu-link" href="<?php echo URLROOT; ?>/activities/particip">
-								<span class="menu-bullet">
-									<span class="bullet bullet-dot"></span>
-								</span>
-								<span class="menu-title">Student Registered Activity List</span>
-							</a>
-							<!--end:Menu link-->
-						</div>
-						<!--end:Menu item-->
-					</div>
 				</div>
 				
 				<!--begin:Menu item-->
@@ -586,7 +523,7 @@
 <!--begin::Footer-->
 <div class="app-sidebar-footer flex-column-auto pt-2 pb-6 px-6" id="kt_app_sidebar_footer">
 	<a href="https://www.youthventures.asia/our-story/" class="btn btn-flex flex-center btn-custom btn-primary overflow-hidden text-nowrap px-0 h-40px w-100" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click" title="200+ in-house components and 3rd-party plugins" target="blank">
-		<span class="btn-label">About Us</span>
+		<span class="btn-label" style="font-family: sans-serif;">About Us</span>
 		<i class="ki-duotone ki-document btn-icon fs-2 m-0">
 			<span class="path1"></span>
 			<span class="path2"></span>

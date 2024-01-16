@@ -68,7 +68,6 @@
                         <th>Venue</th>
                         <th>Description</th>  
                         <th>Action</th>
-                        <th>Comment</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -84,20 +83,8 @@
                             <td><?php echo $activity->activity_desc; ?></td>
                             
                             <td> <button class="btn btn-success" disabled>Joined</button>
-                           
-                            <a href="<?php echo URLROOT . "/activities/form/" . $activity->activity_id ?>" class="btn btn-light-warning">Feedback</a></td>
                             
-                            <td>
-                            <form id="commentForm_<?php echo $activity->activity_id; ?>">
-                                    <div class="comment-container">
-                                        <textarea id="commentInput_<?php echo $activity->activity_id; ?>" placeholder="Type your comment here"></textarea>
-                                        <button type="button" onclick="addComment(<?php echo $activity->activity_id; ?>)">Enter</button>
-                                    </div>
-                                    <div id="reviewText_<?php echo $activity->activity_id; ?>" class="review-text">
-                                        <?php if (!empty($activity->review)) echo $activity->review; ?>
-                                    </div>
-                                </form>
-                            </td>
+                            <a href="<?php echo URLROOT . "/activities/form/" . $activity->activity_id ?>" class="btn btn-light-warning">Feedback</a></td>
                             
                         </tr>
                     <?php endforeach; ?>
@@ -120,7 +107,7 @@
             });
         </script>
 
-        <script>
+        <!-- <script>
             function addComment(activityId) {
                 var commentInput = document.getElementById('commentInput_' + activityId);
                 var commentText = commentInput.value;
@@ -129,6 +116,6 @@
                 reviewText.innerHTML = commentText;
                 commentInput.value = '';
             }
-        </script>
+        </script> -->
     </div>
 </div>
