@@ -3,14 +3,14 @@
         <h3 class="card-title">Create Personal Activity</h3>
         <div class="card-toolbar">
             <?php if(isLoggedIn()): ?>
-            <a href="<?php echo URLROOT;?>/posts" class="btn btn-light-primary">Manage Personal Activity</a>
+            <a href="<?php echo URLROOT;?>/peractivity" class="btn btn-light-primary">Manage Personal Activity</a>
             <?php endif; ?>
         </div>
     </div>
     <div class="card-body">
 
 
-        <form action="<?php echo URLROOT; ?>/peractivity/create" method="POST">
+    <form action="<?php echo URLROOT; ?>/peractivity/create" method="POST"  enctype="multipart/form-data">
             <div class="mb-10">
                 <label for="exampleFormControlInput1" class="required form-label">Name of Personal Activity</label>
                 <input type="text" name="name" class="form-control form-control-solid" placeholder="Name of Activity" required />

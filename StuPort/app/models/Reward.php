@@ -69,7 +69,34 @@ class Reward
             return false;
         }
     }
-}
+
+    public function findRewardByBadgeName($badge_name)
+    {
+        $this->db->query('SELECT * FROM reward WHERE badge_name = :badge_name');
+        $this->db->bind(':badge_name', $badge_name);
+        $row = $this->db->single();
+        return $row;
+    }
+
+    
+    public function getRewardImagePath($points_required) {
+        if ($points_required < 10) {
+            return 'images/rewards/bronze_badge.png'; // Correct the path as per your image directory structure
+        } elseif ($points_required >= 10 && $points_required < 30) {
+            return 'images/rewards/silver_badge.png'; // Correct the path as per your image directory structure
+        } elseif ($points_required >= 30 && $points_required < 50) {
+            return 'images/rewards/gold_badge.png'; // Correct the path as per your image directory structure
+        } elseif ($points_required >= 50) {
+            return 'images/rewards/diamond_badge.png'; // Correct the path as per your image directory structure
+        } else {
+            return 'images/rewards/default_badge.png'; // Default badge if no condition is met, correct the path as per your image directory structure
+        }
+    }
+
+    // ... Any additional methods you may need ...
+    }
+
+
 
 
 ?>

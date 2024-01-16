@@ -1,20 +1,24 @@
 <link rel="stylesheet" type="text/css" href="path/to/styles.css">
 <?php if ($_SESSION['user_role'] == 'Administrator' || $_SESSION['user_role'] == 'Master Administrator') : ?>
-<div class="card shadow-sm">
-    <div class="card-header">
-        <h3 class="card-title">Manage Activities</h3>
+    <div class="card shadow-sm" style="border-color: #FCBD32;">
+    <div class="card-header" style="background-color: #FCBD32; color: white;">
+        <h3 class="card-title"style="color: white;font-family: 'Your Special Font', gagalin;font-size: 2em;">Manage Activities</h3>
         <div class="card-toolbar">
             <?php if (isLoggedIn()): ?>
-                <a href="<?php echo URLROOT; ?>/activities/create" class="btn btn-light-primary">Create</a>
+                <a href="<?php echo URLROOT; ?>/activities/create" class="btn btn-light-primary"style="background-color: #183D64; color: white;">Create</a>
             <?php endif; ?>
         </div>
     </div>
     <div class="card-body">
+
+
+
+
         <div class="table-responsive">
             <table id="kt_datatable_posts" class="table table-row-bordered gy-5">
                 <thead>
                     <tr class="fw-semibold fs-6 text-muted">
-                        <th>Activity CodeNo</th>
+                        <th>Activity Code No.</th>
                         <th>Title</th>
                         <th>Category</th>
                         <th>Content</th>
@@ -58,7 +62,7 @@
                                                 <div class="modal-body">
                                                     Are you sure want to delete this activity?
                                                 </div>
-                                                <div class="modal-footer">
+                                                <div class="modal-footer"style="background-color: #FCBD32; color: white;">
                                                     <form action="<?php echo URLROOT . "/activities/delete/" . $activity->activity_id; ?>" method="POST">
                                                         <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
                                                         <button type="submit" class="btn btn-primary font-weight-bold">Delete</button>
@@ -130,7 +134,7 @@
                             <td><?php echo $activity->organizer_name; ?></td>
                             <td><?php echo $activity->skill_acquired; ?></td>
                             <td>
-                                <img src="<?php echo $activity->attachment; ?>" alt="Attachment" style="max-width: 100px; max-height: 100px; object-fit: cover;">
+                                <img src="<?php echo $activity->attachment; ?>" alt="Attachment"style="max-width: 100px; max-height: 100px; object-fit: cover;">
                             </td>
                             <td>
                                     <?php if ($this->activityModel->isStudentJoined($_SESSION['user_id'], $activity->activity_id)) : ?>
@@ -159,6 +163,7 @@
                 var table = $('#kt_datatable_posts').DataTable({});
             });
         </script>
+
 </div>
 <?php endif; ?>
 

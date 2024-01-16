@@ -49,6 +49,38 @@
                 </div>
                 <!--end::Pic-->
 
+                <div class="me-7 mb-4">
+                    <?php ($data['reward']->points_required); ?>
+                    <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
+                        
+                        <!-- Rewards Badge based on points_required -->
+                        <?php
+                            // Assume $studentProfile->points_required holds the number of points
+                            $pointsRequired = $pointsRequired->points_required;
+                            $badgePath = '/public/images/rewards/'; // Base path for the badge images
+                            if ($pointsRequired < 10) {
+                                $badgePath .= '3.png'; 
+                            } elseif ($pointsRequired < 30) {
+                                $badgePath .= '1.png'; 
+                            } elseif ($pointsRequired < 50) {
+                                $badgePath .= '2.png'; 
+                            } elseif($pointsRequired >= 50) {
+                                $badgePath .= '4.png';
+                            }
+                            else{
+                                $badgePath .= 'default.png';
+                            }
+                        ?>
+                        <!-- Display the badge image next to the profile image -->
+                        <img src="<?php echo URLROOT . $badgePath; ?>" alt="Rewards Badge" style="position: absolute; bottom: -15px; right: 10px; width: 50px; height: 50px;" />
+                        
+                       
+                </div>
+
+
+                
+
+                
                 <!--begin::Info-->
                 <div class="flex-grow-1">
                     <!--begin::Title-->

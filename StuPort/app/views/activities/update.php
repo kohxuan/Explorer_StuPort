@@ -23,8 +23,9 @@
         </div>
     </div>
     <div class="card-body">
-    <form action="<?php echo URLROOT; ?>/activities/create" method="POST" enctype="multipart/form-data">
-        <form action="<?php echo $data['u_url'] ?>" method="POST">
+    
+
+        <form action="<?php echo $data['u_url'] ?>" method="POST" enctype="multipart/form-data">
 
             <div class="mb-10">
                 <label for="exampleFormControlInput1" class="required form-label">Activity Title</label>

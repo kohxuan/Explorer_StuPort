@@ -33,11 +33,13 @@
         <td><?php echo $peractivities->venue; ?></td>
         <td><?php echo $peractivities->description; ?></td>
         <td>    <?php
-    if (!empty($peractivities->evidence)) {
-        echo '<a href="' . $peractivities->evidence . '" target="_blank">Download Evidence</a>';
-    } else {
-        echo 'No evidence';
-    }
+
+if ($peractivities->evidence != null) {
+    echo '<a href="' . URLROOT . '/public/' . $peractivities->evidence . '" target="_blank">View</a>';
+} else {
+    echo 'No evidence';
+}
+
     ?>
 </td></td>
         <?php if ($_SESSION['user_role'] == "Lecturer" || $_SESSION['user_role'] == "Administrator"): ?>

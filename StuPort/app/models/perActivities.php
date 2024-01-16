@@ -1,6 +1,6 @@
 <?php
 
-class perActivities
+class Peractivities
 {
 
     private $db;

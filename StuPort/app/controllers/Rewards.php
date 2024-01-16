@@ -114,9 +114,13 @@ class Rewards extends Controller
     {
         $reward = $this->rewardModel->findRewardById($reward_id);
 
-        if (!isLoggedIn()) {
-            header("Location: " . URLROOT . "/rewards/index");
-        }
+        // if (!isLoggedIn()) {
+        //     header("Location: " . URLROOT . "/rewards");
+        //     exit;
+        // }
+        
+       
+
 
         $data = [
             'reward' => $reward,
@@ -125,6 +129,8 @@ class Rewards extends Controller
             'badge_icon_path' => $reward->badge_icon_path, // TODO: Add badge_icon_path to the database
             'points_required' => $reward->points_required
         ];
+
+        
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -189,17 +195,22 @@ class Rewards extends Controller
                     'points_required' => trim($_POST['points_required']),
                     'badge_icon_path' => $location
                 ];
-
+            
             if ($this->rewardModel->updateReward($data)) {
                 header("Location: " . URLROOT . "/rewards");
             } else {
                 die("Something went wrong :(");
+                
             }
-        }
+           
 
-        $this->view('rewards/update', $data);
+        }
+        $this->view('rewards/index', $data);
+        
     }
 
+
+    
     public function delete($id)
     {
         if (!isLoggedIn()) {
@@ -212,6 +223,26 @@ class Rewards extends Controller
             die('Something went wrong..');
         }
     }
+
+    // Inside your Reward model
+        public function getRewardImagePath($points_required) {
+            if ($points_required < 10) {
+                return 'path/to/bronze_badge.png';
+            } elseif ($points_required >= 10 && $points_required < 30) {
+                return 'path/to/silver_badge.png';
+            } elseif ($points_required >= 30 && $points_required < 50) {
+                return 'path/to/gold_badge.png';
+            } elseif ($points_required >= 50) {
+                return 'path/to/diamond_badge.png';
+            } else {
+                return 'path/to/default_badge.png'; // Default badge if no condition is met
+            }
+        }
+
+
+  
+    
+    
 }
 
 ?>
