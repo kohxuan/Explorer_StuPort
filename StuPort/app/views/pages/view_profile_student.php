@@ -50,7 +50,7 @@
                                 <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
                                     <img src="<?php echo URLROOT . '/public/' . $studentProfile->profileimage; ?>" alt="Profile Image" />
                                     <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-body h-20px w-20px"></div>
-                                </div>v
+                                </div>
                             </div>
                             <!-- end::Pic-->
 
