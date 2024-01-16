@@ -79,13 +79,13 @@
                                 <td><?php echo $peractivity->evidence; ?></td>
                                 <td> <button class="btn btn-success" disabled>Approved</button></td>
                                 <td>
-                                <form id="commentForm_<?php echo $activity->activity_id; ?>">
+                                <form id="commentForm_<?php echo $peractivity->activity_id; ?>">
                                     <div class="comment-container">
-                                        <textarea id="commentInput_<?php echo $activity->activity_id; ?>" placeholder="Type your comment here"></textarea>
-                                        <button type="button" onclick="addComment(<?php echo $activity->activity_id; ?>)">Enter</button>
+                                        <textarea id="commentInput_<?php echo $peractivity->activity_id; ?>" placeholder="Type your comment here"></textarea>
+                                        <button type="button" onclick="addComment(<?php echo $peractivity->activity_id; ?>)">Enter</button>
                                     </div>
-                                    <div id="reviewText_<?php echo $activity->activity_id; ?>" class="review-text">
-                                        <?php if (!empty($activity->review)) echo $activity->review; ?>
+                                    <div id="reviewText_<?php echo $peractivity->activity_id; ?>" class="review-text">
+                                        <?php if (!empty($peractivity->review)) echo $peractivity->review; ?>
                                     </div>
                                 </form>
                                 </td>
