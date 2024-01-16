@@ -65,7 +65,6 @@
                         <th>Description</th>
                         <th>Evidence</th>
                         <th>Action</th>
-                        <th>Comment</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -78,7 +77,7 @@
                                 <td><?php echo $peractivity->description; ?></td>
                                 <td><?php echo $peractivity->evidence; ?></td>
                                 <td> <button class="btn btn-success" disabled>Approved</button></td>
-                                <td>
+                                <!-- <td>
                                 <form id="commentForm_<?php echo $peractivity->activity_id; ?>">
                                     <div class="comment-container">
                                         <textarea id="commentInput_<?php echo $peractivity->activity_id; ?>" placeholder="Type your comment here"></textarea>
@@ -88,7 +87,7 @@
                                         <?php if (!empty($peractivity->review)) echo $peractivity->review; ?>
                                     </div>
                                 </form>
-                                </td>
+                                </td> -->
                             </tr>
                         <?php endif; ?>
                     <?php endforeach; ?>
@@ -103,7 +102,7 @@
         });
         </script>
 
-        <script>
+        <!-- <script>
             function addComment(activityId) {
                 var commentInput = document.getElementById('commentInput_' + activityId);
                 var commentText = commentInput.value;
@@ -112,6 +111,6 @@
                 reviewText.innerHTML = commentText;
                 commentInput.value = '';
             }
-        </script>
+        </script> -->
     </div>
 </div>
