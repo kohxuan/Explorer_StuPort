@@ -1,15 +1,68 @@
+<link rel="stylesheet" type="text/css" href="path/to/styles.css">
 <?php if ($_SESSION['user_role'] == 'Administrator' || $_SESSION['user_role'] == 'Master Administrator') : ?>
-<div class="card shadow-sm">
-    <div class="card-header">
-        <h3 class="card-title">List of Rewards</h3>
+<div class="card shadow-sm" style="border-color: #FCBD32;">
+    <div class="card-header" style="background-color: #FCBD32; color: white;">
+        <h3 class="card-title" style="color: white;font-family: 'Your Special Font', gagalin;font-size: 2em;"  >List of Rewards</h3>
         <!-- Check whether logged in or not -->
         <div class="card-toolbar">
             <?php if (isLoggedIn()): ?>
-                <a href="<?php echo URLROOT; ?>/rewards/create" class="btn btn-light-primary">Create Rewards</a>
+                <a href="<?php echo URLROOT; ?>/rewards/create" class="btn btn-light-primary" style="background-color: #183D64; color: white;">Create Rewards</a>
             <?php endif; ?>
         </div>
     </div>
     <div class="card-body">
+
+    <style>
+/* Common table styles for both tables */
+/* Common table styles for both tables */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 20px;
+    border: 20px solid #dcdcdc; /* Border style for both tables */
+    text-align: left;
+}
+
+.table th {
+    background-color: #183D64; /* Blue */
+    color: #ffffff;
+}
+
+/* Style for the first table (Administrator and Master Administrator) */
+.card-header {
+    background-color: #FCBD32; /* Yellow */
+    color: white;
+}
+
+.btn-light-primary {
+    background-color: #183D64 !important; /* Blue */
+    color: white !important;
+}
+
+/* Style for the second table (Student) */
+.card-header {
+    background-color: #7C1C2B; /* Red */
+    color: white;
+}
+
+.btn-light-warning {
+    background-color: #7C1C2B !important; /* Red */
+    color: white !important;
+}
+
+.btn-success[disabled] {
+    background-color: #FCBD32 !important; /* Yellow */
+    color: white !important;
+}
+
+
+    </style>
+
+
+
         <div class="table-responsive">
             <table id="kt_datatable_posts" class="table table-row-bordered gy-5">
                 <thead>
@@ -86,13 +139,64 @@
 <?php endif; ?>
 
 <?php if ($_SESSION['user_role'] == 'Student') : ?>
-    
-    <div class="card-header">
-        <h3 class="card-title">List of Rewards</h3>
+
+    <div class="card shadow-sm" style="border-color: #FCBD32;">
+    <div class="card-header" style="background-color: #FCBD32; color: white;">
+        <h3 class="card-title" style="color: white;font-family: 'Your Special Font', gagalin;font-size: 2em;" >List of Rewards</h3>
         <!-- Check whether logged in or not -->
 
     </div>
     <div class="card-body">
+
+    <style>
+/* Common table styles for both tables */
+/* Common table styles for both tables */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 20px;
+    border: 20px solid #dcdcdc; /* Border style for both tables */
+    text-align: left;
+}
+
+.table th {
+    background-color: #183D64; /* Blue */
+    color: #ffffff;
+}
+
+/* Style for the first table (Administrator and Master Administrator) */
+.card-header {
+    background-color: #FCBD32; /* Yellow */
+    color: white;
+}
+
+.btn-light-primary {
+    background-color: #183D64 !important; /* Blue */
+    color: white !important;
+}
+
+/* Style for the second table (Student) */
+.card-header {
+    background-color: #7C1C2B; /* Red */
+    color: white;
+}
+
+.btn-light-warning {
+    background-color: #7C1C2B !important; /* Red */
+    color: white !important;
+}
+
+.btn-success[disabled] {
+    background-color: #FCBD32 !important; /* Yellow */
+    color: white !important;
+}
+
+
+    </style>
+
         <div class="table-responsive">
             <table id="kt_datatable_posts" class="table table-row-bordered gy-5">
                 <thead>
