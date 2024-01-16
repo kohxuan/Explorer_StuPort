@@ -231,7 +231,7 @@ $conn->close();
         <div class="col-md-4 mb-4">
             <div class="card h-100">
                 <div class="card-body d-flex align-items-center">
-                    <i class="bi bi-bookmark-check-fill" style="font-size: 3rem; color: black; margin-right: 1rem;"></i>
+                    <i class="bi bi-bookmark-check-fill" style="font-size: 3rem; color: #800000; margin-right: 1rem;"></i>
                     <div>
                         <h3 class="card-title">Manage Activity</h3>
                         <p class="card-text">YouthVentures activity with its clients/partners</p>
@@ -243,7 +243,7 @@ $conn->close();
         <div class="col-md-4 mb-4">
             <div class="card h-100">
                 <div class="card-body d-flex align-items-center">
-                    <i class="bi bi-patch-check-fill" style="font-size: 3rem; color: black; margin-right: 1rem;"></i>
+                    <i class="bi bi-patch-check-fill" style="font-size: 3rem; color: #DC143C; margin-right: 1rem;"></i>
                     <div>
                         <h3 class="card-title">Manage Rewards</h3>
                         <p class="card-text">Rewards to the registered students</p>
@@ -256,7 +256,7 @@ $conn->close();
         <div class="col-md-4 mb-4">
             <div class="card h-100">
                 <div class="card-body d-flex align-items-center">
-                    <i class="bi bi-chat-right-text" style="font-size: 3rem; color: black; margin-right: 1rem;"></i>
+                    <i class="bi bi-chat-right-text" style="font-size: 3rem; color: #4B0082; margin-right: 1rem;"></i>
                     <div>
                         <h3 class="card-title">Manage Feedback</h3>
                         <p class="card-text">To provide insights into the participant experience.</p>

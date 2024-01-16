@@ -165,12 +165,12 @@ $conn->close();
             <!--begin::Card body-->
             <div class="card h-100">
                 <div class="card-body d-flex align-items-center">
-                    <i class="bi bi-bookmark-check-fill" style="font-size: 3rem; color: black; margin-right: 1rem;"></i>
+                    <i class="bi bi-bookmark-check-fill" style="font-size: 3rem; color: #800000; margin-right: 1rem;"></i>
                     <div>
                         <h3 class="card-title">Manage Activity</h3>
                         <p class="card-text">YouthVentures activity which collaborate with its clients and partners</p>
                         <p class="card-text">Aimed to improve the student participation</p>
-                        <a href="<?php echo URLROOT . '/activities'; ?>" class="btn btn-primary">Explore More</a>
+                        <a href="<?php echo URLROOT . '/activities'; ?>" class="btn btn-light-primary">Explore More</a>
                     </div>
                 </div>
             </div>

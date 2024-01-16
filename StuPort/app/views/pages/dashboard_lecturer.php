@@ -118,12 +118,12 @@ $conn->close();
     <div class="col mb-4">
         <div class="card h-100">
             <div class="card-body d-flex align-items-center">
-                <i class="bi bi-person-lines-fill" style="font-size: 3rem; color: black; margin-right: 1rem;"></i>
+                <i class="bi bi-person-lines-fill" style="font-size: 3rem; color: #4682B4; margin-right: 1rem;"></i>
                 <div>
                     <h3 class="card-title">View Profile</h3>
                     <p class="card-text">Make your profile to be completed.</p>
                     <p class="card-text">Get to let YouthVentures know more information about you..</p>
-                    <a href="<?php echo URLROOT . '/pages/view_profile_lecturer'; ?>" class="btn btn-primary">See More</a>
+                    <a href="<?php echo URLROOT . '/pages/view_profile_lecturer'; ?>" class="btn btn-light-primary">See More</a>
                 </div>
             </div>
         </div>

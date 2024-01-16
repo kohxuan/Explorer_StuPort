@@ -115,13 +115,13 @@ $conn->close();
     <div class="col mb-4">
         <div class="card h-100">
             <div class="card-body d-flex align-items-center">
-                <i class="bi bi-person-lines-fill" style="font-size: 3rem; color: black; margin-right: 1rem;"></i>
+                <i class="bi bi-person-lines-fill" style="font-size: 3rem; color: #4682B4; margin-right: 1rem;"></i>
                 <div>
                     <h3 class="card-title">View Profile</h3>
                     <p class="card-text">Make your profile to be completed.</p>
                     <p class="card-text">Help for internship.</p>
                     <p class="card-text">Attract clients/partners to select you as one of their employee.</p>
-                    <a href="<?php echo URLROOT . '/pages/view_profile'; ?>" class="btn btn-primary">See More</a>
+                    <a href="<?php echo URLROOT . '/pages/view_profile'; ?>" class="btn btn-light-primary">See More</a>
                 </div>
             </div>
         </div>
@@ -129,11 +129,11 @@ $conn->close();
     <div class="col mb-4">
         <div class="card h-100">
             <div class="card-body d-flex align-items-center">
-                <i class="bi bi-award-fill" style="font-size: 3rem; color: black; margin-right: 1rem;"></i>
+                <i class="bi bi-award-fill" style="font-size: 3rem; color: #DC143C; margin-right: 1rem;"></i>
                 <div>
                     <h3 class="card-title">View Rewards</h3>
                     <p class="card-text">Rewards get from YouthVentures.</p>
-                    <a href="<?php echo URLROOT . '/rewards'; ?>" class="btn btn-primary">See More</a>
+                    <a href="<?php echo URLROOT . '/rewards'; ?>" class="btn btn-light-primary">See More</a>
                 </div>
             </div>
         </div>
@@ -142,7 +142,7 @@ $conn->close();
 
 <div class="card shadow-sm">
     <div class="card-header">
-        <h3 class="card-title">Registered Activity</h3>
+        <h3 class="card-title">Personal Activity Joined</h3>
         <div class="card-toolbar">
             <?php if (isLoggedIn()) : ?>
                 <a href="<?php echo URLROOT; ?>/activities/particip" class="btn btn-light-primary">View More Details</a>
