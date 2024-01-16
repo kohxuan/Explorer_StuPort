@@ -4,7 +4,7 @@
 								<!--begin::Copyright-->
 								<div class="text-gray-900 order-2 order-md-1">
 									<span class="text-muted fw-semibold me-1">2023&copy;</span>
-									<a href="#" class="text-gray-800 text-hover-primary">Explorer</a>
+									<a href="https://trello.com/b/g6gZvj3L/explorer" class="text-gray-800 text-hover-primary">Explorer</a>
 								</div>
 								<!--end::Copyright-->
 								<!--begin::Menu-->

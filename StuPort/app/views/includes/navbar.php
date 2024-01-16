@@ -13,7 +13,7 @@
 		<!-- <input class="form-control me-2" type="search" placeholder="Search...." aria-label="Search" style="font-size: 14px; padding: 7px 10px; margin-right: 20px;"> btn btn-sm btn-primary align-self-center -->
 		<!-- <button class="btn btn-outline-success" type="submit" style="font-size: 14px; padding: 7px 10px; margin-right: 20px;">Search</button> -->
 		<!--begin::Button-->
-		<a href="<?php echo URLROOT; ?>/pages/index" class="btn btn-light-info" style="font-size: 14px; padding: 7px 10px; margin-right: 20px;">
+		<a href="<?php echo URLROOT; ?>/pages/index" class="btn btn-light-danger" style="font-size: 14px; padding: 7px 10px; margin-right: 20px;">
 			<i class="fas fa-home" style="margin-right: 5px;"></i> Homepage
 		</a>
 		<!--end::Button-->

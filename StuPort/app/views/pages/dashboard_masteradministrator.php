@@ -235,7 +235,7 @@ $conn->close();
                     <div>
                         <h3 class="card-title">Manage Activity</h3>
                         <p class="card-text">YouthVentures activity with its clients/partners</p>
-                        <a href="<?php echo URLROOT . '/activities'; ?>" class="btn btn-primary">See More</a>
+                        <a href="<?php echo URLROOT . '/activities'; ?>" class="btn btn-light-primary">See More</a>
                     </div>
                 </div>
             </div>
@@ -248,7 +248,7 @@ $conn->close();
                         <h3 class="card-title">Manage Rewards</h3>
                         <p class="card-text">Rewards to the registered students</p>
                         <p class="card-text">Aimed to encourage students to add and join activities with us.</p>
-                        <a href="<?php echo URLROOT . '/rewards'; ?>" class="btn btn-primary">See More</a>
+                        <a href="<?php echo URLROOT . '/rewards'; ?>" class="btn btn-light-primary">See More</a>
                     </div>
                 </div>
             </div>
@@ -258,9 +258,10 @@ $conn->close();
                 <div class="card-body d-flex align-items-center">
                     <i class="bi bi-chat-right-text" style="font-size: 3rem; color: black; margin-right: 1rem;"></i>
                     <div>
-                        <h3 class="card-title">Student Activity</h3>
-                        <p class="card-text">To validate student joined activity</p>
-                        <a href="<?php echo URLROOT . '/peractivity'; ?>" class="btn btn-primary">See More</a>
+                        <h3 class="card-title">Manage Feedback</h3>
+                        <p class="card-text">To provide insights into the participant experience.</p>
+                        <p class="card-text">To understand whether the event met participants' expectations.</p>
+                        <a href="<?php echo URLROOT . '/feedbacks'; ?>" class="btn btn-light-primary">See More</a>
                     </div>
                 </div>
             </div>
