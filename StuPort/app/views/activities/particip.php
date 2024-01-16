@@ -84,7 +84,7 @@
                             <td><?php echo $activity->activity_desc; ?></td>
                             
                             <td> <button class="btn btn-success" disabled>Joined</button>
-                           
+                            
                             <a href="<?php echo URLROOT . "/activities/form/" . $activity->activity_id ?>" class="btn btn-light-warning">Feedback</a></td>
                             
                             <td>

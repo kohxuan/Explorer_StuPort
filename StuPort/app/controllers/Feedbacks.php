@@ -1,7 +1,7 @@
 <?php
 class Feedbacks extends Controller {
     public function __construct() {
-        $this->feedbackModel = $this->model('feedback');
+        $this->feedbackModel = $this->model('Feedback');
     }
 
     public function index() {

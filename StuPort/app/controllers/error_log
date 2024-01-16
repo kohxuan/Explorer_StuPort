@@ -1834,3 +1834,181 @@ Stack trace:
 #5 /home/niagaped/public_html/Explorer/public/index.php(2): require_once('/home/niagaped/...')
 #6 {main}
   thrown in /home/niagaped/public_html/Explorer/app/libraries/Database.php on line 53
+[16-Jan-2024 08:09:06 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 161
+[16-Jan-2024 08:09:06 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 168
+[16-Jan-2024 08:09:06 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 170
+[16-Jan-2024 08:09:06 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 178
+[16-Jan-2024 08:10:56 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 170
+[16-Jan-2024 08:10:56 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 177
+[16-Jan-2024 08:10:56 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 179
+[16-Jan-2024 08:10:56 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 187
+[16-Jan-2024 08:11:12 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'niagaped_Explorer.badges' doesn't exist in /home/niagaped/public_html/Explorer/app/libraries/Database.php:53
+Stack trace:
+#0 /home/niagaped/public_html/Explorer/app/libraries/Database.php(53): PDOStatement->execute()
+#1 /home/niagaped/public_html/Explorer/app/libraries/Database.php(58): Database->execute()
+#2 /home/niagaped/public_html/Explorer/app/models/Badge.php(15): Database->resultSet()
+#3 /home/niagaped/public_html/Explorer/app/controllers/Badges.php(13): Badge->findAllBadges()
+#4 /home/niagaped/public_html/Explorer/app/libraries/Core.php(47): Badges->index()
+#5 /home/niagaped/public_html/Explorer/app/require.php(12): Core->__construct()
+#6 /home/niagaped/public_html/Explorer/public/index.php(2): require_once('/home/niagaped/...')
+#7 {main}
+  thrown in /home/niagaped/public_html/Explorer/app/libraries/Database.php on line 53
+[16-Jan-2024 08:11:14 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 170
+[16-Jan-2024 08:11:14 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 177
+[16-Jan-2024 08:11:14 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 179
+[16-Jan-2024 08:11:14 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 187
+[16-Jan-2024 08:11:25 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 170
+[16-Jan-2024 08:11:25 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 177
+[16-Jan-2024 08:11:25 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 179
+[16-Jan-2024 08:11:25 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 187
+[16-Jan-2024 08:17:17 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 170
+[16-Jan-2024 08:17:17 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 177
+[16-Jan-2024 08:17:17 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 179
+[16-Jan-2024 08:17:17 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 187
+[16-Jan-2024 08:17:19 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'niagaped_Explorer.badges' doesn't exist in /home/niagaped/public_html/Explorer/app/libraries/Database.php:53
+Stack trace:
+#0 /home/niagaped/public_html/Explorer/app/libraries/Database.php(53): PDOStatement->execute()
+#1 /home/niagaped/public_html/Explorer/app/libraries/Database.php(58): Database->execute()
+#2 /home/niagaped/public_html/Explorer/app/models/Badge.php(15): Database->resultSet()
+#3 /home/niagaped/public_html/Explorer/app/controllers/Badges.php(13): Badge->findAllBadges()
+#4 /home/niagaped/public_html/Explorer/app/libraries/Core.php(47): Badges->index()
+#5 /home/niagaped/public_html/Explorer/app/require.php(12): Core->__construct()
+#6 /home/niagaped/public_html/Explorer/public/index.php(2): require_once('/home/niagaped/...')
+#7 {main}
+  thrown in /home/niagaped/public_html/Explorer/app/libraries/Database.php on line 53
+[16-Jan-2024 08:17:20 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 170
+[16-Jan-2024 08:17:20 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 177
+[16-Jan-2024 08:17:20 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 179
+[16-Jan-2024 08:17:20 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 187
+[16-Jan-2024 08:17:23 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'niagaped_Explorer.badges' doesn't exist in /home/niagaped/public_html/Explorer/app/libraries/Database.php:53
+Stack trace:
+#0 /home/niagaped/public_html/Explorer/app/libraries/Database.php(53): PDOStatement->execute()
+#1 /home/niagaped/public_html/Explorer/app/libraries/Database.php(58): Database->execute()
+#2 /home/niagaped/public_html/Explorer/app/models/Badge.php(15): Database->resultSet()
+#3 /home/niagaped/public_html/Explorer/app/controllers/Badges.php(13): Badge->findAllBadges()
+#4 /home/niagaped/public_html/Explorer/app/libraries/Core.php(47): Badges->index()
+#5 /home/niagaped/public_html/Explorer/app/require.php(12): Core->__construct()
+#6 /home/niagaped/public_html/Explorer/public/index.php(2): require_once('/home/niagaped/...')
+#7 {main}
+  thrown in /home/niagaped/public_html/Explorer/app/libraries/Database.php on line 53
+[16-Jan-2024 08:17:24 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 170
+[16-Jan-2024 08:17:24 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 177
+[16-Jan-2024 08:17:24 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 179
+[16-Jan-2024 08:17:24 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 187
+[16-Jan-2024 08:18:31 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 170
+[16-Jan-2024 08:18:31 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 177
+[16-Jan-2024 08:18:31 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 179
+[16-Jan-2024 08:18:31 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 187
+[16-Jan-2024 08:18:33 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'niagaped_Explorer.badges' doesn't exist in /home/niagaped/public_html/Explorer/app/libraries/Database.php:53
+Stack trace:
+#0 /home/niagaped/public_html/Explorer/app/libraries/Database.php(53): PDOStatement->execute()
+#1 /home/niagaped/public_html/Explorer/app/libraries/Database.php(58): Database->execute()
+#2 /home/niagaped/public_html/Explorer/app/models/Badge.php(15): Database->resultSet()
+#3 /home/niagaped/public_html/Explorer/app/controllers/Badges.php(13): Badge->findAllBadges()
+#4 /home/niagaped/public_html/Explorer/app/libraries/Core.php(47): Badges->index()
+#5 /home/niagaped/public_html/Explorer/app/require.php(12): Core->__construct()
+#6 /home/niagaped/public_html/Explorer/public/index.php(2): require_once('/home/niagaped/...')
+#7 {main}
+  thrown in /home/niagaped/public_html/Explorer/app/libraries/Database.php on line 53
+[16-Jan-2024 08:18:35 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 170
+[16-Jan-2024 08:18:35 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 177
+[16-Jan-2024 08:18:35 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 179
+[16-Jan-2024 08:18:35 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 187
+[16-Jan-2024 08:26:14 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 170
+[16-Jan-2024 08:26:14 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 177
+[16-Jan-2024 08:26:14 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 179
+[16-Jan-2024 08:26:14 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 187
+[16-Jan-2024 08:48:49 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 161
+[16-Jan-2024 08:48:49 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 168
+[16-Jan-2024 08:48:49 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 170
+[16-Jan-2024 08:48:49 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 178
+[16-Jan-2024 08:49:13 UTC] Entered email: niagaped_Explorer_user, Entered Password: Explorer&^^%&*
+[16-Jan-2024 08:49:18 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 170
+[16-Jan-2024 08:49:18 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 177
+[16-Jan-2024 08:49:18 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 179
+[16-Jan-2024 08:49:18 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 187
+[16-Jan-2024 08:50:22 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 170
+[16-Jan-2024 08:50:22 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 177
+[16-Jan-2024 08:50:22 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 179
+[16-Jan-2024 08:50:22 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 187
+[16-Jan-2024 08:50:26 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'niagaped_Explorer.badges' doesn't exist in /home/niagaped/public_html/Explorer/app/libraries/Database.php:53
+Stack trace:
+#0 /home/niagaped/public_html/Explorer/app/libraries/Database.php(53): PDOStatement->execute()
+#1 /home/niagaped/public_html/Explorer/app/libraries/Database.php(58): Database->execute()
+#2 /home/niagaped/public_html/Explorer/app/models/Badge.php(15): Database->resultSet()
+#3 /home/niagaped/public_html/Explorer/app/controllers/Badges.php(13): Badge->findAllBadges()
+#4 /home/niagaped/public_html/Explorer/app/libraries/Core.php(47): Badges->index()
+#5 /home/niagaped/public_html/Explorer/app/require.php(12): Core->__construct()
+#6 /home/niagaped/public_html/Explorer/public/index.php(2): require_once('/home/niagaped/...')
+#7 {main}
+  thrown in /home/niagaped/public_html/Explorer/app/libraries/Database.php on line 53
+[16-Jan-2024 08:54:46 UTC] PHP Warning:  require_once(../app/models/feedback.php): failed to open stream: No such file or directory in /home/niagaped/public_html/Explorer/app/libraries/Controller.php on line 10
+[16-Jan-2024 08:54:46 UTC] PHP Fatal error:  require_once(): Failed opening required '../app/models/feedback.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/niagaped/public_html/Explorer/app/libraries/Controller.php on line 10
+[16-Jan-2024 08:54:51 UTC] PHP Warning:  require_once(../app/models/feedback.php): failed to open stream: No such file or directory in /home/niagaped/public_html/Explorer/app/libraries/Controller.php on line 10
+[16-Jan-2024 08:54:51 UTC] PHP Fatal error:  require_once(): Failed opening required '../app/models/feedback.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/niagaped/public_html/Explorer/app/libraries/Controller.php on line 10
+[16-Jan-2024 08:59:09 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 170
+[16-Jan-2024 08:59:09 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 177
+[16-Jan-2024 08:59:09 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 179
+[16-Jan-2024 08:59:09 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 187
+[16-Jan-2024 09:03:46 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 170
+[16-Jan-2024 09:03:46 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 177
+[16-Jan-2024 09:03:46 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 179
+[16-Jan-2024 09:03:46 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 187
+[16-Jan-2024 09:04:19 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 170
+[16-Jan-2024 09:04:19 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 177
+[16-Jan-2024 09:04:19 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 179
+[16-Jan-2024 09:04:19 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 187
+[16-Jan-2024 09:04:41 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 161
+[16-Jan-2024 09:04:41 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 168
+[16-Jan-2024 09:04:41 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 170
+[16-Jan-2024 09:04:41 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 178
+[16-Jan-2024 09:04:47 UTC] PHP Warning:  require_once(../app/models/feedback.php): failed to open stream: No such file or directory in /home/niagaped/public_html/Explorer/app/libraries/Controller.php on line 10
+[16-Jan-2024 09:04:47 UTC] PHP Fatal error:  require_once(): Failed opening required '../app/models/feedback.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/niagaped/public_html/Explorer/app/libraries/Controller.php on line 10
+[16-Jan-2024 09:04:49 UTC] PHP Warning:  require_once(../app/models/feedback.php): failed to open stream: No such file or directory in /home/niagaped/public_html/Explorer/app/libraries/Controller.php on line 10
+[16-Jan-2024 09:04:49 UTC] PHP Fatal error:  require_once(): Failed opening required '../app/models/feedback.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/niagaped/public_html/Explorer/app/libraries/Controller.php on line 10
+[16-Jan-2024 09:05:19 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 170
+[16-Jan-2024 09:05:19 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 177
+[16-Jan-2024 09:05:19 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 179
+[16-Jan-2024 09:05:19 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 187
+[16-Jan-2024 09:06:04 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 161
+[16-Jan-2024 09:06:04 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 168
+[16-Jan-2024 09:06:04 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 170
+[16-Jan-2024 09:06:04 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 178
+[16-Jan-2024 09:07:49 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 170
+[16-Jan-2024 09:07:49 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 177
+[16-Jan-2024 09:07:49 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 179
+[16-Jan-2024 09:07:49 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 187
+[16-Jan-2024 09:08:52 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 161
+[16-Jan-2024 09:08:52 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 168
+[16-Jan-2024 09:08:52 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 170
+[16-Jan-2024 09:08:52 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 178
+[16-Jan-2024 09:10:44 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 161
+[16-Jan-2024 09:10:44 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 168
+[16-Jan-2024 09:10:44 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 170
+[16-Jan-2024 09:10:44 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 178
+[16-Jan-2024 09:10:59 UTC] PHP Warning:  require_once(../app/models/feedback.php): failed to open stream: No such file or directory in /home/niagaped/public_html/Explorer/app/libraries/Controller.php on line 10
+[16-Jan-2024 09:10:59 UTC] PHP Fatal error:  require_once(): Failed opening required '../app/models/feedback.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/niagaped/public_html/Explorer/app/libraries/Controller.php on line 10
+[16-Jan-2024 09:11:03 UTC] PHP Warning:  require_once(../app/models/feedback.php): failed to open stream: No such file or directory in /home/niagaped/public_html/Explorer/app/libraries/Controller.php on line 10
+[16-Jan-2024 09:11:03 UTC] PHP Fatal error:  require_once(): Failed opening required '../app/models/feedback.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/niagaped/public_html/Explorer/app/libraries/Controller.php on line 10
+[16-Jan-2024 09:11:04 UTC] PHP Warning:  require_once(../app/models/feedback.php): failed to open stream: No such file or directory in /home/niagaped/public_html/Explorer/app/libraries/Controller.php on line 10
+[16-Jan-2024 09:11:04 UTC] PHP Fatal error:  require_once(): Failed opening required '../app/models/feedback.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/niagaped/public_html/Explorer/app/libraries/Controller.php on line 10
+[16-Jan-2024 09:11:05 UTC] PHP Warning:  require_once(../app/models/feedback.php): failed to open stream: No such file or directory in /home/niagaped/public_html/Explorer/app/libraries/Controller.php on line 10
+[16-Jan-2024 09:11:05 UTC] PHP Fatal error:  require_once(): Failed opening required '../app/models/feedback.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/niagaped/public_html/Explorer/app/libraries/Controller.php on line 10
+[16-Jan-2024 09:11:05 UTC] PHP Warning:  require_once(../app/models/feedback.php): failed to open stream: No such file or directory in /home/niagaped/public_html/Explorer/app/libraries/Controller.php on line 10
+[16-Jan-2024 09:11:05 UTC] PHP Fatal error:  require_once(): Failed opening required '../app/models/feedback.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/niagaped/public_html/Explorer/app/libraries/Controller.php on line 10
+[16-Jan-2024 09:14:08 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 170
+[16-Jan-2024 09:14:08 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 177
+[16-Jan-2024 09:14:08 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 179
+[16-Jan-2024 09:14:08 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 187
+[16-Jan-2024 09:14:31 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 161
+[16-Jan-2024 09:14:31 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 168
+[16-Jan-2024 09:14:31 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 170
+[16-Jan-2024 09:14:31 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_lecturer.php on line 178
+[16-Jan-2024 09:14:59 UTC] PHP Warning:  require_once(../app/models/feedback.php): failed to open stream: No such file or directory in /home/niagaped/public_html/Explorer/app/libraries/Controller.php on line 10
+[16-Jan-2024 09:14:59 UTC] PHP Fatal error:  require_once(): Failed opening required '../app/models/feedback.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/niagaped/public_html/Explorer/app/libraries/Controller.php on line 10
+[16-Jan-2024 09:15:07 UTC] PHP Warning:  require_once(../app/models/feedback.php): failed to open stream: No such file or directory in /home/niagaped/public_html/Explorer/app/libraries/Controller.php on line 10
+[16-Jan-2024 09:15:07 UTC] PHP Fatal error:  require_once(): Failed opening required '../app/models/feedback.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/niagaped/public_html/Explorer/app/libraries/Controller.php on line 10
+[16-Jan-2024 09:16:09 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 170
+[16-Jan-2024 09:16:09 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 177
+[16-Jan-2024 09:16:09 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 179
+[16-Jan-2024 09:16:09 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/niagaped/public_html/Explorer/app/views/pages/dashboard_student.php on line 187
