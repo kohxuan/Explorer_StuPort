@@ -43,8 +43,8 @@
                             <td><?php echo $reward->badge_description; ?></td>
                             <td><?php echo $reward->points_required; ?></td>
                             <td>
-                                <a href="<?php echo URLROOT . '/rewards/update/' . $reward->reward_id; ?>" class="btn btn-light-warning">Update</a>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt<?php echo URLROOT . $reward->reward_id; ?>">Delete</button>
+                            <a href="<?php echo URLROOT . '/rewards/update/' . $reward->reward_id; ?>" class="btn btn-light-warning">Update</a>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt<?php echo $reward->reward_id; ?>">Delete</button>
                                 <div class="modal fade" tabindex="-1" id="kt<?php echo $reward->reward_id; ?>">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
