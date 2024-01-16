@@ -1,4 +1,3 @@
-
 <div class="app-sidebar-menu overflow-hidden flex-column-fluid">
 
 <style>
@@ -357,37 +356,6 @@
 							</div>
 						</div>
 				</div>
-				
-				<!--begin:Menu item-->
-				<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-						<!--begin:Menu link-->
-						<span class="menu-link">
-							<span class="menu-icon">
-								<i class="fas fa-user-plus">
-									<span class="path1"></span>
-									<span class="path2"></span>
-								</i>
-							</span>
-							<span class="menu-title">Registration Options</span>
-							<span class="menu-arrow"></span>
-						</span>
-						<!--end:Menu link-->
-						<!--begin:Menu sub-->
-						<div class="menu-sub menu-sub-accordion">
-							<!--begin:Menu item-->
-							<div class="menu-item">
-								<!--begin:Menu link-->
-								<a class="menu-link" href="<?php echo URLROOT; ?>/activities/particip">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Student Registered Activity List</span>
-								</a>
-								<!--end:Menu link-->
-							</div>
-						</div>
-						<!--end::Menu-->
-				</div>
 
 				<!--begin:Menu item-->
 				<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
@@ -460,37 +428,6 @@
 								<!--end:Menu link-->
 							</div>
 						</div>
-				</div>
-
-				<!--begin:Menu item-->
-				<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-					<!--begin:Menu link-->
-					<span class="menu-link">
-						<span class="menu-icon">
-							<i class="far fa-comment">
-								<span class="path1"></span>
-								<span class="path2"></span>
-							</i>
-						</span>
-						<span class="menu-title">Registration Options</span>
-						<span class="menu-arrow"></span>
-					</span>
-					<!--end:Menu link-->
-					<!--begin:Menu sub-->
-					<div class="menu-sub menu-sub-accordion">
-						<!--begin:Menu item-->
-						<div class="menu-item">
-							<!--begin:Menu link-->
-							<a class="menu-link" href="<?php echo URLROOT; ?>/activities/particip">
-								<span class="menu-bullet">
-									<span class="bullet bullet-dot"></span>
-								</span>
-								<span class="menu-title">Student Registered Activity List</span>
-							</a>
-							<!--end:Menu link-->
-						</div>
-						<!--end:Menu item-->
-					</div>
 				</div>
 				
 				<!--begin:Menu item-->
