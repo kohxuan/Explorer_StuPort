@@ -265,6 +265,9 @@ $conn->close();
             var table = $('#userTable').DataTable({
                 data: <?php echo json_encode($combinedData); ?>,
                 columns: [{
+                        data: 'username'
+                    },
+                    {
                         data: 'full_name'
                     },
                     {
@@ -331,8 +334,7 @@ $conn->close();
         }
 
         .modal-header {
-            background-color: #007bff;
-            color: #fff;
+            background-color: #7C1C2B;
             border-radius: 10px 10px 0 0;
             padding: 15px;
             text-align: center;
@@ -346,10 +348,6 @@ $conn->close();
             border-top: none;
             background-color: #f8f9fa;
             border-radius: 0 0 10px 10px;
-        }
-
-        #userTable tbody[data-orderable="true"] {
-            cursor: pointer;
         }
     </style>
 </head>
@@ -368,12 +366,13 @@ $conn->close();
                 <table id="userTable" class="table table-row-bordered gy-5">
                     <thead>
                         <tr class="fw-semibold fs-6 text-muted">
+                            <th>Username</th>
                             <th>Name</th>
                             <th>Position</th>
                             <th>Email</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody style="cursor: pointer;">
                         <!-- DataTable will populate rows here -->
                     </tbody>
                 </table>
@@ -381,54 +380,68 @@ $conn->close();
         </div>
     </div>
 
-   <!-- Bootstrap Modal for User Details -->
-<div class="modal fade" id="userDetailsModal" tabindex="-1" role="dialog" aria-labelledby="userDetailsModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Details of <span id="userDetailsModalLabel"></span></h5>
-            </div>
-            <div class="modal-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-4 text-center">
-                            <img id="profileImage" src="" alt="Profile Image" style="max-width: 150px; border-radius: 50%;">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <p><strong>Name:</strong> <span id="nameDetails"></span></p>
-                                </div>
-                                <div class="col-md-6">
-                                    <p><strong>Position:</strong> <span id="positionDetails"></span></p>
-                                    <p><strong>Email:</strong> <span id="emailDetails"></span></p>
-                                    <p><strong>Telephone No:</strong> <span id="telephoneDetails"></span></p>
-                                </div>
-                                <div class="col-md-6">
-                                    <p><strong>Age:</strong> <span id="ageDetails"></span></p>
-                                    <p><strong>Gender:</strong> <span id="genderDetails"></span></p>
-                                    <p><strong>Race:</strong> <span id="raceDetails"></span></p>
-                                </div>
-                                <div class="col-md-12">
-                                    <p><strong>Address:</strong> <span id="addressDetails"></span></p>
-                                    <p><strong>City/State:</strong> <span id="cityStateDetails"></span></p>
-                                    <p><strong>Country:</strong> <span id="countryDetails"></span></p>
-                                </div>
-                                <div class="col-md-12">
-                                    <p><strong>About:</strong> <span id="aboutDetails"></span></p>
-                                    <p><strong>Headline:</strong> <span id="headlineDetails"></span></p>
+    <!-- Bootstrap Modal for User Details -->
+    <div class="modal fade" id="userDetailsModal" tabindex="-1" role="dialog" aria-labelledby="userDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="color: white;">Details of <span id="userDetailsModalLabel"></span></h5>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4 text-center">
+                                <img id="profileImage" src="" alt="Profile Image" style="max-width: 150px; border-radius: 50%;">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p><strong>Name:</strong> <span id="nameDetails"></span></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><strong>Position:</strong> <span id="positionDetails"></span></p>
+                                        <p><strong>Email:</strong> <span id="emailDetails" class="clickable-email" style="cursor: pointer; color:#1b84ff"></span></p>
+                                        <p><strong>Telephone No:</strong> <span id="telephoneDetails" class="clickable-telephone" style="cursor: pointer; color:#1b84ff"></span></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><strong>Age:</strong> <span id="ageDetails"></span></p>
+                                        <p><strong>Gender:</strong> <span id="genderDetails"></span></p>
+                                        <p><strong>Race:</strong> <span id="raceDetails"></span></p>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <p><strong>Address:</strong> <span id="addressDetails"></span></p>
+                                        <p><strong>City/State:</strong> <span id="cityStateDetails"></span></p>
+                                        <p><strong>Country:</strong> <span id="countryDetails"></span></p>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <p><strong>About:</strong> <span id="aboutDetails"></span></p>
+                                        <p><strong>Headline:</strong> <span id="headlineDetails"></span></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- <div class="modal-footer">
+
+                <script>
+                    // Add click event listeners for email and telephone
+                    document.getElementById('emailDetails').addEventListener('click', function() {
+                        var email = document.getElementById('emailDetails').innerText;
+                        window.location.href = 'mailto:' + email;
+                    });
+
+                    document.getElementById('telephoneDetails').addEventListener('click', function() {
+                        var telephone = document.getElementById('telephoneDetails').innerText;
+                        window.location.href = 'tel:' + telephone;
+                    });
+                </script>
+
+                <!-- <div class="modal-footer">
                 You can add additional buttons here if needed
             </div> -->
+            </div>
         </div>
     </div>
-</div>
 
 
 </body>

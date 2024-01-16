@@ -508,9 +508,9 @@
 
                 <!-- Submit Button -->
                 <div class="card-footer d-flex justify-content-end py-6 px-9">
-                    <button type="reset" class="btn btn-light btn-active-light-primary me-2">Discard</button>
+                    <button type="reset" class="btn btn-light-danger btn-active-danger me-2">Discard</button>
                     <input type="hidden" id="update_student" name="update_student" value="update_student"> <!-- Hidden value, modify if use same form for other roles //use if statement -->
-                    <button type="submit" name="submit" class="btn btn-primary">Update</button>
+                    <button type="submit" name="submit" class="btn btn-primary" style="background-color: #183D64; color: white;">Update</button>
                 </div>
                 </form>
 
@@ -534,7 +534,7 @@
                 <!--begin::Card body-->
                 <div class="card-body border-top p-9">
                     <!--begin::Notice-->
-                    <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed mb-9 p-6">
+                    <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed mb-9 p-6" >
                         <!--begin::Icon-->
                         <i class="ki-duotone ki-information fs-2tx text-warning me-4">
                             <span class="path1"></span>
@@ -564,7 +564,7 @@
                 <!--end::Card body-->
                 <!--begin::Card footer-->
                 <div class="card-footer d-flex justify-content-end py-6 px-9">
-                    <button id="kt_account_deactivate_account_submit" type="submit" class="btn btn-danger fw-semibold">Delete Account</button>
+                    <button id="kt_account_deactivate_account_submit" type="submit" class="btn btn-danger btn-active-light-danger me-2 fw-semibold" >Delete Account</button>
                 </div>
                 <!--end::Card footer-->
             </form>

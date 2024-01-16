@@ -111,7 +111,7 @@
                 border: none;
                 padding: 10px 20px;
                 font-size: 14pt;
-                color: #7C1C2B;
+                /* color: #7C1C2B; */
                 cursor: pointer;
                 float: right;
                 margin-right: 60px;

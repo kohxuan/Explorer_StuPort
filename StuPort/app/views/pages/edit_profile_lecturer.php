@@ -193,12 +193,12 @@
     <!--end::Navbar-->
 
     <!-- Profile Details -->
-    <div class="card mb-5 mb-xl-10">
+    <div class="card mb-5 mb-xl-10" style="border-color: #183D64;">
         <!--begin::Card header-->
-        <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
+        <div class="card-header border-0 cursor-pointer" style="background-color: #183D64; color: white;" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
             <!--begin::Card title-->
             <div class="card-title m-0">
-                <h3 class="fw-bold m-0">Profile Details</h3>
+                <h3 class="fw-bold m-0" style="color: white;">Profile Details</h3>
             </div>
             <!--end::Card title-->
         </div>
@@ -359,10 +359,10 @@
         </div>
 
         <!--begin::Card header-->
-        <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
+        <div class="card-header border-0 cursor-pointer" style="background-color: #183D64; color: white;" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
             <!--begin::Card title-->
             <div class="card-title m-0">
-                <h3 class="fw-bold m-0">Education Details</h3>
+                <h3 class="fw-bold m-0" style="color: white;">Education Details</h3>
             </div>
             <!--end::Card title-->
         </div>
@@ -406,9 +406,9 @@
 
             <!-- Submit Button -->
             <div class="card-footer d-flex justify-content-end py-6 px-9">
-                <button type="reset" class="btn btn-light btn-active-light-primary me-2">Discard</button>
+                <button type="reset" class="btn btn-light-danger btn-active-danger me-2">Discard</button>
                 <input type="hidden" id="update_lecturer" name="update_lecturer" value="update_lecturer"> <!-- Hidden value, modify if use same form for other roles //use if statement -->
-                <button type="submit" name="submit" class="btn btn-primary">Update</button>
+                <button type="submit" name="submit" class="btn btn-primary" style="background-color: #183D64; color: white;">Update</button>
             </div>
             </form>
 
@@ -417,11 +417,11 @@
     </div>
 
     <!--begin::Deactivate Account-->
-    <div class="card">
+    <div class="card" style="border-color: #183D64;">
         <!--begin::Card header-->
-        <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_deactivate" aria-expanded="true" aria-controls="kt_account_deactivate">
+        <div class="card-header border-0 cursor-pointer" style="background-color: #183D64; color: white;" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_deactivate" aria-expanded="true" aria-controls="kt_account_deactivate">
             <div class="card-title m-0">
-                <h3 class="fw-bold m-0">Delete Account</h3>
+                <h3 class="fw-bold m-0" style="color: white;">Delete Account</h3>
             </div>
         </div>
         <!--end::Card header-->
@@ -462,7 +462,7 @@
                 <!--end::Card body-->
                 <!--begin::Card footer-->
                 <div class="card-footer d-flex justify-content-end py-6 px-9">
-                    <button id="kt_account_deactivate_account_submit" type="submit" class="btn btn-danger fw-semibold">Delete Account</button>
+                    <button id="kt_account_deactivate_account_submit" type="submit" class="btn btn-danger btn-active-light-danger me-2 fw-semibold">Delete Account</button>
                 </div>
                 <!--end::Card footer-->
             </form>

@@ -200,16 +200,16 @@
 
                 <!-- Profile Details -->
                 <!--begin::details View-->
-                <div class="card mb-5 mb-xl-10" id="kt_profile_detaill_view">
+                <div class="card mb-5 mb-xl-10" id="kt_profile_detaill_view" style="border-color: #FCBD32;">
                     <!--begin::Card header-->
-                    <div class="card-header cursor-pointer">
+                    <div class="card-header cursor-pointer" style="background-color: #FCBD32; color: white;">
                         <!--begin::Card title-->
                         <div class="card-title m-0">
-                            <h3 class="fw-bold m-0">Profile Details</h3>
+                            <h3 class="fw-bold m-0" style="color: white;">Profile Details</h3>
                         </div>
                         <!--end::Card title-->
                         <!--begin::Action-->
-                        <a href="<?php echo URLROOT; ?>/pages/edit_profile" class="btn btn-sm btn-primary align-self-center">Edit Profile</a>
+                        <a href="<?php echo URLROOT; ?>/pages/edit_profile" class="btn btn-sm btn-primary align-self-center" style="background-color: #183D64; color: white;">Edit Profile</a>
                         <!--end::Action-->
                     </div>
                     <!--begin::Card header-->
@@ -327,10 +327,10 @@
                     </div>
                     <!--end::Card body-->
 
-                    <div class="card-header cursor-pointer">
+                    <div class="card-header cursor-pointer" style="background-color: #FCBD32; color: white;">
                         <!--begin::Card title-->
                         <div class="card-title m-0">
-                            <h3 class="fw-bold m-0">Education Details</h3>
+                            <h3 class="fw-bold m-0" style="color: white;">Education Details</h3>
                         </div>
                         <!--end::Card title-->
                     </div>
