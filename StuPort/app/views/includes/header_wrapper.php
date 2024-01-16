@@ -1,13 +1,12 @@
 <style>
     .app-header-menu h1 {
-        font-family: cursive; /* Change to the cursive font family you prefer */
+		font-family: 'Source Sans Pro', sans-serif;
         font-size: 32px; /* Change the font size as needed */
         font-weight: bold; /* Change the font weight as needed */
         color: #003399; /* Change the color as needed */
         /* Add any other styles you want to modify */
     }
 </style>
-
 
 <div class="app-header-menu app-header-mobile-drawer align-items-stretch" data-kt-drawer="true" data-kt-drawer-name="app-header-menu" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="250px" data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_app_header_menu_toggle" data-kt-swapper="true" data-kt-swapper-mode="{default: 'append', lg: 'prepend'}" data-kt-swapper-parent="{default: '#kt_app_body', lg: '#kt_app_header_wrapper'}">
 	<!--begin::Menu-->
