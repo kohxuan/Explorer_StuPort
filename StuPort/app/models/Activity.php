@@ -91,7 +91,7 @@ class Activity
 
    
     
-    public function joinActivity($activity_id, $user_id)
+    public function registerActivity($activity_id, $user_id)
     {
         // Your existing code to fetch user details
         $this->db->query('SELECT * FROM user WHERE id = :user_id');
@@ -142,7 +142,7 @@ class Activity
     
        
 
-        public function getJoinedActivities($user_id)
+        public function getRegisteredActivities($user_id)
         {
             // Fetch student profile based on user_id
             $this->db->query('SELECT * FROM user WHERE id = :user_id');
@@ -169,7 +169,7 @@ class Activity
         
             $s_id = $row2->s_id;
         
-            // Fetch the activities that the student has joined
+            // Fetch the activities that the student has registered
             $this->db->query('SELECT * FROM activity_participant WHERE s_id = :s_id');
             $this->db->bind(':s_id', $s_id);
             $rows = $this->db->resultSet();
@@ -179,7 +179,7 @@ class Activity
                 return false;
             }
         
-            $joinedActivities = [];
+            $registeredActivities = [];
         
             foreach ($rows as $row) {
                 // Fetch activity details for each ac_id
@@ -189,11 +189,11 @@ class Activity
         
                 if ($activityDetails) {
                     // Add activity details to the result array
-                    $joinedActivities[] = $activityDetails;
+                    $registeredActivities[] = $activityDetails;
                 }
             }
         
-            return $joinedActivities;
+            return $registeredActivities;
         }
 
 
@@ -215,7 +215,7 @@ class Activity
 
 
 
-         public function isStudentJoined($user_id, $activity_id)
+         public function isStudentRegistered($user_id, $activity_id)
     {
         // Fetch user details
         $this->db->query('SELECT * FROM user WHERE id = :user_id');

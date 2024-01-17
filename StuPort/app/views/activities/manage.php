@@ -186,10 +186,10 @@
                                 <img src="<?php echo $activity->attachment; ?>" alt="Attachment"style="max-width: 100px; max-height: 100px; object-fit: cover;">
                             </td>
                             <td>
-                                    <?php if ($this->activityModel->isStudentJoined($_SESSION['user_id'], $activity->activity_id)) : ?>
-                                        <button class="btn btn-success" disabled>Join</button>
+                                    <?php if ($this->activityModel->isStudentRegistered($_SESSION['user_id'], $activity->activity_id)) : ?>
+                                        <button class="btn btn-success" disabled>Register</button>
                                     <?php else : ?>
-                                        <a href="<?php echo URLROOT . "/activities/join/" . $activity->activity_id ?>" class="btn btn-light-warning">Join</a>
+                                        <a href="<?php echo URLROOT . "/activities/register/" . $activity->activity_id ?>" class="btn btn-light-warning">Register</a>
                                     <?php endif; ?>
                             </td>
                             <td>

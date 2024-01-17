@@ -24,7 +24,6 @@
     </div>
     <div class="card-body">
     
-
         <form action="<?php echo $data['u_url'] ?>" method="POST" enctype="multipart/form-data">
 
             <div class="mb-10">

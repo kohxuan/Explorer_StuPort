@@ -206,7 +206,7 @@ class Activities extends Controller
         
     }
 
-    public function join($activity_id)
+    public function register($activity_id)
 {
        
     if (!isLoggedIn()) {
@@ -219,9 +219,9 @@ class Activities extends Controller
     // Redirect if the user is the owner of the activity
     
     {
-        // Perform the join operation
-        if ($this->activityModel->joinActivity($activity_id, $_SESSION['user_id'])) {
-            echo '<script>alert("You have successfully joined the activity.")</script>';
+        // Perform the register operation
+        if ($this->activityModel->registerActivity($activity_id, $_SESSION['user_id'])) {
+            echo '<script>alert("You have successfully registered the activity.")</script>';
             echo '<script>window.location.href = "http://localhost/explorer/StuPort/activities";</script>';
         } else {
             die("Something went wrong :(");
@@ -238,11 +238,11 @@ public function particip()
         exit();
     }
 
-   // Fetch activities that the current student has joined
-    $joinedActivities = $this->activityModel->getJoinedActivities($_SESSION['user_id']);
+   // Fetch activities that the current student has registered
+    $registeredActivities = $this->activityModel->getRegisteredActivities($_SESSION['user_id']);
 
     $data = [
-        'joinedActivities' => $joinedActivities,
+        'registeredActivities' => $registeredActivities,
     ];
 
 

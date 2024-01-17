@@ -1,6 +1,6 @@
 <div class="card shadow-sm"style="border-color: #FCBD32;">
     <div class="card-header"style="background-color: #FCBD32; color: white;">
-        <h3 class="card-title"style="color: white;font-family: 'Your Special Font', gagalin;font-size: 2em;">Activity Registered</h3>
+        <h3 class="card-title"style="color: white;font-family: 'Your Special Font', gagalin;font-size: 2em;">Activity Joined</h3>
         <div class="card-toolbar">
         </div>
     </div>
@@ -56,7 +56,6 @@
 
 
     </style>
-
         <div class="table-responsive">
             <table id="kt_datatable_posts" class="table table-row-bordered gy-5">
                 <thead>
@@ -68,12 +67,11 @@
                         <th>Venue</th>
                         <th>Description</th>  
                         <th>Action</th>
-                        <th>Comment</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $index = 1; ?>
-                    <?php foreach ($data['registeredActivities'] as $activity): ?>
+                    <?php foreach ($data['joinedActivities'] as $activity): ?>
                     
                         <tr>
                             <td><?php echo $index++; ?></td>
@@ -82,24 +80,9 @@
                             <td><?php echo date('F j h:m', strtotime($activity->act_datetime)); ?> </td>
                             <td><?php echo $activity->location; ?></td>
                             <td><?php echo $activity->activity_desc; ?></td>
-                            
-                            <td> <button class="btn btn-success" disabled>Registered</button>
-                            
-                            <a href="<?php echo URLROOT . "/activities/form/" . $activity->activity_id ?>" class="btn btn-light-warning">Feedback</a></td>
-                            
-                            <td>
-                            <form id="commentForm_<?php echo $activity->activity_id; ?>">
-                                    <div class="comment-container">
-                                        <textarea id="commentInput_<?php echo $activity->activity_id; ?>" placeholder="Type your comment here"></textarea>
-                                        <button type="button" onclick="addComment(<?php echo $activity->activity_id; ?>)">Enter</button>
-                                    </div>
-                                    <div id="reviewText_<?php echo $activity->activity_id; ?>" class="review-text">
-                                        <?php if (!empty($activity->review)) echo $activity->review; ?>
-                                    </div>
-                                </form>
-                            </td>
-                            
+                            <td> <button class="btn btn-success" disabled>Joined</button></td>
                         </tr>
+                        
                     <?php endforeach; ?>
                 </tbody>
             </table>
@@ -120,7 +103,7 @@
             });
         </script>
 
-        <script>
+        <!-- <script>
             function addComment(activityId) {
                 var commentInput = document.getElementById('commentInput_' + activityId);
                 var commentText = commentInput.value;
@@ -129,6 +112,6 @@
                 reviewText.innerHTML = commentText;
                 commentInput.value = '';
             }
-        </script>
+        </script> -->
     </div>
 </div>
