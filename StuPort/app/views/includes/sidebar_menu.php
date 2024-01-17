@@ -14,14 +14,11 @@
     }
 
     .app-sidebar-menu {
-		background-color: #your_desired_color;
-        background: linear-gradient(to left , #FCBD32, #183D64, #7C1C2B);
-        background-size: 200% 100%;
-        animation: gradientMotion 5s infinite;
+        background-color: #7C1C2B ; /* Set your desired background color */
     }
 
-	#kt_app_sidebar_menu_wrapper {
-        background: #your_desired_color; /* Set your desired background color */
+    #kt_app_sidebar_menu_wrapper {
+        background: #7C1C2B ; /* Set your desired background color */
     }
 
     #kt_app_sidebar_menu_wrapper::before {
@@ -32,12 +29,11 @@
         right: 0;
         bottom: 0;
         z-index: -1;
-        background: linear-gradient(to left, #FCBD32, #183D64, #7C1C2B);
-        background-size: 200% 100%;
-        animation: gradientMotion 5s infinite;
+        background-color: #7C1C2B ; /* Set your desired background color */
     }
 
 </style>
+
 
 
 	<!--begin::Menu wrapper-->
