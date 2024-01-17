@@ -1,6 +1,6 @@
-<div class="card shadow-sm">
-    <div class="card-header">
-        <h3 class="card-title">Assign this personal activity to:</h3>
+<div class="card shadow-sm"style="border-color: #183D64;">
+    <div class="card-header" style="background-color: #183D64; color: white;">
+        <h3 class="card-title"style="color: white;font-family: 'Your Special Font', gagalin;font-size: 2em;">Assign this personal activity to:</h3>
         <div class="card-toolbar">
             <?php if (isLoggedIn()): ?>
                 <a href="<?php echo URLROOT; ?>/peractivity" class="btn btn-light-primary"><i class="fa fa-home"></i></a>
