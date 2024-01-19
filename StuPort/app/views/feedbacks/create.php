@@ -9,9 +9,8 @@
     </div>
     <div class="card-body">
 
-
         <?php 
-        $activity_id=$_GET['activity_id'];
+        $activity_id=$_GET['activity_id']; //assumes that the activity_id is passed as a parameter in the URL
         ?>
 
 
@@ -25,14 +24,6 @@
             <button type="submit" class="btn btn-primary font-weight-bold" style="background-color: #183D64;">Submit</button>
 
         </form>
-
-            <!--<div class="mb-10">
-                <label for="exampleFormControlInput1" class="form-label">Content</label>
-                <div class="position-relative">
-                    <div class="required position-absolute top-0"></div>
-                    <textarea name="body" class="form-control" aria-label="With textarea" required></textarea>
-                </div>
-            </div> -->
 
     </div>
 </div>

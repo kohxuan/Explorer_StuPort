@@ -2,10 +2,10 @@
 class Feedbacks extends Controller {
     public function __construct() {
         $this->feedbackModel = $this->model('Feedback');
-    }
+    } //Initializes the Feedbacks controller by creating an instance of the Feedback model
 
     public function index() {
-        $feedback = $this->feedbackModel->manageAllFeedbacks();
+        $feedback = $this->feedbackModel->manageAllFeedbacks(); //Retrieves all feedbacks from the model
 
         $data= [
 
@@ -24,12 +24,13 @@ class Feedbacks extends Controller {
             'link_form' => ''
         ];
 
+        /*determine if a form has been submitted*/
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data = 
             [
             'activity_id' => $_POST['activity_id'],
-            'link_form' => trim($_POST['link_form'])
+            'link_form' => trim($_POST['link_form']) // obtain the value of the 'link_form' field
             ];
 
 
@@ -51,7 +52,7 @@ class Feedbacks extends Controller {
         $activity_id = $_GET['activity_id'];
 
 
-        $activity = $this->feedbackModel->findActivityById($activity_id);
+        $activity = $this->feedbackModel->findActivityById($activity_id); //retrieve information about the activity based on the activity ID.
 
         $data = 
         [
@@ -61,7 +62,7 @@ class Feedbacks extends Controller {
         $this->view('feedbacks/index', $data);
     }
 
-    public function edit($activity_id) // not sure use $id or $activity_id, but should be act because feedback follow activity
+    public function edit($activity_id) // not sur eif $feedback__id
     {
         $feedback = $this->feedbackModel->findFeedbackById($activity_id);
 
@@ -121,16 +122,5 @@ class Feedbacks extends Controller {
             }
          }
     }
-
-    public function findFeedbackById($feedback_id)
-    {
-        $this->db->query('SELECT * FROM feedbacks WHERE feedback_id = :feedback_id');
-        $this->db->bind(':feedback_id', $feedback_id);
-
-        $row = $this->db->single();
-
-        return $row;
-    }
-
 }
 ?>

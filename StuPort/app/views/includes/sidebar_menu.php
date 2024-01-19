@@ -1,24 +1,13 @@
 <div class="app-sidebar-menu overflow-hidden flex-column-fluid">
 
 <style>
-    @keyframes gradientMotion {
-        0% {
-            background-position: 90% 50%;
-        }
-        50% {
-            background-position: 30% 50%;
-        }
-        100% {
-            background-position: 90% 50%;
-        }
-    }
 
     .app-sidebar-menu {
-        background-color: #7C1C2B ; /* Set your desired background color */
+        background-color: #7C1C2B ; /* Set red background color */
     }
 
     #kt_app_sidebar_menu_wrapper {
-        background: #7C1C2B ; /* Set your desired background color */
+        background: #7C1C2B ; /* Set red background color */
     }
 
     #kt_app_sidebar_menu_wrapper::before {
@@ -29,7 +18,7 @@
         right: 0;
         bottom: 0;
         z-index: -1;
-        background-color: #7C1C2B ; /* Set your desired background color */
+        background-color: #7C1C2B ; /* Set red desired background color */
     }
 
 </style>

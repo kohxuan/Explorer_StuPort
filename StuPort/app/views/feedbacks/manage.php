@@ -67,9 +67,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($data['feedbacks'] as $feedback): ?>
+                    <!--loop through each feedback-->
+                    <?php foreach($data['feedbacks'] as $feedback): ?> 
                     <tr>
-                        <!-- <td class="hidden-column"><?php echo $feedback->activity_id; ?></td> -->
                         <td><?php echo $feedback->activity_id; ?></td>
                         <td><?php echo '<a href="' . $feedback->link_form . '">' . $feedback->link_form . '</a>'; ?></td>
                         <td>

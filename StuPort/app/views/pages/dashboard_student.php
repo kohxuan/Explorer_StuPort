@@ -1,115 +1,4 @@
-<?php
-// Assuming you have a database connection established
 
-// Replace these with your actual database connection details
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "niagaped_Explorer";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-
-// Query to retrieve the total number of registered users
-$userSql = "SELECT COUNT(*) as userCount FROM user";
-$userResult = $conn->query($userSql);
-
-$userCount = 0;
-
-if ($userResult->num_rows > 0) {
-    $userRow = $userResult->fetch_assoc();
-    $userCount = $userRow["userCount"];
-}
-
-// Query to retrieve the total number of registered students
-$lecturerSql = "SELECT COUNT(*) as lecturerCount FROM lecturer";
-$lecturerResult = $conn->query($lecturerSql);
-
-$lecturerCount = 0;
-
-if ($lecturerResult->num_rows > 0) {
-    $lecturerRow = $lecturerResult->fetch_assoc();
-    $lecturerCount = $lecturerRow["lecturerCount"];
-}
-
-// Query to retrieve the total number of registered students
-$studentSql = "SELECT COUNT(*) as studentCount FROM student";
-$studentResult = $conn->query($studentSql);
-
-$studentCount = 0;
-
-if ($studentResult->num_rows > 0) {
-    $studentRow = $studentResult->fetch_assoc();
-    $studentCount = $studentRow["studentCount"];
-}
-
-// Query to retrieve the total number of clients/partners
-$clientSql = "SELECT COUNT(*) as clientCount FROM administrator";
-$clientResult = $conn->query($clientSql);
-
-$clientCount = 0;
-
-if ($clientResult->num_rows > 0) {
-    $clientRow = $clientResult->fetch_assoc();
-    $clientCount = $clientRow["clientCount"];
-}
-?>
-
-<?php
-// Assuming you have your database connection in place
-// Query to retrieve data from the Activity table
-$stmt = $conn->prepare('SELECT category, COUNT(*) as num_activities FROM activity GROUP BY category');
-$stmt->execute();
-
-// Bind result variables
-$stmt->bind_result($category, $num_activities);
-
-// Fetch data into an associative array
-$activityData = array();
-while ($stmt->fetch()) {
-    $activityData[] = array('category' => $category, 'num_activities' => $num_activities);
-}
-
-// Prepare labels and data for the chart
-$labels = array_column($activityData, 'category');
-$data = [
-    'labels' => $labels,
-    'datasets' => [
-        [
-            'label' => 'Number of Activities Created',
-            'data' => array_column($activityData, 'num_activities'),
-            'backgroundColor' => [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 205, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-            ],
-            'borderColor' => [
-                'rgb(255, 99, 132)',
-                'rgb(255, 159, 64)',
-                'rgb(255, 205, 86)',
-                'rgb(75, 192, 192)',
-                'rgb(54, 162, 235)',
-                'rgb(153, 102, 255)',
-            ],
-            'borderWidth' => 1,
-        ],
-    ],
-];
-
-// Close the statement
-$stmt->close();
-// Close the database connection
-$conn->close();
-?>
 
 <div class="row">
     <div class="col mb-4">
@@ -176,6 +65,7 @@ $conn->close();
                     $query = "SELECT name, date, venue FROM per_activity";
                     $result = mysqli_query($conn, $query);
 
+                    /* displays a table with data from the per_activity table in the database*/
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "<tr>";
                         echo "<td>{$row['name']}</td>";
