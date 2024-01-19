@@ -36,17 +36,7 @@ class Activities extends Controller
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Sanitize and validate input data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-            // $data = [
-            //     'user_id' => $_SESSION['user_id'],
-            //     'title' => trim($_POST['title']),
-            //     'activity_desc' => trim($_POST['activity_desc']),
-            //     'category' => trim($_POST['category']),
-            //     'act_datetime' => trim($_POST['act_datetime']),
-            //     'location' => trim($_POST['location']),
-            //     'organizer_name' => trim($_POST['organizer_name']),
-            //     'skill_acquired' => trim($_POST['skill_acquired']),
-            //     'attachment' => $location               
-            // ];
+
 
              //sanitize post data
              $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
