@@ -1,4 +1,4 @@
-# Youth Ventures Student Portfolio Management System (StuPort) 🚀
+# <img src="https://github.com/user-attachments/assets/3546ff70-903b-467f-8435-f4393d46d81e" width="30px" height="30px"> <img src="https://github.com/user-attachments/assets/fc371ce7-41e8-434d-a85c-d94ec03a7040" width="105px" height="30px"> Youth Ventures Student Portfolio Management System (StuPort) 🚀
 **StuPort** is a web-based management system designed for **Youth Ventures Asia (YV)** to efficiently collect, manage, and utilize student portfolio information. It empowers students to track their activities and provides administrators with tools for activity management, feedback collection, and analytics. This system is built using **PHP** and **MySQL**, utilizing an MVC-like architecture and the Metronic UI template.
 <br><br>
 
